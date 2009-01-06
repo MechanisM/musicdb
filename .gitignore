@@ -1,0 +1,3 @@
+*.pyc
+*.sqlite
+musicdb/site_settings.py
