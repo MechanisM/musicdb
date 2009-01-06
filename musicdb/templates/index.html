@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<ul>
+  <li><a href="{% url nonclassical %}">Albums</a></li>
+  <li><a href="{% url classical %}">Classical</a></li>
+</ul>
+{% endblock %}

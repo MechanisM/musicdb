@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Albums{% endblock %}
+
+{% block title %}Albums{% endblock %}
+
+{% block content %}
+
+<p>
+  {% for letter in letters %}
+    <a href="{% url nonclassical-letter letter %}">
+      {% ifequal letter "0" %}
+        #</a>
+      {% else %}
+        {{ letter|upper }}</a>
+      {% endifequal %}
+  {% endfor %}
+</p>
+<ul>
+{% for artist in artists %}
+  <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

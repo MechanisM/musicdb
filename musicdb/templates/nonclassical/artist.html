@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block headtitle %}{% endblock %}
+
+{% block title %}{{ artist.long_name }}{% endblock %}
+
+{% block content %}
+
+<p><a href="{% url nonclassical-letter artist.name_first %}">&laquo; Back to artist list</a></p>
+
+<ul>
+{% for album in artist.albums %}
+  <li><a href="{{ album.get_absolute_url }}">{{ album }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical music{% endblock %}
+
+{% block title %}Classical music{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for artist in artists %}
+  <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Other</h2>
+<ul>
+  <li><a href="{% url classical-stats %}">Statistics</a></li>
+  <li><a href="{% url classical-timeline %}">Timeline</a></li>
+</ul>
+
+{% endblock %}

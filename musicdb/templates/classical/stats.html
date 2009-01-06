@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Stats - classical music{% endblock %}
+
+{% block title %}Classical music statistics{% endblock %}
+
+{% block content %}
+
+<dl>
+  <dt>Number of compositions</dt>
+  <dd>{{ work_count }}</dd>
+
+  <dt>Number of composers</dt>
+  <dd>{{ composer_count }}</dd>
+
+  <dt>Number of recordings</dt>
+  <dd>{{ recording_count }}</dd>
+
+  <dt>Average number of recordings per composition</dt>
+  <dd>{{ recording_average|floatformat:2 }}</dd>
+
+  <dt>Number of movements</dt>
+  <dd>{{ movement_count }}</dd>
+
+  <dt>Average number of movements per recording</dt>
+  <dd>{{ movement_average|floatformat:2 }}</dd>
+
+</dl>
+
+{% if anniversaries %}
+  <h3>Anniversaries</h3>
+
+  {% if anniversaries.born %}
+    {% for artist,delta in anniversaries.born %}
+     <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a> was born {{ delta }} years ago.</li>
+    {% endfor %}
+  {% endif %}
+
+  {% if anniversaries.died %}
+    {% for artist,delta in anniversaries.died %}
+     <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a> died {{ delta }} years ago.</li>
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical music{% endblock %}
+
+{% block title %}{{ artist.long_name }}{% endblock %}
+
+{% block subtitle %}
+{% if artist.nationality %}
+{{ artist.nationality }} composer
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<p><a href="{% url classical-artist-timeline artist.slug %}">Timeline</a></p>
+
+<p><a href="{% url classical %}">&laquo; Back to artist list</a></p>
+
+<ul>
+{% for work in artist.works.all %}
+  <li><a href="{{ work.get_absolute_url }}">{{ work }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

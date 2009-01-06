@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical music{% endblock %}
+
+{% block title %}{{ work }}{% endblock %}
+
+{% block subtitle %}<a href="{{ work.composer.get_absolute_url }}">{{ work.composer }}</a>{% endblock %}
+
+{% block content %}
+
+{% for recording in work.recordings.all %}
+
+<h3>{{ recording.short_name }}</h3>
+
+{% ifnotequal recording.movements.count 1 %}
+  <ul style="list-style-type:upper-roman">
+  {% for movement in recording.movements.all %}
+    <li>{{ movement }}</li>
+  {% endfor %}
+  </ul>
+{% endifnotequal %}
+
+<ul>
+{% for performance in recording.performances.all %}
+{% with performance.get_subclass as subclass %}
+  {% ifequal performance.subclass "artist" %}
+    <li><a href="{{ subclass.artist.get_absolute_url }}">{{ subclass.artist.short_name }}</a> ({{ subclass.instrument|lower }})</li>
+  {% else %}
+    <li><a href="{{ subclass.ensemble.get_absolute_url }}">{{ subclass.ensemble }}</a></li>
+  {% endifequal %}
+{% endwith %}
+{% endfor %}
+</ul>
+
+{% if recording.year %}
+<p>Recorded: {{ recording.year }}</p>
+{% endif %}
+
+<hr/>
+{% endfor %}
+
+{% endblock %}

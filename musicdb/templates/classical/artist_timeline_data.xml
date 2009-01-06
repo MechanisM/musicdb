@@ -1,0 +1,5 @@
+<data>
+{% for work in works %}
+  <event start="{{ work.year }}" title="{{ work.short_name }}" link="{{ work.get_absolute_url }}"></event>
+{% endfor %}
+</data>

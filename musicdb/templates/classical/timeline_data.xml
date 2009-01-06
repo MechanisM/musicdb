@@ -1,0 +1,5 @@
+<data>
+{% for artist in composers %}
+  <event start="{{ artist.born }}" end="{{ artist.died }}" isDuration="true" title="{{ artist }}" link="{{ artist.get_absolute_url }}"></event>
+{% endfor %}
+</data>

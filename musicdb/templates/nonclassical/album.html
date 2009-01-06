@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block headtitle %}{% endblock %}
+
+{% block title %}{{ album }}{% endblock %}
+
+{% block subtitle %}
+  <a href="{{ album.first_artist.get_absolute_url }}">
+    {{ album.first_artist.long_name }}
+  </a>
+{% endblock %}
+
+{% block content %}
+
+<!-- <p><a href="#">Play album</a></p> -->
+
+<table>
+<tr>
+{% for cd in album.cds.all %}
+<td>
+  {% ifnotequal album.cds.count 1 %}
+    CD{{ forloop.counter }} <!-- (<a href="#">play</a>) -->
+  {% endifnotequal %}
+
+  <ol>
+    {% for track in cd.tracks.all %}
+      <li><a href="#">{{ track }}</a></li>
+    {% endfor %}
+  </ol>
+</td>
+{% endfor %}
+</tr>
+</table>
+{% endblock %}
