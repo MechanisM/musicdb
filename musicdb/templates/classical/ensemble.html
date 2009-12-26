@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical music{% endblock %}
+
+{% block title %}{{ ensemble.name }}{% endblock %}
+
+{% block subtitle %}
+{% if ensemble.nationality %}
+{{ ensemble.nationality }} ensemble
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% regroup ensemble.performances_by_composer by recording.work.composer as composer_groups %}
+
+{% for composer_group in composer_groups %}
+
+  <h4><a href="{{ composer_group.grouper.get_absolute_url }}">{{ composer_group.grouper }}</a></h4>
+
+  <ul>
+  {% for performance in composer_group.list %}
+    {% with performance.recording.work as work %}
+      <li><a href="{{ performance.recording.get_absolute_url }}">{{ work }}</a></li>
+    {% endwith %}
+  {% endfor %}
+  </ul>
+
+{% endfor %}
+
+{% endblock %}

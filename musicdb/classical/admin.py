@@ -1,0 +1,60 @@
+from django.contrib import admin
+
+from musicdb.classical import models
+
+class ArtistAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ('Name', {
+            'fields': ('surname', 'forenames')
+        }),
+        ('Dates', {
+            'fields': ('born', 'born_question', 'died', 'died_question')
+        }),
+        ('Cultural', {
+            'fields': ('nationality',),
+        }),
+        ('Original names', {
+            'description':
+                "These fields specify the artist's name in their native alphabet",
+            'fields': ('original_surname', 'original_forenames',)
+        }),
+    )
+admin.site.register(models.Artist, ArtistAdmin)
+
+class EnsembleAdmin(admin.ModelAdmin):
+    fields = ('name', 'nationality')
+admin.site.register(models.Ensemble, EnsembleAdmin)
+
+class WorkAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (None, {
+            'fields': ('composer', 'title', 'key', 'nickname', 'category'),
+        }),
+        ('Dates', {
+            'fields': ('year', 'year_question'),
+        }),
+    )
+admin.site.register(models.Work, WorkAdmin)
+
+class CatalogueAdmin(admin.ModelAdmin):
+    fields = ('artist', 'prefix', 'num')
+admin.site.register(models.Catalogue, CatalogueAdmin)
+
+class MovementAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (None, {
+            'fields': ('title',),
+        }),
+        (None, {
+            'fields': ('recording',),
+        }),
+        ('Other', {
+            'fields': ('section_title', 'num'),
+        }),
+    )
+admin.site.register(models.Movement, MovementAdmin)
+
+admin.site.register(models.Category)
+admin.site.register(models.Instrument)
+admin.site.register(models.Key)
+admin.site.register(models.Recording)

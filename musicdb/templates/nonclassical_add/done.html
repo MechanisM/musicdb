@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Album added</h1>
+
+<p><em>{{ album }}</em> successfully added.</p>
+
+<p><a href="{{ album.get_absolute_url }}">View</a></p>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "nonclassical_add/base.html" %}
+
+{% block form %}
+{{ block.super }}
+
+<h2>Files:</h2>
+
+<p>From directory: <tt>{{ data.files.0.dirname }}</tt></p>
+
+<ol>
+{% for file in data.files %}
+{% if file.basename %}
+<li>{{ file.basename }}</li>
+{% endif %}
+{% endfor %}
+</ol>
+
+{% endblock %}

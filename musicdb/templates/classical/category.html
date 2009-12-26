@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block headtitle %}{{ category }}{% endblock %}
+
+{% block title %}{{ category }}{% endblock %}
+
+{% block content %}
+
+<p>
+<a href="{% url classical-categories %}">Classical music</a> &raquo;
+{% for ancestor  in category.get_ancestors %}
+<a href="{{ ancestor.get_absolute_url }}">{{ ancestor.name }}</a> &raquo;
+{% endfor %}
+{{ category.name }}
+</p>
+
+<ul>
+{% for child in category.get_children %}
+  <li><a href="{{ child.get_absolute_url }}">{{ child.name }}</a></li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+{% regroup category.works_by_composer by composer as composer_groups %}
+
+{% for composer_group in composer_groups %}
+  {% with composer_group.grouper as composer %}
+    <h4 id="{{ composer.slug }}"><a href="{{ composer.get_absolute_url }}">{{ composer }}</a></h4>
+  {% endwith %}
+
+  <ul>
+  {% for work in composer_group.list %}
+    <li><a href="{{ work.get_absolute_url }}">{{ work }}</a></li>
+  {% endfor %}
+  </ul>
+{% endfor %}
+
+{% endblock %}

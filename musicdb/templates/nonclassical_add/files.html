@@ -1,0 +1,61 @@
+{% extends "nonclassical_add/base.html" %}
+
+{% block form %}
+<style type="text/css">
+.filename {
+	cursor: pointer;
+}
+.filename:hover {
+	background-color: lightgrey;
+}
+
+.filename, .directory {
+	font-family: monospace;
+}
+</style>
+<script language="javascript">
+$(function () {
+	$('.filename').click(function () {
+		$('input:checkbox', $(this).parent()).each(function (idx, elem) {
+			elem.checked = !elem.checked;
+		});
+
+		return false;
+	});
+
+	$('.select_all').click(function () {
+		$('.files input:checkbox').each(function (idx, elem) {
+			elem.checked = true;
+		});
+
+		return false;
+	});
+});
+</script>
+
+<tt>{{ suffix }}</tt>
+
+{{ form.errors }}
+
+{% if parent %}
+  <p><a href="?path={{ parent|urlencode }}">Parent directory</a></p>
+{% endif %}
+
+<table class="files">
+{% for dir in dirs %}
+<tr>
+  <td><a class="directory" href="?path={{ dir.path|urlencode }}">{{ dir.name }}</a></td>
+</tr>
+{% endfor %}
+{% for file in files %}
+<tr>
+  <td><input type="checkbox" name="{{ form.prefix }}-{{ forloop.counter0 }}-file" value="{{ file.path }}" /></td>
+  <td class="filename">{{ file.name }} ({{ file.size|filesizeformat }})</td>
+</tr>
+{% endfor %}
+</table>
+
+<p><a class="select_all" href="#">Select all</a></p>
+
+{{ form.management_form }}
+{% endblock %}

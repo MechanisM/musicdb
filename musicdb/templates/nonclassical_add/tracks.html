@@ -1,0 +1,15 @@
+{% extends "nonclassical_add/base.html" %}
+
+{% block form %}
+<ol>
+{% for field in sorted_fields %}
+  <li style="margin-bottom: 1em">
+    {{ field }}
+    <span style="font-size: 30%">{{ field.help_text }}</span>
+  </li>
+{% endfor %}
+</ol>
+
+<p>From directory: <tt>{{ data.files.0.dirname }}</tt></p>
+
+{% endblock form %}

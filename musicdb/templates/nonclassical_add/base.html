@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ form.non_form_errors }}
+
+<form action="." method="post">
+{% block form %}
+<table>
+{{ form }}
+</table>
+{% endblock %}
+
+<input type="hidden" name="step" value="{{ step }}" />
+{{ previous_fields|safe }}
+
+{% block next %}
+<input type="submit" value="Next">
+{% endblock %}
+</form>
+
+{% endblock %}

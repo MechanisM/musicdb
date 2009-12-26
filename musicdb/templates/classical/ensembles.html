@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical ensembles{% endblock %}
+
+{% block title %}Classical ensembles{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for ensemble in ensembles %}
+  <li><a href="{{ ensemble.get_absolute_url }}">{{ ensemble }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

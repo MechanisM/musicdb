@@ -1,0 +1,24 @@
+{% extends "nonclassical_add/base.html" %}
+
+{% block next %}
+
+<dl>
+<dt>Artist</dt>
+<dt><a href="{{ data.album.artist.get_absolute_url }}">{{ data.album.artist }}</a></dt>
+
+<dt>Title</dt>
+<dt>
+  {{ data.album.title }}
+  {% if data.album.year %} ({{ data.album.year }}){% endif %}
+</dt>
+</dl>
+
+<ol>
+  {% for track in data.tracks.values %}
+  <li>{{ track }}</li>
+  {% endfor %}
+</ol>
+
+<input type="submit" value="Confirm"/>
+
+{% endblock next %}

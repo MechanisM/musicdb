@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load duration %}
+
+{% block headtitle %}Stats{% endblock %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block content %}
+
+<dl>
+  <dt>Number of music files</dt>
+  <dd>{{ music_file_count }}</dd>
+
+  <dt>Total duration</dt>
+  <dd>{{ total_duration|duration }}</dd>
+</dl>
+
+{% endblock %}

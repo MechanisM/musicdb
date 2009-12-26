@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script language="javascript">
+$(function() {
+  $(".id_target_form").submit(function() {
+    $.post($(this).attr('action'), $(this).serialize(), function (data) {
+      $('.id-target').val(data.object_id);
+      $('#add-form').submit();
+    }, "json");
+
+    return false;
+  }); 
+
+  $('.id_selector a').click(function () {
+    var obj_id = $(this).attr('id').split('-', 2)[1];
+    $('.id-target').val(obj_id);
+    $('#add-form').submit();
+
+    return false;
+  });
+});
+</script>
+
+<form action="." method="post" id="add-form">
+  {{ form.non_form_errors }}
+
+  {% block form %}
+    <table>{{ form }}</table>
+  {% endblock %}
+
+  <input type="hidden" name="step" value="{{ step }}" />
+
+  {{ previous_fields|safe }}
+
+  {% block next %}
+  <div style="margin: 2em">
+    <input type="submit" value="Next" style="font-size: 200%">
+  </div>
+  {% endblock %}
+</form>
+
+  {% block post-form %}{% endblock %}
+
+{% endblock %}

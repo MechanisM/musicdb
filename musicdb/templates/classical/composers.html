@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Classical composers{% endblock %}
+
+{% block title %}Classical composers{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for artist in composers %}
+  <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "classical_add/base.html" %}
+
+{% block headtitle %}Choose files{% endblock %}
+
+{% block form %}
+<style type="text/css">
+.filename {
+  cursor: pointer;
+}
+.selected {
+    background-color: lightgrey;
+}
+
+.filename, .directory {
+  font-size: small;
+}
+</style>
+<script language="javascript">
+$(function () {
+  $('input:checkbox').change(function() {
+    var container = $(this).parent().parent();
+    if (this.checked){ 
+            container.addClass('selected');
+          } else { 
+            container.removeClass('selected');
+          }
+  });
+
+  $('.select_all').click(function () {
+    $('.files input:checkbox').each(function (idx, elem) {
+      elem.checked = true;
+    });
+
+    return false;
+  });
+
+  $('.unselect_all').click(function () {
+    $('.files input:checkbox').each(function (idx, elem) {
+      elem.checked = false;
+    });
+
+    return false;
+  });
+});
+</script>
+
+<tt>{{ suffix }}</tt>
+
+{{ form.errors }}
+
+{% if parent %}
+  <p><a href="?path={{ parent|urlencode }}">Parent directory</a></p>
+{% endif %}
+
+<table class="files">
+{% for dir in dirs %}
+<tr>
+  <td><a class="directory" href="?path={{ dir.path|urlencode }}">{{ dir.name }}</a></td>
+</tr>
+{% endfor %}
+{% for file in files %}
+<tr>
+  <td><input type="checkbox" id="input-{{ forloop.counter0 }}" name="{{ form.prefix }}-{{ forloop.counter0 }}-file" value="{{ file.path }}" /></td>
+  <td class="filename"><label for="input-{{ forloop.counter0 }}">{{ file.name }} ({{ file.size|filesizeformat }})</label></td>
+</tr>
+{% endfor %}
+</table>
+
+<p><a class="select_all" href="#">Select all</a> <a class="unselect_all" href="#">Unselect all</a></p>
+
+{{ form.management_form }}
+{% endblock %}

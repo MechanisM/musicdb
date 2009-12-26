@@ -1,0 +1,4 @@
+
+ - Script to look at ID3 tags and extract years where we don't have one for a recording.
+   - script to retag all existing music
+   - script to update lengths of all broken lengths (vbrfix?)
