@@ -8,9 +8,39 @@
 
 <p><a href="{% url nonclassical-letter artist.name_first %}">&laquo; Back to artist list</a></p>
 
-<ul>
-{% for album in artist.albums %}
-  <li><a href="{{ album.get_absolute_url }}">{{ album }}</a></li>
+{% for album in artist.albums.all %}
+  <div style="float: left; width: 250px; height: 180px; text-align: center;">
+    <a href="{{ album.get_absolute_url }}">
+    {% if album.cover %}
+    <img src="{{ album.cover.thumbnail.url }}" alt="{{ album }}">
+    {% else %}
+    <img src="/media/img/no_album_art.jpg" alt="{{ album }}">
+    {% endif %}
+    </a>
+    <br/>
+    <a href="{{ album.get_absolute_url }}">{{ album }}</a>
+  </div>
 {% endfor %}
-</ul>
+
+{% with artist.previous as previous %}
+{% with artist.next as next %}
+<br/>
+<br/>
+<table width="100%">
+<tr>
+  <td width="50%">
+    {% if previous %}
+     &laquo; <a href="{{ previous.get_absolute_url }}">{{ previous }}</a>
+    {% endif %}
+  </td>
+  <td width="50%" align="right">
+    {% if next %}
+     <a href="{{ next.get_absolute_url }}">{{ next }}</a> &raquo;
+    {% endif %}
+  </td>
+</tr>
+</table>
+{% endwith %}
+{% endwith %}
+
 {% endblock %}

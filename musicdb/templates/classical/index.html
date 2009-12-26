@@ -6,10 +6,13 @@
 
 {% block content %}
 
+<h2>Browse</h2>
+
 <ul>
-{% for artist in artists %}
-  <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a></li>
-{% endfor %}
+ <li><a href="{% url classical-composers %}">By composer</li></a>
+ <li><a href="{% url classical-artists %}">By artist</li></a>
+ <li><a href="{% url classical-ensembles %}">By ensemble</li></a>
+ <li><a href="{% url classical-categories %}">By category</li></a>
 </ul>
 
 <h2>Other</h2>

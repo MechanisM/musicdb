@@ -1,25 +1,51 @@
 {% extends "base.html" %}
 
-{% block headtitle %}Classical music{% endblock %}
+{% block headtitle %}{{ artist.long_name }}{% endblock %}
 
 {% block title %}{{ artist.long_name }}{% endblock %}
 
 {% block subtitle %}
-{% if artist.nationality %}
-{{ artist.nationality }} composer
-{% endif %}
+  {{ artist.biography }}
 {% endblock %}
 
 {% block content %}
 
-<p><a href="{% url classical-artist-timeline artist.slug %}">Timeline</a></p>
+<!-- <p><a href="{% url classical-artist-timeline artist.slug %}">Timeline</a></p> -->
 
-<p><a href="{% url classical %}">&laquo; Back to artist list</a></p>
-
+{% if artist.works.all %}
+  {% if artist.performances.all %}
+    <h3>Compositions</h3>
+  {% endif %}
 <ul>
 {% for work in artist.works.all %}
   <li><a href="{{ work.get_absolute_url }}">{{ work }}</a></li>
 {% endfor %}
 </ul>
+
+{% endif %}
+
+{% if artist.performances.all %}
+  {% if artist.works.all %}
+    <h3>Recordings</h3>
+  {% endif %}
+
+  {% regroup artist.performances_by_composer by recording.work.composer as groups %}
+  {% for group in groups %}
+    <h4>{{ group.grouper }}</h4>
+    <ul>
+    {% for performance in group.list %}
+    {% with performance.recording.work as work %}
+      <li>
+        <a href="{{ performance.recording.get_absolute_url }}">{{ work }}</a>
+	{% ifnotequal artist.instruments.count 1 %}
+	  ({{ performance.instrument.noun|lower }})
+	{% endifnotequal %}
+      </li>
+    {% endwith %}
+    {% endfor %}
+    </ul>
+  {% endfor %}
+
+{% endif %}
 
 {% endblock %}

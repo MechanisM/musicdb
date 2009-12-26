@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 
-from django_fuse import DirectoryResponse, FileResponse
+from django_fuse import DirectoryResponse, SymlinkResponse
 
-from musicdb.nonclassical.models import Artist, Album
+from musicdb.utils.http import M3UResponse
+from musicdb.nonclassical.models import Artist, Album, CD, Track
 
 def index(request, letter='a'):
     if letter is None:
@@ -21,14 +22,6 @@ def index(request, letter='a'):
         'artists': artists,
     })
 
-def fuse_index():
-    artists = Artist.objects.all()
-
-    return DirectoryResponse(
-        artists.values_list('dir_name', flat=True),
-        artists.count,
-    )
-
 def artist(request, slug):
     artist = get_object_or_404(Artist, slug=slug)
 
@@ -36,34 +29,56 @@ def artist(request, slug):
         'artist': artist,
     })
 
-def fuse_artist(dir_name):
-    artist = get_object_or_404(Artist, dir_name=dir_name)
-
-    albums = artist.albums()
-
-    return DirectoryResponse(
-        albums.values_list('dir_name', flat=True),
-        albums.count,
-    )
-
 def album(request, artist_slug, slug):
-    album = get_object_or_404(Album,
-        slug=slug,
-        cds__num=1,
-        cds__tracks__num=1,
-        cds__tracks__performers__artist__slug=artist_slug,
-    )
+    try:
+        album = Album.objects.get_from_slugs(artist_slug, slug)
+    except Album.DoesNotExist:
+        raise Http404
 
     return render_to_response('nonclassical/album.html', {
         'album': album,
     })
 
-def fuse_album(artist_dir_name, dir_name):
-    album = get_object_or_404(Album,
-        dir_name=dir_name,
-        cds__num=1,
-        cds__tracks__num=1,
-        cds__tracks__performers__artist__slug=artist_dir_name,
-    )
+def play_cd(request, cd_id):
+    cd = get_object_or_404(CD, id=cd_id)
 
-    return DirectoryResponse([])
+    return M3UResponse(cd.get_tracks())
+
+def play_album(request, album_id):
+    album = get_object_or_404(Album, id=album_id)
+
+    return M3UResponse(album.get_tracks())
+
+##
+
+def fuse_index():
+    artists = Artist.objects.all()
+
+    return DirectoryResponse(artists.values_list('dir_name', flat=True))
+
+def fuse_artist(dir_name):
+    artist = get_object_or_404(Artist, dir_name=dir_name)
+
+    albums = artist.albums()
+
+    return DirectoryResponse(albums.values_list('dir_name', flat=True))
+
+def fuse_album(artist_dir_name, dir_name):
+    try:
+        album = Album.objects.get_from_dir_name(artist_dir_name, dir_name)
+    except Album.DoesNotExist:
+        raise Http404
+
+    tracks = album.get_nonclassical_tracks()
+
+    return DirectoryResponse(tracks.values_list('dir_name', flat=True))
+
+def fuse_track(artist_dir_name, album_dir_name, dir_name):
+    try:
+        album = Album.objects.get_from_dir_name(artist_dir_name, album_dir_name)
+        track = Track.objects.get_from_dir_name(dir_name, album)
+    except (Album.DoesNotExist, Track.DoesNotExist):
+        raise Http404()
+
+    return SymlinkResponse('/mnt/raid/share/mp3/%s' % track.track.file.location)
+

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-{% block headtitle %}Classical music{% endblock %}
+{% load duration %}
+
+{% block headtitle %}{{ work }} - {{ work.composer }}{% endblock %}
 
 {% block title %}{{ work }}{% endblock %}
 
@@ -8,14 +10,23 @@
 
 {% block content %}
 
+{% if work.category %}
+  <p>Filed under <em><a href="{{ work.category.get_absolute_url }}#{{ work.composer.slug }}">{{ work.category }}</a></em></p>
+{% endif %}
+
 {% for recording in work.recordings.all %}
 
-<h3>{{ recording.short_name }}</h3>
+
+<h3 style="border-bottom: 1px dotted black; padding-bottom: 2px" id="{{ recording.slug }}">
+{{ recording.short_name }}
+<a style="font-size: 50%" href="{{ recording.get_absolute_url }}">#</a>
+</h3>
+
 
 {% ifnotequal recording.movements.count 1 %}
   <ul style="list-style-type:upper-roman">
   {% for movement in recording.movements.all %}
-    <li>{{ movement }}</li>
+    <li><a href="{% url play-music-file movement.music_file.id %}">{{ movement }}</a> <small>{{ movement.music_file.length|duration }}</small></li>
   {% endfor %}
   </ul>
 {% endifnotequal %}
@@ -32,11 +43,43 @@
 {% endfor %}
 </ul>
 
+
 {% if recording.year %}
 <p>Recorded: {{ recording.year }}</p>
 {% endif %}
 
-<hr/>
+<p><a href="{% url classical-play-recording recording.id %}">Play</a> <small>{{ recording.total_duration|duration }}</small></p>
+
 {% endfor %}
+
+{% if work.source_relations.count or work.derived_relations.count %}
+<hr/>
+
+<h4>Related works</h4>
+<ul>
+{% for rel in work.source_relations.all %}
+  <li>
+    {% ifnotequal rel.derived.composer work.composer %}
+      <a href="{{ rel.derived.composer.get_absolute_url }}">{{ rel.derived.composer }}</a> -
+    {% endifnotequal %}
+    <a href="{{ rel.derived.get_absolute_url }}">{{ rel.derived }}</a>
+    ({{ rel.source_nature }})
+  </li>
+{% endfor %}
+{% for rel in work.derived_relations.all %}
+  <li>
+    {% ifnotequal rel.source.composer work.composer %}
+      <a href="{{ rel.source.composer.get_absolute_url }}">{{ rel.source.composer }}</a> -
+    {% endifnotequal %}
+    <a href="{{ rel.source.get_absolute_url }}">{{ rel.source }}</a>
+    ({{ rel.derived_nature }})
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<hr/>
+
+<p><a href="/admin/classical/work/{{ work.pk }}">edit</a></p>
 
 {% endblock %}

@@ -16,7 +16,9 @@ MEDIA_URL = ''
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/admin_media/'
+
+CACHE_BACKEND = 'locmem:///'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -29,6 +31,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
 )
 
 ROOT_URLCONF = 'musicdb.urls'
@@ -50,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'musicdb.common',
     'musicdb.classical',
+    'musicdb.classical_add',
     'musicdb.nonclassical',
     'treebeard',
     'django_fuse',
@@ -61,11 +65,6 @@ try:
 except ImportError:
     pass
 
-try:
-    import django_lint
-    INSTALLED_APPS.append('django_lint')
-except ImportError:
-    pass
 try:
     from site_settings import *
 except ImportError:
