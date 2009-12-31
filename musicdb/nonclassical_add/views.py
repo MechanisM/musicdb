@@ -22,7 +22,7 @@ class AddRecording(AbstractAddView):
     ## Steps ###########################################
 
     class FilesStep(AbstractFilesStep):
-        import_base = settings.NON_CLASSICAL_IMPORT_BASE
+        import_base = '' # settings.NON_CLASSICAL_IMPORT_BASE
         next_step = 'album'
 
     class AlbumStep(Step):
