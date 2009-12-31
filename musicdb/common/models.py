@@ -1,6 +1,6 @@
 import os
 
-from mutagen import mp3, easyid3, File as MutagenFile
+from mutagen import mp3, flac, easyid3, File as MutagenFile
 
 from django.db import models
 from django.conf import settings
@@ -70,8 +70,10 @@ class MusicFile(models.Model):
 
             if isinstance(audio, mp3.MP3):
                 self.type = 'mp3'
+            elif isinstance(audio, flac.FLAC):
+                self.type = 'flac'
             else:
-                assert False, "FIXME"
+                assert False, "Unsupported Mutagen class %s" % audio.__class__
 
             self.length = int(audio.info.length)
 

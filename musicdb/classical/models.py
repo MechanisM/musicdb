@@ -200,7 +200,7 @@ class Work(models.Model, Mergeable):
             extras.append(('year', " (%d)"))
 
         ret = self.title
-        if self.catalogues.all():
+        if self.catalogues.count():
             ret += u", %s" % ", ".join([str(x) for x in self.catalogues.all()])
 
         for attr, format in extras:

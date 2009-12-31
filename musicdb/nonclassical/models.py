@@ -171,14 +171,14 @@ class Track(models.Model):
         return self.title
 
     def get_dir_name(self):
-        return "%02d %s.%s" % (self.num, self.title, self.music_file.type)
+        return "%02d %s.mp3" % (self.num, self.title)
 
     def metadata(self):
         album = self.cd.album
         return {
             'title': self.title,
-            'album': unicode(album),
-            'artist': unicode(album.artist),
+            'album': unicode(album.title),
+            'artist': unicode(album.artist.long_name()),
             'tracknumber': str(self.num),
             'date': str(album.year) or '',
         }

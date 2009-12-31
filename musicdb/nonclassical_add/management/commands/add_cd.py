@@ -2,13 +2,13 @@ import os
 import shutil
 import readline
 
-from progressbar import *
-
 from django.db import transaction
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError, make_option
 from django.utils.datastructures import SortedDict
 
+from musicdb.utils.urls import google_search
+from musicdb.utils.progress import progress
 from musicdb.utils.completion import QuerySetCompleter
 
 from musicdb.common.models import File, MusicFile
@@ -45,6 +45,18 @@ class Command(BaseCommand):
 
     @transaction.commit_on_success
     def handle_files(self, files):
+        def show_filenames():
+            pad_by = len(max(files.values(), key=len)) + 2
+            for idx, (filename, trackname) in enumerate(files.iteritems()):
+                print "% 3d) %s %s" % (
+                    idx + 1,
+                    trackname.ljust(pad_by),
+                    os.path.basename(filename),
+                )
+
+        show_filenames()
+        print
+
         artist_name = self.prompt_string('Artist', Artist.objects.all(), 'name')
 
         artist, created = Artist.objects.get_or_create(name=artist_name)
@@ -57,10 +69,15 @@ class Command(BaseCommand):
         album, created = artist.albums.get_or_create(title=album_name)
         print "%s album %s" % (created and 'Created' or 'Using existing', album)
 
-        album_year = created and self.get_album_year()
-        if album_year:
-            album.year = album_year
-            album.save()
+        album_year = None
+        if created:
+            print "Google this album: %s" % google_search('%s - %s' % (artist.long_name(), album.title))
+            album_year = self.get_album_year()
+            if album_year:
+                album.year = album_year
+                album.save()
+        album_year = album.year
+
 
         while 1:
             print
@@ -70,13 +87,7 @@ class Command(BaseCommand):
 
             print
 
-            pad_by = len(max(files.values(), key=len)) + 2
-            for idx, (filename, trackname) in enumerate(files.iteritems()):
-                print "% 3d) %s %s" % (
-                    idx + 1,
-                    trackname.ljust(pad_by),
-                    os.path.basename(filename),
-                )
+            show_filenames()
 
             print
 
@@ -85,7 +96,8 @@ class Command(BaseCommand):
             try:
                 filename = files.keys()[int(input) - 1]
 
-                new_name = raw_input('New name [%s]: ' % files[filename])
+                readline.add_history(files[filename])
+                new_name = raw_input('New name [%s] (press up): ' % files[filename])
                 if new_name:
                     files[filename] = new_name
 
@@ -103,15 +115,12 @@ class Command(BaseCommand):
             print "%s tracks..." % (self.options['move'] and 'Moving' or 'Copying')
 
             music_files = []
-            pbar = ProgressBar(maxval=len(files), widgets=(
-                Percentage(), ' ', Bar(), ' ', ETA()
-            )).start()
-            for idx, (filename, trackname) in enumerate(files.iteritems()):
+            for idx, (filename, trackname) in enumerate(progress(files.iteritems(), len(files))):
                 extension = os.path.splitext(filename)[1][1:]
 
                 file_ = File.objects.create_from_path(
                     src=filename,
-                    location='mp3/albums/%d/%.2d.%s' % (
+                    location='albums/%d/%.2d.%s' % (
                         cd.pk,
                         idx + 1,
                         extension.lower() or 'mp3',
@@ -131,22 +140,15 @@ class Command(BaseCommand):
                     title=trackname,
                     music_file=music_file,
                 )
-                pbar.update(idx + 1)
 
             print "Tagging tracks..."
-            pbar = ProgressBar(maxval=len(music_files), widgets=(
-                Percentage(), ' ', Bar(), ' ', ETA()
-            )).start()
-            for idx, music_file in enumerate(music_files):
+            for music_file in progress(music_files):
                 music_file.tag()
-                pbar.update(idx + 1)
-
-            assert False
 
         except:
             path = os.path.join(
                 settings.MEDIA_LOCATION_RW,
-                'mp3', 'albums', '%s' % cd.pk
+                'albums', '%s' % cd.pk
             )
 
             print "Caught exception; cleaning up %r" % path
