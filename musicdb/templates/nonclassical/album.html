@@ -23,26 +23,28 @@
 {% endif %}
 
 <table>
+{% with album.cds.count as album_cds_count %}
 {% for cd in album.cds.all %}
 <tr>
 <td>
-  {% ifnotequal album.cds.count 1 %}
+  {% ifnotequal album_cds_count 1 %}
     CD{{ forloop.counter }}
   {% endifnotequal %}
 
   <ol>
-    {% for track in cd.tracks.all %}
+    {% for track in cd.tracks.select_related.all %}
       <li><a href="{% url play-music-file track.music_file_id %}">{{ track }}</a> {{ track.music_file.length|duration }}</li>
     {% endfor %}
   </ol>
 
-  {% ifnotequal album.cds.count 1 %}
+  {% ifnotequal album_cds_count 1 %}
     <a href="{% url nonclassical-play-cd cd.id %}">Play</a>
     {{ cd.total_duration|duration }}
   {% endifnotequal %}
 </td>
 </tr>
 {% endfor %}
+{% endwith %}
 </table>
 
 <a href="{% url nonclassical-play-album album.id %}">Play album</a> ({{ album.total_duration|duration }})

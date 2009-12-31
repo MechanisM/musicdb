@@ -27,12 +27,14 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
-MIDDLEWARE_CLASSES = (
+INTERNAL_IPS = ('127.0.0.1',)
+
+MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-)
+]
 
 ROOT_URLCONF = 'musicdb.urls'
 
@@ -55,6 +57,7 @@ INSTALLED_APPS = [
     'musicdb.classical',
     'musicdb.classical_add',
     'musicdb.nonclassical',
+    'musicdb.nonclassical_add',
     'treebeard',
     'django_fuse',
 ]
@@ -62,6 +65,18 @@ INSTALLED_APPS = [
 try:
     import django_extensions
     INSTALLED_APPS.append('django_extensions')
+except ImportError:
+    pass
+
+try:
+    import debug_toolbar
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS': False,
+        'SHOW_TEMPLATE_CONTEXT': False,
+        'HIDE_DJANGO_SQL': True,
+    }
 except ImportError:
     pass
 

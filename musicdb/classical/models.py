@@ -12,6 +12,8 @@ from musicdb.common.models import AbstractArtist, Nationality, MusicFile
 from musicdb.db.mixins import Mergeable
 from musicdb.db.fields import MySlugField, DenormalisedCharField, DirNameField
 
+from .managers import ArtistManager
+
 """
 Classical models.
 """
@@ -19,13 +21,6 @@ Classical models.
 __all__ = ('Artist', 'Ensemble', 'Work', 'Catalogue', 'WorkCatalogue', \
     'Category', 'Instrument', 'Key', 'Recording', 'Movement', \
     'Performance', 'WorkRelationship')
-
-class ArtistManager(models.Manager):
-    def composers(self):
-        return self.filter(works__isnull=False).distinct()
-
-    def artists(self):
-        return self.filter(performances__isnull=False).distinct()
 
 class Artist(AbstractArtist):
     surname = models.CharField(max_length=100)

@@ -1,5 +1,4 @@
 import os
-import shutil
 
 from mutagen import mp3, easyid3, File as MutagenFile
 
@@ -7,6 +6,8 @@ from django.db import models
 from django.conf import settings
 
 from musicdb.db.fields import MySlugField
+
+from .managers import FileManager
 
 """
 Common models.
@@ -36,6 +37,8 @@ class File(models.Model):
     location = models.CharField(unique=True, max_length=255)
     size = models.IntegerField('File size in bytes')
 
+    objects = FileManager()
+
     def __unicode__(self):
         return "%s (%d bytes)" % (self.location, self.size)
 
@@ -46,19 +49,6 @@ class File(models.Model):
                 self.location,
             ))
         super(File, self).save(*args, **kwargs)
-
-    @classmethod
-    def create_from_path(cls, src, location):
-        abs_location = os.path.join(settings.MEDIA_LOCATION_RW, location)
-
-        try:
-            os.makedirs(os.path.dirname(abs_location))
-        except OSError:
-            # Directory already exists
-            pass
-
-        shutil.copyfile(src, abs_location)
-        return cls.objects.create(location=location)
 
 class MusicFile(models.Model):
     file = models.OneToOneField(File)

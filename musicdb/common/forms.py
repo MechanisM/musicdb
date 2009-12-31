@@ -2,7 +2,7 @@ import os.path
 import operator
 
 from django import forms
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, Http404
 from django.forms.formsets import BaseFormSet, formset_factory
 from django.template.context import RequestContext
 

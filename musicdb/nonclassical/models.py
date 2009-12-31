@@ -8,64 +8,16 @@ from django.db.models.aggregates import Sum
 
 from musicdb.common.models import AbstractArtist, Nationality, MusicFile, File
 
+from musicdb.db.mixins import NextPreviousMixin
 from musicdb.db.fields import MySlugField, FirstLetterField, DirNameField, StdImageField
+
+from .managers import AlbumManager, TrackManager
 
 """
 Non-classical models.
 """
 
 __all__ = ('Artist', 'Album', 'CD', 'Track')
-
-class NextPreviousMixin(object):
-    def _get_next_or_previous(self, next, **kwargs):
-        from django.db.models import Q
-
-        fields = []
-        operator = []
-
-        for field in list(self._meta.ordering) + ['pk']:
-            if field.startswith('-'):
-                field = field[1:]
-                op = next and 'lt' or 'gt'
-            else:
-                op = next and 'gt' or 'lt'
-
-            fields.append(field)
-            operator.append(op)
-
-        # Construct Q such that any of:
-        #
-        #  (f_1 > self.f_1)
-        #  (f_2 > self.f_2) & (f_1 = self.f_1)
-        #  (f_3 > self.f_3) & (f_2 = self.f_2) & (f_1 = self.f_1)
-        # ...
-        #  (f_n > self.f_n) & (f_[n-1] = self.f_[n-1]) & ... & (f_1 = self.f_1)
-        #
-        # is true, replacing '>' where appropriate.
-        q = Q()
-        for idx in range(len(fields)):
-            inner = Q(**{'%s__%s' % (fields[idx], operator[idx]): \
-                getattr(self, fields[idx]),
-            })
-            for other in reversed(fields[:idx]):
-                inner &= Q(**{other: getattr(self, other)})
-            q |= inner
-
-        qs = self.__class__._default_manager.filter(**kwargs).filter(q)
-
-        if not next:
-            qs = qs.reverse()
-
-        try:
-            return qs[0]
-        except IndexError:
-            return None
-
-    def next(self, **kwargs):
-        return self._get_next_or_previous(next=True, **kwargs)
-
-    def previous(self, **kwargs):
-        return self._get_next_or_previous(next=False, **kwargs)
 
 class Artist(AbstractArtist, NextPreviousMixin):
     name = models.CharField(max_length=250)
@@ -102,19 +54,6 @@ class Artist(AbstractArtist, NextPreviousMixin):
                 return self.name
         return self.name
     slug_name = long_name
-
-class AlbumManager(models.Manager):
-    def get_from_field(self, field, artist_val, val):
-        return self.model.objects.get(**{
-            field: val,
-            'artist__%s' % field: artist_val,
-        })
-
-    def get_from_slugs(self, artist_slug, slug):
-        return self.get_from_field('slug', artist_slug, slug)
-
-    def get_from_dir_name(self, artist_dir_name, dir_name):
-        return self.get_from_field('dir_name', artist_dir_name, dir_name)
 
 class Album(models.Model, NextPreviousMixin):
     title = models.CharField(max_length=200)
@@ -214,10 +153,6 @@ class CD(models.Model):
     def total_duration(self):
         return self.get_tracks().aggregate(Sum('length')).values()[0] or 0
 
-class TrackManager(models.Manager):
-    def get_from_dir_name(self, dir_name, album):
-        return self.model.objects.get(dir_name=dir_name, cd__album=album)
-
 class Track(models.Model):
     title = models.CharField(max_length=250)
     cd = models.ForeignKey(CD, related_name='tracks')
@@ -243,7 +178,7 @@ class Track(models.Model):
         return {
             'title': self.title,
             'album': unicode(album),
-            'artist': unicode(album.first_artist()),
+            'artist': unicode(album.artist),
             'tracknumber': str(self.num),
             'date': str(album.year) or '',
         }
