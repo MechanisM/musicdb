@@ -1,5 +1,7 @@
 *.pyc
 *.sqlite
+*.db
+*.json
 musicdb/site_settings.py
 musicdb/site_media/*
 importer/
