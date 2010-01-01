@@ -3,7 +3,7 @@
 import time
 
 from django.shortcuts import render_to_response, get_object_or_404
-from django_fuse import DirectoryResponse, FileResponse, WrappedFileResponse
+from django_fuse import DirectoryResponse, FileResponse
 
 from musicdb.utils.http import M3UResponse
 from musicdb.classical.models import Artist, Work, Recording, Movement, \
@@ -72,22 +72,8 @@ def fuse_artist(dir_name):
 
 ##
 
-def add_files_browse(request, path):
-    try:
-        base = settings.CLASSICAL_IMPORT_BASE
-    except AttributeError:
-        raise ImproperlyConfigured('No CLASSICAL_IMPORT_BASE in settings.py found')
-
-    print os.path.join(base, path)
-
-    return render_to_response([{'name': 'hi'}])
-
-##
-
 def stats(request):
-    composers = Artist.objects.filter(works__isnull=False).distinct()
-
-    composer_count = composers.count()
+    composer_count = Artist.objects.composers().count()
     work_count = Work.objects.count()
     recording_count = Recording.objects.count()
     movement_count = Movement.objects.count()
@@ -101,8 +87,11 @@ def stats(request):
                 continue
 
             delta = current_year - val
-            if delta % 25 == 0:
+            if delta % 50 == 0:
                 anniversaries.setdefault(attr, []).append((artist, delta))
+
+    artists_by_num_works = Artist.objects.by_num_works()[:10]
+    works_by_num_recordings = Work.objects.by_num_recordings()[:10]
 
     return render_to_response('classical/stats.html', {
         'work_count': work_count,
@@ -111,14 +100,17 @@ def stats(request):
         'movement_count': movement_count,
         'movement_average': recording_count and 1.0 * movement_count / recording_count or 0,
         'recording_average': work_count and 1.0 * recording_count / work_count or 0,
+
         'anniversaries': anniversaries,
+        'artists_by_num_works': artists_by_num_works,
+        'works_by_num_recordings': works_by_num_recordings,
     })
 
 def timeline(request):
     return render_to_response('classical/timeline.html')
 
 def timeline_data(request):
-    composers = Artist.objects.filter(works__isnull=False).distinct()
+    composers = Artist.objects.composers()
 
     return render_to_response('classical/timeline_data.xml', {
         'composers': composers.exclude(born=0, died=0),

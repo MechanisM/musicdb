@@ -43,4 +43,20 @@
   {% endif %}
 {% endif %}
 
+<h3>Works with the most recordings</h3>
+
+<ol>
+{% for work in works_by_num_recordings %}
+ <li>{{ work.composer.short_name }} - <a href="{{ work.get_absolute_url }}">{{ work }}</a> ({{ work.num_recordings }} recording{{ work.num_recordings|pluralize }})</li>
+{% endfor %}
+</ol>
+
+<h3>Artists with the most works</h3>
+
+<ol>
+{% for artist in artists_by_num_works %}
+ <li><a href="{{ artist.get_absolute_url }}">{{ artist }}</a> ({{ artist.num_works }} work{{ artist.num_works|pluralize }})</li>
+{% endfor %}
+</ol>
+
 {% endblock %}
