@@ -1,5 +1,6 @@
 import os
 import sys
+import glob
 import shutil
 import readline
 
@@ -30,6 +31,15 @@ class Command(BaseCommand):
 
     def handle(self, *files, **options):
         self.options = options
+
+        # Expand if we have specified a directory
+        if len(files) == 1 and os.path.isdir(files[0]):
+            expanded = sorted(glob.glob(os.path.join(files[0], '*')))
+            files = []
+
+            for filename in expanded:
+                if os.path.splitext(filename)[1].lower() in ('.flac', '.mp3'):
+                    files.append(filename)
 
         tracknames = track_names_from_filenames(files)
         files = SortedDict(zip(files, tracknames))
