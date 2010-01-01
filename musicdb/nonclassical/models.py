@@ -75,6 +75,12 @@ class Album(models.Model, NextPreviousMixin):
             return u"%s (%d)" % (self.title, self.year)
         return self.title
 
+    def delete(self, *args, **kwargs):
+        for track in self.get_tracks():
+            track.delete()
+
+        super(Album, self).delete(*args, **kwargs)
+
     @models.permalink
     def get_absolute_url(self):
         return ('nonclassical-album', (self.artist.slug, self.slug))

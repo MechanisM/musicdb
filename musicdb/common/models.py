@@ -44,11 +44,24 @@ class File(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.size:
-            self.size = os.path.getsize(os.path.join(
-                settings.MEDIA_LOCATION,
-                self.location,
-            ))
+            self.size = os.path.getsize(self.absolute_location())
         super(File, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        path = self.absolute_location(for_writing=True)
+
+        if os.path.exists(path):
+            os.unlink(path)
+
+        super(File, self).delete(*args, **kwargs)
+
+    def absolute_location(self, for_writing=False):
+        base = {
+            True:  settings.MEDIA_LOCATION_RW,
+            False: settings.MEDIA_LOCATION,
+        }[for_writing]
+
+        return os.path.join(base, self.location)
 
 class MusicFile(models.Model):
     file = models.OneToOneField(File)
@@ -78,6 +91,11 @@ class MusicFile(models.Model):
             self.length = int(audio.info.length)
 
         super(MusicFile, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        super(MusicFile, self).delete(*args, **kwargs)
+
+        self.file.delete()
 
     def get_parent_instance(self):
         return getattr(self, self.rev_model)
