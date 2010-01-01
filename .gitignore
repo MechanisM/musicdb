@@ -2,6 +2,7 @@
 *.sqlite
 *.db
 *.json
+media_location
 musicdb/site_settings.py
 musicdb/site_media/*
 importer/
