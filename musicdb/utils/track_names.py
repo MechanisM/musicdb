@@ -19,7 +19,7 @@ def track_names_from_filenames(filenames):
 
     filenames = [x or '(unknown)' for x in filenames]
     filenames = [x[0].capitalize() + x[1:] for x in filenames]
-    filenames = [re.sub('( = |\. )', ': ', x) for x in filenames]
+    filenames = [re.sub('( = |- )', ': ', x) for x in filenames]
 
     filenames = [re.sub('\s+\((19|20)\d\d\)$', '', x) for x in filenames]
 
