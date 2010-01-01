@@ -12,7 +12,7 @@ from musicdb.common.models import AbstractArtist, Nationality, MusicFile
 from musicdb.db.mixins import Mergeable
 from musicdb.db.fields import MySlugField, DenormalisedCharField, DirNameField
 
-from .managers import ArtistManager
+from .managers import ArtistManager, WorkManager
 
 """
 Classical models.
@@ -180,6 +180,8 @@ class Work(models.Model, Mergeable):
 
     slug = MySlugField('slug_name', filter='slug_filter')
     sort_value = DenormalisedCharField('get_sort_value')
+
+    objects = WorkManager()
 
     class Meta:
         ordering = ('sort_value',)
