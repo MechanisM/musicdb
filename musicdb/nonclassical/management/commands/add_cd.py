@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import readline
 
@@ -47,7 +48,7 @@ class Command(BaseCommand):
         try:
             self.handle_files(files)
         except KeyboardInterrupt:
-            pass
+            sys.exit(1)
 
     @transaction.commit_on_success
     def handle_files(self, files):
