@@ -85,7 +85,7 @@ class Command(BaseCommand):
         if created:
             try:
                 album_year = int(self.options['year'])
-            except ValueError:
+            except TypeError:
                 print "Google this album: %s" % google_search('%s - %s' % (artist.long_name(), album.title))
                 album_year = self.get_album_year()
             if album_year:
