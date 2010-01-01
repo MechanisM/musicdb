@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'musicdb.classical',
     'musicdb.classical_add',
     'musicdb.nonclassical',
-    'musicdb.nonclassical_add',
     'treebeard',
     'django_fuse',
 ]

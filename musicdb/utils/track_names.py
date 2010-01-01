@@ -1,5 +1,5 @@
-import re
 import os
+import re
 
 def track_names_from_filenames(filenames):
     filenames = [os.path.basename(x) for x in filenames]

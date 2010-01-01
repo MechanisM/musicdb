@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     url(r'^$', 'musicdb.views.index', name='home'),
 
     url(r'^classical/add/', include('musicdb.classical_add.urls')),
-    url(r'^albums/add/', include('musicdb.nonclassical_add.urls')),
 
     url(r'^classical/', include('musicdb.classical.urls')),
     url(r'^albums/', include('musicdb.nonclassical.urls')),

@@ -10,10 +10,10 @@ from django.utils.datastructures import SortedDict
 from musicdb.utils.urls import google_search
 from musicdb.utils.progress import progress
 from musicdb.utils.completion import QuerySetCompleter
+from musicdb.utils.track_names import track_names_from_filenames
 
 from musicdb.common.models import File, MusicFile
 from musicdb.nonclassical.models import Artist
-from musicdb.nonclassical_add.utils import track_names_from_filenames
 
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
