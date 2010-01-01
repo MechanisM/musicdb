@@ -71,7 +71,7 @@ except ImportError:
     pass
 
 try:
-    import debug_toolbar
+    import debug_toolbar_
     INSTALLED_APPS.append('debug_toolbar')
     MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
     DEBUG_TOOLBAR_CONFIG = {
