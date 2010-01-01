@@ -60,7 +60,7 @@ class Album(models.Model, NextPreviousMixin):
     artist = models.ForeignKey(Artist, related_name='albums')
     year = models.IntegerField(blank=True, null=True)
 
-    cover = StdImageField(upload_to='album_covers', size=(300, 300), thumbnail_size=(125, 125))
+    cover = StdImageField(upload_to='album_covers', size=(300, 300), thumbnail_size=(125, 125), blank=True)
 
     slug = MySlugField('title')
     dir_name = DirNameField('get_dir_name')
