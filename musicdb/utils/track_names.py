@@ -23,7 +23,7 @@ def track_names_from_filenames(filenames):
 
     filenames = [re.sub('\s+\((19|20)\d\d\)$', '', x) for x in filenames]
 
-    re_capital = re.compile(r'(^|\s)(\w)')
+    re_capital = re.compile(r'(^|\s\()(\w)')
     rep = lambda m: '%s%s' % (m.group(1), m.group(2).upper())
     filenames = [re_capital.sub(rep, x) for x in filenames]
 
