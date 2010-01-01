@@ -11,10 +11,12 @@ class ArtistAdmin(admin.ModelAdmin):
             'fields': ('nationality',)}
         ),
     )
+    search_fields = ('name',)
 admin.site.register(models.Artist, ArtistAdmin)
 
 class AlbumAdmin(admin.ModelAdmin):
     fields = ('title', 'artist', 'year', 'cover')
+    search_fields = ('title',)
 admin.site.register(models.Album, AlbumAdmin)
 
 class CDAdmin(admin.ModelAdmin):
@@ -32,4 +34,5 @@ class TrackAdmin(admin.ModelAdmin):
         ),
     )
     raw_id_fields = ('cd',)
+    search_fields = ('title',)
 admin.site.register(models.Track, TrackAdmin)
