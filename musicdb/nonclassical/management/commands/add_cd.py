@@ -186,7 +186,7 @@ class Command(BaseCommand):
             if not input:
                 continue
 
-            return input
+            return input.decode('utf8')
 
     def get_album_year(self):
         readline.set_completer(None)
