@@ -19,6 +19,12 @@ class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
         make_option('-m', '--move', dest='move', default=False,
             action='store_true', help="move, not copy files into target"),
+        make_option('-a', '--artist', dest='artist', default='',
+            action='store', help="artist name (optional)"),
+        make_option('-b', '--album', dest='album', default='',
+            action='store', help="album name (optional)"),
+        make_option('-y', '--year', dest='year', default=None,
+            action='store', help="album year (optional)"),
     )
 
     def handle(self, *files, **options):
@@ -57,7 +63,9 @@ class Command(BaseCommand):
         show_filenames()
         print
 
-        artist_name = self.prompt_string('Artist', Artist.objects.all(), 'name')
+        artist_name = self.options['artist']
+        if not artist_name:
+            artist_name = self.prompt_string('Artist', Artist.objects.all(), 'name')
 
         artist, created = Artist.objects.get_or_create(name=artist_name)
         if created and ', ' in artist_name:
@@ -65,14 +73,20 @@ class Command(BaseCommand):
             artist.save()
         print "%s artist %s" % (created and 'Created' or 'Using existing', artist)
 
-        album_name = self.prompt_string('Album name', artist.albums.all(), 'title')
+        album_name = self.options['album']
+        if not album_name:
+            album_name = self.prompt_string('Album name', artist.albums.all(), 'title')
+
         album, created = artist.albums.get_or_create(title=album_name)
         print "%s album %s" % (created and 'Created' or 'Using existing', album)
 
         album_year = None
         if created:
-            print "Google this album: %s" % google_search('%s - %s' % (artist.long_name(), album.title))
-            album_year = self.get_album_year()
+            try:
+                album_year = int(self.options['year'])
+            except ValueError:
+                print "Google this album: %s" % google_search('%s - %s' % (artist.long_name(), album.title))
+                album_year = self.get_album_year()
             if album_year:
                 album.year = album_year
                 album.save()
