@@ -19,6 +19,7 @@ admin.site.register(models.Album, AlbumAdmin)
 
 class CDAdmin(admin.ModelAdmin):
     fields = ('album', 'num')
+    raw_id_fields = ('album',)
 admin.site.register(models.CD, CDAdmin)
 
 class TrackAdmin(admin.ModelAdmin):
@@ -30,4 +31,5 @@ class TrackAdmin(admin.ModelAdmin):
             'fields': ('cd',)}
         ),
     )
+    raw_id_fields = ('cd',)
 admin.site.register(models.Track, TrackAdmin)
