@@ -115,6 +115,8 @@ class Album(models.Model, NextPreviousMixin):
         try:
             self.cover = DjangoFile(open(tempfile))
             self.save()
+        except:
+            self.cover.delete()
         finally:
             try:
                 os.unlink(tempfile)
