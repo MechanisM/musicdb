@@ -117,6 +117,7 @@ class Album(models.Model, NextPreviousMixin):
             self.save()
         except:
             self.cover.delete()
+            raise
         finally:
             try:
                 os.unlink(tempfile)
