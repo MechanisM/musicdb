@@ -1,5 +1,6 @@
 import re
 import urllib
+import traceback
 
 from django.core.files import File
 from django.core.management.base import BaseCommand
@@ -16,7 +17,12 @@ class Command(BaseCommand):
         orig_count = qs.count()
 
         for album in progress_qs(qs):
-            self.handle_album(album)
+            try:
+                self.handle_album(album)
+            except:
+                print "W: Caught exception finding artwork for %s (#%d)" % \
+                    (album, album.pk)
+                traceback.print_exc()
 
         qs = Album.objects.filter(cover='')
         print "Found %d cover(s)" % (orig_count - qs.count())
