@@ -48,7 +48,7 @@ class Command(AddMusicFilesCommand):
                 album_year = int(self.options['year'])
             except TypeError:
                 print "Google this album: %s" % google_search('%s - %s' % (artist.long_name(), album.title))
-                album_year = self.get_album_year()
+                album_year = self.prompt_year('Album year')
             if album_year:
                 album.year = album_year
                 album.save()
@@ -129,20 +129,3 @@ class Command(AddMusicFilesCommand):
             raise
 
         print "Saving to database..."
-
-    def get_album_year(self):
-        readline.set_completer(None)
-        while 1:
-            try:
-                input = raw_input('Album year: ')
-                if not input:
-                    return None
-
-                year = int(input)
-
-                if year < 1900:
-                    continue
-
-                return year
-            except ValueError:
-                pass

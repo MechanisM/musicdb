@@ -58,6 +58,23 @@ class AddMusicFilesCommand(BaseCommand):
 
             return input.decode('utf8')
 
+    def prompt_year(self, name):
+        readline.set_completer(None)
+        while 1:
+            try:
+                input = raw_input('%s: ' % name)
+                if not input:
+                    return None
+
+                year = int(input)
+
+                if year < 1900:
+                    continue
+
+                return year
+            except ValueError:
+                pass
+
     @classmethod
     def show_filenames(self, files):
         pad_by = len(max(files.values(), key=len)) + 2
