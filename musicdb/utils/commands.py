@@ -58,6 +58,11 @@ class AddMusicFilesCommand(BaseCommand):
 
             return input.decode('utf8')
 
+    def prompt_new_name(self, old_name):
+        readline.add_history(old_name)
+
+        return raw_input('New name [%s] (press up): ' % old_name) or old_name
+
     def prompt_year(self, name):
         readline.set_completer(None)
         while 1:

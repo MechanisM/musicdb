@@ -1,6 +1,5 @@
 import os
 import shutil
-import readline
 
 from django.conf import settings
 from django.core.management.base import make_option
@@ -70,10 +69,7 @@ class Command(AddMusicFilesCommand):
             try:
                 filename = files.keys()[int(input) - 1]
 
-                readline.add_history(files[filename])
-                new_name = raw_input('New name [%s] (press up): ' % files[filename])
-                if new_name:
-                    files[filename] = new_name
+                files[filename] = self.prompt_new_name(files[filename])
 
             except (ValueError, KeyError):
                 if input.upper() in ('', 'Y'):
