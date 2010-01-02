@@ -2,7 +2,6 @@ import re
 import urllib
 import traceback
 
-from django.core.files import File
 from django.core.management.base import BaseCommand
 
 from musicdb.utils.progress import progress_qs
@@ -34,19 +33,8 @@ class Command(BaseCommand):
             url = self.handle_terms(terms)
 
             if url:
-                self.handle_image_url(album, url)
+                album.set_artwork_from_url(url)
                 break
-
-    def handle_image_url(self, album, url):
-        tempfile, headers = urllib.urlretrieve(url)
-        try:
-            album.cover = File(open(tempfile))
-            album.save()
-        finally:
-            try:
-                os.unlink(tempfile)
-            except:
-                pass
 
     def handle_terms(self, q):
         url = 'http://www.albumart.org/index.php?%s' % urllib.urlencode((

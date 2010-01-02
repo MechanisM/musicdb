@@ -1,9 +1,11 @@
 import os
+import urllib
 
 from mutagen import mp3, easyid3, File as MutagenFile
 
 from django.db import models
 from django.conf import settings
+from django.core.files import File as DjangoFile
 from django.db.models.aggregates import Sum
 
 from musicdb.common.models import AbstractArtist, Nationality, MusicFile, File
@@ -108,38 +110,16 @@ class Album(models.Model, NextPreviousMixin):
     def previous(self):
         return super(Album, self).previous(artist=self.artist)
 
-    @classmethod
-    def add_album(cls, data):
-        """
-        A helper method to quickly add an album.
-
-        data = {
-            'artist': <Artist: artist name>,
-            'title': 'Album name',
-            'year': None,
-            'cds': [
-                [
-                    {'title': 'Track title', 'path': '/a/b/01.mp3'},
-                ],
-            ],
-        }
-        """
-        album = cls.objects.create(
-            artist=data['artist'],
-            title=data['title'],
-            year=data['year'],
-        )
-
-        for cd_idx, cd_data in enumerate(data['cds']):
-            cd = CD.objects.create(
-                album=album,
-                num=cd_idx + 1,
-            )
-
-            for track_idx, track in enumerate(cd_data):
-                Track.quick_create(track['path'], cd, track['title'], track_idx + 1)
-
-        return album
+    def set_artwork_from_url(self, url):
+        tempfile, headers = urllib.urlretrieve(url)
+        try:
+            self.cover = DjangoFile(open(tempfile))
+            self.save()
+        finally:
+            try:
+                os.unlink(tempfile)
+            except:
+                pass
 
 class CD(models.Model):
     album = models.ForeignKey(Album, related_name='cds')
