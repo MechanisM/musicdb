@@ -67,3 +67,4 @@ class AddMusicFilesCommand(BaseCommand):
                 trackname.ljust(pad_by),
                 os.path.basename(filename),
             )
+        print

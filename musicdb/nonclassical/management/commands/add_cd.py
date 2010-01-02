@@ -24,7 +24,6 @@ class Command(AddMusicFilesCommand):
 
     def handle_files(self, files):
         self.show_filenames(files)
-        print
 
         artist_name = self.options['artist']
         if not artist_name:
@@ -65,8 +64,6 @@ class Command(AddMusicFilesCommand):
             print
 
             self.show_filenames(files)
-
-            print
 
             input = raw_input('[Y] or 1-%d to edit track name: ' % len(files))
 
