@@ -16,4 +16,4 @@ def progress(iterable, maxval=None):
         pbar.update(idx + 1)
 
 def progress_qs(qs):
-    return progress(qs, length=qs.count())
+    return progress(qs, maxval=qs.count())
