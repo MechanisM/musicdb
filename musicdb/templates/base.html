@@ -15,6 +15,8 @@
 
 <body{% block extrabody%}{% endblock %}>
 
+{% block body %}
+
 <div id="header">
 <ul id="nav">
 	<li><a href="{% url home %}">Home</a></li>
@@ -29,6 +31,8 @@
 
 {% block content %}{% endblock %}
 </div>
+
+{% endblock %}
 
 </body>
 </html>

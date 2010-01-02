@@ -49,6 +49,13 @@ def play_album(request, album_id):
 
     return M3UResponse(album.get_tracks())
 
+def collage(request):
+    albums = Album.objects.exclude(cover='')
+
+    return render_to_response('nonclassical/collage.html', {
+        'albums': albums,
+    })
+
 ##
 
 def fuse_index():
