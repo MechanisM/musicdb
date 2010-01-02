@@ -34,10 +34,8 @@ class Command(BaseCommand):
     def handle_image_url(self, album, url):
         tempfile, headers = urllib.urlretrieve(url)
         try:
-            album.cover.save(
-                'album_covers/cover_%d.jpeg' % album.pk,
-                File(open(tempfile)),
-            )
+            album.cover = File(open(tempfile))
+            album.save()
         finally:
             try:
                 os.unlink(tempfile)
