@@ -14,8 +14,6 @@ from musicdb.nonclassical.models import Artist
 
 class Command(AddMusicFilesCommand):
     option_list = AddMusicFilesCommand.option_list + (
-        make_option('-m', '--move', dest='move', default=False,
-            action='store_true', help="move, not copy files into target"),
         make_option('-a', '--artist', dest='artist', default='',
             action='store', help="artist name (optional)"),
         make_option('-b', '--album', dest='album', default='',
@@ -91,7 +89,7 @@ class Command(AddMusicFilesCommand):
         cd = album.cds.create(num=album.cds.count() + 1)
 
         try:
-            print "%s tracks..." % (self.options['move'] and 'Moving' or 'Copying')
+            print "Copying tracks..."
 
             music_files = []
             for idx, (filename, trackname) in enumerate(progress(files.iteritems(), len(files))):
@@ -104,7 +102,6 @@ class Command(AddMusicFilesCommand):
                         idx + 1,
                         extension.lower() or 'mp3',
                     ),
-                    move=self.options['move'],
                 )
 
                 music_file = MusicFile.objects.create(
@@ -131,26 +128,7 @@ class Command(AddMusicFilesCommand):
             )
 
             print "Caught exception; cleaning up %r" % path
-
-            if self.options['move']:
-                print "Moving files back (they may have been tagged though)"
-
-                for idx, (filename, trackname) in enumerate(files.iteritems()):
-                    extension = os.path.splitext(filename)[1][1:]
-
-                    if os.path.exists(filename):
-                        print "Not overwriting %r!" % filename
-                    else:
-                        shutil.move(
-                            src=os.path.join(path, '%.2d.%s' % (
-                                idx + 1,
-                                extension.lower() or 'mp3',
-                            )),
-                            dst=filename,
-                        )
-
             shutil.rmtree(path)
-
             raise
 
         print "Saving to database..."
