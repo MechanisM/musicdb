@@ -80,7 +80,6 @@ class AddMusicFilesCommand(BaseCommand):
             except ValueError:
                 pass
 
-    @classmethod
     def show_filenames(self, files):
         pad_by = len(max(files.values(), key=len)) + 2
         for idx, (filename, trackname) in enumerate(files.iteritems()):
