@@ -1,24 +1,19 @@
 import os
-import sys
-import glob
 import shutil
 import readline
 
-from django.db import transaction
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError, make_option
-from django.utils.datastructures import SortedDict
+from django.core.management.base import make_option
 
 from musicdb.utils.urls import google_search
+from musicdb.utils.commands import AddMusicFilesCommand
 from musicdb.utils.progress import progress
-from musicdb.utils.completion import QuerySetCompleter
-from musicdb.utils.track_names import track_names_from_filenames
 
 from musicdb.common.models import File, MusicFile
 from musicdb.nonclassical.models import Artist
 
-class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
+class Command(AddMusicFilesCommand):
+    option_list = AddMusicFilesCommand.option_list + (
         make_option('-m', '--move', dest='move', default=False,
             action='store_true', help="move, not copy files into target"),
         make_option('-a', '--artist', dest='artist', default='',
@@ -29,49 +24,8 @@ class Command(BaseCommand):
             action='store', help="album year (optional)"),
     )
 
-    def handle(self, *files, **options):
-        self.options = options
-
-        # Expand if we have specified a directory
-        if len(files) == 1 and os.path.isdir(files[0]):
-            expanded = sorted(glob.glob(os.path.join(files[0], '*')))
-            files = []
-
-            for filename in expanded:
-                if os.path.splitext(filename)[1].lower() in ('.flac', '.mp3'):
-                    files.append(filename)
-
-        tracknames = track_names_from_filenames(files)
-        files = SortedDict(zip(files, tracknames))
-
-        if not files:
-            raise CommandError("Must specify at least one file")
-
-        for filename in files:
-            if os.path.isfile(filename):
-                continue
-
-            raise CommandError("%r is not a valid file" % filename)
-
-        readline.parse_and_bind("tab: complete")
-
-        try:
-            self.handle_files(files)
-        except KeyboardInterrupt:
-            sys.exit(1)
-
-    @transaction.commit_on_success
     def handle_files(self, files):
-        def show_filenames():
-            pad_by = len(max(files.values(), key=len)) + 2
-            for idx, (filename, trackname) in enumerate(files.iteritems()):
-                print "% 3d) %s %s" % (
-                    idx + 1,
-                    trackname.ljust(pad_by),
-                    os.path.basename(filename),
-                )
-
-        show_filenames()
+        self.show_filenames(files)
         print
 
         artist_name = self.options['artist']
@@ -112,7 +66,7 @@ class Command(BaseCommand):
 
             print
 
-            show_filenames()
+            self.show_filenames(files)
 
             print
 
@@ -200,18 +154,6 @@ class Command(BaseCommand):
             raise
 
         print "Saving to database..."
-
-    def prompt_string(self, name, qs, field):
-        readline.set_completer(QuerySetCompleter(qs, field))
-        readline.set_completer_delims('')
-
-        while 1:
-            input = raw_input('%s: ' % name)
-
-            if not input:
-                continue
-
-            return input.decode('utf8')
 
     def get_album_year(self):
         readline.set_completer(None)
