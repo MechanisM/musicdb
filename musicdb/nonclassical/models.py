@@ -9,7 +9,8 @@ from django.db.models.aggregates import Sum
 from musicdb.common.models import AbstractArtist, Nationality, MusicFile, File
 
 from musicdb.db.mixins import NextPreviousMixin
-from musicdb.db.fields import MySlugField, FirstLetterField, DirNameField, StdImageField
+from musicdb.db.fields import MySlugField, FirstLetterField, DirNameField
+from musicdb.db.std_image.fields import StdImageField
 
 from .managers import AlbumManager, TrackManager
 
