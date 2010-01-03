@@ -1,6 +1,9 @@
+import readline
+
 from django.db.models.expressions import F
 
 from musicdb.utils.commands import AddMusicFilesCommand
+from musicdb.utils.completion import Completer
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
     EnsemblePerformance, Ensemble, Performance
@@ -8,7 +11,7 @@ from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
 """
 TODO
 
- - Work selection/creation
+ - Work creation
 
 """
 
@@ -65,11 +68,25 @@ class Command(AddMusicFilesCommand):
         return artist
 
     def get_work(self, composer):
-        work_slug = self.prompt_string(
-            'Work slug', composer.works.all(), 'slug',
-        )
+        works = dict((unicode(x).strip().encode('utf8'), x) for x in composer.works.all())
 
-        return composer.works.get(slug=work_slug)
+        Completer(works.keys()).install()
+
+        while True:
+            work_name = raw_input('Work (<enter> for new): ')
+
+            if not work_name:
+                break
+
+            try:
+                work = works[work_name.strip()]
+                print "I: Using existing work: %s" % work
+                return work
+            except KeyError:
+                print "E: Unknown work %r" % work_name
+                continue
+
+        assert False
 
     def performances(self, recording):
         while True:
