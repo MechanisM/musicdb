@@ -166,7 +166,8 @@ class Command(AddMusicFilesCommand):
         except Instrument.DoesNotExist:
             adjective = ''
             while not adjective:
-                adjective = raw_input('Adjective for "%s player": ' % noun)
+                adjective = raw_input('Adjective [%s player]: ' % noun) or \
+                    '%s player' % noun
 
             return Instrument.objects.create(
                 noun=noun,
