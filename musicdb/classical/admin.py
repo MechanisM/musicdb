@@ -40,6 +40,10 @@ class CatalogueAdmin(admin.ModelAdmin):
     fields = ('artist', 'prefix', 'num')
 admin.site.register(models.Catalogue, CatalogueAdmin)
 
+class RecordingAdmin(admin.ModelAdmin):
+    raw_id_fields = ('work',)
+admin.site.register(models.Recording, RecordingAdmin)
+
 class MovementAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
@@ -57,4 +61,3 @@ admin.site.register(models.Movement, MovementAdmin)
 admin.site.register(models.Category)
 admin.site.register(models.Instrument)
 admin.site.register(models.Key)
-admin.site.register(models.Recording)
