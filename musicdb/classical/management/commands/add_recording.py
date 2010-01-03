@@ -11,7 +11,8 @@ from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
 """
 TODO
 
- - Work creation
+ - Work catalogue selection / creation
+ - Re-using previous composer/performers/recording year
 
 """
 
