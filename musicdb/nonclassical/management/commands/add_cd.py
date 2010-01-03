@@ -6,9 +6,7 @@ from django.core.management.base import make_option
 
 from musicdb.utils.urls import google_search
 from musicdb.utils.commands import AddMusicFilesCommand
-from musicdb.utils.progress import progress
 
-from musicdb.common.models import File, MusicFile
 from musicdb.nonclassical.models import Artist
 
 class Command(AddMusicFilesCommand):
@@ -53,7 +51,6 @@ class Command(AddMusicFilesCommand):
                 album.save()
         album_year = album.year
 
-
         while 1:
             print
             print "     %s - %s" % (artist_name, album_name),
@@ -64,16 +61,8 @@ class Command(AddMusicFilesCommand):
 
             self.show_filenames(files)
 
-            input = raw_input('[Y] or 1-%d to edit track name: ' % len(files))
-
-            try:
-                filename = files.keys()[int(input) - 1]
-
-                files[filename] = self.prompt_new_name(files[filename])
-
-            except (ValueError, KeyError):
-                if input.upper() in ('', 'Y'):
-                    break
+            if self.edit_track(files):
+                break
 
         for trackname in files.values():
             assert trackname.strip()
@@ -81,47 +70,6 @@ class Command(AddMusicFilesCommand):
         print "Creating CD..."
         cd = album.cds.create(num=album.cds.count() + 1)
 
-        try:
-            print "Copying tracks..."
-
-            music_files = []
-            for idx, (filename, trackname) in enumerate(progress(files.iteritems(), len(files))):
-                extension = os.path.splitext(filename)[1][1:]
-
-                file_ = File.objects.create_from_path(
-                    src=filename,
-                    location='albums/%d/%.2d.%s' % (
-                        cd.pk,
-                        idx + 1,
-                        extension.lower() or 'mp3',
-                    ),
-                )
-
-                music_file = MusicFile.objects.create(
-                    file=file_,
-                    rev_model='track',
-                )
-
-                music_files.append(music_file)
-
-                cd.tracks.create(
-                    num=idx + 1,
-                    title=trackname,
-                    music_file=music_file,
-                )
-
-            print "Tagging tracks..."
-            for music_file in progress(music_files):
-                music_file.tag()
-
-        except:
-            path = os.path.join(
-                settings.MEDIA_LOCATION_RW,
-                'albums', '%s' % cd.pk
-            )
-
-            print "Caught exception; cleaning up %r" % path
-            shutil.rmtree(path)
-            raise
+        self.copy_and_tag(files, 'albums/%d' % cd.pk, 'track', cd.tracks)
 
         print "Saving to database..."
