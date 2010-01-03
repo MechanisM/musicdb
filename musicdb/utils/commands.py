@@ -40,8 +40,6 @@ class AddMusicFilesCommand(BaseCommand):
 
             raise CommandError("%r is not a valid file" % filename)
 
-        readline.parse_and_bind("tab: complete")
-
         try:
             self._handle_files(files)
         except KeyboardInterrupt:
@@ -52,8 +50,7 @@ class AddMusicFilesCommand(BaseCommand):
         return self.handle_files(files)
 
     def prompt_string(self, name, qs, field, default=None):
-        readline.set_completer(QuerySetCompleter(qs, field))
-        readline.set_completer_delims('')
+        QuerySetCompleter(qs, field).install()
 
         if default:
             msg = '%s [%s]: ' % (name, default)
