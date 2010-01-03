@@ -1,3 +1,5 @@
+from django.db.models.expressions import F
+
 from musicdb.utils.commands import AddMusicFilesCommand
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
@@ -92,7 +94,7 @@ class Command(AddMusicFilesCommand):
 
             print
 
-            s = raw_input('Add [a]rtist or [e]nsemble: ')
+            s = raw_input('Add [a]rtist or [e]nsemble, [d]elete entry: ')
             if not s:
                 break
 
@@ -111,6 +113,20 @@ class Command(AddMusicFilesCommand):
                     recording=recording,
                     num=recording.performances.count() + 1,
                 )
+            elif s.lower() == 'd':
+                try:
+                    num = int(raw_input('# to delete: '))
+
+                    if num < 1:
+                        raise ValueError()
+
+                    recording.performances.all()[num - 1].delete()
+                    recording.performances.filter(num__gt=num).update(
+                        num=F('num') - 1,
+                    )
+
+                except (ValueError, IndexError):
+                    continue
 
     def get_ensemble(self):
         name = self.prompt_string(
