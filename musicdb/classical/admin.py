@@ -37,6 +37,7 @@ class WorkAdmin(admin.ModelAdmin):
         }),
     )
     raw_id_fields = ('composer',)
+    search_fields = ('title',)
 admin.site.register(models.Work, WorkAdmin)
 
 class CatalogueAdmin(admin.ModelAdmin):
