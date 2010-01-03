@@ -3,7 +3,7 @@ from django.db.models.expressions import F
 from musicdb.utils.commands import AddMusicFilesCommand
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
-    EnsemblePerformance, Ensemble
+    EnsemblePerformance, Ensemble, Performance
 
 """
 TODO
@@ -79,8 +79,9 @@ class Command(AddMusicFilesCommand):
     def performances(self, recording):
         while True:
             print "Performers"
+            qs = recording.performances.all()
 
-            for p in recording.performances.all():
+            for p in qs:
                 subclass = p.get_subclass()
 
                 if p.subclass == 'artist':
@@ -94,7 +95,7 @@ class Command(AddMusicFilesCommand):
 
             print
 
-            s = raw_input('Add [a]rtist or [e]nsemble, [d]elete entry: ')
+            s = raw_input('Add [a]rtist or [e]nsemble, [d]elete entry, move entry [u]p: ')
             if not s:
                 break
 
@@ -104,14 +105,14 @@ class Command(AddMusicFilesCommand):
                     artist=artist,
                     instrument=self.get_instrument(artist),
                     recording=recording,
-                    num=recording.performances.count() + 1,
+                    num=qs.count() + 1,
                 )
             elif s.lower() == 'e':
                 ensemble = self.get_ensemble()
                 EnsemblePerformance.objects.create(
                     ensemble=ensemble,
                     recording=recording,
-                    num=recording.performances.count() + 1,
+                    num=qs.count() + 1,
                 )
             elif s.lower() == 'd':
                 try:
@@ -120,12 +121,26 @@ class Command(AddMusicFilesCommand):
                     if num < 1:
                         raise ValueError()
 
-                    recording.performances.all()[num - 1].delete()
-                    recording.performances.filter(num__gt=num).update(
+                    qs.get(num=num).delete()
+                    qs.filter(num__gt=num).update(
                         num=F('num') - 1,
                     )
 
-                except (ValueError, IndexError):
+                except (ValueError, Performance.DoesNotExist):
+                    print "E: Invalid number"
+
+            elif s.lower() in 'u':
+                try:
+                    num = int(raw_input('# to move up: '))
+
+                    if num <= 1 or num > qs.count():
+                        raise ValueError()
+
+                    qs.filter(num=num - 1).update(num=0)
+                    qs.filter(num=num).update(num=num - 1)
+                    qs.filter(num=0).update(num=num)
+
+                except ValueError:
                     print "E: Invalid number"
 
     def get_ensemble(self):
