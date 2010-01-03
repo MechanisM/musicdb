@@ -1,5 +1,6 @@
 import readline
 
+from django.db.models import Count
 from django.db.models.expressions import F
 
 from musicdb.utils.commands import AddMusicFilesCommand
@@ -200,10 +201,14 @@ class Command(AddMusicFilesCommand):
         return ensemble
 
     def get_instrument(self, artist):
-        default = None
-        artist_instruments = list(artist.instruments())
-        if len(artist_instruments) == 1:
-            default = artist_instruments[0].noun
+        try:
+            instrument_id = artist.performances.values('instrument'). \
+                annotate(count=Count('instrument')). \
+                order_by('-count')[0]['instrument']
+
+            default = Instrument.objects.get(pk=instrument_id).noun
+        except KeyError:
+            default = None
 
         noun = self.prompt_string(
             'Instrument', Instrument.objects.all(), 'noun', default,
