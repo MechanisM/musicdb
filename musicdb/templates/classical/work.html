@@ -26,6 +26,7 @@
 {% ifnotequal recording.movements.count 1 %}
   <ul style="list-style-type:upper-roman">
   {% for movement in recording.movements.all %}
+    {{ movement.section_title }}
     <li><a href="{% url play-music-file movement.music_file.id %}">{{ movement }}</a> <small>{{ movement.music_file.length|duration }}</small></li>
   {% endfor %}
   </ul>
