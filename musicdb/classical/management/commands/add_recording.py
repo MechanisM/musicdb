@@ -207,7 +207,7 @@ class Command(AddMusicFilesCommand):
                 order_by('-count')[0]['instrument']
 
             default = Instrument.objects.get(pk=instrument_id).noun
-        except KeyError:
+        except IndexError:
             default = None
 
         noun = self.prompt_string(
