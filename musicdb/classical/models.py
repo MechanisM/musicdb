@@ -399,7 +399,12 @@ class Movement(models.Model):
         title = self.recording.work.pretty_title(show_year=False)
         if self.recording.movements.count() > 1:
             title += u' - %s. %s' % (roman.toRoman(self.num), self.title)
-        title += u' (%s)' % self.recording.short_name()
+
+        details = self.recording.short_name()
+        if self.recording.year:
+            details += ', %d' % self.recording.year
+
+        title += u' (%s)' % details
 
         return {
             'title': title,
