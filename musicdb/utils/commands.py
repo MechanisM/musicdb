@@ -15,6 +15,14 @@ from .progress import progress
 from .completion import QuerySetCompleter
 from .track_names import track_names_from_filenames
 
+"""
+TODO
+
+ - Track editing
+   * Reset
+   * Regular expressions
+"""
+
 class AddMusicFilesCommand(BaseCommand):
     CAPITALISE_TRACK_NAMES = True
 

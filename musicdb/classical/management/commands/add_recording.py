@@ -13,7 +13,7 @@ TODO
 
  - Work catalogue selection / creation
  - Re-using previous composer/performers/recording year
-
+ - Re-using previous recording movement names
 """
 
 class Command(AddMusicFilesCommand):
