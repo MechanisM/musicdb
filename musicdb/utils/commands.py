@@ -49,23 +49,26 @@ class AddMusicFilesCommand(BaseCommand):
     def _handle_files(self, files):
         return self.handle_files(files)
 
-    def prompt_string(self, name, qs, field, default=None):
-        QuerySetCompleter(qs, field).install()
+    def prompt_string(self, name, qs=None, field=None, default=None):
+        if qs and field:
+            QuerySetCompleter(qs, field).install()
+        else:
+            readline.set_completer(None)
 
-        if default:
-            msg = '%s [%s]: ' % (name, default)
+        if default is not None:
+            msg = '%s [%r]: ' % (name, default)
         else:
             msg = '%s: ' % name
 
         while 1:
-                input = raw_input(msg)
+            input = raw_input(msg)
 
-                if not input:
-                    if default:
-                        return default
-                    continue
+            if not input:
+                if default is not None:
+                    return default
+                continue
 
-                return input.decode('utf8')
+            return input.decode('utf8')
 
     def edit_track(self, files):
         input = raw_input('[Y] or 1-%d to edit name: ' % len(files))
