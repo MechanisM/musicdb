@@ -3,7 +3,6 @@ import readline
 class BaseCompleter(object):
     def install(self):
         readline.set_completer(self)
-        readline.parse_and_bind('completion-query-items 0')
         readline.parse_and_bind('tab: complete')
         readline.set_completer_delims('')
 
