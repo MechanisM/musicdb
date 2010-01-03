@@ -93,8 +93,14 @@ class Command(AddMusicFilesCommand):
 
         keys = dict((unicode(x).strip().encode('utf8'), x) for x in Key.objects.all())
         Completer(keys.keys()).install()
+
+        key = None
         while True:
-            key_name = raw_input('Key: ')
+            key_name = raw_input('Key [None]: ').strip()
+
+            if not key_name:
+                break
+
             try:
                 key = keys[key_name.strip()]
                 break
