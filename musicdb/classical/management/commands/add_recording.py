@@ -28,7 +28,8 @@ class Command(AddMusicFilesCommand):
 
         self.performances(recording)
 
-        self.confirm_movement_titles(recording, files)
+        if len(files) > 1:
+            self.confirm_movement_titles(recording, files)
 
         self.copy_and_tag(
             files,
