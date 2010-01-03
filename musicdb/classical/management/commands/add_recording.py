@@ -1,6 +1,6 @@
 from musicdb.utils.commands import AddMusicFilesCommand
 
-from musicdb.classical.models import Artist
+from musicdb.classical.models import Artist, Instrument, ArtistPerformance
 
 """
 TODO
@@ -15,7 +15,7 @@ class Command(AddMusicFilesCommand):
         self.show_filenames(files)
 
         if False:
-            composer = self.get_composer()
+            composer = self.get_artist('Composer')
             work = self.get_work(composer)
         else:
             composer = Artist.objects.get(surname='beethoven')
@@ -24,6 +24,8 @@ class Command(AddMusicFilesCommand):
         recording = work.recordings.create(
             year=self.prompt_year('Recorded'),
         )
+
+        self.performances(recording)
 
         self.confirm_movement_titles(recording, files)
 
@@ -34,20 +36,20 @@ class Command(AddMusicFilesCommand):
             recording.movements,
         )
 
-    def get_composer(self):
-        composer_surname = self.prompt_string(
-            'Composer surname',
+    def get_artist(self, name):
+        surname = self.prompt_string(
+            '%s surname' % name,
             Artist.objects.all(),
             'surname',
         )
-        composer_forenames = self.prompt_string(
-            'Composer forenames',
-            Artist.objects.filter(surname=composer_surname),
+        forenames = self.prompt_string(
+            '%s forenames' % name,
+            Artist.objects.filter(surname=surname),
             'forenames',
         )
 
         artist, created = Artist.objects.get_or_create(
-            surname=composer_surname, forenames=composer_forenames,
+            surname=surname, forenames=forenames,
         )
 
         if created:
@@ -56,7 +58,7 @@ class Command(AddMusicFilesCommand):
             artist.died = prompt('Died')
             artist.save()
 
-        print "I: %s artist %s" % (created and 'Created' or 'Using existing', artist)
+        print "I: %s %s %s" % (created and 'Created' or 'Using existing', name.lower(), artist)
 
         return artist
 
@@ -66,6 +68,59 @@ class Command(AddMusicFilesCommand):
         )
 
         return composer.works.get(slug=work_slug)
+
+    def performances(self, recording):
+        while True:
+            print "Performers"
+
+            for p in recording.performances.all():
+                subclass = p.get_subclass()
+
+                if p.subclass == 'artist':
+                    print "% 3d) %s (%s)" % (
+                        p.num,
+                        subclass.artist.long_name(),
+                        subclass.instrument.noun.lower(),
+                    )
+                else:
+                    assert False
+
+            print
+
+            s = raw_input('Add [a]rtist or [e]nsemble: ')
+            if not s:
+                break
+
+            if s.lower() == 'a':
+                artist = self.get_artist('Performer')
+                ArtistPerformance.objects.create(
+                    artist=artist,
+                    instrument=self.get_instrument(artist),
+                    recording=recording,
+                    num=recording.performances.count() + 1,
+                )
+
+    def get_instrument(self, artist):
+        default = None
+        artist_instruments = list(artist.instruments())
+        if len(artist_instruments) == 1:
+            default = artist_instruments[0].noun
+
+        noun = self.prompt_string(
+            'Instrument', Instrument.objects.all(), 'noun', default,
+        )
+
+        try:
+            return Instrument.objects.get(noun=noun)
+        except Instrument.DoesNotExist:
+            adjective = ''
+            while not adjective:
+                adjective = raw_input('Adjective for "%s player": ' % noun)
+
+            return Instrument.objects.create(
+                noun=noun,
+                adjective=adjective,
+            )
 
     def confirm_movement_titles(self, recording, files):
         while True:
