@@ -126,7 +126,7 @@ class Command(AddMusicFilesCommand):
                     )
 
                 except (ValueError, IndexError):
-                    continue
+                    print "E: Invalid number"
 
     def get_ensemble(self):
         name = self.prompt_string(
