@@ -24,7 +24,7 @@ __all__ = ('Artist', 'Ensemble', 'Work', 'Catalogue', 'WorkCatalogue', \
 
 class Artist(AbstractArtist):
     surname = models.CharField(max_length=100)
-    forenames = models.CharField(max_length=100)
+    forenames = models.CharField(max_length=100, blank=True)
 
     original_surname = models.CharField(max_length=100, blank=True)
     original_forenames = models.CharField(max_length=100, blank=True)
@@ -74,7 +74,7 @@ class Artist(AbstractArtist):
     short_name = slug_name
 
     def long_name(self):
-        name = "%s %s" % (self.forenames, self.surname)
+        name = self.short_name()
 
         if self.original_surname or self.original_forenames:
             name += " (%s %s)" % (self.original_forenames, self.original_surname)
