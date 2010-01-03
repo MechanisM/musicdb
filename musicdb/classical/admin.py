@@ -24,6 +24,7 @@ admin.site.register(models.Artist, ArtistAdmin)
 
 class EnsembleAdmin(admin.ModelAdmin):
     fields = ('name', 'nationality')
+    search_fields = ('name',)
 admin.site.register(models.Ensemble, EnsembleAdmin)
 
 class WorkAdmin(admin.ModelAdmin):
