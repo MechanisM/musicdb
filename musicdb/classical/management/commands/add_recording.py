@@ -9,7 +9,6 @@ from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
 TODO
 
  - Work selection/creation
- - Ensemble/artist/instrument selection
 
 """
 
