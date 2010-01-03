@@ -44,6 +44,7 @@ admin.site.register(models.Catalogue, CatalogueAdmin)
 
 class RecordingAdmin(admin.ModelAdmin):
     raw_id_fields = ('work',)
+    search_fields = ('work__title',)
 admin.site.register(models.Recording, RecordingAdmin)
 
 class MovementAdmin(admin.ModelAdmin):
