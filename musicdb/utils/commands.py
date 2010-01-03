@@ -147,9 +147,7 @@ class AddMusicFilesCommand(BaseCommand):
                     music_file=music_file,
                 )
 
-                music_files.append(music_files)
-
-                music_file.tag()
+                music_files.append(music_file)
 
             # Tag in a seperate run as we may return different metadata
             # depending on the presence of other tracks.
