@@ -27,6 +27,9 @@ class EnsembleAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 admin.site.register(models.Ensemble, EnsembleAdmin)
 
+class WorkCatalogueInline(admin.TabularInline):
+    model = models.WorkCatalogue
+
 class WorkAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
@@ -38,6 +41,7 @@ class WorkAdmin(admin.ModelAdmin):
     )
     raw_id_fields = ('composer',)
     search_fields = ('title',)
+    inlines = (WorkCatalogueInline,)
 admin.site.register(models.Work, WorkAdmin)
 
 class CatalogueAdmin(admin.ModelAdmin):
