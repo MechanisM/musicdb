@@ -73,7 +73,7 @@ class AddMusicFilesCommand(BaseCommand):
                     return default
                 continue
 
-            return input.decode('utf8')
+            return input.decode('utf8').strip()
 
     def edit_track(self, files):
         input = raw_input('[Y] or 1-%d to edit name: ' % len(files))
