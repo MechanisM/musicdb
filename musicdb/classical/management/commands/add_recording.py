@@ -16,12 +16,8 @@ class Command(AddMusicFilesCommand):
     def handle_files(self, files):
         self.show_filenames(files)
 
-        if False:
-            composer = self.get_artist('Composer')
-            work = self.get_work(composer)
-        else:
-            composer = Artist.objects.get(surname='beethoven')
-            work = composer.works.get(slug='seven-variations-on-god-save-the-king-woo-78-in-c')
+        composer = self.get_artist('Composer')
+        work = self.get_work(composer)
 
         recording = work.recordings.create(
             year=self.prompt_year('Recorded'),
