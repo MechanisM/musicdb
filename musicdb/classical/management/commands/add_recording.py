@@ -1,6 +1,7 @@
 from musicdb.utils.commands import AddMusicFilesCommand
 
-from musicdb.classical.models import Artist, Instrument, ArtistPerformance
+from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
+    EnsemblePerformance, Ensemble
 
 """
 TODO
@@ -83,7 +84,7 @@ class Command(AddMusicFilesCommand):
                         subclass.instrument.noun.lower(),
                     )
                 else:
-                    assert False
+                    print "% 3d) %s" % (p.num, subclass.ensemble)
 
             print
 
@@ -99,6 +100,22 @@ class Command(AddMusicFilesCommand):
                     recording=recording,
                     num=recording.performances.count() + 1,
                 )
+            elif s.lower() == 'e':
+                ensemble = self.get_ensemble()
+                EnsemblePerformance.objects.create(
+                    ensemble=ensemble,
+                    recording=recording,
+                    num=recording.performances.count() + 1,
+                )
+
+    def get_ensemble(self):
+        name = self.prompt_string(
+            'Ensemble', Ensemble.objects.all(), 'name',
+        )
+
+        ensemble, created = Ensemble.objects.get_or_create(name=name)
+
+        return ensemble
 
     def get_instrument(self, artist):
         default = None
