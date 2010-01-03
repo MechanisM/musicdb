@@ -87,7 +87,21 @@ class Command(AddMusicFilesCommand):
                 print "E: Unknown work %r" % work_name
                 continue
 
-        assert False
+        title = self.prompt_string('Title')
+        key = None
+        nickname = self.prompt_string('Nickname/subtitle', default='')
+        year = self.prompt_year('Composed', low=1300, high=2010)
+
+        work = composer.works.create(
+            title=title,
+            key=key,
+            nickname=nickname,
+            year=year,
+        )
+
+        print "I: Created new work: %s" % work
+
+        return work
 
     def performances(self, recording):
         while True:
