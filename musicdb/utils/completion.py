@@ -1,4 +1,7 @@
-class QuerySetCompleter(object):
+class BaseCompleter(object):
+    pass
+
+class QuerySetCompleter(BaseCompleter):
     """
     import readline
     from mymodels import Model
@@ -37,7 +40,7 @@ class QuerySetCompleter(object):
         except IndexError:
             return None
 
-class Completer(object):
+class Completer(BaseCompleter):
     """
     import readline
 
