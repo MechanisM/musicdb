@@ -5,6 +5,8 @@ def track_names_from_filenames(filenames, capitalise=True):
     filenames = [os.path.basename(x) for x in filenames]
     filenames = [re.sub('\.[^\.]+$', '', x) for x in filenames]
     filenames = [re.sub('^[\d_\-]+', '', x) for x in filenames]
+    filenames = [x.replace('[', '(') for x in filenames]
+    filenames = [x.replace(']', ')') for x in filenames]
 
     common_prefix = os.path.commonprefix(filenames)
     filenames = [x[len(common_prefix):] for x in filenames]
