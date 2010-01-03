@@ -36,6 +36,7 @@ class WorkAdmin(admin.ModelAdmin):
             'fields': ('year', 'year_question'),
         }),
     )
+    raw_id_fields = ('composer',)
 admin.site.register(models.Work, WorkAdmin)
 
 class CatalogueAdmin(admin.ModelAdmin):
