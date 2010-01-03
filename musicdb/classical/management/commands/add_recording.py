@@ -6,7 +6,7 @@ from musicdb.utils.commands import AddMusicFilesCommand
 from musicdb.utils.completion import Completer
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
-    EnsemblePerformance, Ensemble, Performance
+    EnsemblePerformance, Ensemble, Performance, Key
 
 """
 TODO
@@ -88,7 +88,18 @@ class Command(AddMusicFilesCommand):
                 continue
 
         title = self.prompt_string('Title')
-        key = None
+
+        keys = dict((unicode(x).strip().encode('utf8'), x) for x in Key.objects.all())
+        Completer(keys.keys()).install()
+        while True:
+            key_name = raw_input('Key: ')
+            try:
+                key = keys[key_name.strip()]
+                break
+            except KeyError:
+                print "E: Unknown key %r" % key_name
+                continue
+
         nickname = self.prompt_string('Nickname/subtitle', default='')
         year = self.prompt_year('Composed', low=1300, high=2010)
 
