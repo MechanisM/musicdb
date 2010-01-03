@@ -19,6 +19,7 @@ class ArtistAdmin(admin.ModelAdmin):
             'fields': ('original_surname', 'original_forenames',)
         }),
     )
+    search_fields = ('surname', 'forenames')
 admin.site.register(models.Artist, ArtistAdmin)
 
 class EnsembleAdmin(admin.ModelAdmin):
