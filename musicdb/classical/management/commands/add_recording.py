@@ -16,6 +16,8 @@ TODO
 """
 
 class Command(AddMusicFilesCommand):
+    CAPITALISE_TRACK_NAMES = False
+
     def handle_files(self, files):
         self.show_filenames(files)
 

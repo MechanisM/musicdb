@@ -16,6 +16,8 @@ from .completion import QuerySetCompleter
 from .track_names import track_names_from_filenames
 
 class AddMusicFilesCommand(BaseCommand):
+    CAPITALISE_TRACK_NAMES = True
+
     def handle(self, *files, **options):
         self.options = options
 
@@ -28,7 +30,10 @@ class AddMusicFilesCommand(BaseCommand):
                 if os.path.splitext(filename)[1].lower() in ('.flac', '.mp3'):
                     files.append(filename)
 
-        tracknames = track_names_from_filenames(files)
+        tracknames = track_names_from_filenames(
+            files,
+            capitalise=self.CAPITALISE_TRACK_NAMES,
+        )
         files = SortedDict(zip(files, tracknames))
 
         if not files:
