@@ -43,10 +43,14 @@ class Command(AddMusicFilesCommand):
             Artist.objects.all(),
             'surname',
         )
+
+        qs = Artist.objects.filter(surname=surname)
+        default = qs.count() == 1 and qs[0].forenames or None
         forenames = self.prompt_string(
             '%s forenames' % name,
-            Artist.objects.filter(surname=surname),
+            qs,
             'forenames',
+            default,
         )
 
         artist, created = Artist.objects.get_or_create(
