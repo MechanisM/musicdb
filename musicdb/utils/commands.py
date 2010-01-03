@@ -109,9 +109,8 @@ class AddMusicFilesCommand(BaseCommand):
 
     def copy_and_tag(self, files, target, rev_model, manager):
         try:
-            print "Copying tracks..."
+            print "Copying and tagging tracks..."
 
-            music_files = []
             for idx, (filename, trackname) in enumerate(progress(files.iteritems(), len(files))):
                 extension = os.path.splitext(filename)[1][1:]
 
@@ -135,10 +134,6 @@ class AddMusicFilesCommand(BaseCommand):
                     music_file=music_file,
                 )
 
-                music_files.append(music_file)
-
-            print "Tagging tracks..."
-            for music_file in progress(music_files):
                 music_file.tag()
 
         except:
