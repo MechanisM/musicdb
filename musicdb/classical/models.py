@@ -355,6 +355,12 @@ class Recording(models.Model):
             ret += u" (%d)" % self.year
         return ret
 
+    def delete(self, *args, **kwargs):
+        for track in self.get_tracks():
+            track.delete()
+
+        super(Recording, self).delete(*args, **kwargs)
+
     def get_absolute_url(self):
         return "%s#%s" % (self.work.get_absolute_url(), self.slug)
 
