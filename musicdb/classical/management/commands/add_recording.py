@@ -7,13 +7,12 @@ from musicdb.utils.commands import AddMusicFilesCommand
 from musicdb.utils.completion import Completer
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
-    EnsemblePerformance, Ensemble, Performance, Key
+    EnsemblePerformance, Ensemble, Performance, Key, Recording
 
 """
 TODO
 
  - Work catalogue selection / creation
- - Re-using previous composer/performers/recording year
  - Re-using previous recording movement names
 """
 
@@ -23,14 +22,28 @@ class Command(AddMusicFilesCommand):
     def handle_files(self, files):
         self.show_filenames(files)
 
-        composer = self.get_artist('Composer')
+        if raw_input('Re-use last recording info? [Y] ').strip().lower() in ('y', ''):
+            prev = Recording.objects.order_by('-pk')[0]
+            composer = prev.work.composer
+
+            print u"I: Using %s - %s (%s) as basis" % (
+                prev.work.composer.short_name(),
+                prev.work,
+                prev.short_name(),
+            )
+        else:
+            composer = self.get_artist('Composer')
+            prev = None
+
         work = self.get_work(composer)
 
-        recording = work.recordings.create(
-            year=self.prompt_year('Recorded'),
+        year = self.prompt_year(
+            'Recorded',
+            default=prev and prev.year,
         )
+        recording = work.recordings.create(year=year)
 
-        self.performances(recording)
+        self.performances(prev, recording)
 
         if len(files) > 1:
             self.confirm_movement_titles(recording, files)
@@ -124,7 +137,23 @@ class Command(AddMusicFilesCommand):
 
         return work
 
-    def performances(self, recording):
+    def performances(self, prev, recording):
+        if prev:
+            # Copy previous performances onto this one
+            for perf in prev.performances.all():
+                kwargs = {
+                    'recording': recording,
+                    'num': perf.num,
+                }
+
+                if perf.subclass == 'artist':
+                    kwargs['artist'] = perf.get_subclass().artist
+                    kwargs['instrument'] = perf.get_subclass().instrument
+                    ArtistPerformance.objects.create(**kwargs)
+                else:
+                    kwargs['ensemble'] = perf.get_subclass().ensemble
+                    EnsemblePerformance.objects.create(**kwargs)
+
         while True:
             print "Performers"
             qs = recording.performances.all()

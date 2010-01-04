@@ -100,13 +100,17 @@ class AddMusicFilesCommand(BaseCommand):
 
         return False
 
-    def prompt_year(self, name, low=1900, high=2020):
+    def prompt_year(self, name, low=1900, high=2020, default=None):
         readline.set_completer(None)
         while 1:
             try:
-                input = raw_input('%s: ' % name)
+                if default:
+                    input = raw_input('%s [%d]: ' % (name, default))
+                else:
+                    input = raw_input('%s: ' % name)
+
                 if not input:
-                    return None
+                    return default or None
 
                 year = int(input)
 
