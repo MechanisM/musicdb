@@ -16,7 +16,7 @@ def track_names_from_filenames(filenames, capitalise=True):
     if len(common_suffix) >= 3:
         filenames = [x[:-len(common_suffix)] for x in filenames]
 
-    filenames = [re.sub('^[\d_\.\-\s]+', '', x) for x in filenames]
+    filenames = [re.sub('^[\d_\.\-\sIV]+', '', x) for x in filenames]
     filenames = [re.sub('[_\s]+', ' ', x) for x in filenames]
 
     filenames = [x or '(unknown)' for x in filenames]
