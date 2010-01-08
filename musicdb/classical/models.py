@@ -208,7 +208,7 @@ class Work(models.Model, Mergeable):
             ret += u", %s" % ", ".join([str(x) for x in self.catalogues.all()])
 
         if show_year and self.year:
-            ret += " (%d)" % self.year
+            ret += " (%d%s)" % (self.year, self.year_question and '?' and '')
 
         return ret
 
