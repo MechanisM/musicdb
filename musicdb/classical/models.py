@@ -198,8 +198,6 @@ class Work(models.Model, Mergeable):
             ('key', u" in %s"),
             ('nickname', u" «%s»"),
         ]
-        if show_year:
-            extras.append(('year', " (%d)"))
 
         ret = self.title
         for attr, format in extras:
@@ -208,6 +206,9 @@ class Work(models.Model, Mergeable):
 
         if self.catalogues.count():
             ret += u", %s" % ", ".join([str(x) for x in self.catalogues.all()])
+
+        if show_year and self.year:
+            ret += " (%d)" % self.year
 
         return ret
 
