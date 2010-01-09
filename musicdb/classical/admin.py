@@ -48,27 +48,33 @@ admin.site.register(Work, WorkAdmin)
 
 class CatalogueAdmin(admin.ModelAdmin):
     fields = ('artist', 'prefix', 'num')
+    raw_id_fields = ('artist',)
 admin.site.register(Catalogue, CatalogueAdmin)
+
+class MovementInline(admin.TabularInline):
+    model = Movement
+    fields = ('num', 'title', 'section_title')
 
 class RecordingAdmin(admin.ModelAdmin):
     raw_id_fields = ('work',)
     search_fields = ('work__title',)
+    inlines = (MovementInline,)
 admin.site.register(Recording, RecordingAdmin)
 
 class MovementAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('title',),
+            'fields': ('num', 'title'),
         }),
         (None, {
             'fields': ('recording',),
         }),
         ('Other', {
-            'fields': ('section_title', 'num'),
+            'fields': ('section_title',),
         }),
     )
+    raw_id_fields = ('recording',)
 admin.site.register(Movement, MovementAdmin)
 
 admin.site.register(Category)
 admin.site.register(Instrument)
-admin.site.register(Key)
