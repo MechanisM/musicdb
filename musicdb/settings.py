@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'musicdb.common',
     'musicdb.classical',
-    'musicdb.classical_add',
     'musicdb.nonclassical',
     'treebeard',
     'django_fuse',
