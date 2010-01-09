@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from musicdb.classical import models
+from .models import Artist, Ensemble, WorkCatalogue, Work, Key, Instrument, \
+    Category, Recording, Catalogue, Movement
 
 class ArtistAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -20,15 +21,15 @@ class ArtistAdmin(admin.ModelAdmin):
         }),
     )
     search_fields = ('surname', 'forenames')
-admin.site.register(models.Artist, ArtistAdmin)
+admin.site.register(Artist, ArtistAdmin)
 
 class EnsembleAdmin(admin.ModelAdmin):
     fields = ('name', 'nationality')
     search_fields = ('name',)
-admin.site.register(models.Ensemble, EnsembleAdmin)
+admin.site.register(Ensemble, EnsembleAdmin)
 
 class WorkCatalogueInline(admin.TabularInline):
-    model = models.WorkCatalogue
+    model = WorkCatalogue
 
 class WorkAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -42,16 +43,16 @@ class WorkAdmin(admin.ModelAdmin):
     raw_id_fields = ('composer',)
     search_fields = ('title',)
     inlines = (WorkCatalogueInline,)
-admin.site.register(models.Work, WorkAdmin)
+admin.site.register(Work, WorkAdmin)
 
 class CatalogueAdmin(admin.ModelAdmin):
     fields = ('artist', 'prefix', 'num')
-admin.site.register(models.Catalogue, CatalogueAdmin)
+admin.site.register(Catalogue, CatalogueAdmin)
 
 class RecordingAdmin(admin.ModelAdmin):
     raw_id_fields = ('work',)
     search_fields = ('work__title',)
-admin.site.register(models.Recording, RecordingAdmin)
+admin.site.register(Recording, RecordingAdmin)
 
 class MovementAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -65,8 +66,8 @@ class MovementAdmin(admin.ModelAdmin):
             'fields': ('section_title', 'num'),
         }),
     )
-admin.site.register(models.Movement, MovementAdmin)
+admin.site.register(Movement, MovementAdmin)
 
-admin.site.register(models.Category)
-admin.site.register(models.Instrument)
-admin.site.register(models.Key)
+admin.site.register(Category)
+admin.site.register(Instrument)
+admin.site.register(Key)
