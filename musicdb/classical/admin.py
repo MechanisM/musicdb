@@ -30,6 +30,7 @@ admin.site.register(Ensemble, EnsembleAdmin)
 
 class WorkCatalogueInline(admin.TabularInline):
     model = WorkCatalogue
+    ordering = ('artist__surname',)
 
 class WorkAdmin(admin.ModelAdmin):
     fieldsets = (
