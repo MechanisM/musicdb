@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import glob
 import shutil
@@ -20,7 +21,6 @@ TODO
 
  - Track editing
    * Reset
-   * Regular expressions
 """
 
 class AddMusicFilesCommand(BaseCommand):
@@ -84,7 +84,7 @@ class AddMusicFilesCommand(BaseCommand):
             return input.decode('utf8').strip()
 
     def edit_track(self, files):
-        input = raw_input('[Y] or 1-%d to edit name: ' % len(files))
+        input = raw_input('[A]ccept, 1-%d to edit name, s/pattern/repl/g: ' % len(files))
 
         try:
             filename = files.keys()[int(input) - 1]
@@ -97,6 +97,20 @@ class AddMusicFilesCommand(BaseCommand):
         except (ValueError, KeyError):
             if input.upper() in ('', 'Y'):
                 return True
+
+        if input.startswith('s/'):
+            elems = input.split('/')
+            if len(elems) != 4:
+                print "W: Malformed regular expression"
+                return False
+
+            count = 0
+            for filename, name in files.iteritems():
+                new_name = re.sub(elems[1], elems[2], name)
+                if name != new_name:
+                    files[filename] = new_name
+                    count += 1
+            print "I: %d track(s) changed" % count
 
         return False
 
