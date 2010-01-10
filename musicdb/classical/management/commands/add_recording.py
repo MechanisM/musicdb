@@ -55,7 +55,7 @@ class Command(AddMusicFilesCommand):
             recording.movements,
         )
 
-    def get_artist(self, name):
+    def get_artist(self, name, prompt_years=True):
         surname = self.prompt_string(
             '%s surname' % name,
             Artist.objects.all(),
@@ -63,7 +63,7 @@ class Command(AddMusicFilesCommand):
         )
 
         qs = Artist.objects.filter(surname=surname)
-        default = qs.count() == 1 and qs[0].forenames or None
+        default = qs.count() == 1 and qs[0].forenames or ''
         forenames = self.prompt_string(
             '%s forenames' % name,
             qs,
@@ -75,7 +75,7 @@ class Command(AddMusicFilesCommand):
             surname=surname, forenames=forenames,
         )
 
-        if created:
+        if created and prompt_years:
             prompt = lambda title: self.prompt_year(title, low=1300, high=2010)
             artist.born = prompt('Born')
             artist.died = prompt('Died')
@@ -177,7 +177,7 @@ class Command(AddMusicFilesCommand):
                 break
 
             if s.lower() == 'a':
-                artist = self.get_artist('Performer')
+                artist = self.get_artist('Performer', prompt_years=False)
                 ArtistPerformance.objects.create(
                     artist=artist,
                     instrument=self.get_instrument(artist),
