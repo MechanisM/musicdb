@@ -57,7 +57,7 @@ class File(models.Model):
 
     def absolute_location(self, for_writing=False):
         base = {
-            True:  settings.MEDIA_LOCATION_RW,
+            True:  settings.MEDIA_LOCATION,
             False: settings.MEDIA_LOCATION,
         }[for_writing]
 
@@ -103,7 +103,7 @@ class MusicFile(models.Model):
     def tag(self):
         try:
             data = self.get_parent_instance().metadata()
-            filename = os.path.join(settings.MEDIA_LOCATION_RW, self.file.location)
+            filename = os.path.join(settings.MEDIA_LOCATION, self.file.location)
             audio = MutagenFile(filename)
             audio.delete()
             if isinstance(audio, mp3.MP3):

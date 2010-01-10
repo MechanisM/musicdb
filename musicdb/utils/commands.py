@@ -168,7 +168,7 @@ class AddMusicFilesCommand(BaseCommand):
                 music_file.tag()
 
         except:
-            path = os.path.join(settings.MEDIA_LOCATION_RW, target)
+            path = os.path.join(settings.MEDIA_LOCATION, target)
 
             print "Caught exception; cleaning up %r" % path
             shutil.rmtree(path)
