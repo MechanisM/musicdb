@@ -7,7 +7,7 @@ from musicdb.utils.commands import AddMusicFilesCommand
 from musicdb.utils.completion import Completer
 
 from musicdb.classical.models import Artist, Instrument, ArtistPerformance, \
-    EnsemblePerformance, Ensemble, Performance, Key, Recording
+    EnsemblePerformance, Ensemble, Performance, Key, Recording, Catalogue
 
 """
 TODO
@@ -133,9 +133,41 @@ class Command(AddMusicFilesCommand):
             year=year,
         )
 
+        self.get_catalogues(work)
+
         print "I: Created new work: %s" % work
 
         return work
+
+    def get_catalogues(self, work):
+        while True:
+            txt = self.prompt_string('Catalogue', default='')
+
+            try:
+                prefix, value = txt.split(' ', 1)
+
+                try:
+                    catalogue = work.composer.catalogues.get(
+                        prefix__startswith=prefix,
+                    )
+                except Catalogue.DoesNotExist:
+                    catalogue = work.composer.catalogues.create(
+                        prefix=prefix,
+                        num=work.composer.catalogues.count() + 1,
+                    )
+                    print "I: Created %s" % catalogue
+
+                work_catalogue = work.catalogues.create(
+                    value=value,
+                    catalogue=catalogue,
+                )
+
+                print "I: Work is now: %s" % work
+
+            except ValueError:
+                if not txt:
+                    break
+                print "E: Expected something like 'Op. 127'"
 
     def performances(self, prev, recording):
         if prev:
