@@ -12,6 +12,7 @@ class ArtistAdmin(admin.ModelAdmin):
         ),
     )
     search_fields = ('name',)
+    list_filter = ('is_solo_artist',)
 admin.site.register(models.Artist, ArtistAdmin)
 
 class AlbumAdmin(admin.ModelAdmin):
@@ -20,9 +21,16 @@ class AlbumAdmin(admin.ModelAdmin):
     raw_id_fields = ('artist',)
 admin.site.register(models.Album, AlbumAdmin)
 
+class TrackInline(admin.TabularInline):
+    model = models.Track
+    fields = ('num', 'title')
+    extra = 0
+
 class CDAdmin(admin.ModelAdmin):
     fields = ('album', 'num')
     raw_id_fields = ('album',)
+    search_fields = ('album__title', 'album__artist__name')
+    inlines = (TrackInline,)
 admin.site.register(models.CD, CDAdmin)
 
 class TrackAdmin(admin.ModelAdmin):

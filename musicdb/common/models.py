@@ -23,8 +23,8 @@ class AbstractArtist(models.Model):
         abstract = True
 
 class Nationality(models.Model):
-    adjective = models.CharField("For example, 'English'", max_length=50)
-    noun = models.CharField("For example, 'England'", max_length=50)
+    noun = models.CharField(help_text="For example, 'England'", max_length=50)
+    adjective = models.CharField(help_text="For example, 'English'", max_length=50)
 
     class Meta:
         ordering = ('noun',)

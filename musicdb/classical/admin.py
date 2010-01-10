@@ -31,6 +31,7 @@ admin.site.register(Ensemble, EnsembleAdmin)
 class WorkCatalogueInline(admin.TabularInline):
     model = WorkCatalogue
     ordering = ('artist__surname',)
+    extra = 2
 
 class WorkAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -54,6 +55,7 @@ admin.site.register(Catalogue, CatalogueAdmin)
 class MovementInline(admin.TabularInline):
     model = Movement
     fields = ('num', 'title', 'section_title')
+    extra = 0
 
 class RecordingAdmin(admin.ModelAdmin):
     raw_id_fields = ('work',)
