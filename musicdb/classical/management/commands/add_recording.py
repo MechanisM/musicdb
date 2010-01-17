@@ -147,6 +147,9 @@ class Command(AddMusicFilesCommand):
                 prefix, value = txt.split(' ', 1)
 
                 try:
+                    print work.composer.catalogues.filter(
+                        prefix__startswith=prefix,
+                    ).query
                     catalogue = work.composer.catalogues.get(
                         prefix__startswith=prefix,
                     )
@@ -166,6 +169,7 @@ class Command(AddMusicFilesCommand):
 
             except ValueError:
                 if not txt:
+                    work.save() # To update denormalised fields
                     break
                 print "E: Expected something like 'Op. 127'"
 
