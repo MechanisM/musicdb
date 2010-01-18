@@ -9,7 +9,7 @@ from treebeard.mp_tree import MP_Node as TreeNode
 
 from musicdb.common.models import AbstractArtist, Nationality, MusicFile
 
-from musicdb.db.mixins import Mergeable
+from musicdb.db.mixins import Mergeable, NextPreviousMixin
 from musicdb.db.fields import MySlugField, DenormalisedCharField, DirNameField
 
 from .managers import ArtistManager, WorkManager
@@ -164,7 +164,7 @@ class Ensemble(models.Model, Mergeable):
             movement__recording__performances__ensembleperformance__ensemble=self,
         ).update(tags_dirty=True)
 
-class Work(models.Model, Mergeable):
+class Work(models.Model, Mergeable, NextPreviousMixin):
     title = models.CharField(max_length=200)
     nickname = models.CharField(max_length=200, blank=True)
     composer = models.ForeignKey(Artist, related_name='works')
@@ -192,6 +192,12 @@ class Work(models.Model, Mergeable):
     @models.permalink
     def get_absolute_url(self):
         return ('classical-work', (self.composer.slug, self.slug))
+
+    def next(self):
+        return super(Work, self).next(composer=self.composer)
+
+    def previous(self):
+        return super(Work, self).previous(composer=self.composer)
 
     def pretty_title(self, show_year=True):
         extras = [

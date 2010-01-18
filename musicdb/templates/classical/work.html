@@ -86,4 +86,25 @@
 
 <p><a href="/admin/classical/work/{{ work.pk }}">edit</a></p>
 
+{% with work.previous as previous %}
+{% with work.next as next %}
+<br/>
+<br/>
+<table width="100%">
+<tr>
+  <td width="50%">
+    {% if previous %}
+     &laquo; <a href="{{ previous.get_absolute_url }}">{{ previous }}</a>
+    {% endif %}
+  </td>
+  <td width="50%" align="right">
+    {% if next %}
+     <a href="{{ next.get_absolute_url }}">{{ next }}</a> &raquo;
+    {% endif %}
+  </td>
+</tr>
+</table>
+{% endwith %}
+{% endwith %}
+
 {% endblock %}
