@@ -22,7 +22,7 @@ __all__ = ('Artist', 'Ensemble', 'Work', 'Catalogue', 'WorkCatalogue', \
     'Category', 'Instrument', 'Key', 'Recording', 'Movement', \
     'Performance', 'WorkRelationship')
 
-class Artist(AbstractArtist):
+class Artist(AbstractArtist, NextPreviousMixin):
     surname = models.CharField(max_length=100)
     forenames = models.CharField(max_length=100, blank=True)
 
@@ -65,6 +65,12 @@ class Artist(AbstractArtist):
     @models.permalink
     def get_absolute_url(self):
         return ('classical-artist', (self.slug,))
+
+    def next_composer(self):
+        return super(Artist, self).next(works__isnull=False)
+
+    def previous_composer(self):
+        return super(Artist, self).previous(works__isnull=False)
 
     def slug_name(self):
         if self.forenames:
