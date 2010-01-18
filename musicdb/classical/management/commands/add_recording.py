@@ -14,6 +14,7 @@ TODO
 
  - Work catalogue selection / creation
  - Re-using previous recording movement names
+ - Add 'change' instrument to performer selection
 """
 
 class Command(AddMusicFilesCommand):
