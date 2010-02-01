@@ -94,7 +94,7 @@ class AddMusicFilesCommand(BaseCommand):
             new_name = raw_input('New name [%s] (press up): ' % old_name)
 
             files[filename] = new_name or old_name
-        except (ValueError, KeyError):
+        except (ValueError, IndexError):
             if input.upper() in ('', 'Y'):
                 return True
 
