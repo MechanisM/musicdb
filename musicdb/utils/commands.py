@@ -99,7 +99,7 @@ class AddMusicFilesCommand(BaseCommand):
                 return True
 
         if input.startswith('s/'):
-            elems = [re.escape(x) for x in input.split('/')]
+            elems = input.split('/')
             if len(elems) != 4:
                 print "W: Malformed regular expression"
                 return False
