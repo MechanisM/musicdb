@@ -59,8 +59,13 @@ INSTALLED_APPS = [
     'musicdb.classical',
     'musicdb.nonclassical',
     'treebeard',
-    'django_fuse',
 ]
+
+try:
+    import django_fuse
+    INSTALLED_APPS.append('django_fuse')
+except ImportError:
+    pass
 
 try:
     import django_extensions
