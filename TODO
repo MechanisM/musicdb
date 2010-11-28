@@ -2,3 +2,7 @@
  - Script to look at ID3 tags and extract years where we don't have one for a recording.
    - script to retag all existing music
    - script to update lengths of all broken lengths (vbrfix?)
+
+ - Classical recordings with a single movement should show movement title (eg.
+   when we only have a small part of the work and need to show that). Needs
+   clearing of all existing work movement title where #movements == 1 too.
