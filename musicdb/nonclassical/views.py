@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, Http404
 
 from django_fuse import DirectoryResponse, SymlinkResponse
 
-from musicdb.utils.http import M3UResponse
+from musicdb.utils.http import XSPFResponse
 from musicdb.nonclassical.models import Artist, Album, CD, Track
 
 def index(request, letter='a'):
@@ -42,12 +42,12 @@ def album(request, artist_slug, slug):
 def play_cd(request, cd_id):
     cd = get_object_or_404(CD, id=cd_id)
 
-    return M3UResponse(cd.get_tracks())
+    return XSPFResponse(cd.get_tracks())
 
 def play_album(request, album_id):
     album = get_object_or_404(Album, id=album_id)
 
-    return M3UResponse(album.get_tracks())
+    return XSPFResponse(album.get_tracks())
 
 def collage(request):
     albums = Album.objects.exclude(cover='')

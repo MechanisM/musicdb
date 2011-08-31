@@ -5,7 +5,7 @@ import time
 from django.shortcuts import render_to_response, get_object_or_404
 from django_fuse import DirectoryResponse, FileResponse
 
-from musicdb.utils.http import M3UResponse
+from musicdb.utils.http import XSPFResponse
 from musicdb.classical.models import Artist, Work, Recording, Movement, \
     Ensemble, Category
 
@@ -56,7 +56,7 @@ def work(request, artist_slug, slug):
 
 def play_recording(request, recording_id):
     recording = get_object_or_404(Recording, id=recording_id)
-    return M3UResponse(recording.get_tracks())
+    return XSPFResponse(recording.get_tracks())
 
 ##
 
