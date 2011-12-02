@@ -1,0 +1,123 @@
+commit cb59c59b61e06140b0aabc9b4f0a28472f33e475
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Mar 23 02:18:47 2009 +0000
+
+    Allow DirectoryResponses to be empty.
+
+ django_fuse/__init__.py |    5 +----
+ 1 files changed, 1 insertions(+), 4 deletions(-)
+
+commit ae6cdc3e199f6c060b5979a03f44f02c5a9c65ee
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Mar 23 02:17:54 2009 +0000
+
+    Don't try and return a unicode target for symlinks.
+
+ django_fuse/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 74c9d01f975c1b7653414a2e7414eba2a1315c4d
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Mar 23 02:17:31 2009 +0000
+
+    Set a fallback st_nlink value instead of counting.
+    
+    Most applications will only take notice if it's > 1.
+
+ django_fuse/__init__.py |    6 ++----
+ 1 files changed, 2 insertions(+), 4 deletions(-)
+
+commit b3047ff106a937ce5b9b62a771549d548db99325
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Feb 16 02:54:13 2009 +0000
+
+    Add COPYING file.
+
+ COPYING |  676 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 676 insertions(+), 0 deletions(-)
+
+commit b14027c9583a9e16d1b417ca14eb882e1c6661c5
+Author: Chris Lamb <lamby@debian.org>
+Date:   Sun Jan 25 14:38:01 2009 +0000
+
+    Add example usage for SymlinkReponse.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ django_fuse_example/example/urls.py  |    1 +
+ django_fuse_example/example/views.py |   12 ++++++++++--
+ 2 files changed, 11 insertions(+), 2 deletions(-)
+
+commit af63480a1d1986384f1993932754a68881e62868
+Author: Chris Lamb <lamby@debian.org>
+Date:   Sun Jan 25 14:37:43 2009 +0000
+
+    Add support for symlinks (superior to wrapped files)
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ django_fuse/__init__.py |   14 +++++++++++++-
+ django_fuse/fs.py       |    4 ++++
+ 2 files changed, 17 insertions(+), 1 deletions(-)
+
+commit a4bf5b0340d5845fb8c40119301f9714548e7ead
+Author: Chris Lamb <lamby@debian.org>
+Date:   Tue Dec 30 21:38:47 2008 +0000
+
+    Add a setup.py
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ setup.py |   11 +++++++++++
+ 1 files changed, 11 insertions(+), 0 deletions(-)
+
+commit 374707fda75ccc6b7f0d2d7b167b7f917e18e55a
+Author: Chris Lamb <lamby@debian.org>
+Date:   Tue Dec 30 21:38:41 2008 +0000
+
+    "Decode" unicode objects as dirents - fuse.py does not play well with them.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ django_fuse/__init__.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit fcbaa96894264f79f875ad35a1bc0c0fdb11fd36
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Dec 29 17:50:36 2008 +0000
+
+    Add example application.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ django_fuse_example/example/urls.py     |   28 ++++++++++
+ django_fuse_example/example/views.py    |   68 ++++++++++++++++++++++++
+ django_fuse_example/manage.py           |   11 ++++
+ django_fuse_example/settings.py         |   87 +++++++++++++++++++++++++++++++
+ django_fuse_example/urls.py             |    3 +
+ 5 files changed, 197 insertions(+), 0 deletions(-)
+
+commit d2693ff8892155977d11813a89c8b911f23835cc
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Dec 29 17:50:22 2008 +0000
+
+    Add initial version of django_fuse.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ django_fuse/__init__.py                     |  124 +++++++++++++++++++++++++++
+ django_fuse/fs.py                           |   83 ++++++++++++++++++
+ django_fuse/management/commands/mount.py    |   44 ++++++++++
+ django_fuse/utils.py                        |   34 +++++++
+ 4 files changed, 285 insertions(+), 0 deletions(-)
+
+commit 9297937852a1640195ac0333e236dfc110bf9aa9
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon Dec 29 17:50:10 2008 +0000
+
+    Add .gitignore.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ .gitignore |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)

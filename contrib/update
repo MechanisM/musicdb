@@ -64,6 +64,10 @@ case "${PROJECT}" in
 		Git git://github.com/django-extensions/django-extensions.git ${PROJECT} ${PROJECT}
 		;;
 
+	django_fuse)
+		Git git://github.com/lamby/django-fuse.git ${PROJECT} ${PROJECT}
+		;;
+
 	jquery)
 		mkdir -p ${PROJECT}
 		wget -Ojquery/jquery.js http://code.jquery.com/jquery.js
