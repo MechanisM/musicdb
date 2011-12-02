@@ -6,7 +6,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'musicdb.views.index', name='home'),
+    url(r'^$', 'musicdb.views.index',
+        name='home'),
 
     url(r'^classical/', include('musicdb.classical.urls')),
     url(r'^albums/', include('musicdb.nonclassical.urls')),
