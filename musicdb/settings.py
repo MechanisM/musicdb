@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'treebeard',
+    'django_extensions',
 
     'musicdb.common',
     'musicdb.classical',
@@ -66,12 +67,6 @@ INSTALLED_APPS = [
 try:
     import django_fuse
     INSTALLED_APPS.append('django_fuse')
-except ImportError:
-    pass
-
-try:
-    import django_extensions
-    INSTALLED_APPS.append('django_extensions')
 except ImportError:
     pass
 
