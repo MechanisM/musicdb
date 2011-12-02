@@ -1,0 +1,112 @@
+#!/bin/sh
+
+set -eu
+
+if [ "${1:-}" = "" ]
+then
+	echo "${0}: Please specify a project to upgrade" >&2
+	exit 1
+fi
+
+PROJECT="${1}"
+
+Git () {
+	URL="${1}"
+	TARGET="${2}"
+	SUBDIR="${3:-}"
+		
+	rm -rf ${TARGET}
+	mkdir ${TARGET}
+	git clone "${URL}" ${TARGET}/.clone
+	git --git-dir=${TARGET}/.clone/.git log --stat > ${TARGET}/git.log
+	mv ${TARGET}/.clone/${SUBDIR}/* ${TARGET}
+	rm -rf ${TARGET}/.clone
+}
+
+Svn () {
+	URL="${1}"
+	TARGET="${2}"
+
+	rm -rf ${TARGET}
+	svn export "${URL}" "${TARGET}"
+
+	echo "I: Downloading svn.log"
+	svn log -v "${URL}" >> "${TARGET}/svn.log"
+}
+
+Hg() {
+	URL="${1}"
+	TARGET="${2}"
+	SUBDIR="${3:-}"
+
+	rm -rf ${TARGET}
+	mkdir ${TARGET}
+	hg clone "${URL}" ${TARGET}/.clone
+	hg log -R ${TARGET}/.clone > ${TARGET}/hg.log
+	mv ${TARGET}/.clone/${SUBDIR}/* ${TARGET}
+	rm -rf ${TARGET}/.clone
+}
+
+case "${PROJECT}" in
+	debug_toolbar)
+		Git git://github.com/robhudson/django-debug-toolbar.git ${PROJECT} ${PROJECT}
+		;;
+
+	django)
+		Svn http://code.djangoproject.com/svn/django/trunk/django ${PROJECT}
+		;;
+
+	django_bcrypt)
+		Git git://github.com/playfire/django-bcrypt.git ${PROJECT} ${PROJECT}
+		;;
+
+	django_extensions)
+		Git git://github.com/django-extensions/django-extensions.git ${PROJECT} ${PROJECT}
+		;;
+
+	jquery)
+		mkdir -p ${PROJECT}
+		wget -Ojquery/jquery.js http://code.jquery.com/jquery.js
+		;;
+
+	south)
+		Hg http://bitbucket.org/andrewgodwin/south/ ${PROJECT} ${PROJECT}
+		;;
+
+	--all)
+		for DIR in $(find -mindepth 1 -maxdepth 1 -type d -not -name '_*' -printf '%f\n')
+		do
+			printf "\nUpdate %s? [Y/n] " ${DIR}
+			read X
+			case "${X}" in
+				Y|y|"")
+					${0} "${DIR}" || true
+					;;
+			esac
+		done
+
+		exit 0
+		;;
+
+	*)
+		echo "${0}: Unknown project '${PROJECT}'" >&2
+		exit 1
+		;;
+esac
+
+echo "I: Removing cruft"
+find ${PROJECT} -name "*.svn" -type d -print0 | xargs -0 rm -rf
+
+export QUILT_PATCHES="$(pwd)/_patches/${PROJECT}"
+HOOK="$(pwd)/_hooks/${PROJECT}"
+
+cd ${PROJECT}
+
+quilt --quiltrc /dev/null push -a || test ${?} = 2
+rm -rf ./.pc
+
+if [ -x "${HOOK}" ]
+then
+	echo "I: Running hook ${HOOK}..."
+	${HOOK}
+fi
