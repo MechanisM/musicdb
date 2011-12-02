@@ -475,8 +475,7 @@ class EnsemblePerformance(Performance):
     )
 
     def __unicode__(self):
-        return u"%s performing on %s" % \
-            (self.ensemble, self.recording)
+        return u"%s performing on %s" % (self.ensemble, self.recording)
 
     def short_name(self):
         return self.ensemble.name
