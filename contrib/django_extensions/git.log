@@ -1,0 +1,4586 @@
+commit 41ecd0c0ce485eedd62ef4a0bcaa38661a7790f9
+Author: trbs <trbs@trbs.net>
+Date:   Thu Nov 24 13:50:34 2011 +0100
+
+    basic support for multi database django
+
+ django_extensions/management/commands/sqldiff.py |    9 +++++++--
+ 1 files changed, 7 insertions(+), 2 deletions(-)
+
+commit 555ab13ec1126f9d9652902b5c3987298bd68b83
+Merge: 7d1030b ed5a021
+Author: trbs <v.oostveen@gmail.com>
+Date:   Sun Nov 6 12:30:55 2011 -0800
+
+    Merge pull request #147 from ionelmc/master
+    
+    Fixed undefined variables in sqlcreate command.
+
+commit ed5a0215d2a06107d9e8104ef22488ff748b0e9d
+Author: Ionel Maries Cristian <contact@ionelmc.ro>
+Date:   Sun Nov 6 21:59:14 2011 +0200
+
+    Fixed undefined variables in sqlcreate command.
+
+ django_extensions/management/commands/sqlcreate.py |   10 ++++++----
+ 1 files changed, 6 insertions(+), 4 deletions(-)
+
+commit 7d1030be085fb511cf96a6f608d337ff55c7fec6
+Merge: 0de1172 10d8dd9
+Author: trbs <v.oostveen@gmail.com>
+Date:   Fri Oct 28 20:26:16 2011 -0700
+
+    Merge pull request #145 from mkai/master
+    
+    Ignore FileFields/ImageFields without an associated file in unreferenced_files cmd
+
+commit 0de11729a5891e368ee78fafc641d72b62a41a16
+Merge: 308c370 9d635ac
+Author: trbs <v.oostveen@gmail.com>
+Date:   Fri Oct 28 20:24:56 2011 -0700
+
+    Merge pull request #146 from linuxmaniac/master
+    
+    Fix #79 now I can assign a creation value for UUIDField
+
+commit 308c370a869d3b3197055cae15bb1f9771516eb3
+Merge: b05fb41 dca0e7c
+Author: Mike Blume <mike@loggly.com>
+Date:   Sat Oct 29 01:10:17 2011 +0000
+
+    Merge remote-tracking branch 'gabriel/master' into HEAD
+    
+    Conflicts:
+    	django_extensions/management/commands/dumpscript.py
+
+commit 9d635ac490cf06999f52da6e17aea028f230fc50
+Author: Víctor Seva <linuxmaniac@torreviejawireless.org>
+Date:   Sat Oct 29 01:33:03 2011 +0200
+
+    More tests for UUIDField
+
+ django_extensions/tests/uuid_field.py |   12 ++++++++++--
+ 1 files changed, 10 insertions(+), 2 deletions(-)
+
+commit 8ecb59a49a2a2cc6b2af7d4cf9561d3bc8fd147c
+Author: Víctor Seva <linuxmaniac@torreviejawireless.org>
+Date:   Sat Oct 29 01:11:43 2011 +0200
+
+    Fix #79.
+    Now I can asign a value on creation.
+
+ django_extensions/db/fields/__init__.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 39cfbe298014a7156f992175bfbfc7281e4a9d65
+Author: Víctor Seva <linuxmaniac@torreviejawireless.org>
+Date:   Sat Oct 29 01:08:06 2011 +0200
+
+    Added tests for UUIDField.
+    Example of bug #79
+    https://github.com/django-extensions/django-extensions/issues/79
+
+ django_extensions/tests/__init__.py   |    1 +
+ django_extensions/tests/uuid_field.py |   44 +++++++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 0 deletions(-)
+
+commit 10d8dd92e7ccf53d11c0be9e19099c1434db81ee
+Author: Markus Kaiserswerth <github@sensun.org>
+Date:   Thu Oct 27 21:08:43 2011 +0200
+
+    Ignore FileFields/ImageFields without an associated file in unreferenced_files cmd
+
+ .../management/commands/unreferenced_files.py      |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+commit b05fb41b5523f9ac26b4b2be2ae302635f2a82f1
+Merge: 30134ea 4e80e63
+Author: trbs <v.oostveen@gmail.com>
+Date:   Tue Oct 18 04:41:25 2011 -0700
+
+    Merge pull request #141 from bricetebbs/master
+    
+    JSON field failing in django 1.3.1
+
+commit 4e80e63d60307dd94fa99156ff3666a44c5c22bb
+Author: Brice Tebbs <brice@bricetebbs.com>
+Date:   Mon Oct 17 17:05:36 2011 -0700
+
+    Fix for JSON field having trouble in get_db_prep_save with django 1.3.1
+    Borrowed the idea from:
+    https://github.com/bradjasper/django-jsonfield/blob/master/jsonfield/fields.py
+    
+    Also added a test
+
+ django_extensions/db/fields/json.py   |    4 ++--
+ django_extensions/tests/__init__.py   |    1 +
+ django_extensions/tests/json_field.py |   30 ++++++++++++++++++++++++++++++
+ 3 files changed, 33 insertions(+), 2 deletions(-)
+
+commit 30134ea42cee07ae65fecf3fc4bd3be897032d07
+Merge: 13d66a9 a4fc721
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 16 15:49:47 2011 +0200
+
+    Merge branch 'master' of github.com:django-extensions/django-extensions
+
+commit a4fc7217d229c0bd4c8c26207420b6d6be9cb4db
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 16 15:47:52 2011 +0200
+
+    small fix to git command in creating_release.txt
+
+ docs/creating_release.txt |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 13d66a97c32f75aab454a05e1763bced1642e773
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 16 15:46:50 2011 +0200
+
+    bumped version number to 0.8-dev
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 8f6273abdba63cef338dfdc0234cb4723a3bdd6f
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 16 15:30:51 2011 +0200
+
+    v0.7.1
+
+ django_extensions/__init__.py |    7 +++++--
+ docs/conf.py                  |    4 ++--
+ docs/creating_release.txt     |    2 +-
+ 3 files changed, 8 insertions(+), 5 deletions(-)
+
+commit fc4a07c84c5c61fdae02fff13d46b925f800a932
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 16 15:23:39 2011 +0200
+
+    fixes #140 improved backwards compatibility
+
+ django_extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 05059753c4f41baf110e96c95cfe3de700afe416
+Merge: b010c84 515592a
+Author: trbs <trbs@trbs.net>
+Date:   Wed Oct 12 22:32:37 2011 +0200
+
+    Merge branch 'create_app_replacement' of git://github.com/meshantz/django-extensions
+
+commit b010c84ac795e26d7ac1ed39b96e7402a85a9ade
+Merge: a3d480c fc6722d
+Author: trbs <v.oostveen@gmail.com>
+Date:   Wed Oct 12 12:17:00 2011 -0700
+
+    Merge pull request #105 from treyhunner/topic/runscript-importerror
+    
+    runscript: check if module exists before importing
+
+commit a3d480c3810aa3259adeb35c94626c0d5a5129ca
+Author: Gabriel Grant <g@briel.ca>
+Date:   Tue Feb 22 06:39:23 2011 +0800
+
+    fixes passwd: return a single string, rather than a tuple
+
+ django_extensions/management/commands/passwd.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 361bf8f6a4597e23c9f64d6a1195138bf929d745
+Author: Mike Blume <mike@loggly.com>
+Date:   Sat Apr 2 05:01:14 2011 +0800
+
+    provide setuptools features to folks who have it installed
+
+ setup.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit 1ad3fe12acfb2e7bcf63d7375b789641ef7763b9
+Author: trbs <trbs@trbs.net>
+Date:   Wed Oct 12 20:48:36 2011 +0200
+
+    added ENCRYPTION to PostgreSQL
+    added CHARACTER SET and COLLATION to MySQL
+    added note about falling back
+    added warning about collations using MySQL
+    Thanks to MikeSandford for the patches!
+
+ django_extensions/management/commands/sqlcreate.py |   31 +++++++++++--------
+ docs/sqlcreate.rst                                 |    8 ++--
+ 2 files changed, 22 insertions(+), 17 deletions(-)
+
+commit ae5e2e2f6e03005401c9304e6323ef71c9d2c4c9
+Author: trbs <trbs@trbs.net>
+Date:   Wed Oct 12 00:49:02 2011 +0200
+
+    fallback to SQL standard
+    updated documentation
+
+ django_extensions/management/commands/sqlcreate.py |   12 ++++------
+ docs/command_extensions.rst                        |    5 +++-
+ docs/index.rst                                     |    1 +
+ docs/sqlcreate.rst                                 |   22 ++++++++++++++++++++
+ 4 files changed, 32 insertions(+), 8 deletions(-)
+
+commit 4335b2d99f2d4b124c45195597a567cf0417aa5f
+Merge: ef35bc0 d69269c
+Author: trbs <v.oostveen@gmail.com>
+Date:   Tue Oct 11 15:27:31 2011 -0700
+
+    Merge pull request #137 from MikeSandford/master
+    
+    Fixed the problems trbs asked me to; I think sqlcreate is ready to go
+
+commit d69269cf0101217f115746a196d0040d26c80034
+Author: Michael Sandford <sandford@ufl.edu>
+Date:   Tue Oct 11 15:58:06 2011 -0500
+
+    Add documentation for sqlcreate command
+
+ docs/sqlcreate.rst |   23 +++++++++++++++++++++++
+ 1 files changed, 23 insertions(+), 0 deletions(-)
+
+commit ef35bc0c089b850c36682a2d125163d5d596a7d7
+Author: trbs <trbs@trbs.net>
+Date:   Tue Oct 11 22:36:09 2011 +0200
+
+    bumped version number for new development
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 604d83656015258e7d25dc2a405c386fd9e126d2
+Author: trbs <trbs@trbs.net>
+Date:   Tue Oct 11 22:33:32 2011 +0200
+
+    v0.7
+
+ docs/conf.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 345d714dacc61da5bfe305741d0532c8c60217d8
+Author: trbs <trbs@trbs.net>
+Date:   Tue Oct 11 22:32:14 2011 +0200
+
+    bump version number to 0.7
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 8173a21c1ca01029bcf0ba4e8d61da1bdec2672a
+Author: trbs <trbs@trbs.net>
+Date:   Tue Oct 11 22:31:10 2011 +0200
+
+    added shell_plus to command_extensions as well
+
+ docs/command_extensions.rst |    1 +
+ docs/index.rst              |    2 +-
+ 2 files changed, 2 insertions(+), 1 deletions(-)
+
+commit f61b96984ff2387068a48014765b9525a912a668
+Author: trbs <trbs@trbs.net>
+Date:   Tue Oct 11 22:27:18 2011 +0200
+
+    removed mercurial_gateway and added shell_plus to index.
+
+ docs/index.rst             |    2 +-
+ docs/mercurial_gateway.rst |   45 --------------------------------------------
+ 2 files changed, 1 insertions(+), 46 deletions(-)
+
+commit ef07fa39d740117978ee69776dcd5ba4a7ebbf6d
+Author: Michael Sandford <sandford@ufl.edu>
+Date:   Tue Oct 11 14:33:11 2011 -0500
+
+    Add sqlcreate command: get to syncdb faster
+    
+    Setting up a single project is no big deal.  Setting up
+    multiple projects in a week or two and creating the
+    database for tables to live in gets to be a pain.
+    This extension helped me out and I think it might help
+    you too.
+
+ django_extensions/management/commands/sqlcreate.py |   67 ++++++++++++++++++++
+ 1 files changed, 67 insertions(+), 0 deletions(-)
+
+commit 91c09251bc0a2e6b6943fd5ac83e4fe070ff2815
+Merge: fa62339 0569a4e
+Author: trbs <v.oostveen@gmail.com>
+Date:   Tue Oct 11 05:57:00 2011 -0700
+
+    Merge pull request #135 from eternicode/autoslugfield-south
+    
+    AutoSlugField: Fix south support in AutoSlugField.south_field_triple
+
+commit 0569a4e36eb90e612dc2056adcdcdefa6856afe8
+Author: Andrew Rowls <andrew@eternicode.com>
+Date:   Mon Oct 10 22:37:26 2011 -0400
+
+    AutoSlugField: Fix south support in AutoSlugField.south_field_triple
+
+ django_extensions/db/fields/__init__.py |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+commit fa6233915e2301a9a6d3d4345c499d717ca3aa80
+Merge: 9eb471a 436c90a
+Author: trbs <trbs@trbs.net>
+Date:   Mon Oct 10 00:03:39 2011 +0200
+
+    Merge branch 'master' of github.com:django-extensions/django-extensions
+
+commit 9eb471a325e79471f183d33ca8dc4fea51bcf0e3
+Author: trbs <trbs@trbs.net>
+Date:   Mon Oct 10 00:02:49 2011 +0200
+
+    tell when there are no differences, instead of printing an empty transaction block
+
+ django_extensions/management/commands/sqldiff.py |   35 ++++++++++++---------
+ 1 files changed, 20 insertions(+), 15 deletions(-)
+
+commit ce2dad6cc37fad4dd8975430d4256903a0e2e564
+Author: trbs <trbs@trbs.net>
+Date:   Mon Oct 10 00:01:52 2011 +0200
+
+    sorry messed up, corrected ipython import and embedding magic
+
+ .../management/commands/shell_plus.py              |   26 +++++++-------------
+ 1 files changed, 9 insertions(+), 17 deletions(-)
+
+commit 436c90aedf064081223924a752d3a3ca4f0100f2
+Author: Jesse Emery <jesse@thehordesplayground.com>
+Date:   Fri Feb 11 05:09:53 2011 +0800
+
+    mongoengine versions of django extensions' models and fields
+
+ django_extensions/mongodb/fields/__init__.py  |  239 +++++++++++++++++++++++++
+ django_extensions/mongodb/fields/encrypted.py |   59 ++++++
+ django_extensions/mongodb/fields/json.py      |   75 ++++++++
+ django_extensions/mongodb/models.py           |   69 +++++++
+ 4 files changed, 442 insertions(+), 0 deletions(-)
+
+commit 327ff751ea5f4c69ebfe3f4ee273e5e67f648559
+Author: Philip Kimmey <philip.kimmey@gmail.com>
+Date:   Wed Jul 13 08:09:17 2011 +0800
+
+    remove use of global variable in get_jobs()
+
+ django_extensions/management/jobs.py |   50 ++++++++++++++++-----------------
+ 1 files changed, 24 insertions(+), 26 deletions(-)
+
+commit 275be4de11dbf25d4a07582b5954dd4f7a5c4738
+Author: ksamuel <info.ksamuel@gmail.com>
+Date:   Mon Aug 8 23:23:44 2011 +0800
+
+    Make `shell_plus` compatible with the most recent version of ipython (0.11). This fixed is taken from the django trunk itself so it should be pretty solid.
+
+ .../management/commands/shell_plus.py              |   27 ++++++++++++++-----
+ 1 files changed, 20 insertions(+), 7 deletions(-)
+
+commit 1f95fe0d9643f451f4c75edd565dedc05293562e
+Author: Arruda <arruda@uniriotec.com>
+Date:   Tue Aug 9 03:21:28 2011 +0800
+
+    show related name in the relation label
+
+ django_extensions/management/modelviz.py |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+commit f03e5aca8b2df1e781f21e16bb91e8dea6a243f7
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 9 23:08:34 2011 +0200
+
+    added 'error' diff_type
+    fix model_diffs does not exist anymore
+
+ django_extensions/management/commands/sqldiff.py |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit 5daa9b37a3912a9e764972a516cdf3093c20e90b
+Author: trbs <trbs@trbs.net>
+Date:   Sun Oct 9 18:43:27 2011 +0200
+
+    fix misnamed variable, solved 'app_name' is undefined error on line 387. (Thanks to Rubic for pointing this out!)
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit fd3d4a51d87e576f41c754d13e1073b5619131d6
+Merge: 025d44f 18c9808
+Author: trbs <v.oostveen@gmail.com>
+Date:   Sun Oct 9 09:37:26 2011 -0700
+
+    Merge pull request #90 from bit/master
+    
+    make sqldiff work with django 1.3
+
+commit 025d44f86082def8db374ae313490ece4428d150
+Merge: 345d3eb db549c0
+Author: trbs <v.oostveen@gmail.com>
+Date:   Sun Oct 9 09:16:39 2011 -0700
+
+    Merge pull request #120 from MichaelBlume/JSONList
+    
+    remove dict-only restriction on JSONField
+
+commit 345d3eb4f73967bc3341675edaa2d88c68c5c81d
+Merge: b775ce2 c2d34bf
+Author: trbs <v.oostveen@gmail.com>
+Date:   Sun Oct 9 09:06:18 2011 -0700
+
+    Merge pull request #99 from xeor/master
+    
+    Some settings in shell_plus
+
+commit c2d34bf22f895d8998130559f062bde029e24def
+Author: Lars Solberg <lars.solberg+git@gmail.com>
+Date:   Sun Oct 9 03:19:57 2011 +0200
+
+    Cleaned up model_alias and model "dont load" options.
+
+ .../management/commands/shell_plus.py              |   11 ++++++++---
+ docs/shell_plus.rst                                |   19 ++++++++++++-------
+ 2 files changed, 20 insertions(+), 10 deletions(-)
+
+commit a706410fd11c352e1243b6f327db43f776d92099
+Merge: c2990b8 b775ce2
+Author: Lars Solberg <lars.solberg+git@gmail.com>
+Date:   Sun Oct 9 03:14:44 2011 +0200
+
+    Merge branch 'master' of https://github.com/django-extensions/django-extensions
+
+commit b775ce22ae4e8f5ee77504e9d9fc82de92150647
+Author: trbs <trbs@trbs.net>
+Date:   Wed Sep 21 19:12:05 2011 +0200
+
+    fixed message when werkzeug is not found for runserver_plus
+
+ .../management/commands/runserver_plus.py          |    4 +---
+ 1 files changed, 1 insertions(+), 3 deletions(-)
+
+commit 515592af8014432e17f2d863ccfa21c8761b1405
+Author: Mike Shantz <meshantz@yahoo.ca>
+Date:   Sun Sep 18 16:43:41 2011 -0400
+
+    render template files via django template engine.
+    
+    context is provided from new setting EXTENSIONS_REPLACEMENTS
+
+ .../management/commands/create_app.py              |    6 +++++-
+ django_extensions/settings.py                      |    7 +++++++
+ 2 files changed, 12 insertions(+), 1 deletions(-)
+
+commit ffa051342aa21dab3d032642cdadb7014df5c782
+Merge: f278a9d 946720b
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Mon Aug 22 03:18:47 2011 -0700
+
+    Merge pull request #124 from iElectric/master
+    
+    Added staticfiles support to runserver_plus command.
+
+commit 946720b4ec737f572b6777adf87629f5d15ed117
+Author: Domen Kožar <domen@dev.si>
+Date:   Wed Aug 17 14:14:33 2011 +0200
+
+    check for django.contrib.staticfiles before using it
+
+ .../management/commands/runserver_plus.py          |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit 5c6b23ee5a0eb3167e9a76dffb971dd5d1110a5b
+Author: Domen Kožar <domen@dev.si>
+Date:   Sun Aug 7 20:05:14 2011 +0200
+
+    check for django.contrib.staticfiles in INSTALLED_APPS before serving static
+
+ .../management/commands/runserver_plus.py          |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+commit 386dae598203ed92d3b638c2c7356a48f5b3de57
+Author: Domen Kožar <domen@dev.si>
+Date:   Sun Aug 7 13:27:56 2011 +0200
+
+    update AUTHORS
+
+ docs/AUTHORS |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit f97729be2bcdd65d412c7e7828927ba4fd34f321
+Author: Domen Kožar <domen@dev.si>
+Date:   Sun Aug 7 13:16:07 2011 +0200
+
+    Add StaticFilesHandler to be compatible with Django 1.3 staticfiles app
+
+ .../management/commands/runserver_plus.py          |   17 +++++++++++++++++
+ 1 files changed, 17 insertions(+), 0 deletions(-)
+
+commit f278a9d91501933c7d51dffc2ec30341a1872a18
+Merge: 176fccf bc37090
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 02:06:41 2011 -0700
+
+    Merge pull request #58 from palewire/master
+    
+    Modified S3CreateError path to match pip version of boto
+
+commit 176fccfdde0704748cab75023e51682887e7c806
+Merge: 481a877 ed70620
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 02:05:29 2011 -0700
+
+    Merge pull request #77 from treyhunner/ed706202928e67e82cde
+    
+    AutoSlugField can optionally accept duplicate slugs. Fixed #33.
+
+commit 481a877e314dce00950171718a02e08cf681ee62
+Merge: 614e39d d2ae9ba
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 02:04:18 2011 -0700
+
+    Merge pull request #83 from gdoermann/master
+    
+    Update Permissions
+
+commit 614e39d9e8bccec37261e023096c4ed7b5d5ff6d
+Merge: 65f8b5b 6e8ed84
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 02:01:35 2011 -0700
+
+    Merge pull request #102 from tehfink/master
+    
+    ActivatorModel & TimeStampedModel: default orderings, smart enumerations, and fixed manager
+
+commit 65f8b5b52c37e2a171b757699f343bf248a6260e
+Author: Dave Martorana <themartorana@yahoo.com>
+Date:   Sat Aug 6 10:58:23 2011 +0200
+
+    Merged themartorana/master. Closes #103.
+
+ django_extensions/db/fields/encrypted.py |   32 +++++++++++++++++++++++------
+ 1 files changed, 25 insertions(+), 7 deletions(-)
+
+commit ceed37a09c3e20112fac66e9e3f7be14bb51a047
+Merge: 8259704 ceb3029
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 01:50:55 2011 -0700
+
+    Merge pull request #111 from guillaumeesquevin/master
+    
+    Overridable graph_models templates
+
+commit 8259704647f6fe95b364dc0fc598dbc01494d466
+Merge: 8ab23dd 6c21455
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 01:50:13 2011 -0700
+
+    Merge pull request #113 from Sharpek/master
+    
+    Hi, I fix someone...
+
+commit 8ab23dd30bb89853f61ee583507e443b9b258148
+Merge: f5789ee 42f18b0
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 01:49:51 2011 -0700
+
+    Merge pull request #118 from juliengrenier/patch-1
+    
+    add 'text/javascript' to GZIP_CONTENT_TYPES;
+
+commit f5789ee263a170efcc3206d3806365aafb05d734
+Merge: 2fcc824 03fbd53
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 01:49:31 2011 -0700
+
+    Merge pull request #119 from bessl/master
+    
+    Add notes command.
+
+commit 2fcc824e34957219ff15c05507e3c6b981a730c6
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Aug 6 10:47:06 2011 +0200
+
+    Fixed IPython integration of the shell_plus management command after IPython 0.11 was released. Closes #121.
+
+ .../management/commands/shell_plus.py              |   10 +++++-----
+ 1 files changed, 5 insertions(+), 5 deletions(-)
+
+commit db549c0c6a0ac5ca963187bbded9aeb2e05daff8
+Author: Mike Blume <mike@loggly.com>
+Date:   Sat Jul 30 00:03:56 2011 +0000
+
+    remove dict-only restriction on JSONField
+
+ django_extensions/db/fields/json.py |   23 ++++++++++++++++-------
+ 1 files changed, 16 insertions(+), 7 deletions(-)
+
+commit 03fbd53bb19eab1c376a22dc77833319604cd15b
+Author: Bernhard Essl <me@bernhardessl.com>
+Date:   Tue Jul 26 17:54:07 2011 +0200
+
+    add notes command
+
+ django_extensions/management/commands/notes.py |   38 ++++++++++++++++++++++++
+ 1 files changed, 38 insertions(+), 0 deletions(-)
+
+commit 42f18b0476ac46d4a43d399be27c26f3e42f5f11
+Author: Julien Grenier <julien.grenier42@gmail.com>
+Date:   Tue Jul 12 06:38:23 2011 -0700
+
+    add 'text/javascript' to GZIP_CONTENT_TYPES;
+
+ .../management/commands/sync_media_s3.py           |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit 7b57dcf6afa8b7dd17bcffd44d1c93d9de767ef3
+Merge: 37a0f08 d12c493
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue Jul 5 10:02:03 2011 -0700
+
+    Merge pull request #115 from Christophe31/patch-1
+    
+    Fix TypeError: expected a character buffer object on passwd cmd use.
+
+commit d12c493aa68c401bf462c1f874cb83ce99ef663f
+Author: Narbonne <christophe31@gmail.com>
+Date:   Tue Jul 5 09:54:13 2011 -0700
+
+    Fix TypeError: expected a character buffer object on passwd use.
+
+ django_extensions/management/commands/passwd.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 6c2145561b0fe65ac1003795e3afc05406d494c5
+Author: Marcin Baran <marcin.baran@agencjawmc.pl>
+Date:   Thu Jun 23 23:55:02 2011 +0200
+
+    AutoSlugField, if populate_from element is None, return empty string, not none
+
+ django_extensions/db/fields/__init__.py |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+commit ceb3029efd3ca7342264b3baed666267d3705419
+Author: Guillaume Esquevin <guillaume.esquevin@gmail.com>
+Date:   Wed Jun 22 23:09:45 2011 +0200
+
+    Templates
+
+ .../django_extensions/graph_models/body.html       |   34 ++++++++++++++++++++
+ .../django_extensions/graph_models/head.html       |   15 +++++++++
+ .../django_extensions/graph_models/rel.html        |   15 +++++++++
+ .../django_extensions/graph_models/tail.html       |    1 +
+ 4 files changed, 65 insertions(+), 0 deletions(-)
+
+commit 24d4c18b0c05aa3a44e2b5d0ecfe267ad9380c73
+Author: Guillaume Esquevin <guillaume.esquevin@gmail.com>
+Date:   Wed Jun 22 23:04:45 2011 +0200
+
+    Graph models templates are now in corresponding files, allowing easy override by other django apps
+
+ django_extensions/management/modelviz.py |   95 +++++-------------------------
+ 1 files changed, 14 insertions(+), 81 deletions(-)
+
+commit 37a0f08aaff3b6635457d8e917c08cf1a4cec191
+Author: trbs <trbs@trbs.net>
+Date:   Fri Jun 3 16:15:59 2011 +0200
+
+    fix typo
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ django_extensions/management/jobs.py             |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit ab4cca67f5cb8cddfc643a6eb7d1868a32b134a9
+Merge: 22e4d4f 85dde75
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Mon May 16 07:07:47 2011 -0700
+
+    Merge pull request #106 from lamby/master
+    
+    Add optional --threaded argument to runserver_plus.
+
+commit 85dde752d63d98057dc92f80a4ec84fce919b5ba
+Author: Chris Lamb <lamby@debian.org>
+Date:   Mon May 16 11:18:17 2011 +0100
+
+    Add optional --threaded argument to runserver_plus.
+    
+    Signed-off-by: Chris Lamb <lamby@debian.org>
+
+ .../management/commands/runserver_plus.py          |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit 22e4d4f9b24b8ced79ebf98dc153fcbb5d33784c
+Merge: 4afdda1 e433120
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue May 3 23:50:28 2011 -0700
+
+    Merge pull request #104 from MichaelBlume/fix_update_wrapper.
+    
+    Try to import update_wrapper from functools.
+
+commit 4afdda1ae69ac0b54982288a61efe2a89359c34c
+Merge: 8d36f71 657b695
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue May 3 13:20:57 2011 -0700
+
+    Merge pull request #94 from chrislea/master.
+    
+    Added a parameter to get_db_prep_save calls to squash deprecation warnings in newest Django release
+
+commit fc6722dac01119d5c26125330a5a741c9f644869
+Author: Trey Hunner <treyhunner@gmail.com>
+Date:   Wed Apr 27 20:25:16 2011 -0700
+
+    runscript: check if module exists before importing
+    
+    Calling runscript for a script that raises an ImportError will raise the
+    exception instead of returning "No module for script X found".
+
+ django_extensions/management/commands/runscript.py |   35 ++++++++++++-------
+ 1 files changed, 22 insertions(+), 13 deletions(-)
+
+commit 6e8ed84a6fadd4f4112b9fa64d51944c490d3271
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Apr 22 12:53:01 2011 -0400
+
+    allow inheriting classes to modify ActivatorModelManager's `get_query_set()`
+
+ django_extensions/db/models.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit d68835eba14995baf6128c51b02d3a4933e62364
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Apr 22 12:50:38 2011 -0400
+
+    enumerated choices for ActivatorModel: http://www.b-list.org/weblog/2007/nov/02/handle-choices-right-way/
+
+ django_extensions/db/models.py |   11 ++++++-----
+ 1 files changed, 6 insertions(+), 5 deletions(-)
+
+commit 5158cf7a684e9c39b966f7efb91442f8b60e82cd
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Apr 22 12:12:21 2011 -0400
+
+    default ordering for abstract ActivatorModel
+
+ django_extensions/db/models.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 337a8127a270627a70a28d07d2b48e724978d8ec
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Apr 22 12:06:33 2011 -0400
+
+    `get_latest_by` & `ordering` defaults for abstract TimeStampedModel
+
+ django_extensions/db/models.py |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit 5632a0022d8a6f15c9a3c62646e27627b48c2e71
+Merge: 7fa216b 8d36f71
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Apr 22 11:56:22 2011 -0400
+
+    Merge branch 'master' of git://github.com/django-extensions/django-extensions
+    
+    Conflicts:
+    	django_extensions/db/models.py
+
+commit c2990b834b4d7f009b5561785ec293d17ce83485
+Author: Lars Solberg <lars.solberg+git@gmail.com>
+Date:   Fri Apr 15 22:10:43 2011 +0200
+
+    Added documentation for settings
+
+ docs/shell_plus.rst |   30 ++++++++++++++++++++++++++++++
+ 1 files changed, 30 insertions(+), 0 deletions(-)
+
+commit ffadcc0fe604016eced800b15a1237b42914c79e
+Author: Lars Solberg <lars.solberg+git@gmail.com>
+Date:   Fri Apr 15 22:08:50 2011 +0200
+
+    Possible to have settings for aliases and "dont load" autoload modules.
+
+ .../management/commands/shell_plus.py              |   32 +++++++++++++++++--
+ 1 files changed, 28 insertions(+), 4 deletions(-)
+
+commit 657b69574e58c85229ed107d10bb69d4baf81865
+Author: Chris Lea <chris.lea@gmail.com>
+Date:   Tue Apr 5 17:43:01 2011 -0700
+
+    add connection parameter to get_db_prep_save calls to avoid deprecation warnings in Django >= 1.3 ref: http://docs.djangoproject.com/en/dev/releases/1.2-alpha-1/#get-db-prep-methods-on-field
+
+ django_extensions/db/fields/encrypted.py |    2 +-
+ django_extensions/db/fields/json.py      |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 18c98084cd5e67cb029918b429067a1f1a7fad65
+Author: j <j@mailb.org>
+Date:   Thu Mar 31 23:56:56 2011 +0200
+
+    - use connection.__module__.split('.')[-2] in django 1.3 to get current db engine.
+    - db_type needs connection passed as argument in django 1.3
+
+ django_extensions/management/commands/sqldiff.py |   17 +++++++++++------
+ 1 files changed, 11 insertions(+), 6 deletions(-)
+
+commit 7f3ca4a7fe38a9cdd3803759d20299b26d833ea4
+Merge: 0b820fd 8d36f71
+Author: j <j@mailb.org>
+Date:   Thu Mar 31 23:06:01 2011 +0200
+
+    Merge remote branch 'upstream/master'
+
+commit e433120c936be62e69e67f201855c5f8c015991a
+Author: Mike Blume <mike@loggly.com>
+Date:   Mon Mar 28 23:35:52 2011 +0000
+
+    Try to import update_wrapper from functools.
+    
+    Django trunk is abandoning Python 2.4 support, and thus no longer
+    includes update_wrapper in its functional library. Try to get it from
+    functools first
+
+ django_extensions/admin/__init__.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit d2ae9ba13d918a7f7dbbe22cf134ebf8ea71f2bf
+Author: Greg Doermann <gdoermann@gmail.com>
+Date:   Mon Mar 21 18:10:34 2011 -0600
+
+    added update permissions command
+
+ .../management/commands/update_permissions.py      |   21 ++++++++++++++++++++
+ 1 files changed, 21 insertions(+), 0 deletions(-)
+
+commit 8d36f71037d61bb992d945531745014af48b9264
+Author: trbs <trbs@trbs.net>
+Date:   Wed Mar 16 19:40:12 2011 +0100
+
+    fix StringIO call, missed removing cStringIO from call after import (thanks jonlesser for reporting this!)
+
+ .../management/commands/sync_media_s3.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 38227bd68e499a51b9269857bc73b2aef1517b39
+Author: trbs <trbs@trbs.net>
+Date:   Thu Mar 10 01:41:31 2011 +0100
+
+    PEP 8 love (for issue #80)
+
+ django_extensions/__init__.py                      |    2 +-
+ django_extensions/admin/__init__.py                |   16 +-
+ django_extensions/admin/widgets.py                 |    5 +-
+ django_extensions/db/fields/__init__.py            |   31 ++-
+ django_extensions/db/fields/encrypted.py           |   23 +-
+ django_extensions/db/fields/json.py                |   10 +-
+ django_extensions/db/models.py                     |    4 +
+ django_extensions/jobs/daily/cache_cleanup.py      |    1 +
+ django_extensions/jobs/daily/daily_cleanup.py      |    1 +
+ django_extensions/management/color.py              |    1 +
+ django_extensions/management/commands/clean_pyc.py |   13 +-
+ .../management/commands/compile_pyc.py             |   15 +-
+ .../management/commands/create_app.py              |   13 +-
+ .../management/commands/create_command.py          |   14 +-
+ .../management/commands/create_jobs.py             |    6 +-
+ .../management/commands/describe_form.py           |   20 +-
+ .../management/commands/dumpscript.py              |   76 +++----
+ .../management/commands/export_emails.py           |   33 ++--
+ .../management/commands/find_template.py           |    2 +
+ .../management/commands/generate_secret_key.py     |    5 +-
+ .../management/commands/graph_models.py            |    3 +-
+ .../management/commands/mail_debug.py              |    5 +-
+ django_extensions/management/commands/passwd.py    |    1 +
+ .../management/commands/print_user_for_session.py  |    6 +-
+ django_extensions/management/commands/reset_db.py  |   50 ++--
+ django_extensions/management/commands/runjob.py    |   13 +-
+ django_extensions/management/commands/runjobs.py   |   11 +-
+ .../management/commands/runprofileserver.py        |    9 +-
+ django_extensions/management/commands/runscript.py |   23 +-
+ .../management/commands/runserver_plus.py          |    6 +-
+ .../management/commands/set_fake_emails.py         |    9 +-
+ .../management/commands/set_fake_passwords.py      |    7 +-
+ .../management/commands/shell_plus.py              |    4 +-
+ .../management/commands/show_templatetags.py       |   48 +++--
+ django_extensions/management/commands/show_urls.py |   10 +-
+ django_extensions/management/commands/sqldiff.py   |  140 +++++++------
+ .../management/commands/sync_media_s3.py           |   30 ++-
+ django_extensions/management/commands/syncdata.py  |   35 ++--
+ .../management/commands/unreferenced_files.py      |    3 +-
+ django_extensions/management/jobs.py               |   27 ++-
+ django_extensions/management/modelviz.py           |   21 +-
+ django_extensions/management/utils.py              |    1 +
+ django_extensions/templatetags/highlighting.py     |    9 +-
+ django_extensions/templatetags/syntax_color.py     |   23 +-
+ django_extensions/templatetags/truncate_letters.py |    7 +-
+ django_extensions/templatetags/widont.py           |   15 +-
+ django_extensions/tests/encrypted_fields.py        |   24 +-
+ django_extensions/tests/models.py                  |    9 +-
+ django_extensions/utils/dia2django.py              |  230 +++++++++++---------
+ django_extensions/utils/text.py                    |    3 +-
+ django_extensions/utils/uuid.py                    |   53 +++--
+ setup.py                                           |   48 ++--
+ 52 files changed, 656 insertions(+), 518 deletions(-)
+
+commit 0b820fd8daee38b4a704486e01e4fd5fbcefeafb
+Merge: 22e3d95 31afe04
+Author: j <j@mailb.org>
+Date:   Sun Mar 6 16:18:40 2011 +0100
+
+    Merge remote branch 'upstream/master'
+
+commit 31afe04ec784a477f43d7a70b065e8ae2c5a3af3
+Author: trbs <trbs@trbs.net>
+Date:   Tue Mar 1 22:12:05 2011 +0100
+
+    added support for loading exclude and include lists from file
+
+ .../management/commands/graph_models.py            |    4 +-
+ django_extensions/management/modelviz.py           |   31 +++++++++++--------
+ 2 files changed, 20 insertions(+), 15 deletions(-)
+
+commit 1a4d7896ecb0b2a3dd4e23ed581ff6fdaba516fc
+Author: trbs <trbs@trbs.net>
+Date:   Fri Feb 25 16:45:12 2011 +0100
+
+    added support for exclude models and exclude columns
+
+ .../management/commands/graph_models.py            |    4 ++
+ django_extensions/management/modelviz.py           |   45 ++++++++++++++++---
+ 2 files changed, 42 insertions(+), 7 deletions(-)
+
+commit ed706202928e67e82cdee36a41f77f8f7b7adc28
+Author: Trey Hunner <treyhunner@gmail.com>
+Date:   Thu Feb 24 08:40:31 2011 -0800
+
+    Added keyword argument to AutoSlug field to allow non-unique slugs
+
+ django_extensions/db/fields/__init__.py |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit 5e0582bcd485cedd3d2684bab75ccf9ba55c1139
+Merge: 3f653cb 55f887b
+Author: trbs <trbs@trbs.net>
+Date:   Thu Feb 24 13:43:43 2011 +0100
+
+    Merge branch 'master' of github.com:django-extensions/django-extensions
+
+commit 3f653cb798141b880f9360235c46e1f6281c604b
+Author: trbs <trbs@trbs.net>
+Date:   Thu Feb 24 13:43:31 2011 +0100
+
+    corrected another typo in help text
+
+ .../management/commands/graph_models.py            |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 55f887b3234ca662a53f1c0707d533ecfe50dec9
+Author: Kevin Tran <hekevintran@gmail.com>
+Date:   Sat Feb 5 15:29:58 2011 +0800
+
+    corrected spelling
+
+ docs/sqldiff.rst |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 7e8ca6e9577fe3b6f3286d72dd54e2757352c203
+Author: trbs <trbs@trbs.net>
+Date:   Thu Feb 24 13:36:36 2011 +0100
+
+    fixed ticket #74 spelling error in help text, thanks to ChrisMatthews for fixing this.
+
+ .../management/commands/graph_models.py            |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 22e3d95e19f3747d9c883ca397c277579f986f0c
+Author: j <j@mailb.org>
+Date:   Wed Feb 23 14:53:25 2011 +0100
+
+    double precision is a valid field type
+
+ django_extensions/management/commands/sqldiff.py |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+commit dca0e7c95060f94fbb235e38d42e2b0f57e9229b
+Author: Gabriel Grant <g@briel.ca>
+Date:   Tue Feb 22 19:02:39 2011 -0500
+
+    another set -> list conversion fix
+
+ .../management/commands/dumpscript.py              |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 4dc193bb78c9d4f33a7e0ff32b860a373231e208
+Author: Gabriel Grant <g@briel.ca>
+Date:   Mon Feb 21 17:39:23 2011 -0500
+
+    fixes passwd: return a single string, rather than a tuple
+
+ django_extensions/management/commands/passwd.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 9784a0f6a27004b7316a45aa1fd67fb50ac9f821
+Merge: a2213e0 bba8b12
+Author: trbs <trbs@trbs.net>
+Date:   Thu Feb 3 14:16:56 2011 +0100
+
+    Merge branch 'master' of github.com:django-extensions/django-extensions
+
+commit a2213e0b49ef967967a2fe8dbf02295958930746
+Author: trbs <trbs@trbs.net>
+Date:   Thu Feb 3 14:14:17 2011 +0100
+
+    fixes #70, fix database quoting
+    
+    patch by carbonXT
+
+ django_extensions/jobs/daily/cache_cleanup.py |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+commit bba8b12c398e83a165318c7017bda437de84882f
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 2 11:44:33 2011 +0100
+
+    Pulled updates from Transifex (again), fixing plural forms and other things.
+
+ django_extensions/locale/cs/LC_MESSAGES/django.mo  |  Bin 367 -> 451 bytes
+ django_extensions/locale/cs/LC_MESSAGES/django.po  |    9 +++++----
+ django_extensions/locale/da/LC_MESSAGES/django.mo  |  Bin 797 -> 797 bytes
+ django_extensions/locale/da/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/de/LC_MESSAGES/django.mo  |  Bin 1227 -> 1227 bytes
+ django_extensions/locale/de/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/el/LC_MESSAGES/django.mo  |  Bin 1522 -> 1581 bytes
+ django_extensions/locale/el/LC_MESSAGES/django.po  |   10 ++++++----
+ django_extensions/locale/en/LC_MESSAGES/django.mo  |  Bin 367 -> 367 bytes
+ django_extensions/locale/en/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/es/LC_MESSAGES/django.mo  |  Bin 1260 -> 1260 bytes
+ django_extensions/locale/es/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/et/LC_MESSAGES/django.mo  |  Bin 398 -> 398 bytes
+ django_extensions/locale/et/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/fr/LC_MESSAGES/django.mo  |  Bin 685 -> 743 bytes
+ django_extensions/locale/fr/LC_MESSAGES/django.po  |   10 ++++++----
+ django_extensions/locale/hu/LC_MESSAGES/django.mo  |  Bin 1242 -> 1242 bytes
+ django_extensions/locale/hu/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/it/LC_MESSAGES/django.mo  |  Bin 1247 -> 1247 bytes
+ django_extensions/locale/it/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/ja/LC_MESSAGES/django.mo  |  Bin 1397 -> 1397 bytes
+ django_extensions/locale/ja/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/pl/LC_MESSAGES/django.mo  |  Bin 1236 -> 1236 bytes
+ django_extensions/locale/pl/LC_MESSAGES/django.po  |    4 ++--
+ django_extensions/locale/pt/LC_MESSAGES/django.mo  |  Bin 1262 -> 1262 bytes
+ django_extensions/locale/pt/LC_MESSAGES/django.po  |    2 +-
+ django_extensions/locale/ro/LC_MESSAGES/django.mo  |  Bin 1245 -> 1352 bytes
+ django_extensions/locale/ro/LC_MESSAGES/django.po  |   11 +++++++----
+ django_extensions/locale/ru/LC_MESSAGES/django.mo  |  Bin 367 -> 498 bytes
+ django_extensions/locale/ru/LC_MESSAGES/django.po  |   10 ++++++----
+ django_extensions/locale/sk/LC_MESSAGES/django.mo  |  Bin 367 -> 451 bytes
+ django_extensions/locale/sk/LC_MESSAGES/django.po  |    9 +++++----
+ django_extensions/locale/tr/LC_MESSAGES/django.mo  |  Bin 367 -> 417 bytes
+ django_extensions/locale/tr/LC_MESSAGES/django.po  |    9 +++++----
+ .../locale/zh_CN/LC_MESSAGES/django.mo             |  Bin 367 -> 420 bytes
+ .../locale/zh_CN/LC_MESSAGES/django.po             |    9 +++++----
+ 36 files changed, 56 insertions(+), 43 deletions(-)
+
+commit 8a41395915fd3168ec218a77bd2d50d3d89421ec
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 2 11:44:01 2011 +0100
+
+    Added Transifex config file.
+
+ .tx/config |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+commit aae719cc356b96e870b98625729eff24d5e785ff
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 2 11:39:52 2011 +0100
+
+    Renamed invalid "zh" locale to "zh_CN".
+
+ django_extensions/locale/zh/LC_MESSAGES/django.mo  |  Bin 367 -> 0 bytes
+ django_extensions/locale/zh/LC_MESSAGES/django.po  |   76 --------------------
+ .../locale/zh_CN/LC_MESSAGES/django.mo             |  Bin 0 -> 367 bytes
+ .../locale/zh_CN/LC_MESSAGES/django.po             |   76 ++++++++++++++++++++
+ 4 files changed, 76 insertions(+), 76 deletions(-)
+
+commit f20d84ca58a8cbef5cde60988ad7abca8e69944d
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 2 11:32:23 2011 +0100
+
+    Updated translation files, including the source file (en/django.po).
+
+ django_extensions/locale/cs/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/cs/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/da/LC_MESSAGES/django.mo |  Bin 0 -> 797 bytes
+ django_extensions/locale/da/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/de/LC_MESSAGES/django.mo |  Bin 0 -> 1227 bytes
+ django_extensions/locale/de/LC_MESSAGES/django.po |   13 +-
+ django_extensions/locale/el/LC_MESSAGES/django.mo |  Bin 0 -> 1522 bytes
+ django_extensions/locale/el/LC_MESSAGES/django.po |   13 +-
+ django_extensions/locale/en/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/en/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/es/LC_MESSAGES/django.mo |  Bin 0 -> 1260 bytes
+ django_extensions/locale/es/LC_MESSAGES/django.po |   13 +-
+ django_extensions/locale/et/LC_MESSAGES/django.mo |  Bin 0 -> 398 bytes
+ django_extensions/locale/et/LC_MESSAGES/django.po |    9 +-
+ django_extensions/locale/fr/LC_MESSAGES/django.mo |  Bin 0 -> 685 bytes
+ django_extensions/locale/fr/LC_MESSAGES/django.po |   17 ++-
+ django_extensions/locale/hu/LC_MESSAGES/django.mo |  Bin 0 -> 1242 bytes
+ django_extensions/locale/hu/LC_MESSAGES/django.po |    7 +-
+ django_extensions/locale/it/LC_MESSAGES/django.mo |  Bin 0 -> 1247 bytes
+ django_extensions/locale/it/LC_MESSAGES/django.po |   13 +-
+ django_extensions/locale/ja/LC_MESSAGES/django.mo |  Bin 0 -> 1397 bytes
+ django_extensions/locale/ja/LC_MESSAGES/django.po |   13 +-
+ django_extensions/locale/pl/LC_MESSAGES/django.mo |  Bin 0 -> 1236 bytes
+ django_extensions/locale/pl/LC_MESSAGES/django.po |  152 ++++++++++----------
+ django_extensions/locale/pt/LC_MESSAGES/django.mo |  Bin 0 -> 1262 bytes
+ django_extensions/locale/pt/LC_MESSAGES/django.po |   12 +-
+ django_extensions/locale/ro/LC_MESSAGES/django.mo |  Bin 0 -> 1245 bytes
+ django_extensions/locale/ro/LC_MESSAGES/django.po |    7 +-
+ django_extensions/locale/ru/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/ru/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/sk/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/sk/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/tr/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/tr/LC_MESSAGES/django.po |    4 +-
+ django_extensions/locale/zh/LC_MESSAGES/django.mo |  Bin 0 -> 367 bytes
+ django_extensions/locale/zh/LC_MESSAGES/django.po |    4 +-
+ 36 files changed, 160 insertions(+), 137 deletions(-)
+
+commit 049296b97b805720b2a758567580df17e4e0696c
+Author: Antti Kaihola <akaihol+github@ambitone.com>
+Date:   Mon Jan 24 20:29:48 2011 +0800
+
+    Fixes ticket #68: show_urls prints class instances and other 'exotic' view objects in a nicer form
+
+ django_extensions/management/commands/show_urls.py |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+commit 8255fbee388848947aeb70bc960e23b28c11a0dd
+Author: Antti Kaihola <akaihol+github@ambitone.com>
+Date:   Mon Jan 24 18:31:31 2011 +0800
+
+    Fixes ticket #66: customize output colors only if colors supported
+
+ django_extensions/management/color.py |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit 8ace46cb79cb4e7d5b02cf84056f1ebb0844cca8
+Author: Gabriel Grant <g@briel.ca>
+Date:   Wed Jan 19 12:49:01 2011 -0500
+
+    fixed new dumpscript.InstanceCode.skip() implementation: sets can't be added to lists
+
+ .../management/commands/dumpscript.py              |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit 2f44a72f1ebe3303b67eaa4200349b7484c41cde
+Author: Gabriel Grant <g@briel.ca>
+Date:   Wed Jan 19 02:04:59 2011 -0500
+
+    Added test for dumpscript and a test runner. Fixes #64
+
+ django_extensions/tests/__init__.py        |    1 +
+ django_extensions/tests/models.py          |    3 ++
+ django_extensions/tests/test_dumpscript.py |   20 ++++++++++++++
+ run_tests.py                               |   39 ++++++++++++++++++++++++++++
+ 4 files changed, 63 insertions(+), 0 deletions(-)
+
+commit dd0b5b430d54710df56e7e6e8ae6a923c514aff5
+Author: Gabriel Grant <g@briel.ca>
+Date:   Tue Jan 18 22:40:54 2011 -0500
+
+    Fix Instance.skip() which was broken by the refactor of Django's deletion code in r14507
+
+ .../management/commands/dumpscript.py              |   68 ++++++++++++++++---
+ docs/AUTHORS                                       |    1 +
+ 2 files changed, 58 insertions(+), 11 deletions(-)
+
+commit c26ef2b6514153b77c3616ac0d1af578a5fc2aa8
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 02:12:10 2010 +0100
+
+    bumped version number to new development version
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit a1f28f22aa4f7f6587e21cf0b1d20b0e50fce8f6
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 01:53:18 2010 +0100
+
+    updated version information in Installation Instruction
+
+ docs/installation_instructions.rst |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 29b2532c4bc2ded7e7263bee623c8e46955fb6d3
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 01:51:15 2010 +0100
+
+    added information about Eric Holscher's screencast to the documentation
+
+ README.rst     |   10 +++++++++-
+ docs/index.rst |    8 ++++++++
+ 2 files changed, 17 insertions(+), 1 deletions(-)
+
+commit 96b7cdd71370d41e98b660e3adf81bf727a09861
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 01:19:29 2010 +0100
+
+    changed url to github
+
+ setup.py |   23 +++++++++++++----------
+ 1 files changed, 13 insertions(+), 10 deletions(-)
+
+commit be72d51f628214f2a43ec8bb3fc85d40b38a29ff
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 01:02:28 2010 +0100
+
+    Added basic README text to documentation index
+
+ docs/index.rst |   23 ++++++++++++++++++++++-
+ 1 files changed, 22 insertions(+), 1 deletions(-)
+
+commit 508f8f3e8fa9c1086eb648c6860fae441265f552
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 00:31:00 2010 +0100
+
+    preparing for release, bumped version number to 0.6
+
+ django_extensions/__init__.py |    2 +-
+ docs/conf.py                  |    6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 4723cdd043d055946bea1171283d5ce0bc5cfc4a
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 00:29:46 2010 +0100
+
+    added README file
+    
+    this should show up nicely in github :)
+
+ README.rst |   30 ++++++++++++++++++++++++++++++
+ 1 files changed, 30 insertions(+), 0 deletions(-)
+
+commit 7896310ab42c7fa7729174e16d39993d5db8afc4
+Author: trbs <trbs@trbs.net>
+Date:   Sun Dec 12 00:01:49 2010 +0100
+
+    Split doctests for utils into seperated parts for truncate_letters and uuid tests
+
+ django_extensions/tests/__init__.py |    6 ++++--
+ django_extensions/tests/utils.py    |    4 +++-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+commit bc37090a7942580e4a5701e64e2f025af6954d31
+Author: Ben Welsh <ben.welsh@gmail.com>
+Date:   Sat Dec 4 18:27:12 2010 -0800
+
+    Replaced S3CreateError with an import path that works with the pip version of boto.
+
+ .../management/commands/sync_media_s3.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 22b5af8679f2ea8da57778a48ab70b33d9efefa4
+Author: trbs <trbs@trbs.net>
+Date:   Thu Nov 25 14:38:49 2010 +0100
+
+    Ticket 50: Added proposed fix for UUIDField to allow it to be fixed as primary_key
+
+ django_extensions/db/fields/__init__.py |   11 ++++++++++-
+ 1 files changed, 10 insertions(+), 1 deletions(-)
+
+commit 117d35d6826ec33ed24d552b5d170df6af7e0627
+Author: Zbigniew Siciarz <antyqjon@gmail.com>
+Date:   Wed Nov 24 21:30:16 2010 +0800
+
+    Polish translation.
+
+ django_extensions/locale/pl/LC_MESSAGES/django.po |   77 +++++++++++++++++++++
+ 1 files changed, 77 insertions(+), 0 deletions(-)
+
+commit fce4eb65adfe182845cbeb3355b7fd6943407ddb
+Author: Joern Hees <gitdev@joernhees.de>
+Date:   Wed Nov 3 05:33:00 2010 +0800
+
+    Fixed a bug, where only one level of abstract attributes were included in children.
+
+ django_extensions/management/modelviz.py |   15 +++++++++++----
+ 1 files changed, 11 insertions(+), 4 deletions(-)
+
+commit a2c7f998f95ee13a67254325f48c7ff6454a926a
+Author: Dan Fairs <dan@fezconsulting.com>
+Date:   Wed Oct 14 00:29:52 2009 +0800
+
+    Add a --script-args option to the runscript management command, which allows
+    arbitrary positional string arguments to be passed to the scripts being run.
+    The same arguments are passed to all scripts. This should be backwards-compatible
+    with existing, no-argument scripts.
+
+ django_extensions/management/commands/runscript.py |   33 +++++++++++++++++---
+ 1 files changed, 28 insertions(+), 5 deletions(-)
+
+commit e366b762430e2e9d92862b0d392c9e6e0d178bd3
+Author: aneil <aneil@ahab.blipboard.com>
+Date:   Fri Oct 8 10:17:27 2010 -0700
+
+    sync_media_s3 now looks at settings.SYNC_MEDIA_S3_PREFIX as a default argument for --prefix option
+    
+    Thanks to amallavarapu for the patch.
+
+ .../management/commands/sync_media_s3.py           |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit b96cec8e9aff5fee3da6988fc6d17bcb8ca8e0e0
+Author: hbussell <modmac@gmail.com>
+Date:   Sun Feb 14 14:17:01 2010 +0800
+
+    add find_template command to resolve template paths
+
+ .../management/commands/find_template.py           |   24 ++++++++++++++++++++
+ 1 files changed, 24 insertions(+), 0 deletions(-)
+
+commit 70c28a60df298cb2029908722a1a7d69ceac6be2
+Author: Fernando Silva <fernando@liquuid.net>
+Date:   Tue Nov 16 08:15:41 2010 +0800
+
+    Portuguese Language Suport
+
+ django_extensions/locale/pt/LC_MESSAGES/django.po |   75 +++++++++++++++++++++
+ 1 files changed, 75 insertions(+), 0 deletions(-)
+
+commit 67bbb87dc7f826766f7dd24151dfc04adf6eefa1
+Author: trbs <trbs@trbs.net>
+Date:   Tue Nov 23 00:34:45 2010 +0100
+
+    removed space in usage example
+
+ django_extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 64f22a0bca55826cc73d69a9ea7acbf3812d16ee
+Author: Petr Filipsky <philodej@gmail.com>
+Date:   Sun Nov 21 06:51:16 2010 +0800
+
+    Added --language option to graph_model command in order to support the localization of generated graphs
+
+ .../management/commands/graph_models.py            |    2 ++
+ django_extensions/management/modelviz.py           |   16 ++++++++++++----
+ 2 files changed, 14 insertions(+), 4 deletions(-)
+
+commit c7790edf99f05988e83474738cb1ac649981787e
+Author: Christian Oudard <christian.oudard@gmail.com>
+Date:   Fri Nov 12 04:36:44 2010 +0800
+
+    Made set_fake_passwords use an update call instead of a loop.
+
+ .../management/commands/set_fake_passwords.py      |   13 ++++++-------
+ 1 files changed, 6 insertions(+), 7 deletions(-)
+
+commit 597456ad2723b515a7130356a57bf1a85d1ca752
+Author: Ivan Fedorov <oxyum@oxyum.ru>
+Date:   Mon Apr 5 23:50:58 2010 +0800
+
+    Add South support to JSONField
+
+ django_extensions/db/fields/json.py |    9 +++++++++
+ 1 files changed, 9 insertions(+), 0 deletions(-)
+
+commit 85b26b3115582a8cc6198a0c7651e49d4a9b3549
+Author: Viliam Segeda <viliam.segeda@gmail.com>
+Date:   Sat Aug 7 00:38:07 2010 +0800
+
+    fix sqldiff exception for not indexed unique fields  in sqlite3 db
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit fb1051f82a76aece8185eff7bad21b186bad72db
+Author: Viliam Segeda <viliam.segeda@gmail.com>
+Date:   Sat Aug 7 00:25:26 2010 +0800
+
+    fix #23,  sqlite3 doesn't preserve precision for decimal fields
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 02a8905a9f5f679cf2b3a7d15dc6727b35e50cba
+Author: Miguel Araujo Perez <miguel.araujo.perez@gmail.com>
+Date:   Mon Oct 18 18:24:27 2010 +0800
+
+    Enhacement: Adding support for Postgis Spatial Backend to reset_db
+
+ django_extensions/management/commands/reset_db.py |   10 ++++++++--
+ 1 files changed, 8 insertions(+), 2 deletions(-)
+
+commit 541b564281fe7e4108c524ea2b141766d8c2702c
+Author: Chris Adams <chris@improbable.org>
+Date:   Fri Mar 12 22:57:03 2010 +0800
+
+    Added an option to shell_plus to print SQL queries
+    
+    shell_plus with --print-sql will print SQL queries as they're issued
+
+ .../management/commands/shell_plus.py              |   34 +++++++++++++++++---
+ 1 files changed, 29 insertions(+), 5 deletions(-)
+
+commit d5b33b3b946ca6c3c3c4bea908b83f75bd2a97d1
+Author: Mark van Lent <m.van.lent@zestsoftware.nl>
+Date:   Thu Nov 4 16:29:51 2010 +0800
+
+    Fix for issue 6: graph_models m2m relations don't appear.
+    
+    Solution is tested with Django 1.1.1 and 1.2.3.
+
+ django_extensions/management/modelviz.py |    6 ++++--
+ 1 files changed, 4 insertions(+), 2 deletions(-)
+
+commit 82253161f5a1228f3501394e689672ea660d664b
+Author: Alejandro Varas <alej0varas@gmail.com>
+Date:   Thu Sep 23 03:39:44 2010 +0000
+
+    l10n: Updated Spanish (Castilian) (es) translation to 100%
+    
+    New status: 14 messages complete with 0 fuzzies and 0 untranslated.
+    
+    Transmitted-via: Transifex (www.transifex.net).
+
+ django_extensions/locale/es/LC_MESSAGES/django.po |    7 +++----
+ 1 files changed, 3 insertions(+), 4 deletions(-)
+
+commit 1610e1e59124071e1d01b3814b6f17ff72b526bb
+Merge: ee1eb6d 16b5cfd
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sun Aug 1 00:07:00 2010 -0400
+
+    Merge branch 'master' of git://github.com/pcusa-jim/django-extensions
+
+commit ee1eb6dc8f1652b43eb1c6d2299108752214a1c3
+Author: Jim Phares <jim.phares@pcusa.org>
+Date:   Sun Aug 1 10:57:57 2010 +0800
+
+    specifies default manager instead of object - issue 21
+
+ .../media/django_extensions/js/jquery.ajaxQueue.js |  230 ++++++++++----------
+ 1 files changed, 115 insertions(+), 115 deletions(-)
+
+commit 16b5cfdc820a2776fef683989159f19965db8cc2
+Author: Jim Phares <jim.phares@pcusa.org>
+Date:   Sat Jul 31 22:57:57 2010 -0400
+
+    specifies default manager instead of object - issue 21
+
+ .../media/django_extensions/js/jquery.ajaxQueue.js |  230 ++++++++++----------
+ 1 files changed, 115 insertions(+), 115 deletions(-)
+
+commit d905318ef40bca2d0719ee1d3a5d256e465261f2
+Author: unknown <JPhares@.center.presby.usa>
+Date:   Sat Jul 31 22:45:07 2010 -0400
+
+    specifies default manager instead of object - issue 21
+
+ .../management/commands/dumpscript.py              |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit be3ee0a06ec350431e66efbcbcead28075056f55
+Author: Richard Bullington-McGuire <richard.bullington-mcguire@threepillarglobal.com>
+Date:   Fri Jul 23 04:15:56 2010 +0800
+
+    Remove bogus semicolons, thanks justinlilly
+
+ django_extensions/tests/models.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 7506644c7dd6b81d93181796577913a166c32675
+Author: Richard Bullington-McGuire <richard.bullington-mcguire@threepillarglobal.com>
+Date:   Fri Jul 23 03:10:52 2010 +0800
+
+    Resolve issue #17: omit tests if keyczar is not installed
+
+ django_extensions/tests/__init__.py         |    7 +++++--
+ django_extensions/tests/encrypted_fields.py |   26 +++++++++++++++++++++-----
+ django_extensions/tests/models.py           |   15 +++++++++++++--
+ 3 files changed, 39 insertions(+), 9 deletions(-)
+
+commit 549662c34a3079884077fbfabb35e6d129c532f2
+Author: wyleung <tweakboy@gmail.com>
+Date:   Tue Jun 8 03:31:27 2010 +0800
+
+    Add verbosity options
+
+ django_extensions/management/commands/reset_db.py |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit f6cd367b0ee81b889dac47ca05dcf17763e902a4
+Author: wyleung <tweakboy@gmail.com>
+Date:   Tue Jun 8 03:18:31 2010 +0800
+
+    Removed mysql settings added last time, postgresql: removed tablespace depency.
+
+ django_extensions/management/commands/reset_db.py |   25 +++++++++-----------
+ 1 files changed, 11 insertions(+), 14 deletions(-)
+
+commit d562a64a2301f05ad527828c66a102f64e02ead8
+Author: wyleung <tweakboy@gmail.com>
+Date:   Mon Jun 7 23:24:23 2010 +0800
+
+    Fix indent problem, sorry!
+
+ django_extensions/management/commands/reset_db.py |   12 ++++++------
+ 1 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 3ceb8749b361c06f93692881af62aebb9817f7f5
+Author: wyleung <tweakboy@gmail.com>
+Date:   Mon Jun 7 23:22:05 2010 +0800
+
+    Solve ticket #9 and #12 on github about connection parameters
+
+ django_extensions/management/commands/reset_db.py |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+commit 51ef5c0d32921228855fe9922611301d43cc099c
+Author: wyleung <tweakboy@gmail.com>
+Date:   Fri Jun 4 20:58:34 2010 +0800
+
+    Removed print statement (used in debug)
+
+ django_extensions/management/commands/reset_db.py |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+commit ec6f835a93b0e5ac0d9767c845379bee0948fdf4
+Author: Wai Yi Leung <w.y.leung@e-sensei.nl>
+Date:   Fri Jun 4 08:29:42 2010 +0800
+
+    Modified the reset_db to use Django>=1.2 database routers
+
+ django_extensions/management/commands/reset_db.py |   28 ++++++++++++++++++++-
+ 1 files changed, 27 insertions(+), 1 deletions(-)
+
+commit fde73203ddd7955dd2227fc060cc004831166d5c
+Author: Erik Romijn <erik@eriks-mac-mini.(none)>
+Date:   Thu Mar 18 04:32:45 2010 +0800
+
+    adding support for minutely jobs
+
+ django_extensions/management/commands/runjobs.py |   10 ++++++----
+ django_extensions/management/jobs.py             |    5 ++++-
+ django_extensions/management/signals.py          |    1 +
+ 3 files changed, 11 insertions(+), 5 deletions(-)
+
+commit a2a4c908f2c2e3ac677dd139171e5e69cfd6ae92
+Author: Rense VanderHoek <rense@layar.com>
+Date:   Wed Jul 14 23:34:28 2010 +0800
+
+    Fixes issue #10
+
+ .../management/commands/sync_media_s3.py           |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit cdf8fae28b3830f8dcf3d0d9f25992b50261633d
+Author: Lauri Võsandi <lauri.vosandi@gmail.com>
+Date:   Thu Jul 1 21:32:34 2010 +0000
+
+    l10n: Updated Estonian (et) translation to 7%
+    
+    New status: 1 message complete with 0 fuzzies and 13 untranslated.
+    
+    Transmitted-via: Transifex (www.transifex.net).
+
+ django_extensions/locale/et/LC_MESSAGES/django.po |    8 +++-----
+ 1 files changed, 3 insertions(+), 5 deletions(-)
+
+commit ee5c6085af49cfd30db84006b66c59298f16f6dd
+Author: Trbs <trbs@nospam.trbs.net>
+Date:   Mon Jun 7 13:49:50 2010 +0200
+
+    added tyson clugg to the authors document
+
+ docs/AUTHORS |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 12dda865fcb1647589a738f6b22889a6d9980015
+Author: Trbs <trbs@nospam.trbs.net>
+Date:   Tue May 25 19:58:30 2010 +0200
+
+    ticket #31 on github, using verbose_names in drawing graph_model
+    
+    this patch makes an option to use verbose_names from metadata instead of
+    class and field names.
+    
+    thanks to qMax for this patch!
+
+ .../management/commands/graph_models.py            |    6 ++-
+ django_extensions/management/modelviz.py           |   33 +++++++++++++++++--
+ docs/AUTHORS                                       |    1 +
+ 3 files changed, 34 insertions(+), 6 deletions(-)
+
+commit 94be9c0468467a5db3e76f07f36777258e731980
+Author: Trbs <trbs@nospam.trbs.net>
+Date:   Tue May 25 19:51:06 2010 +0200
+
+    ticket #32 fixed by flipping isinstance check for OneToOnefield and Foreignkey
+
+ django_extensions/management/modelviz.py |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit d27a13170b4feb413e2cceb72a93784dc887386b
+Author: Trbs <trbs@nospam.trbs.net>
+Date:   Tue May 18 12:22:04 2010 +0200
+
+    fixed #30 raise exception formatting
+
+ django_extensions/management/commands/reset_db.py |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 07275f9d98466db33c874f1171591ecb26b22138
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 14:25:13 2010 +0200
+
+    updated maintainer information
+
+ setup.py |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit 3f9719da11c9adfdf4fa9e37570870cd3be97dec
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 14:22:46 2010 +0200
+
+    updated copyright notice
+
+ docs/conf.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 1516642f89a22cda1f1e70d4aa917b8ef9b191a5
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 14:20:54 2010 +0200
+
+    updated creating_release.txt with documentation instructions
+
+ docs/creating_release.txt |   11 +++++++++++
+ 1 files changed, 11 insertions(+), 0 deletions(-)
+
+commit ae96c05512bcc9505d2d9b4a3c86629222ca7c0e
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 14:20:33 2010 +0200
+
+    added sqldiff to the toc of sphinx documentation
+
+ docs/index.rst |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit b4b8e5cee3a6dfec0cd9412ca7c28e2d3e08ff8d
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 13:31:44 2010 +0200
+
+    v0.5
+
+ django_extensions/__init__.py |    2 +-
+ docs/conf.py                  |    4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 42113308b0a57219f031a60189ecd5a76dbb59db
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 21 13:31:05 2010 +0200
+
+    updates release documentation
+
+ docs/creating_release.txt |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 9bf983ebff6dc966dee39929080d41e97333f864
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 14 18:02:23 2010 +0200
+
+    fixed #22
+
+ django_extensions/management/commands/reset_db.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 82aca2c139a27f97f379cdcde7911e9fbea97c5d
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 14 17:57:00 2010 +0200
+
+    patch for understanding proxy models
+
+ django_extensions/management/commands/sqldiff.py |   22 ++++++++++++++--------
+ 1 files changed, 14 insertions(+), 8 deletions(-)
+
+commit bee2f6027d6d363948492c4609423e408a815fe8
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 14 17:49:10 2010 +0200
+
+    add note that reset_db does not work on django 1.2 and multiple db support
+
+ django_extensions/management/commands/reset_db.py |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+commit 5bd6448df48131fd3f32dda00f74148fc0cc3d88
+Author: sqrbass <sqrbass@onepiece.office.mbuyu.nl>
+Date:   Wed Apr 14 17:38:29 2010 +0200
+
+    fixed #28 solved problems with new versions of IPython
+
+ .../management/commands/shell_plus.py              |    8 ++++++--
+ 1 files changed, 6 insertions(+), 2 deletions(-)
+
+commit d1afa6e7cbc4fe9f05cd346a933888faa3a11473
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Fri Apr 2 17:16:50 2010 +0200
+
+    Revert "fix naming so pip can install with -e to virtualenvs"
+    
+    This reverts commit e3974fdf7dd157e8f2f808837873aa674b9dce58.
+
+ setup.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 04fd8f49ada93f24a252c898b62624065494acf0
+Author: Allen Riddell <abr@ariddell.org>
+Date:   Sat Mar 6 18:32:20 2010 +0000
+
+    l10n: Updates to French (fr) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/fr/LC_MESSAGES/django.po |   41 +++++++++++----------
+ 1 files changed, 21 insertions(+), 20 deletions(-)
+
+commit d43ca1dc05352ccd082819751279cb0ed83068d5
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Mar 6 14:01:34 2010 +0100
+
+    Updated Danish translation, thanks Michael Lind Mortensen
+
+ django_extensions/locale/da/LC_MESSAGES/django.po |   23 +++++++++++---------
+ 1 files changed, 13 insertions(+), 10 deletions(-)
+
+commit 8a8862acb32f695c0b39a86d88665b1a43a3615f
+Author: botondus <botondus@gmail.com>
+Date:   Thu Mar 4 21:49:38 2010 +0000
+
+    l10n: Added Hungarian translation.
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/hu/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ 1 files changed, 76 insertions(+), 0 deletions(-)
+
+commit 571eb04e3c2a5f1889dafb7b3e9b6bcb88e3e41a
+Author: botondus <botondus@gmail.com>
+Date:   Thu Mar 4 21:26:57 2010 +0000
+
+    l10n: Added Romanian translation.
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ro/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ 1 files changed, 76 insertions(+), 0 deletions(-)
+
+commit 349454f9bb773cbcaddaa33064a0bca68d59cab7
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Thu Mar 4 15:02:59 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 34a7aae95521ed689dc357682ef2f7a536f5b7bd
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Thu Mar 4 14:58:36 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit d60a1b84a819f95abd0045653a82d395ff90eaa1
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Tue Mar 2 12:50:30 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 644099c942e221ae0e06f4398b9f406730dd65d9
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Tue Mar 2 04:09:48 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 4081e04327b7303ce2b5a7200cb9eb68b0b5198b
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Tue Mar 2 04:07:21 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 754bbff7df51a732ac63be6be6c4e2225156559b
+Author: Shinya Okano <tokibito@gmail.com>
+Date:   Tue Mar 2 04:01:12 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |   11 ++++-------
+ 1 files changed, 4 insertions(+), 7 deletions(-)
+
+commit f8abb3e416ddae4a1f2e6cf095166ca0c5e23853
+Author: Yosuke Ikeda <alpha.echo.35+transifex@gmail.com>
+Date:   Tue Mar 2 03:56:03 2010 +0000
+
+    l10n: Updates to Japanese (ja) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/ja/LC_MESSAGES/django.po |   17 +++++++++--------
+ 1 files changed, 9 insertions(+), 8 deletions(-)
+
+commit e842d7e17e35ca0be429ff3b66c0c7a5a20da3bb
+Author: yedpodtrzitko <yed@vanyli.net>
+Date:   Tue Jan 19 06:42:44 2010 +0800
+
+    fallback for hashlib import
+
+ django_extensions/utils/uuid.py |   12 +++++++++---
+ 1 files changed, 9 insertions(+), 3 deletions(-)
+
+commit 0e35ffb4fb15b2fac75606370179d12beae454cf
+Author: yed <yed@rublan.(none)>
+Date:   Sun Dec 6 00:06:31 2009 +0800
+
+    removed sha1/md5 import in favor of hashlib
+
+ django_extensions/utils/uuid.py |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 9a93358f7be3bca21e43a1ee7cc3924b61b6bc5f
+Author: Alejandro Varas <alej0varas@gmail.com>
+Date:   Sun Feb 21 05:43:55 2010 +0000
+
+    l10n: Updates to Spanish (Castilian) (es) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/es/LC_MESSAGES/django.po |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 8f6b8f424eef7e875c9c751e476b301e5b9839c6
+Author: Alejandro Varas <alej0varas@gmail.com>
+Date:   Sun Feb 21 05:42:24 2010 +0000
+
+    l10n: Updates to Spanish (Castilian) (es) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/es/LC_MESSAGES/django.po |   35 ++++++++++-----------
+ 1 files changed, 17 insertions(+), 18 deletions(-)
+
+commit 7390864813023b9f2a699cf5ffa58ed1ade269ec
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 17 09:51:07 2010 +0000
+
+    l10n: Updates to German (de) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/de/LC_MESSAGES/django.po |   34 ++++++++++-----------
+ 1 files changed, 16 insertions(+), 18 deletions(-)
+
+commit 089a25aeaa3b8f0edd65dfdc88597f9541c2f447
+Merge: 8b0befd 655a1c3
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 17 10:38:22 2010 +0100
+
+    Merge remote branch 'alup/master'
+
+commit 655a1c36c0143c928328475da9b379dd2474c5a6
+Author: Dimitris Glezos <glezos@indifex.com>
+Date:   Sun Feb 14 13:02:09 2010 +0000
+
+    l10n: Updates to Greek (el) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/el/LC_MESSAGES/django.po |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+commit 3aa769e638e92cb2b88022d2ab711f7cff603d32
+Author: Flavio Curella <flavio.curella@gmail.com>
+Date:   Sat Feb 13 16:22:31 2010 +0000
+
+    l10n: Updates to Italian (it) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/it/LC_MESSAGES/django.po |    4 +---
+ 1 files changed, 1 insertions(+), 3 deletions(-)
+
+commit e0b5f42076c61524f3fc35e775dcf631ff29c789
+Author: Flavio Curella <flavio.curella@gmail.com>
+Date:   Sat Feb 13 16:21:57 2010 +0000
+
+    l10n: Updates to Italian (it) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/it/LC_MESSAGES/django.po |   38 ++++++++++----------
+ 1 files changed, 19 insertions(+), 19 deletions(-)
+
+commit 8b0befd0b2c82d61f752dacf83dc0cbe0dcfaf1c
+Author: Jeff Balogh <me@jeffbalogh.org>
+Date:   Wed Feb 3 06:21:58 2010 +0800
+
+    Django removed ERROR_OUTPUT in [12009]; ERROR does the same thing
+
+ .../management/commands/export_emails.py           |    2 +-
+ django_extensions/management/commands/runscript.py |    2 +-
+ .../management/commands/shell_plus.py              |    2 +-
+ django_extensions/management/commands/sqldiff.py   |    2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit ef8811d61d65023fec568343e0aa238fc9e260ce
+Author: alup <alup@indifex.com>
+Date:   Mon Feb 1 16:40:16 2010 +0000
+
+    l10n: Updates to Greek (el) translation
+    
+    Transmitted-via: Transifex (www.transifex.net)
+
+ django_extensions/locale/el/LC_MESSAGES/django.po |   35 ++++++++++-----------
+ 1 files changed, 17 insertions(+), 18 deletions(-)
+
+commit fa91da58df4bb98b7717c54a5819a33ccf42120b
+Author: Andreas <andy@troll.(none)>
+Date:   Mon Feb 1 18:23:27 2010 +0200
+
+    Initialize the i18n procedure.
+
+ django_extensions/locale/cs/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/da/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/de/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/el/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/en/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/es/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/et/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/fr/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/it/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/ja/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/ru/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/sk/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/tr/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ django_extensions/locale/zh/LC_MESSAGES/django.po |   76 +++++++++++++++++++++
+ 14 files changed, 1064 insertions(+), 0 deletions(-)
+
+commit 00ffbe4aa0dbcb9743b39eec5790823a0684ff23
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Wed Jan 20 08:56:07 2010 +0800
+
+    added ActivatorModelManager, returns active or inactive instances of ActivatorModel
+
+ django_extensions/db/models.py |   13 +++++++++++++
+ 1 files changed, 13 insertions(+), 0 deletions(-)
+
+commit 7fa216b2e1f75f32205343cff8d8ffdc3199f3da
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Tue Jan 19 19:56:07 2010 -0500
+
+    added ActivatorModelManager, returns active or inactive instances of ActivatorModel
+
+ django_extensions/db/models.py |   13 +++++++++++++
+ 1 files changed, 13 insertions(+), 0 deletions(-)
+
+commit 57e9ce9c3f5da69de673c376f6b1946247e5ca2d
+Author: Sean O'Connor <sean@seanoc.com>
+Date:   Sun Jan 17 06:00:59 2010 +0800
+
+    Added a more explicit import error for when the encrypted fields are imported and keyczar is not installed.
+
+ django_extensions/db/fields/encrypted.py |   12 ++++++++----
+ 1 files changed, 8 insertions(+), 4 deletions(-)
+
+commit 3c31e9183fa2c27795867a6c1b2f35811bb36da1
+Author: Sean O'Connor <sean@seanoc.com>
+Date:   Sun Jan 17 05:28:54 2010 +0800
+
+    Fixed the setting imported by the encrypted fields tests.
+
+ django_extensions/tests/encrypted_fields.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit ec31d92357fa8cd60b5d2c962ae490f823e81bd8
+Author: Sean O'Connor <sean@seanoc.com>
+Date:   Sun Jan 17 05:08:21 2010 +0800
+
+    Renamed the setting for the encrypted field keys directory.
+
+ django_extensions/db/fields/encrypted.py |    7 +++----
+ 1 files changed, 3 insertions(+), 4 deletions(-)
+
+commit 459276ded0edf1d1cf6d94b4865891a281445b95
+Author: Sean O'Connor <sean@seanoc.com>
+Date:   Sat Jan 16 09:50:19 2010 +0800
+
+    Added encrypted text and char fields.
+
+ django_extensions/db/fields/encrypted.py    |   55 +++++++++++++++++++++++++
+ django_extensions/tests/__init__.py         |    3 +
+ django_extensions/tests/encrypted_fields.py |   58 +++++++++++++++++++++++++++
+ django_extensions/tests/models.py           |    7 +++
+ docs/field_extensions.rst                   |    6 ++-
+ 5 files changed, 128 insertions(+), 1 deletions(-)
+
+commit e401f82f669ffe653b057b0207abea03d96d3ee7
+Author: Jason Mayfield <jwmayfield@work.local>
+Date:   Fri Dec 11 23:22:38 2009 +0800
+
+    Added support for django-reversion to ForeignkeyAutocompleteAdmin
+
+ django_extensions/admin/__init__.py |    9 +++++++--
+ 1 files changed, 7 insertions(+), 2 deletions(-)
+
+commit a68c4cd8c8c3e0524dabc8991d095e8424858ffe
+Author: Dmitry Nedbaylo <dmitry.nedbaylo@gmail.com>
+Date:   Mon Jan 4 04:15:05 2010 +0800
+
+    do real remove ot .tmpl token from the end of filename instead of right stripping from any give character ([.tmpl])
+
+ .../management/commands/create_app.py              |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit c18b8ff67d18a3519c4822a0aaa5a58afd61bd22
+Author: Dmitry Nedbaylo <dmitry.nedbaylo@gmail.com>
+Date:   Mon Jan 4 04:13:00 2010 +0800
+
+    replace app_name with application name in names of directories as well
+
+ .../management/commands/create_app.py              |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit ba0ce86da957d24219b67ddbb74173171f7f508d
+Author: Dmitry Nedbaylo <dmitry.nedbaylo@gmail.com>
+Date:   Mon Jan 4 04:02:27 2010 +0800
+
+    normalize path to application template directory
+
+ .../management/commands/create_app.py              |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit ae7a3a084940304b5fbea910c3a3e747b8686d3e
+Author: Ulrich Petri <u.petri@diefirma.de>
+Date:   Tue Sep 22 20:59:16 2009 +0800
+
+    Added bpython support
+
+ .../management/commands/shell_plus.py              |   24 ++++++++++++++-----
+ 1 files changed, 17 insertions(+), 7 deletions(-)
+
+commit 312d44523fd6055f5d5b4765bdb2e3a8c2706dde
+Author: comogo <mcomogo@gmail.com>
+Date:   Thu Sep 10 05:40:24 2009 +0800
+
+    Fix ForeignkeyAutocompleteAdmin
+
+ django_extensions/admin/__init__.py |   30 +++++++++++++++++++++---------
+ 1 files changed, 21 insertions(+), 9 deletions(-)
+
+commit ed4164700ef70a366a8d913e3f9fac2535ace9cf
+Author: tehfink <djsnickles@yahoo.com>
+Date:   Fri Dec 4 14:25:33 2009 +0800
+
+    preliminary south support
+    http://south.aeracode.org/
+
+ django_extensions/db/fields/__init__.py |   36 ++++++++++++++++++++++++++++++-
+ 1 files changed, 35 insertions(+), 1 deletions(-)
+
+commit 5d9e2682a53c8a7ac0152a775f5ffde313e84151
+Author: trbs <trbs@trbs.net>
+Date:   Wed Nov 18 21:50:59 2009 +0100
+
+    Use settings.DEFAULT_TABLESPACE for PostGreSQL tablespace instead of default
+
+ django_extensions/management/commands/reset_db.py |    8 ++++++--
+ 1 files changed, 6 insertions(+), 2 deletions(-)
+
+commit 1edd5d5c01082e730c5c3f871e09d02af8f19376
+Author: Preston Holmes <preston@ptone.com>
+Date:   Thu Nov 5 14:53:10 2009 +0800
+
+    Added show_templatetags command
+    
+    Formats and outputs docstrings for all template tags for INSTALLED_APPS
+
+ .../management/commands/show_templatetags.py       |   97 ++++++++++++++++++++
+ 1 files changed, 97 insertions(+), 0 deletions(-)
+
+commit cb26e1d70017c904b62446a988af5e2212b993f1
+Author: varikin <varikin@overdrive.local>
+Date:   Thu May 7 11:56:24 2009 +0800
+
+    Added unreferenced_files command.
+    
+    This command lists every file under MEDIA_ROOT that isn't referenced in the database
+    in a FileField or subclass of FileField.
+
+ .../management/commands/unreferenced_files.py      |   44 ++++++++++++++++++++
+ 1 files changed, 44 insertions(+), 0 deletions(-)
+
+commit 1366f6dbe3dbdbd8e3dabfef8ced7df26f8dd311
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Sun Aug 23 18:03:51 2009 +0800
+
+    Fixed bug in diffdb command which crashes if a sqlite database has
+    a unique column whose field name differs from the database column
+    name.
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 18826a2307a5ff937b51ea250ab81b875f011639
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Sun Aug 23 17:38:14 2009 +0800
+
+    ignore egg-info thing
+
+ .gitignore |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 7f271a7d60b66bb3c3f9334d23649d205551ccf5
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Sat Aug 8 01:50:14 2009 +0800
+
+    Profiles now include elapsed milliseconds in filename with leading
+    zeroes so you can sort out evil long requests.
+
+ .../management/commands/runprofileserver.py        |   10 +++++++++-
+ 1 files changed, 9 insertions(+), 1 deletions(-)
+
+commit e3974fdf7dd157e8f2f808837873aa674b9dce58
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Tue Aug 4 18:51:46 2009 +0800
+
+    fix naming so pip can install with -e to virtualenvs
+
+ setup.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit a842edf938f1f888a5c12602ecc21cf7de2c87ab
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Sat Aug 1 21:36:50 2009 +0800
+
+    highlighting django template tag
+
+ django_extensions/templatetags/highlighting.py |   89 ++++++++++++++++++++++++
+ 1 files changed, 89 insertions(+), 0 deletions(-)
+
+commit 1bec5860ca61fbc9ca4c3b00a69ad5389857cbdd
+Author: J.A. Roberts Tunney <jtunney@lobstertech.com>
+Date:   Sat Aug 1 21:29:17 2009 +0800
+
+    json field :D
+
+ django_extensions/db/fields/json.py |   77 +++++++++++++++++++++++++++++++++++
+ 1 files changed, 77 insertions(+), 0 deletions(-)
+
+commit 1165aa609ce8db08eb42cca99436ae6842948b8a
+Author: melsdoerfer <michael@elsdoerfer.com>
+Date:   Sat Oct 24 00:49:15 2009 +0800
+
+    Models that were split into different files were not properly supported because their definition used app.model, while relations linked to module.model; This fixes the issue by using module.model for definitions as well.
+
+ django_extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit ee7c76e29285ff7382ee71b464d0a954034cf10f
+Author: trbs <trbs@ryoko.(none)>
+Date:   Sun Sep 27 16:11:08 2009 +0200
+
+    Switched postgresql to use 'template1' database for the default.
+    Added options for overriding user, password and database name.
+
+ django_extensions/management/commands/reset_db.py |   24 +++++++++++++++-----
+ 1 files changed, 18 insertions(+), 6 deletions(-)
+
+commit 5d6852063320cd215cde70e0e8319ccc56afb234
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Fri Sep 25 22:31:57 2009 -0400
+
+    Added in the widont filter by SmileyChris.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ django_extensions/templatetags/widont.py |   62 ++++++++++++++++++++++++++++++
+ docs/AUTHORS                             |    1 +
+ 2 files changed, 63 insertions(+), 0 deletions(-)
+
+commit 811c11aa76f70a3b7d2116082a8b582f3cd138af
+Author: Alexander Artemenko <svetlyak.40wt@gmail.com>
+Date:   Thu Aug 13 18:21:38 2009 +0800
+
+    Ignore *.egg-info
+    
+    Signed-off-by: Justin Lilly <justinlilly@gmail.com>
+
+ .gitignore |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit ffb018ec4ab7cb9be74084a4a16cf299d6d07ffe
+Author: trbs <info@trbs.net>
+Date:   Tue Sep 15 14:48:21 2009 +0200
+
+    added except clause for import error
+
+ .../management/commands/runserver_plus.py          |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit cd32f894382e2b3d3b2b1cbe99c7c98ad3b756b9
+Merge: 273800c 3f25c42
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Sep 12 15:28:19 2009 -0700
+
+    Merge remote branch 'daniel/master'
+
+commit 273800cd251cec8bedc9e07bb5cd5d547cfd061d
+Merge: 738482f 664ca82
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sat Sep 12 15:15:11 2009 -0700
+
+    Merge branch 'master' of github.com:django-extensions/django-extensions
+    
+    Conflicts:
+    	django_extensions/db/models.py
+
+commit 3f25c4272d280829fca301f22b63f64fbb608303
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Fri Sep 11 20:31:10 2009 -0700
+
+    Extend create_app to handle .dia diagrams. Add create_app documentation.
+
+ docs/index.rst |    5 -----
+ 1 files changed, 0 insertions(+), 5 deletions(-)
+
+commit e8a0516d97393b596b0758ae8d1ccfff7717357e
+Merge: 3ba0e66 664ca82
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Fri Sep 11 18:23:57 2009 -0700
+
+    Merge commit 'upstream/master'
+
+commit 664ca825578c5c13f0817eba0578fbda4bac62cf
+Author: trbs <info@trbs.net>
+Date:   Sat Apr 18 20:45:48 2009 +0800
+
+    started with meta.managed, added some todo points about how to possibly
+    handle this
+    
+    Signed-off-by: trbs <v.oostveen@gmail.com>
+
+ django_extensions/management/commands/sqldiff.py |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+commit 371428a663dd3f79a6e1c68ec5e0cd9a76248005
+Merge: a36426c b665d6c
+Author: trbs <info@trbs.net>
+Date:   Fri Jul 31 12:54:03 2009 +0200
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit a36426cf58338a5715d73389b4a0e466fae0f72c
+Author: trbs <info@trbs.net>
+Date:   Sat Apr 18 20:58:59 2009 +0900
+
+    use _meta.localfields instead of _meta.fields, this also fixes model
+    inheritence support
+
+ django_extensions/management/commands/sqldiff.py |   21 ++++++++++++---------
+ 1 files changed, 12 insertions(+), 9 deletions(-)
+
+commit b665d6c972e62bfc7462475ee46ada84fafc2c50
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 00:44:51 2009 +0800
+
+    added support for importing fields outside of django.db.fields
+    added two postgis types to PostgreSQLDiff as a start to support
+    django.gis
+    
+    Signed-off-by: trbs <v.oostveen@gmail.com>
+
+ django_extensions/management/commands/sqldiff.py |   16 +++++++++++++---
+ 1 files changed, 13 insertions(+), 3 deletions(-)
+
+commit ce6157ef0c9c41b1e9773bf80c3ae9109d4fc2ca
+Author: Jehiah Czebotar <jczebota@jehiah.local>
+Date:   Fri Apr 17 01:55:59 2009 +0800
+
+    Try to handle decimal columns for postgresql where the decimal precision is returned as a negative number  but should be a positive one
+    This is issue 97
+    http://code.google.com/p/django-command-extensions/issues/detail?id=97
+    
+    Signed-off-by: trbs <v.oostveen@gmail.com>
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit a6bb86d0ac42bb3b09bea8f5b31dcd894d2f700d
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 15:06:05 2009 +0800
+
+    added start of test-suite for django_extensions
+    
+    Signed-off-by: trbs <v.oostveen@gmail.com>
+
+ django_extensions/tests/__init__.py |    5 +++
+ django_extensions/tests/utils.py    |   49 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 54 insertions(+), 0 deletions(-)
+
+commit be488b7d0481cf2e20880d51961bf0b41e7f21f7
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 15:04:55 2009 +0800
+
+    fix indentation 'bug' in truncate_letters
+    
+    Signed-off-by: trbs <v.oostveen@gmail.com>
+
+ django_extensions/utils/text.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 35e99c5d8b47194fdb7bfbe14ebb19c98e7a2af8
+Author: Thomas Schreiber <tom@rizumu.us>
+Date:   Fri Jul 3 18:18:39 2009 -0600
+
+    Fixed typo and forgotten datetime import
+    
+    Signed-off-by: trbs <info@trbs.net>
+
+ django_extensions/db/models.py |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 747c93894ef91924cf6d293f1ccaa60da5e4ad94
+Author: Thomas Schreiber <tom@rizumu.us>
+Date:   Wed Apr 1 21:24:31 2009 -0500
+
+    typo
+    
+    Signed-off-by: trbs <info@trbs.net>
+
+ django_extensions/db/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit fd84ce5b124e3ac28c3a4d9be748e8eddf97f3f1
+Author: Thomas Schreiber <tom@rizumu.us>
+Date:   Wed Apr 1 21:13:34 2009 -0500
+
+    ActivatorMixin: An abstract base class model that provides activate and deactivate fields.
+    
+    Signed-off-by: trbs <info@trbs.net>
+
+ django_extensions/db/models.py |   23 +++++++++++++++++++++++
+ 1 files changed, 23 insertions(+), 0 deletions(-)
+
+commit 309f9b61f09a6273ff78e93b98a0d9008a9f77a2
+Author: trbs <info@trbs.net>
+Date:   Thu Jul 16 12:22:06 2009 +0200
+
+    fix for #108 a bigint primary key also needs AUTO_INCREMENT
+    still need testing however since i cannot test with mysql myself
+
+ django_extensions/management/commands/sqldiff.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit be9ee9545789672fbf31f822bb1d10599a30b708
+Author: trbs <info@trbs.net>
+Date:   Thu Jul 16 12:21:37 2009 +0200
+
+    add support for 'yearly' to jobs system (part 2 you need to explicitly add files which are already added but still changed to git)
+
+ django_extensions/management/commands/runjobs.py |    8 +++++---
+ django_extensions/management/jobs.py             |    5 ++++-
+ django_extensions/management/signals.py          |    1 +
+ 3 files changed, 10 insertions(+), 4 deletions(-)
+
+commit e01fcb2d4a5c7528363f07aa970660eb11b6ef58
+Author: trbs <info@trbs.net>
+Date:   Wed Jul 15 10:50:57 2009 +0200
+
+    add support for 'yearly' to jobs system
+
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 43699d220e58100fa6b87f7825ba91b8c455e4bc
+Author: trbs <info@trbs.net>
+Date:   Wed Jul 15 10:50:24 2009 +0200
+
+    add creating_release.txt document
+
+ docs/creating_release.txt |   41 +++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 41 insertions(+), 0 deletions(-)
+
+commit ebf37ffb52e4d41c3c678c12dfb1138abdff1ea9
+Merge: e1a1f25 b1fcf91
+Author: trbs <info@trbs.net>
+Date:   Sun Jun 14 16:41:25 2009 +0200
+
+    Merge branch 'master' of git://github.com/svetlyak40wt/django-extensions
+
+commit b1fcf91e88ded370ece100352f9d4e9b3dc68a0a
+Author: Alexander Artemenko <svetlyak.40wt@gmail.com>
+Date:   Wed Jun 10 17:18:39 2009 -0400
+
+    Added custom extract_views_from_urlpatterns and url's name output from 'show_urls' command.
+
+ django_extensions/management/color.py              |    1 +
+ django_extensions/management/commands/show_urls.py |   33 +++++++++++++++++--
+ 2 files changed, 30 insertions(+), 4 deletions(-)
+
+commit b9b5371b45e668ba29404276ee28b2ba7876637c
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Fri Jun 5 02:43:54 2009 +0800
+
+    Raise ImproperlyConfigured instead when pygments not found
+    
+    Signed-off-by: Alexander Artemenko <svetlyak.40wt@gmail.com>
+
+ django_extensions/templatetags/syntax_color.py |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+commit 64c5a51f130a2026a9623ce17484ca75134b8e73
+Author: Luke Hatcher <lukeman@gmail.com>
+Date:   Thu Jun 4 22:47:02 2009 +0800
+
+    Added cmdclass to the setup parameters to fix the data_files installation error.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+    
+    Signed-off-by: Alexander Artemenko <svetlyak.40wt@gmail.com>
+
+ setup.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 1c844f296d8f1e3e24cb9faa5c47a859dfe8b5a5
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu Jun 4 03:33:50 2009 +0800
+
+    Applying weird hack for stock Python on Mac OS X, stolen from Django's setup.py.
+    
+    Signed-off-by: Alexander Artemenko <svetlyak.40wt@gmail.com>
+
+ setup.py |   20 ++++++++++++++++++++
+ 1 files changed, 20 insertions(+), 0 deletions(-)
+
+commit ee7f67baa9deeeea877f321f0fe4309da06b4a66
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu Jun 4 03:22:59 2009 +0800
+
+    Fixed issue 2 - Made autocomplete work in IE7
+    
+    Signed-off-by: Alexander Artemenko <svetlyak.40wt@gmail.com>
+
+ .../widgets/foreignkey_searchinput.html            |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 738482f16362cdd289e733ccba9bd8879ffff5ed
+Author: Thomas Schreiber <tom@rizumu.us>
+Date:   Wed Apr 1 21:13:34 2009 -0500
+
+    ActivatorMixin: An abstract base class model that provides activate and deactivate fields.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ django_extensions/db/models.py |   23 +++++++++++++++++++++++
+ 1 files changed, 23 insertions(+), 0 deletions(-)
+
+commit e1a1f25d7d2d32990f81eefbafbaf872cccbf946
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu Jun 4 20:43:54 2009 +0200
+
+    Raise ImproperlyConfigured instead when pygments not found
+
+ django_extensions/templatetags/syntax_color.py |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+commit 81422138e373e90b5c95c94ad92a30a98fdd528d
+Author: Luke Hatcher <lukeman@gmail.com>
+Date:   Thu Jun 4 22:47:02 2009 +0800
+
+    Added cmdclass to the setup parameters to fix the data_files installation error.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ setup.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit f9db7c527c7c0508e53e086061c5fcaa70b70e75
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Jun 3 21:33:50 2009 +0200
+
+    Applying weird hack for stock Python on Mac OS X, stolen from Django's setup.py.
+
+ setup.py |   20 ++++++++++++++++++++
+ 1 files changed, 20 insertions(+), 0 deletions(-)
+
+commit b081fa88a051329c9f66147755bdc18f8be97bd2
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Jun 3 21:22:59 2009 +0200
+
+    Fixed issue 2 - Made autocomplete work in IE7
+
+ .../widgets/foreignkey_searchinput.html            |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 8ae990a836c9c6d0e5c249862a70598e1c289a0d
+Author: Alexander Artemenko <svetlyak.40wt@gmail.com>
+Date:   Tue Jun 2 14:24:30 2009 +0400
+
+    Added check if pygments library is installed.
+    Added pygments_css template tag to write CSS style in HTML 'style' block.
+    Added colorize_noclasses template tag to output hilightted blocks with inline styles, which can be useful for colorful RSS rendering.
+
+ django_extensions/templatetags/syntax_color.py |   27 +++++++++++++++++++----
+ 1 files changed, 22 insertions(+), 5 deletions(-)
+
+commit 258fb3e47d0f4c521e3cf7fb123954269eef74e3
+Author: trbs <info@trbs.net>
+Date:   Fri May 22 04:37:36 2009 +0900
+
+    bumbed version number to new in development 0.4.2
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit ffe9f4d5e2267c1bd5158e58d669c54565e84f14
+Author: trbs <info@trbs.net>
+Date:   Fri May 22 04:31:44 2009 +0900
+
+    v0.4.1
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 6bc827da997a870b41dcb79a6d3645711d7e8663
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu May 21 15:16:29 2009 +0200
+
+    Fixed #101 - setup.py doesn't work with easy_install and forgets conf and media directory. Bumped version to 0.4.1_pre.
+
+ django_extensions/__init__.py |    6 +++---
+ setup.py                      |   15 +++++----------
+ 2 files changed, 8 insertions(+), 13 deletions(-)
+
+commit ec7328fe0c4cc4f8763b667b6f43bb3d9cd58b9b
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu May 21 11:33:45 2009 +0200
+
+    Minor fixes after applying tab2spaces patch.
+
+ .../management/commands/compile_pyc.py             |    2 +-
+ .../management/commands/set_fake_emails.py         |    4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 61d3c29b3f8786a1e000591bbe55e45365ec3dd5
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu May 21 11:33:17 2009 +0200
+
+    Removed pre-1.0 way of calling the daily_cleanup command in daily_cleanup job.
+
+ django_extensions/jobs/daily/daily_cleanup.py |   11 ++---------
+ 1 files changed, 2 insertions(+), 9 deletions(-)
+
+commit 885d8475c21bd29f8bcdbca0e1a93f5cb87660ee
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu May 21 11:26:06 2009 +0200
+
+    Cleaning up some oversights from the tabs2spaces patch.
+
+ django_extensions/management/commands/clean_pyc.py |    2 +-
+ .../management/commands/compile_pyc.py             |    3 +-
+ .../management/commands/set_fake_emails.py         |   33 +++++++++----------
+ django_extensions/management/commands/show_urls.py |    9 ++---
+ django_extensions/management/modelviz.py           |   10 +++---
+ 5 files changed, 27 insertions(+), 30 deletions(-)
+
+commit f0a31cc9bacd6a1c297c47b7e24a868c4b6facbe
+Author: Jeremy Dunck <jdunck@gmail.com>
+Date:   Thu May 21 11:24:23 2009 +0800
+
+    Removed mixed tabs and whitespace by replacing all tabs with 8 spaces.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ django_extensions/jobs/daily/cache_cleanup.py      |   18 +++++-----
+ django_extensions/jobs/daily/daily_cleanup.py      |   18 +++++-----
+ django_extensions/management/commands/clean_pyc.py |   32 +++++++++---------
+ .../management/commands/compile_pyc.py             |   34 +++++++++---------
+ .../management/commands/graph_models.py            |   10 +++---
+ django_extensions/management/commands/runjob.py    |    6 ++--
+ django_extensions/management/commands/runjobs.py   |    6 ++--
+ .../management/commands/runprofileserver.py        |    2 +-
+ .../management/commands/set_fake_emails.py         |   36 ++++++++++----------
+ django_extensions/management/commands/show_urls.py |    2 +-
+ django_extensions/management/commands/syncdata.py  |    6 ++--
+ django_extensions/management/modelviz.py           |   10 +++---
+ 12 files changed, 90 insertions(+), 90 deletions(-)
+
+commit d3a1ae0102eb0f98fe2f9f3d4bc0fbe5216c3f0a
+Author: trbs <info@trbs.net>
+Date:   Tue May 12 05:40:19 2009 +0900
+
+    slight consistency patch
+
+ django_extensions/management/commands/reset_db.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 5b68593daa5a08bd46d1093545ece7534a5bd755
+Author: trbs <info@trbs.net>
+Date:   Tue May 12 05:33:56 2009 +0900
+
+    added fix for dbname setting in reset_db.py as reported by rodrigomatias thanks for the patch!
+
+ django_extensions/management/commands/reset_db.py |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit 46c1dcf0cd24bec75b7b00ecee967e10ea7d9f58
+Author: Martin Mahner <martin@mahner.org>
+Date:   Sun May 10 21:14:18 2009 +0800
+
+    Make the slugify function replaceable. This is useful if you want to change the behaviour of the original slugify function, e.g. if you want to replace umlauts like 'ä' to 'ae'.
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ django_extensions/db/fields/__init__.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit a54a423839027384a86cd3dcfa467fd4c01ebcce
+Author: Martin Mahner <martin@mahner.org>
+Date:   Mon May 4 20:26:07 2009 +0800
+
+    Fixed title attr of slug field
+    
+    Signed-off-by: Jannis Leidel <jannis@leidel.info>
+
+ django_extensions/db/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 204f4b3bda1df80ff59b75708cecc60d705919d6
+Author: Martin Mahner <martin@mahner.org>
+Date:   Fri Apr 17 11:07:27 2009 +0200
+
+    Merged with dmartin's changes. Removed list comprehension in favor of lambda/map. Dunno if that works in Py2.3.
+
+ django_extensions/db/fields/__init__.py |   55 +++++++++++++-----------------
+ 1 files changed, 24 insertions(+), 31 deletions(-)
+
+commit 92cc5d0604114cd7fd1d140edb3f8332ef444ce1
+Merge: ef30ae0 265b830
+Author: Martin Mahner <martin@mahner.org>
+Date:   Fri Apr 17 10:50:14 2009 +0200
+
+    Merge commit 'dmartin/master'
+    
+    Conflicts:
+    	django_extensions/db/fields/__init__.py
+
+commit ef30ae0b2e10ee2a6befba7dcb13aed203d3c624
+Author: Martin Mahner <martin@mahner.org>
+Date:   Fri Apr 17 10:49:29 2009 +0200
+
+    Add missing imports
+
+ django_extensions/db/fields/__init__.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 265b83089bbec06094600cf2c708bc94c89c2c32
+Author: David Martin <david@david-martins-macbook.local>
+Date:   Thu Apr 16 18:55:09 2009 -0700
+
+    Fresh fork commit of AutoSlugField changes for multiple populate_from fields
+
+ django_extensions/db/fields/__init__.py |   59 ++++++++++++++++++------------
+ 1 files changed, 35 insertions(+), 24 deletions(-)
+
+commit 5bd942af53734a0c1cf7c84572e9ed549cce1f7a
+Author: Martin Mahner <martin@mahner.org>
+Date:   Fri Apr 17 01:57:18 2009 +0200
+
+    Added support for multiple fields in the populate_from argument in the AutoSlugField.
+
+ django_extensions/db/fields/__init__.py |   39 +++++++++++++++++-------------
+ 1 files changed, 22 insertions(+), 17 deletions(-)
+
+commit 28091dadd1ef2b38dc79d173343626f6e6617714
+Merge: 616df92 2269708
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 02:19:48 2009 +0900
+
+    Merge branch 'master' of git://github.com/jehiah/django-extensions
+
+commit 2269708f0b0a74e6015933cfcf699a23498d0e75
+Author: Jehiah Czebotar <jczebota@jehiah.local>
+Date:   Thu Apr 16 13:12:32 2009 -0400
+
+    Try to handle db_column when present instead of just relying on meta.attname for the database column name.
+    
+    This is for issue 96
+    http://code.google.com/p/django-command-extensions/issues/detail?id=96
+
+ django_extensions/management/commands/sqldiff.py |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 616df92ec5637edbd39d5de97f5e7c51b3873754
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 01:33:04 2009 +0900
+
+    fixed missing imports
+
+ django_extensions/management/commands/sqldiff.py |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit d7fdb07a8afd43c8f033d87fa9e9f266b5767a94
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 17 01:01:27 2009 +0900
+
+    added check for db_type is None for all backends
+    added little extra comment about MySQL's field length problem
+
+ django_extensions/management/commands/sqldiff.py |    9 +++++++--
+ 1 files changed, 7 insertions(+), 2 deletions(-)
+
+commit 407bdf8b8e8022fe9d798dce5a44a616208f96eb
+Author: Jehiah Czebotar <jczebota@jehiah.local>
+Date:   Thu Apr 16 11:32:45 2009 -0400
+
+    Handle missing postgres db types better
+    this is related to issue 93
+    http://code.google.com/p/django-command-extensions/issues/detail?id=95
+
+ django_extensions/management/commands/sqldiff.py |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit e7edc2cca6d76c8045d7e9b7e46f2dfde346a967
+Merge: 51c9bf2 b405f7a
+Author: trbs <info@trbs.net>
+Date:   Thu Apr 16 18:50:28 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 51c9bf265f0040c67e8c3cf44e90358acefd831d
+Author: trbs <info@trbs.net>
+Date:   Thu Apr 16 18:48:37 2009 +0900
+
+    fix issue #95, key error with unknown database field types
+
+ django_extensions/management/commands/sqldiff.py |   42 +++++++++++++++++----
+ 1 files changed, 34 insertions(+), 8 deletions(-)
+
+commit 830e09464e909917c9e217d3470cb98c5cf50373
+Author: trbs <info@trbs.net>
+Date:   Sun Apr 12 02:35:03 2009 +0900
+
+    complete refactoring of sqldiff
+
+ django_extensions/management/commands/sqldiff.py |  737 +++++++++++++++-------
+ docs/sqldiff.rst                                 |   26 +
+ 2 files changed, 522 insertions(+), 241 deletions(-)
+
+commit b405f7a1ebcff038d31edbfd428325585d0d295a
+Merge: da40de8 6d8a97a
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 8 18:28:53 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit da40de8cd813cb44c2623d55f6ed88e902129732
+Merge: 39a18ad a6b2843
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 8 18:26:55 2009 +0900
+
+    Merge branch 'master' of git://github.com/rolo/django-extensions
+
+commit 6d8a97a4c2a84a39f457f10efdcb3e95515b7810
+Merge: 4bf682a aec8a16
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue Apr 7 14:43:14 2009 +0200
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 4bf682a56aefac6e77dcbfc5f3c5438524fdbfe3
+Author: Patrick Altman <patrick@studionow.com>
+Date:   Thu Mar 19 15:26:19 2009 -0500
+
+    Add optional parameter (--dir) to sync_media_s3.
+    
+    The --dir/-d parameter allows the end user to specify a different path other than MEDIA_ROOT with which to push to S3.  My use case for this was using django-compress to compile down some of my media, which I wanted to host on S3, but didn't want to move the rest of my media (images and flash files).
+
+ .../management/commands/sync_media_s3.py           |   13 ++++++++-----
+ docs/AUTHORS                                       |    1 +
+ 2 files changed, 9 insertions(+), 5 deletions(-)
+
+commit 0c3a52fdceb6760b1e17f31a56783560df3ab8ce
+Merge: 1fb0588 6f9cce3
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 21:23:08 2009 +0900
+
+    Merge branch 'master' of git@github.com:trbs/django-extensions
+
+commit a6b28430181128fa01be46d1af086ce3d2d958aa
+Author: Rolo <rolo@wildfish.com>
+Date:   Tue Apr 7 13:14:53 2009 +0100
+
+    Changed to prevent uploading of subdirs matching FILTER_LIST ignore list.
+    Fixed a typo with incorrectly named FILTER_LIST var.
+    .Made script upload files as well as dirs in root media folder.
+
+ .../management/commands/sync_media_s3.py           |   10 +++++-----
+ 1 files changed, 5 insertions(+), 5 deletions(-)
+
+commit 8f900bef8bdc00caa2acfcf2e25947c988ffedb9
+Author: Rolo <rolo@wildfish.com>
+Date:   Tue Apr 7 13:12:45 2009 +0100
+
+    Changed path to use os.path.sep to support Windows.
+
+ .../management/commands/sync_media_s3.py           |    5 ++---
+ 1 files changed, 2 insertions(+), 3 deletions(-)
+
+commit 6f9cce38df6bae283a343099f50ae6a3712f13e0
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 16:47:40 2009 +0900
+
+    made SQL output the default mode for sqldiff
+
+ django_extensions/management/commands/sqldiff.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 42622463e40f24c0c8d0c79c69b5f20db2b8ccb1
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 16:46:44 2009 +0900
+
+    added little explanation about git in the mercurial gateway docs.
+    added docs/_build and docs/_static to ignore
+
+ .gitignore                 |    3 +++
+ docs/mercurial_gateway.rst |   18 ++++++++++++------
+ 2 files changed, 15 insertions(+), 6 deletions(-)
+
+commit 149f4846680932ccffda8c1fe978b59925985f35
+Merge: 754af60 39a18ad
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 16:35:12 2009 +0900
+
+    Merge branch 'master' of ../django-extensions
+
+commit 754af601806554bf6b6ab125edea29c721c03bcd
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Thu Apr 2 06:36:47 2009 -0500
+
+    Add Sphinx support. Draft of documentation from google code translated to restructured text.
+
+ docs/Makefile                      |   75 ++++++++++++++
+ docs/admin_extensions.rst          |   15 +++
+ docs/command_extension_ideas.rst   |    7 ++
+ docs/command_extensions.rst        |   89 ++++++++++++++++
+ docs/conf.py                       |  194 ++++++++++++++++++++++++++++++++++++
+ docs/dumpscript.rst                |   73 ++++++++++++++
+ docs/export_emails.rst             |   81 +++++++++++++++
+ docs/field_extensions.rst          |   23 ++++
+ docs/graph_models.rst              |   56 ++++++++++
+ docs/index.rst                     |   35 +++++++
+ docs/installation_instructions.rst |   91 +++++++++++++++++
+ docs/jobs_scheduling.rst           |   44 ++++++++
+ docs/mercurial_gateway.rst         |   39 +++++++
+ docs/model_extensions.rst          |   11 ++
+ docs/namespace_proposal.rst        |   29 ++++++
+ docs/runprofileserver.rst          |   75 ++++++++++++++
+ docs/runserver_plus.rst            |   89 ++++++++++++++++
+ docs/sync_media_s3.rst             |   43 ++++++++
+ 18 files changed, 1069 insertions(+), 0 deletions(-)
+
+commit 39a18ad4ebd83291986c9b3c07961d0bba50ecf5
+Merge: b8d612e aec8a16
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 16:14:14 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 2cf4bf9336797a0e9350cd99fded35657cf65ecd
+Merge: 56980d2 aec8a16
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 15:58:03 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 1fb05881be70fdb017b2f33065f8d14286af086f
+Merge: c5065d9 aec8a16
+Author: trbs <info@trbs.net>
+Date:   Tue Apr 7 03:58:00 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit c5065d9f13bd1b1abb5efa96f329b862aabf405c
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Thu Apr 2 06:36:47 2009 -0500
+
+    Add Sphinx support. Draft of documentation from google code translated to restructured text.
+
+ docs/Makefile                      |   75 ++++++++++++++
+ docs/admin_extensions.rst          |   15 +++
+ docs/command_extension_ideas.rst   |    7 ++
+ docs/command_extensions.rst        |   89 ++++++++++++++++
+ docs/conf.py                       |  194 ++++++++++++++++++++++++++++++++++++
+ docs/dumpscript.rst                |   73 ++++++++++++++
+ docs/export_emails.rst             |   81 +++++++++++++++
+ docs/field_extensions.rst          |   23 ++++
+ docs/graph_models.rst              |   56 ++++++++++
+ docs/index.rst                     |   35 +++++++
+ docs/installation_instructions.rst |   91 +++++++++++++++++
+ docs/jobs_scheduling.rst           |   44 ++++++++
+ docs/mercurial_gateway.rst         |   39 +++++++
+ docs/model_extensions.rst          |   11 ++
+ docs/namespace_proposal.rst        |   29 ++++++
+ docs/runprofileserver.rst          |   75 ++++++++++++++
+ docs/runserver_plus.rst            |   89 ++++++++++++++++
+ docs/sync_media_s3.rst             |   43 ++++++++
+ 18 files changed, 1069 insertions(+), 0 deletions(-)
+
+commit aec8a16d27d5d32b91e9849b0b1baebdcf60b6b2
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 3 23:26:12 2009 +0900
+
+    added .gitignore
+
+ .gitignore |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+commit c99a84fa1b6b78ed3760211f133da990bd8f4761
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 3 22:54:45 2009 +0900
+
+    bumped version number to 0.4
+
+ django_extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 56980d253b3bb4c9ce91d5e422c4de35f31e97b2
+Merge: 112d5aa 0ddefcd
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 3 21:30:47 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 0ddefcdf901ad371ca750f1801df8598f7f6040e
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 3 21:25:48 2009 +0900
+
+    fix #92, sample.py.tmpl had mixed tabs and spaces. thanks for the report
+    overkrik
+
+ .../conf/jobs_template/jobs/sample.py.tmpl         |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 112d5aa2fa24f84710a78d91c61d2352c5c28b9b
+Merge: 8c8c8d6 dcf652d
+Author: trbs <info@trbs.net>
+Date:   Fri Apr 3 21:18:49 2009 +0900
+
+    Merge branch 'master' of git@github.com:django-extensions/django-extensions
+
+commit 3ba0e66f567dfad8304e022e3d02178daa7b6f13
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Thu Apr 2 07:13:21 2009 -0500
+
+    Integrate create_app_from_dia into create_app. Add create_app documentation.
+
+ .../management/commands/create_app.py              |   92 +++++++++++--
+ .../management/commands/create_app_from_dia.py     |  141 --------------------
+ docs/command_extensions.rst                        |    2 +-
+ docs/create_app.rst                                |   41 ++++++
+ docs/index.rst                                     |    3 +
+ 5 files changed, 124 insertions(+), 155 deletions(-)
+
+commit 10c0edc7b63fff9b4514e156882001a52fcc2316
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Thu Apr 2 06:36:47 2009 -0500
+
+    Add Sphinx support. Draft of documentation from google code translated to restructured text.
+
+ docs/Makefile                      |   75 ++++++++++++++
+ docs/admin_extensions.rst          |   15 +++
+ docs/command_extension_ideas.rst   |    7 ++
+ docs/command_extensions.rst        |   89 ++++++++++++++++
+ docs/conf.py                       |  194 ++++++++++++++++++++++++++++++++++++
+ docs/dumpscript.rst                |   73 ++++++++++++++
+ docs/export_emails.rst             |   81 +++++++++++++++
+ docs/field_extensions.rst          |   23 ++++
+ docs/graph_models.rst              |   56 ++++++++++
+ docs/index.rst                     |   35 +++++++
+ docs/installation_instructions.rst |   91 +++++++++++++++++
+ docs/jobs_scheduling.rst           |   44 ++++++++
+ docs/mercurial_gateway.rst         |   39 +++++++
+ docs/model_extensions.rst          |   11 ++
+ docs/namespace_proposal.rst        |   29 ++++++
+ docs/runprofileserver.rst          |   75 ++++++++++++++
+ docs/runserver_plus.rst            |   89 ++++++++++++++++
+ docs/sync_media_s3.rst             |   43 ++++++++
+ 18 files changed, 1069 insertions(+), 0 deletions(-)
+
+commit 7164eed06cca4e97c89892f6cbe22e3b1f21d426
+Merge: 01d41f5 dcf652d
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Thu Apr 2 06:12:14 2009 -0500
+
+    Merge commit 'upstream/master'
+
+commit b8d612ef91225032a928234ea4e4e3c886242c13
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 1 19:18:22 2009 +0900
+
+    expanded default FILTER_LIST with version control and Thumbs.db
+
+ .../management/commands/sync_media_s3.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit dcf652dd102bd644c4983941f258e960932a49ef
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 1 19:12:22 2009 +0900
+
+    added filter-list as command line option and added directory filtering.
+
+ .../management/commands/sync_media_s3.py           |   17 +++++++++++++++--
+ 1 files changed, 15 insertions(+), 2 deletions(-)
+
+commit 6a7120aa74b34ec82e0b1099b644f5bdfada3988
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 1 18:43:42 2009 +0900
+
+    allow FILTER_LIST to be overridden
+
+ .../management/commands/sync_media_s3.py           |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit 8c8c8d6e3f92e901bcfbf1e478fd05191355648c
+Author: trbs <info@trbs.net>
+Date:   Wed Apr 1 17:27:43 2009 +0900
+
+    big patch on runscript for issue #85, also changed code flow to allow
+    message if no script (with run handler) is found
+
+ django_extensions/management/commands/runscript.py |  117 +++++++++++++-------
+ 1 files changed, 78 insertions(+), 39 deletions(-)
+
+commit 01d41f56503dab9d92c71e4a366dd9dbfa934295
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Tue Mar 31 21:39:50 2009 -0500
+
+    Add checks to create_app_from_dia command.
+
+ .../management/commands/create_app_from_dia.py     |   48 +++++++++++--------
+ django_extensions/utils/dia2django.py              |   16 ++++---
+ 2 files changed, 38 insertions(+), 26 deletions(-)
+
+commit 6108f254066ec65357c34604b9df94fbcf78e58e
+Author: Daniel Mizyrycki <mzdaniel@gmail.com>
+Date:   Tue Mar 31 09:38:51 2009 -0500
+
+    Add create_app_from_dia command
+
+ .../management/commands/create_app_from_dia.py     |  133 ++++++++++++++
+ django_extensions/utils/dia2django.py              |  192 ++++++++++++++++++++
+ 2 files changed, 325 insertions(+), 0 deletions(-)
+
+commit b0ab03d80c9057d38db770df8d13ca45fc6dad48
+Author: trbs <info@trbs.net>
+Date:   Mon Mar 30 18:54:32 2009 +0900
+
+    fixed #89 sqldiff not takes "order_with_respect_to" into account
+
+ django_extensions/management/commands/sqldiff.py |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+commit e2ef3aa5c6dbe5e00d92465f3fa011a185f82b22
+Author: trbs <info@trbs.net>
+Date:   Mon Mar 30 18:51:21 2009 +0900
+
+    fixed #90, use connection.ops.quote_name to quote table names and fields.
+
+ django_extensions/management/commands/sqldiff.py |    9 +++++----
+ 1 files changed, 5 insertions(+), 4 deletions(-)
+
+commit 6e696bd2780c83956e84c064b0d9a9065bcbf7a9
+Author: sqrbass <sqrbass@ryoko.(none)>
+Date:   Mon Mar 30 18:17:31 2009 +0900
+
+    fix for help text, fixed #88, thanks christian!
+
+ django_extensions/management/commands/runjob.py  |    2 +-
+ django_extensions/management/commands/runjobs.py |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 135a5724a1f46b24b0713f577977fa8618ff4432
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Mar 29 15:45:32 2009 +0000
+
+    Another fix for help text, d'oh.
+
+ django_extensions/admin/__init__.py |    7 +++++--
+ 1 files changed, 5 insertions(+), 2 deletions(-)
+
+commit d10bd9692b52e5b30e4fd8b1f9c672dfaf7bb7ac
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Mar 29 15:22:54 2009 +0000
+
+    Fixes help text so args can be ordered
+
+ django_extensions/admin/__init__.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 5575c94ca699a5cfab96723b9fdb0eb83f1b26cb
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Mar 29 15:22:38 2009 +0000
+
+    Added abstract TitleSlugDescriptionModel model
+
+ django_extensions/db/models.py |   22 ++++++++++++++++++----
+ 1 files changed, 18 insertions(+), 4 deletions(-)
+
+commit d9b07171c2d8aa34a819fb9a80935fb9d1450e78
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Feb 19 05:45:38 2009 +0000
+
+    applied justin's patch for issue 47
+
+ .../management/commands/create_jobs.py             |   38 ++------------------
+ 1 files changed, 3 insertions(+), 35 deletions(-)
+
+commit 31a2d42e2de6109153b28406e8c69952e180c1e2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Feb 5 12:00:41 2009 +0000
+
+    added autoimport for django settings
+    (do we want a message for this; like for model imports ?)
+
+ .../management/commands/shell_plus.py              |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit 760ab930e00d34060ce16fcd19dca6c0dbdded53
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Wed Feb 4 21:15:47 2009 +0000
+
+    Fixed stupid indentation bug introduced in r179
+
+ django_extensions/utils/text.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 3f2cb8e8e18314f09932ec6421e9bdc24e5b58b1
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Mon Feb 2 11:37:59 2009 +0000
+
+    Small redundancy fix
+
+ django_extensions/admin/widgets.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 24a6441812db483602e5a0e6f36676874398b9a5
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Mon Feb 2 11:30:51 2009 +0000
+
+    Updated manifest template for new media files
+
+ MANIFEST.in |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit 5cdfc378cd5dbdd29438e6fed0eb46476ab63384
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Mon Feb 2 11:18:00 2009 +0000
+
+    Added ForeignKeyAutocompleteAdmin admin class and ForeignKeySearchInput form widget, including media files and templates
+
+ django_extensions/admin/__init__.py                |  122 +
+ django_extensions/admin/widgets.py                 |   76 +
+ .../django_extensions/css/jquery.autocomplete.css  |   43 +
+ .../media/django_extensions/img/indicator.gif      |  Bin 0 -> 1553 bytes
+ .../media/django_extensions/js/jquery.ajaxQueue.js |  116 +
+ .../django_extensions/js/jquery.autocomplete.js    |  759 +++++
+ .../django_extensions/js/jquery.bgiframe.min.js    |   10 +
+ .../media/django_extensions/js/jquery.js           | 3558 ++++++++++++++++++++
+ .../widgets/foreignkey_searchinput.html            |   60 +
+ django_extensions/utils/text.py                    |    6 +-
+ 10 files changed, 4747 insertions(+), 3 deletions(-)
+
+commit b34b4e4388c2b615b1f7aa6a80b812049edd5ff2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Jan 10 15:43:42 2009 +0000
+
+    fixed bug in related models graph template
+
+ django_extensions/management/modelviz.py |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+commit 43294949d2ce496e3a5438ac1d6544b6ccf492cd
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Jan 10 15:40:08 2009 +0000
+
+    added check for ManyToManyField's which creates it's own intermediary table fixes ticket 76, thanks Zoramite !
+
+ django_extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 1b3cb8a65204185fce9ec932d85584bc0420ed8f
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Jan 9 13:43:35 2009 +0000
+
+    added set_fake_emails command. thanks gertvangool for doing most of the work
+
+ .../management/commands/set_fake_emails.py         |   76 ++++++++++++++++++++
+ 1 files changed, 76 insertions(+), 0 deletions(-)
+
+commit a9ac2a09b8d7cce785e9e353d800d7d1e86050d1
+Author: Justin Lilly <justinlilly@gmail.com>
+Date:   Thu Dec 11 22:35:57 2008 +0000
+
+    Adding a debugging mail server which echos out the contents of an email instead of sending it
+
+ .../management/commands/mail_debug.py              |   41 ++++++++++++++++++++
+ 1 files changed, 41 insertions(+), 0 deletions(-)
+
+commit 7905faa96483f0d689412c0b09ab821cc1091531
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Thu Dec 4 08:21:04 2008 +0000
+
+    This update fixes an issue where the file name was losing the first character
+    if the MEDIA_ROOT ended with a trailing slash.  I've changed the assumption to
+    be that MEDIA_ROOT does end with a trailing slash and will append one if none
+    exists.  Thanks to lukasz.korzybski for the report and debugging.
+
+ .../management/commands/sync_media_s3.py           |    7 ++++++-
+ 1 files changed, 6 insertions(+), 1 deletions(-)
+
+commit 769ddd822a4edb19d5fad83daec32cffbe93e64c
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Thu Dec 4 07:51:16 2008 +0000
+
+    Adding HTTP/1.1 Cache-Control with max-age header when using --expires.
+
+ .../management/commands/sync_media_s3.py           |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+commit ecc81c34f6315cb64f3a09c73c427da07538f308
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Thu Dec 4 07:48:57 2008 +0000
+
+    Tweaking the default verbosity output to display only number of uploaded and
+    skipped files at minimal (verbosity=0), list of files uploaded by default
+    (verbosity=1), and list plus gzipped stats and expires header information
+    (verbosity=2)
+
+ .../management/commands/sync_media_s3.py           |   14 +++++++++-----
+ 1 files changed, 9 insertions(+), 5 deletions(-)
+
+commit c322d00804bca3190a94dfa6572a0367612149b9
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Thu Dec 4 07:24:09 2008 +0000
+
+    Updating the verbosity option to actually work.
+
+ .../management/commands/sync_media_s3.py           |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+commit e4778991009c10ed8a0e1ae2f8de8f8dec22c489
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Thu Dec 4 07:22:47 2008 +0000
+
+    Moving the JS/CSS content type conditional so other files will also get the
+    expires headers set, while still only gzipping files matching these content
+    types.
+
+ .../management/commands/sync_media_s3.py           |   25 ++++++++++++--------
+ 1 files changed, 15 insertions(+), 10 deletions(-)
+
+commit 223571094451622f04efead603bfef4f329644e7
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Nov 21 10:32:05 2008 +0000
+
+    Added some support for visible abstract models and added field to function calls (no more scope variable magic)
+    
+    Abstract models are now printed as italic text below the name of the model in the diagram.  Also all the fields defined by the abstract model are displayed as italic text.
+
+ django_extensions/management/modelviz.py |   31 ++++++++++++++++++-----------
+ 1 files changed, 19 insertions(+), 12 deletions(-)
+
+commit 14fac7588c9b216c24fdfc42193285c56eb48995
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Tue Nov 18 06:18:12 2008 +0000
+
+    fixed ticket #73, missing self.auto assignment
+
+ django_extensions/db/fields/__init__.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit b23931bdd8c3b20d44c17e8d8d5793a8d86fe62e
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Fri Nov 14 06:37:08 2008 +0000
+
+    changing sync_media_s3 command to not require the bucket name on the command line but pull it from the settings file.
+
+ .../management/commands/sync_media_s3.py           |   30 ++++++++++---------
+ 1 files changed, 16 insertions(+), 14 deletions(-)
+
+commit 03a7209aa02327ead3f2313a64c06c9a28d7ac7f
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Nov 13 11:15:50 2008 +0000
+
+    added support for kcachegrind / lsprof style output
+
+ .../management/commands/runprofileserver.py        |  106 +++++++++++++++++++-
+ 1 files changed, 101 insertions(+), 5 deletions(-)
+
+commit 098632fe51c02c95bba7afc94be709f010e664b7
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Tue Nov 4 09:34:46 2008 +0000
+
+    Backwards compatibility fix for Django r9110
+    fixed ticket #68
+
+ .../management/commands/sync_media_s3.py           |   11 ++++++++---
+ 1 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 85a69070862780b6910156d968643d934244cc11
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Sat Oct 25 19:11:36 2008 +0000
+
+    If Python's mimetype guesser failed to guess a mimetype, the boto script would
+    break while trying to parse the Content-Type header.  This update adds a check
+    to make sure there is a mimetype before setting the Content-Type header.
+
+ .../management/commands/sync_media_s3.py           |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit c4a75532df3bb2a6cf2b9fb72fdd336974db496f
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Oct 24 05:11:23 2008 +0000
+
+    strip "-svn" from pygraphviz version string, fixes ticket #66, thanks jjconti!
+
+ .../management/commands/graph_models.py            |   21 +++++++++++--------
+ 1 files changed, 12 insertions(+), 9 deletions(-)
+
+commit 2832f28d3130ff2bd525e8a537ff14a2ba4fe8b9
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Oct 24 05:01:57 2008 +0000
+
+    fixed typo, ticket #64 thanks lidaobing !
+
+ .../management/commands/export_emails.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 44af210543184f753b4febc1e500b9be955853d6
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Oct 23 06:38:04 2008 +0000
+
+    missed verbosity patch for runscript thanks clintecker! fixes ticket #61
+
+ django_extensions/management/commands/runscript.py |   11 ++++++++---
+ 1 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 54140bf8516feb9c7c03af4f7a006be80685a70b
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Sun Oct 19 05:55:39 2008 +0000
+
+    Missed setting the content-type header and adding another content type check
+    for Javascript.
+
+ .../management/commands/sync_media_s3.py           |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit ae40285bb47c40ae58c5eda60e5d22d8e74fb2da
+Author: Rob Hudson <treborhudson@gmail.com>
+Date:   Sun Oct 19 03:53:09 2008 +0000
+
+    Adding the sync_media_s3 management command that will copy files in the
+    settings.MEDIA_ROOT folder up to S3.
+
+ .../management/commands/sync_media_s3.py           |  222 ++++++++++++++++++++
+ docs/AUTHORS                                       |    3 +-
+ 2 files changed, 224 insertions(+), 1 deletions(-)
+
+commit 66014bb90810c4747b64a18e10cbda7d2de2d03e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Oct 15 11:03:17 2008 +0000
+
+    fixed ticket #61, conflicting 'verbose' and 'verbosity' options in commands since django r9110
+    standardized on the django naming of verbosity instead of verbose and using a choice option instead of a boolean
+    added backwards compatibility code to include the verbosity option for commands when using a django version which does not automatically put it on the command option_list stack.
+
+ django_extensions/management/commands/clean_pyc.py |   15 ++++++++++-----
+ .../management/commands/compile_pyc.py             |   14 +++++++++-----
+ django_extensions/management/commands/runjob.py    |   14 ++++++++++----
+ django_extensions/management/commands/runjobs.py   |   16 ++++++++++++----
+ django_extensions/management/commands/syncdata.py  |   13 ++++++++-----
+ 5 files changed, 49 insertions(+), 23 deletions(-)
+
+commit 103407b9b8a9566aa60e685e33f1b3e52e826991
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Oct 15 10:15:09 2008 +0000
+
+    fixed utf-8 database creation for mysql
+    thanks to clairon for the patch
+
+ django_extensions/management/commands/reset_db.py |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit 1643f05c32760b42c07de27ee0e5b6f3ad1b3ee0
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Oct 2 12:43:29 2008 +0000
+
+    addded --path,-p option so you can specifiy a specific path to clean/compile under
+
+ django_extensions/management/commands/clean_pyc.py |    7 ++++++-
+ .../management/commands/compile_pyc.py             |    9 +++++++--
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+
+commit 0216670b6f5ae65523150edb2495c0afcafaec36
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Oct 2 12:32:19 2008 +0000
+
+    removed frame-hacking and used settings.SETTINGS_MODULE to get the project root.
+    this also removed a big 'hack' where 'settings.py' was used to verify (assert) that the directory on the first stackframe is actually a django project root.
+    fixed ticket #55
+
+ django_extensions/management/utils.py |   12 +++---------
+ 1 files changed, 3 insertions(+), 9 deletions(-)
+
+commit aa268f57ee26906969941f4a5945bfe4e1aa75b1
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon Sep 22 11:44:42 2008 +0000
+
+    fix issue #49, describe_form ouputs a proxy instead of it's unicode string
+
+ .../management/commands/describe_form.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 4f7ebdcd7294283640a7190249aef529c45cca10
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon Sep 22 11:21:41 2008 +0000
+
+    exception for sqlite where varchar's are equal to chars (use case was IPAddresField)
+
+ django_extensions/management/commands/sqldiff.py |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+commit 41414cce0f24f72960b562dcdf4e3d743a01df3e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon Sep 22 11:10:18 2008 +0000
+
+    fixed issue #54
+    
+    added removing of AUTO_INCREMENT keyword on mysql
+    added big fat warning about mysql problems and known issues
+
+ django_extensions/management/commands/sqldiff.py |   42 +++++++++++++++++----
+ 1 files changed, 34 insertions(+), 8 deletions(-)
+
+commit 0b2addc16eefec4664c25a20520a3e6d67b08743
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Sun Sep 21 04:29:36 2008 +0000
+
+    fixes #35: can now specify individual models in dumpscript
+
+ .../management/commands/dumpscript.py              |   65 +++++++++++++-------
+ 1 files changed, 43 insertions(+), 22 deletions(-)
+
+commit d3bad286411f0958a184756e55694fa2526a3e66
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Sep 10 12:41:46 2008 +0000
+
+    added syncdata command as suggested by #36
+
+ django_extensions/management/commands/syncdata.py |  218 +++++++++++++++++++++
+ 1 files changed, 218 insertions(+), 0 deletions(-)
+
+commit ab96b8a85329a06e91a48f56ee3e148131786b6c
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Sep 6 17:23:31 2008 +0000
+
+    added clean_pyc and compile_pyc commands, allowing to remove and compile python bytecode files
+
+ django_extensions/management/commands/clean_pyc.py |   31 ++++++++++++++++++++
+ .../management/commands/compile_pyc.py             |   31 ++++++++++++++++++++
+ django_extensions/management/commands/sqldiff.py   |    1 +
+ django_extensions/management/utils.py              |   13 ++++++++
+ 4 files changed, 76 insertions(+), 0 deletions(-)
+
+commit e74072734f31bbfe794cb4a7fc88dcf8a2ea5ed8
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Sep 5 19:06:20 2008 +0000
+
+    attributed Will Larson for syntax_color template filters
+
+ docs/AUTHORS |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 9b6d032e5a15fcdd00db0b313446c069174e428e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Sep 4 17:12:35 2008 +0000
+
+    fix deprecated maxlength to max_length for uuidfield
+
+ django_extensions/db/fields/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 752bd527250c282e7b2a480ba1a613a278f1ac48
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Tue Sep 2 06:37:21 2008 +0000
+
+    removed create_superuser as it's now supported in django 1.0
+
+ .../management/commands/create_superuser.py        |   18 ------------------
+ 1 files changed, 0 insertions(+), 18 deletions(-)
+
+commit 5a57b447b1aaa27bcbf7752769d17f1435142db0
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Aug 31 15:45:11 2008 +0000
+
+    Added optional overwrite argument that creates a fresh slug on every save
+
+ django_extensions/db/fields/__init__.py |   20 +++++++++++++++-----
+ 1 files changed, 15 insertions(+), 5 deletions(-)
+
+commit 6a64f42f915ef89b640ac1965f6e1ff5d52dce49
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Aug 31 15:25:47 2008 +0000
+
+    Added AutoSlugField to django_extensions.db.fields
+
+ django_extensions/db/fields/__init__.py |   94 ++++++++++++++++++++++++++++++-
+ 1 files changed, 93 insertions(+), 1 deletions(-)
+
+commit 1767c1cd31c38d588ecca300d4353190347b0916
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Sun Aug 31 14:09:05 2008 +0000
+
+    removed some tabs
+
+ django_extensions/db/fields/__init__.py |   14 +++++++-------
+ 1 files changed, 7 insertions(+), 7 deletions(-)
+
+commit ccf7f6d23432acc9529f008bb89f5e9f699786d7
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Sat Aug 30 17:04:50 2008 +0000
+
+    fixed broken import in models.py
+
+ django_extensions/db/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 3595ad54ac8f93f0a70ebcb627fc7636b747d474
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Aug 29 19:30:59 2008 +0000
+
+    removed error message from default output.
+    added more informative message to command's help output.
+    added model and database type to output of missing fields
+
+ django_extensions/management/commands/sqldiff.py |   20 ++++++++------------
+ 1 files changed, 8 insertions(+), 12 deletions(-)
+
+commit 2c5dd3a1aafc9a4d899cf058a8dfad0daebfeee2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Aug 28 15:23:10 2008 +0000
+
+    added sql patch from SamoriGorse fixed issue #44
+    side note, i'm still hoping to have the time to rewrite sqldiff before 1.0.
+    the command itself will not change but the code could (and should) be much cleaner
+    and seperates out the logic for finding differences and printing them. (in text/sql or other form)
+
+ django_extensions/management/commands/sqldiff.py |   84 +++++++++++++++++-----
+ 1 files changed, 66 insertions(+), 18 deletions(-)
+
+commit f9a47797a55cfd1727ef1e1ea7de69e11cf6f81b
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Aug 24 10:42:58 2008 +0000
+
+    added truncate_letters
+
+ django_extensions/templatetags/truncate_letters.py |   21 ++++++++++++++++++++
+ django_extensions/utils/text.py                    |   13 ++++++++++++
+ 2 files changed, 34 insertions(+), 0 deletions(-)
+
+commit ddadb124755656cd016b93f4e256566e757b68df
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Aug 24 10:42:26 2008 +0000
+
+    for good meassure here's another one :(
+
+commit 52b9ba215746c7086c6283fdd9a181c9948da78a
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Aug 24 10:41:17 2008 +0000
+
+    another stupid ignore on a directory for *.pyc files, will this never end ? (aka git/hg/cvs style .ignore files are so much easier)
+
+commit 7df8e8e966468b1edd262b7db414df83fe31b424
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Aug 24 10:18:46 2008 +0000
+
+    added syntax_color templatetag from Lethian (fixes ticket 40)
+
+ django_extensions/templatetags/syntax_color.py |   77 ++++++++++++++++++++++++
+ 1 files changed, 77 insertions(+), 0 deletions(-)
+
+commit 1a643e42de7196d8aea97cf209613d042c6a72ea
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Aug 24 10:16:56 2008 +0000
+
+    added ignore of *.pyc
+
+commit e5fe5e54da1c7f821562464cc3476767a359494d
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sat Aug 23 23:53:58 2008 +0000
+
+    Added in templatetags directory to spur innovation. :)
+
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e87444104698c901f7a619aaf1ca44c5b8bab72a
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue Aug 19 14:37:53 2008 +0000
+
+    added browser option to runserver_plus that uses Python's webrowser module to open the location of the server automatically
+
+ .../management/commands/runserver_plus.py          |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+commit 97949a7bcce115745f9d859e456439f8c3fdcdd1
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri Aug 15 16:18:19 2008 +0000
+
+    fixed #41
+
+ django_extensions/management/commands/sqldiff.py |   35 ++++++++++++++++-----
+ 1 files changed, 26 insertions(+), 9 deletions(-)
+
+commit 509ccc498135567a36fed2ae51be95ed56b81663
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Thu Aug 14 19:56:47 2008 +0000
+
+    fixed FileField and ImageField in dumpscript post-fs-rf
+
+ .../management/commands/dumpscript.py              |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit f3109af925b0f5399a157bef733e05d1f1bf96dc
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Thu Aug 14 19:53:17 2008 +0000
+
+    fixed bug in dumpscript where all booleans become None (introduced in r86)
+
+ .../management/commands/dumpscript.py              |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit e05f1c0cdc3a7a1ff43d04fa4968b75ba0adc0b6
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Aug 14 10:49:08 2008 +0000
+
+    cleaned up UUID a bit and (hopefully :) improved the class documentation
+
+ django_extensions/db/fields/__init__.py |   10 +++++++---
+ 1 files changed, 7 insertions(+), 3 deletions(-)
+
+commit a886bc0395e9546a77ed7efa1768dc566d8146c9
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Aug 14 10:37:06 2008 +0000
+
+    removed compiled python files from repository.
+
+ django_extensions/db/__init__.pyc        |  Bin 166 -> 0 bytes
+ django_extensions/db/fields/__init__.pyc |  Bin 2575 -> 0 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ef0dd844b11252a1e97e6f1cd5df7afdd2384e56
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Wed Aug 13 15:58:24 2008 +0000
+
+    added TimeStampedModel abstract base class, using CreationDateTimeField and ModificationDateTimeField
+
+ django_extensions/db/models.py |   17 +++++++++++++++++
+ 1 files changed, 17 insertions(+), 0 deletions(-)
+
+commit 32feda2e98f21483c1df79d5522a251b8c900063
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Wed Aug 13 15:57:45 2008 +0000
+
+    cleaned up CreationDateTimeField and ModificationDateTimeField
+
+ django_extensions/db/fields/__init__.py |   33 ++++++++++++------------------
+ 1 files changed, 13 insertions(+), 20 deletions(-)
+
+commit f1f01e7f494874222f05fc44f8e0ec830923ca3f
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Wed Aug 13 15:42:19 2008 +0000
+
+    cleaned up UI for reset_db command, added confirmation
+
+ django_extensions/management/commands/reset_db.py |   36 ++++++++++++++++-----
+ 1 files changed, 28 insertions(+), 8 deletions(-)
+
+commit 781b7c8c291b58e0a8e0eb4ea7239fb147e347fd
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 16:06:00 2008 +0000
+
+    small spelling correction
+
+ django_extensions/db/fields/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit a5666a3519e2f0d42dc3065595b62efdbfe1a597
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:57:52 2008 +0000
+
+    added UUIDField
+
+ django_extensions/db/fields/__init__.py |   57 ++++-
+ django_extensions/utils/uuid.py         |  541 +++++++++++++++++++++++++++++++
+ 2 files changed, 597 insertions(+), 1 deletions(-)
+
+commit dd4efd02ad3f1e986b5eb0ca02788da7b2c7c561
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:51:17 2008 +0000
+
+    added database model fields extensions first two are Creation and ModificationDateTimeField.
+    these are small custom fields which automaticly set the datetimes in similar fashion as the now deprecated auto_now and auto_now_add keywords.
+
+ django_extensions/db/__init__.pyc        |  Bin 0 -> 166 bytes
+ django_extensions/db/fields/__init__.py  |   44 ++++++++++++++++++++++++++++++
+ django_extensions/db/fields/__init__.pyc |  Bin 0 -> 2575 bytes
+ 3 files changed, 44 insertions(+), 0 deletions(-)
+
+commit 1a382647485fbff66d5ba06bed0ddf47e7cfac66
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:20:08 2008 +0000
+
+    this seems to work, just made 4 commits to ignore 4 files, yeah :)
+
+commit d4cf54157331b20227f680b95d2f31f726003eeb
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:16:40 2008 +0000
+
+    please svn just ignore these *.pyc files, without my having to exclude every last one of them by hand
+
+commit 568b6fa6fd28458b08451f5b44cb21e90d3af936
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:10:50 2008 +0000
+
+    second attempt on commiting ignores into svn
+
+commit 20f59d4ef9d466542de458e1d12f8748723b9d77
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:09:48 2008 +0000
+
+    think it's going to commit some properties... but only santa knows for sure
+
+commit 901566f7e0bdf7a6ad66ee70932724ec5496bf6e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 9 15:06:09 2008 +0000
+
+    name change, from django-command-extensions to django-extensions
+
+ MANIFEST.in                                        |    2 +-
+ django_extensions/__init__.py                      |   10 +
+ django_extensions/conf/app_template/forms.py.tmpl  |    3 +
+ django_extensions/conf/app_template/models.py.tmpl |    3 +
+ django_extensions/conf/app_template/urls.py.tmpl   |    3 +
+ django_extensions/conf/app_template/views.py.tmpl  |    1 +
+ .../management/commands/sample.py.tmpl             |    7 +
+ .../conf/jobs_template/jobs/sample.py.tmpl         |    8 +
+ django_extensions/jobs/daily/cache_cleanup.py      |   23 +
+ django_extensions/jobs/daily/daily_cleanup.py      |   22 +
+ django_extensions/management/color.py              |   13 +
+ .../management/commands/create_app.py              |   72 +++
+ .../management/commands/create_command.py          |   78 +++
+ .../management/commands/create_jobs.py             |   86 ++++
+ .../management/commands/create_superuser.py        |   18 +
+ .../management/commands/describe_form.py           |   64 +++
+ .../management/commands/dumpscript.py              |  490 ++++++++++++++++++++
+ .../management/commands/export_emails.py           |  114 +++++
+ .../management/commands/generate_secret_key.py     |   10 +
+ .../management/commands/graph_models.py            |   57 +++
+ django_extensions/management/commands/passwd.py    |   37 ++
+ .../management/commands/print_user_for_session.py  |   49 ++
+ django_extensions/management/commands/reset_db.py  |   93 ++++
+ django_extensions/management/commands/runjob.py    |   53 +++
+ django_extensions/management/commands/runjobs.py   |   82 ++++
+ .../management/commands/runprofileserver.py        |  117 +++++
+ django_extensions/management/commands/runscript.py |   90 ++++
+ .../management/commands/runserver_plus.py          |   68 +++
+ .../management/commands/set_fake_passwords.py      |   44 ++
+ .../management/commands/shell_plus.py              |   76 +++
+ django_extensions/management/commands/show_urls.py |   45 ++
+ django_extensions/management/commands/sqldiff.py   |  183 ++++++++
+ django_extensions/management/jobs.py               |  154 ++++++
+ django_extensions/management/modelviz.py           |  281 +++++++++++
+ django_extensions/management/signals.py            |    9 +
+ extensions/__init__.py                             |   10 -
+ extensions/conf/app_template/forms.py.tmpl         |    3 -
+ extensions/conf/app_template/models.py.tmpl        |    3 -
+ extensions/conf/app_template/urls.py.tmpl          |    3 -
+ extensions/conf/app_template/views.py.tmpl         |    1 -
+ .../management/commands/sample.py.tmpl             |    7 -
+ extensions/conf/jobs_template/jobs/sample.py.tmpl  |    8 -
+ extensions/jobs/daily/cache_cleanup.py             |   23 -
+ extensions/jobs/daily/daily_cleanup.py             |   22 -
+ extensions/management/color.py                     |   13 -
+ extensions/management/commands/create_app.py       |   72 ---
+ extensions/management/commands/create_command.py   |   78 ---
+ extensions/management/commands/create_jobs.py      |   86 ----
+ extensions/management/commands/create_superuser.py |   18 -
+ extensions/management/commands/describe_form.py    |   64 ---
+ extensions/management/commands/dumpscript.py       |  490 --------------------
+ extensions/management/commands/export_emails.py    |  114 -----
+ .../management/commands/generate_secret_key.py     |   10 -
+ extensions/management/commands/graph_models.py     |   57 ---
+ extensions/management/commands/passwd.py           |   37 --
+ .../management/commands/print_user_for_session.py  |   49 --
+ extensions/management/commands/reset_db.py         |   93 ----
+ extensions/management/commands/runjob.py           |   53 ---
+ extensions/management/commands/runjobs.py          |   82 ----
+ extensions/management/commands/runprofileserver.py |  117 -----
+ extensions/management/commands/runscript.py        |   90 ----
+ extensions/management/commands/runserver_plus.py   |   68 ---
+ .../management/commands/set_fake_passwords.py      |   44 --
+ extensions/management/commands/shell_plus.py       |   76 ---
+ extensions/management/commands/show_urls.py        |   45 --
+ extensions/management/commands/sqldiff.py          |  183 --------
+ extensions/management/jobs.py                      |  154 ------
+ extensions/management/modelviz.py                  |  281 -----------
+ extensions/management/signals.py                   |    9 -
+ setup.py                                           |   12 +-
+ 70 files changed, 2470 insertions(+), 2470 deletions(-)
+
+commit 35a2fe50ba4dfdd977f06068aa9d529c008b4354
+Author: Brian Rosner <brosner@gmail.com>
+Date:   Fri Aug 8 16:00:35 2008 +0000
+
+    Chnaged the default verbosity level to 0 and adjusted the help to show the no output option. Quiet please!
+
+ extensions/management/commands/runscript.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 506a04c18869152479626bda46f1fa4d7f82ccea
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu Aug 7 18:09:09 2008 +0000
+
+    Changed runjobs_by_dispatcher method to runjobs_by_signals after the signal refactor
+
+ extensions/management/commands/runjobs.py |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 9a0c133151d9b51b1760bd6254a95d9088df4eed
+Author: Doug Napoleone <doug.napoleone@gmail.com>
+Date:   Thu Aug 7 07:06:34 2008 +0000
+
+    update to the new signals framework
+
+ extensions/management/commands/runjobs.py |   20 +++++++++-----------
+ extensions/management/signals.py          |   10 +++++-----
+ 2 files changed, 14 insertions(+), 16 deletions(-)
+
+commit 25512f3ab672b9a098ca8043116f97856df29ec0
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 16:15:42 2008 +0000
+
+    fix #21, callable classes as urlconf targets now get displayed be there repr() instead of raising an __name__ does not exist exception
+
+ extensions/management/commands/show_urls.py |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit 21d59e0f6625c749100d61f62ccb9eff7f7ccea4
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:58:53 2008 +0000
+
+    better/nicer error handling when the importing of the root urlconf fails
+
+ extensions/management/commands/show_urls.py |   11 +++++++++--
+ 1 files changed, 9 insertions(+), 2 deletions(-)
+
+commit 913e674cecc07da9addc7c2664d737b0ae099d63
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:25:29 2008 +0000
+
+    patch for #37
+
+ extensions/management/commands/create_jobs.py |   17 ++++++++++++++++-
+ 1 files changed, 16 insertions(+), 1 deletions(-)
+
+commit b07ebdc610d6fa64a72c2285bb78fcdf61bc4bbe
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:21:34 2008 +0000
+
+    fix small typo
+
+ extensions/management/commands/dumpscript.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 12c8128d9ecc39dd508747034e2cccec310aa0d5
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:13:08 2008 +0000
+
+    applied patch for #34 from e.willhardy
+
+ extensions/management/commands/dumpscript.py |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit 65a75a04a6f813e1117fd553aefed5f87c63eab4
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:05:13 2008 +0000
+
+    svn hates me
+
+commit e38afc45fd9718ebd479a4a0ab480404e941e01d
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Aug 2 15:04:16 2008 +0000
+
+    changed name of project in setup.py from extensions to django-command-extensions
+    added manifest file
+    fixed small type
+
+ MANIFEST.in |    1 +
+ setup.py    |    4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 075fbb8c2a450f3025764ae3f9ea8dea5a04bdaf
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Jul 24 06:16:08 2008 +0000
+
+    Adrians cleanup in Changeset 8046 revailed an incorrect import.
+    thanks mariocesar.c50 for the report!
+
+ extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 0621a908bd549d63d11b2263079b0cc14368dc66
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sat Jul 19 04:33:01 2008 +0000
+
+    Removed another reference to newforms.
+
+ extensions/management/commands/describe_form.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit e1655e85004c57a809596fc5a87dd9bb7d767ca0
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sat Jul 19 04:30:09 2008 +0000
+
+    Removed newforms reference.
+
+ extensions/conf/app_template/forms.py.tmpl |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit de2fbedf2c9e12d3b84d34aad3665b56469492fb
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Jul 17 15:10:12 2008 +0000
+
+    fix for issue #30, python2.3 did not have .rsplit
+    thanks to jamesc.000 for the patch
+
+ extensions/management/modelviz.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit f2aa191a605b2fd7170808786faf2bffeb0e8267
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Jul 17 14:22:23 2008 +0000
+
+    fix for issue 28 and 27, put in both patches from kbussel, thanks !!
+    quickly tested these patches and they look good.
+
+ extensions/management/commands/create_app.py  |    6 ++++--
+ extensions/management/commands/create_jobs.py |   17 +++++++++++------
+ 2 files changed, 15 insertions(+), 8 deletions(-)
+
+commit e8937d825ec7f13f8b3d3f93314bdbe949bbb017
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Jul 17 14:14:12 2008 +0000
+
+    fix for issue #29 daily_cleanup should for again for both pre and post change 7844 versions of django.
+    (added reminder that this can be removed after Django hits 1.0)
+
+ extensions/jobs/daily/daily_cleanup.py |   11 +++++++++--
+ 1 files changed, 9 insertions(+), 2 deletions(-)
+
+commit 05cbccf3a1b9cc8f3cffd6877b820986fabe68ee
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Mon Jun 30 16:12:10 2008 +0000
+
+    resolved issue 24
+
+ extensions/management/commands/dumpscript.py |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+commit fbb380c8a908f79481db7621d8c29026999c6f04
+Author: Carl Meyer <carl.j.meyer@gmail.com>
+Date:   Mon Jun 30 16:12:02 2008 +0000
+
+    added reset_db from snippet 828
+
+ extensions/management/commands/reset_db.py |   93 ++++++++++++++++++++++++++++
+ 1 files changed, 93 insertions(+), 0 deletions(-)
+
+commit a843618c5319b546ebffc5c13008ee1bd70ea25a
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Tue Jun 24 19:43:42 2008 +0000
+
+    added dumpscript (from willhardy) and runscript from (poelzi)
+
+ extensions/management/commands/dumpscript.py |  480 ++++++++++++++++++++++++++
+ extensions/management/commands/runscript.py  |   90 +++++
+ 2 files changed, 570 insertions(+), 0 deletions(-)
+
+commit 7c047f82b43f436f993dcc48da8e6db1758acc3e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon Jun 23 19:03:21 2008 +0000
+
+    added HACK (sorry i also don't like this but at least it works FTM) to get jobs in the project directory to work with ./manage.py when the project dir is not on the python path
+
+ extensions/management/jobs.py |    9 +++++++++
+ 1 files changed, 9 insertions(+), 0 deletions(-)
+
+commit 1642285ee5dc6e167db22acc04f6a9dc0730f9d3
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon Jun 23 16:09:19 2008 +0000
+
+    bumped version number
+
+ extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 1de7d1df765a31b6b9906461958d5adddbfcc1b2
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sun Jun 22 01:38:49 2008 +0000
+
+    corrected spelling mistake.
+
+ setup.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 40ca64469f0ea8b84b8862f5ca4842845faf3e04
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Sun Jun 22 01:37:44 2008 +0000
+
+    added in runserver_plus that uses the werkzeug debugger.
+
+ extensions/management/commands/runserver_plus.py |   68 ++++++++++++++++++++++
+ 1 files changed, 68 insertions(+), 0 deletions(-)
+
+commit 8208f11b17348c663ad453a5e00ae16710e709c8
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Jun 21 23:19:43 2008 +0000
+
+    added support for indexes to sqldiff
+
+ extensions/management/commands/sqldiff.py |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+commit a299de863894f330a3358ad3901f9a816df982fd
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Jun 11 15:28:19 2008 +0000
+
+    Fix graph models does not distinguish models multiple models with the same name. Thanks tadamcik
+
+ extensions/management/modelviz.py |    6 ++++--
+ 1 files changed, 4 insertions(+), 2 deletions(-)
+
+commit 953ec20fed60cf80716d8dfca2db6b6068501972
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Jun 5 21:26:42 2008 +0000
+
+    Fixed disable_fields option of graph_models when specified on the command line. Thanks for the patch semente !
+
+ extensions/management/commands/graph_models.py |   12 ++++++------
+ 1 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 890008ac0baf21e26cec1beba64eee9c291c6e58
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Jun 4 23:19:31 2008 +0000
+
+    fixed issue #16 where quotes need to be marked_safe to 'escape' template escaping
+
+ extensions/management/modelviz.py |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+commit e78fce30ee0486d97e32b8fea8c81dcb0d6add7c
+Author: Doug Napoleone <doug.napoleone@gmail.com>
+Date:   Mon Jun 2 23:45:43 2008 +0000
+
+    adding print_user_for_session command.
+    Prints out the user information for the provided session key.
+    Crucial for contacting the user who was affected by a crash.
+
+ .../management/commands/print_user_for_session.py  |   49 ++++++++++++++++++++
+ 1 files changed, 49 insertions(+), 0 deletions(-)
+
+commit 1f6c0426d70f3d905e9a1bc9847a01a4880bb188
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sun Jun 1 17:10:30 2008 +0000
+
+    fix for svn revision 7568
+
+ extensions/management/commands/sqldiff.py |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+commit d815dbce37c99b63bc834e1ef95dccbe1e41775d
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat May 31 20:08:41 2008 +0000
+
+    added option for using the cProfile (as it is not fully compatible with the hotshot profiler)
+    fixed problem where the profile (.prof) datafile of the root url resulted in a hidden file (file starting with a dot on unix)
+
+ extensions/management/commands/runprofileserver.py |   22 ++++++++++++-------
+ 1 files changed, 14 insertions(+), 8 deletions(-)
+
+commit d89d5e5e6d678961806ad0c6d641f2884bcab015
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat May 31 16:30:04 2008 +0000
+
+    allow settings the default password from the command line (making the command scriptable)
+
+ .../management/commands/set_fake_passwords.py      |    8 +++++---
+ 1 files changed, 5 insertions(+), 3 deletions(-)
+
+commit 89d8d5e623141b1aa5dfcc097f4e84680dec5a1f
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri May 30 21:48:36 2008 +0000
+
+    added support for cProfile (the new and improved profiler module in python 2.5 and up)
+
+ extensions/management/commands/runprofileserver.py |   17 +++++++++++++++--
+ 1 files changed, 15 insertions(+), 2 deletions(-)
+
+commit 8b82cc21df8682fc5242b6fccca9e3de377673dc
+Author: David A Krauth <dakrauth@gmail.com>
+Date:   Fri May 30 15:29:04 2008 +0000
+
+    Added set_fake_passwords.py
+
+ docs/AUTHORS                                       |    1 +
+ .../management/commands/set_fake_passwords.py      |   42 ++++++++++++++++++++
+ 2 files changed, 43 insertions(+), 0 deletions(-)
+
+commit 537c8d80c9fc676059fb22b38f6a23f355bc46f8
+Author: David A Krauth <dakrauth@gmail.com>
+Date:   Fri May 30 15:28:11 2008 +0000
+
+    Added fix for issue #11
+
+ extensions/management/commands/show_urls.py |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+commit f886320bccfae6dd332b08d54d4d82928d76c8ed
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 19:39:59 2008 +0000
+
+    moved calculating string version number from setup.py to __version__ in extensions/__init__.py
+
+ extensions/__init__.py |    8 +++++++-
+ setup.py               |   10 +---------
+ 2 files changed, 8 insertions(+), 10 deletions(-)
+
+commit 48bb7512cb83d0aea876637f16bb61955282c377
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 19:30:53 2008 +0000
+
+    bumped version number
+
+ extensions/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 9a0e38c323b155d7f71282c70590241259b04e7e
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 19:19:31 2008 +0000
+
+    fixed help_text on ManyToManyField, thanks for the report b23dev ! sorry it took so long :)
+
+ extensions/management/commands/describe_form.py |   14 ++++++++++----
+ 1 files changed, 10 insertions(+), 4 deletions(-)
+
+commit 5c754c4d4a7f7b60b6ad5f685adfef05d49eb093
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 18:48:34 2008 +0000
+
+    svn:ignores create unclear and messy commits
+
+commit 3e0b506255360a3226ae958ec5d7cbff8dc2d91b
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 18:47:10 2008 +0000
+
+    added setup.py
+    added runprofileserver, starts runserver with hotshot/profiling tools enabled (see --prof-path for destination of profile .prof files)
+    renamed all the template files from .py to .py.tmpl (otherwise setup.py tries to bytecompile them, hopefully we can change this back somehow/someday)
+
+ extensions/__init__.py                             |    4 +
+ extensions/conf/app_template/forms.py              |    3 -
+ extensions/conf/app_template/forms.py.tmpl         |    3 +
+ extensions/conf/app_template/models.py             |    3 -
+ extensions/conf/app_template/models.py.tmpl        |    3 +
+ extensions/conf/app_template/urls.py               |    3 -
+ extensions/conf/app_template/urls.py.tmpl          |    3 +
+ extensions/conf/app_template/views.py              |    1 -
+ extensions/conf/app_template/views.py.tmpl         |    1 +
+ .../command_template/management/commands/sample.py |    7 --
+ .../management/commands/sample.py.tmpl             |    7 ++
+ extensions/conf/jobs_template/jobs/sample.py       |    8 --
+ extensions/conf/jobs_template/jobs/sample.py.tmpl  |    8 ++
+ extensions/management/commands/create_app.py       |    1 +
+ extensions/management/commands/create_command.py   |    1 +
+ extensions/management/commands/create_jobs.py      |    1 +
+ extensions/management/commands/create_superuser.py |    2 +-
+ extensions/management/commands/runprofileserver.py |   98 ++++++++++++++++++++
+ setup.py                                           |   84 +++++++++++++++++
+ 19 files changed, 215 insertions(+), 26 deletions(-)
+
+commit f7ac49a391d5df81c7d5fcdb4fd773ab45c34e4a
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed May 28 16:33:05 2008 +0000
+
+    fix graph_models output with pygraphviz for versions earlier then 0.36 (distro's like ubuntu ship with this old version)
+
+ extensions/management/commands/graph_models.py |   15 ++++++++++++---
+ 1 files changed, 12 insertions(+), 3 deletions(-)
+
+commit 3a31bfa0e51fb19305b23c44062572128eeb7842
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Mon May 26 13:43:29 2008 +0000
+
+    added try-except clause for imports and some colorization
+
+ extensions/management/commands/shell_plus.py |   11 ++++++++---
+ 1 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 47b981aa9eb3a5c608dd6989f52bf44be42f2397
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Tue May 13 10:00:17 2008 +0000
+
+    svn:ignore on *.pyc under extensions
+
+commit b14b7c7fa3e6f755c14ad4c9b33510f895649c86
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat May 10 22:29:03 2008 +0000
+
+    nicer exception around loading Job's from jobmodule
+
+ extensions/management/jobs.py |    7 +++++--
+ 1 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 2d86f7be52c474522a135ef8ad4a0cd7f644c40d
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat May 10 21:48:54 2008 +0000
+
+    Applied patch from jfindlay, thanks !!
+    Fixed problem with getopts and --all-applications flag
+    Corrected indentation, original file had weird indentations for multiple line list and dictionary declarations
+
+ extensions/management/modelviz.py |   67 +++++++++++++++++++++++++-----------
+ 1 files changed, 46 insertions(+), 21 deletions(-)
+
+commit 413c66862575ee9190167a8f77a7505a32f34dc2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri May 2 21:43:46 2008 +0000
+
+    added no-pythonrc option to let users explicitly enable or disable pythonrc usage.
+    moved imported_objects to front of command handle to let both IPython and CPython shell use the same dictionary
+
+ extensions/management/commands/shell_plus.py |   35 ++++++++++++++------------
+ 1 files changed, 19 insertions(+), 16 deletions(-)
+
+commit 2ad86d505120053c013e90e0cb8bbb049c2130e1
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri May 2 21:34:14 2008 +0000
+
+    fix importing application models when explicitly using --plain on the command line
+
+ extensions/management/commands/shell_plus.py |   14 +++++++-------
+ 1 files changed, 7 insertions(+), 7 deletions(-)
+
+commit ba571c6f7e1074539bf65174ac34165c523be5f4
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Fri May 2 21:24:33 2008 +0000
+
+    fix autoloaded models in IPython command shell
+
+ extensions/management/commands/shell_plus.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit a5a063f2a69d0aaa21a0e0ada4522fc829e12dfc
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu May 1 18:48:13 2008 +0000
+
+    added vcard support to export_emails
+
+ extensions/management/commands/export_emails.py |   22 +++++++++++++++++++++-
+ 1 files changed, 21 insertions(+), 1 deletions(-)
+
+commit 8b600c6ec6005cf91925d3d23c99a3cb252c6ae2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu May 1 18:47:45 2008 +0000
+
+    added myself to AUTHORS
+
+ docs/AUTHORS |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit cfed8ba894913e65bee7dc2870bb95d4794d6eee
+Author: Doug Napoleone <doug.napoleone@gmail.com>
+Date:   Wed Apr 30 06:08:17 2008 +0000
+
+    Adding in a new command export_emails (and self to AUTHORS)
+    
+    Supports exporting user emails in the following formats:
+        address* - simple '"full name" <addr@host.com>;' format, one per line.
+        google   - CSV file suitable for google import.
+        outlook  - CSV file suitable for outlook import.
+        linkedin - CSV file suitable for linkedin groups pre-approve import.
+    
+    *defaults to 'address'
+    
+    User listing can be filtered by group name.
+    
+    output is to stdout unless optional filename is supplied as an argument.
+    
+    Usage: manage.py export_emails [options] [output file]
+    
+    Export user email address list in one of a number of formats.
+    
+    Options:
+      --settings=SETTINGS   The Python path to a settings module, e.g.
+                            "myproject.settings.main". If this isn't provided, the
+                            DJANGO_SETTINGS_MODULE environment variable will be
+                            used.
+      --pythonpath=PYTHONPATH
+                            A directory to add to the Python path, e.g.
+                            "/home/djangoprojects/myproject".
+      --traceback           Print traceback on exception
+      -g GROUP, --group=GROUP
+                            Limit to users which are part of the supplied group
+                            name
+      -f FORMAT, --format=FORMAT
+                            output format. May be one of 'address', 'google',
+                            'outlook', 'linkedin'.
+      --version             show program's version number and exit
+      -h, --help            show this help message and exit
+
+ docs/AUTHORS                                    |    1 +
+ extensions/management/commands/export_emails.py |   94 +++++++++++++++++++++++
+ 2 files changed, 95 insertions(+), 0 deletions(-)
+
+commit 026fcc31d6929f993fdcb9cb4092792329c7ecd2
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Tue Apr 15 20:31:38 2008 +0000
+
+    added sqldiff command
+
+ extensions/management/commands/sqldiff.py |  171 +++++++++++++++++++++++++++++
+ 1 files changed, 171 insertions(+), 0 deletions(-)
+
+commit f0ec5d88061bfb8d86312aa0b407703b85fcda2b
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Mar 26 02:47:26 2008 +0000
+
+    Properly attributed Ian Holsman in the source code
+
+ extensions/management/commands/runjobs.py |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit 1e228a83bc0eabc6a6b5fa86ced5ed99a3573682
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Wed Mar 26 02:34:19 2008 +0000
+
+    Initial import of runjob, runjobs and create_jobs commands.
+    It can run jobs scheduled hourly, daily, weekly, monthly or stand-alone.
+    Scheduled mode works with both command style jobs as well as dispatcher style jobs.
+    Thanks Ian Holsman for the dispatcher implementation
+
+ extensions/conf/jobs_template/jobs/sample.py       |    8 +
+ extensions/jobs/daily/cache_cleanup.py             |   23 +++
+ extensions/jobs/daily/daily_cleanup.py             |   15 ++
+ extensions/management/commands/create_jobs.py      |   65 +++++++++
+ extensions/management/commands/runjob.py           |   53 ++++++++
+ extensions/management/commands/runjobs.py          |   82 +++++++++++
+ extensions/management/jobs.py                      |  142 ++++++++++++++++++++
+ extensions/management/signals.py                   |    9 ++
+ 8 files changed, 397 insertions(+), 0 deletions(-)
+
+commit b11593babc5c7166adbe6c5c606c1b6355c83e97
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Mar 20 00:42:28 2008 +0000
+
+    Added -g grouping option which groups models together with there respective application inside the visualisation.
+    Fixed problem with -a (autodetect all applications) and empty nodes.
+    
+    The latter required some pretty big changes, but from my (still limited) understanding of the dot format this is a bit cleaner then before as it generated all model nodes first and relations after that. Because of this generation of the dot file now happens in several stages. Which was also needed to be able to skip generating relation nodes when they already exists as a full model node as you need to have walked down all the models to know if the model name a relation points to already exists or not.
+
+ extensions/management/commands/graph_models.py |    2 +
+ extensions/management/modelviz.py              |   73 +++++++++++++++++++-----
+ 2 files changed, 60 insertions(+), 15 deletions(-)
+
+commit 103173ac3b38232a906774309f203951bd2350cd
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Sat Mar 1 00:52:07 2008 +0000
+
+    graph_models, added --output (or -o for short) option which renders the graph to file, it uses pygraphviz bindings to graphviz.
+
+ extensions/management/commands/graph_models.py |   26 ++++++++++++++++++++++-
+ 1 files changed, 24 insertions(+), 2 deletions(-)
+
+commit 3ad9a46f4ae559ef0fc26c551b1025943cccd01b
+Author: Bas van Oostveen <v.oostveen@gmail.com>
+Date:   Thu Feb 28 22:44:48 2008 +0000
+
+    graph_models, added --all-applications option (or -a for short) which includes all models which are found by Django for the project.
+
+ extensions/management/commands/graph_models.py |    6 ++++--
+ extensions/management/modelviz.py              |   11 ++++++++++-
+ 2 files changed, 14 insertions(+), 3 deletions(-)
+
+commit d9ec8684b6499da7ea777ade30600e60efef4b9a
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Tue Feb 12 05:07:32 2008 +0000
+
+    Added new create_app command that allows you to specify an app template.
+
+ extensions/conf/app_template/forms.py        |    3 +
+ extensions/conf/app_template/models.py       |    3 +
+ extensions/conf/app_template/urls.py         |    3 +
+ extensions/conf/app_template/views.py        |    1 +
+ extensions/management/commands/create_app.py |   69 ++++++++++++++++++++++++++
+ 5 files changed, 79 insertions(+), 0 deletions(-)
+
+commit 87750d87dec2491a41d41f661f157b106f671b66
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Fri Feb 1 05:20:19 2008 +0000
+
+    Added in graphviz stuff.
+
+ docs/AUTHORS                                   |   10 +-
+ extensions/management/color.py                 |   13 ++
+ extensions/management/commands/color.py        |   13 --
+ extensions/management/commands/graph_models.py |   22 +++
+ extensions/management/commands/show_urls.py    |    2 +-
+ extensions/management/modelviz.py              |  201 ++++++++++++++++++++++++
+ 6 files changed, 243 insertions(+), 18 deletions(-)
+
+commit 34f1878869b6804537d85814e092ed3330df323d
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Wed Jan 30 05:29:35 2008 +0000
+
+    added new command to show url routes for the project.
+
+ extensions/management/commands/color.py     |   13 +++++++++++
+ extensions/management/commands/show_urls.py |   31 +++++++++++++++++++++++++++
+ 2 files changed, 44 insertions(+), 0 deletions(-)
+
+commit a2e465954589e5dc3417a25c8907bddc6cce99cb
+Author: Jannis Leidel <jannis@leidel.info>
+Date:   Thu Jan 10 16:30:43 2008 +0000
+
+    fixed the shell_plus command which now actually loads the models of all installed apps
+
+ extensions/management/commands/shell_plus.py |   65 ++++++++++++++++++++------
+ 1 files changed, 51 insertions(+), 14 deletions(-)
+
+commit d80f18c4b53e0e8e4d1b39ec8b97e8b2100b3716
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Thu Jan 10 02:37:52 2008 +0000
+
+    renamed createsuperuser to create_superuser to be consistent.
+
+ extensions/management/commands/create_superuser.py |   18 ++++++++++++++++++
+ extensions/management/commands/createsuperuser.py  |   18 ------------------
+ 2 files changed, 18 insertions(+), 18 deletions(-)
+
+commit 7b55c064f643472022dcf74a11f1e34fc86a8c3e
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Thu Jan 10 02:21:08 2008 +0000
+
+    added shell_plus. thanks to jannis leidel
+
+ extensions/management/commands/shell_plus.py |   28 ++++++++++++++++++++++++++
+ 1 files changed, 28 insertions(+), 0 deletions(-)
+
+commit ac85cde6d1910924ee638e5de9b5d5afa61c240f
+Author: Brian Rosner <brosner@gmail.com>
+Date:   Fri Dec 28 17:16:10 2007 +0000
+
+    added myself to AUTHORS.
+
+ docs/AUTHORS |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 3f84d637d8361e550676f2a084439f2cc418c88d
+Author: Brian Rosner <brosner@gmail.com>
+Date:   Fri Dec 28 17:12:11 2007 +0000
+
+    fixed a minor typo in the help string of create_command.
+
+ extensions/management/commands/create_command.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 68d8c4e30a60c2210d0f92858069d0ea506b7aeb
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Fri Dec 28 00:28:32 2007 +0000
+
+    Fixed Collin's name.
+
+ docs/AUTHORS |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 6a509f848c3004b7a54f18c2f10ed258e584498b
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Thu Dec 27 22:54:21 2007 +0000
+
+    added in Colin Grady's createsuperuser command and added an authors file. Cleaned up the generate_secret_key
+
+ LICENSE                                            |    2 +-
+ docs/AUTHORS                                       |    5 +++++
+ extensions/management/commands/createsuperuser.py  |   18 ++++++++++++++++++
+ .../management/commands/generate_secret_key.py     |    1 -
+ 4 files changed, 24 insertions(+), 2 deletions(-)
+
+commit d247dbed06db315cc035528cf5195a26fa0009e9
+Author: Ludvig Ericson <ludvig.ericson@gmail.com>
+Date:   Thu Dec 27 22:42:09 2007 +0000
+
+    Added passwd command.
+
+ extensions/management/commands/passwd.py |   37 ++++++++++++++++++++++++++++++
+ 1 files changed, 37 insertions(+), 0 deletions(-)
+
+commit 9db513b5942b6651f8943e6162cd5fdf6b89122c
+Author: Michael Trier <mtrier@gmail.com>
+Date:   Thu Nov 22 01:28:27 2007 +0000
+
+    initial import of code
+
+ LICENSE                                            |   19 +++++
+ .../command_template/management/commands/sample.py |    7 ++
+ extensions/management/commands/create_command.py   |   77 ++++++++++++++++++++
+ extensions/management/commands/describe_form.py    |   58 +++++++++++++++
+ .../management/commands/generate_secret_key.py     |   11 +++
+ 5 files changed, 172 insertions(+), 0 deletions(-)
+
+commit 261f28d833cb3df77dbc76852c85a98f61a643a3
+Author: (no author) <(no author)@70537768-783f-0410-b1a0-8399f7a62752>
+Date:   Wed Nov 21 23:04:48 2007 +0000
+
+    Initial directory structure.
