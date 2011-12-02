@@ -65,18 +65,13 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'django_extensions',
+    'django_fuse',
     'treebeard',
 
     'musicdb.common',
     'musicdb.classical',
     'musicdb.nonclassical',
 ]
-
-try:
-    import django_fuse
-    INSTALLED_APPS.append('django_fuse')
-except ImportError:
-    pass
 
 try:
     from site_settings import *
