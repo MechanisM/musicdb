@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404
 
 from django_fuse import DirectoryResponse, SymlinkResponse
 
@@ -17,7 +17,7 @@ def index(request, letter='a'):
 
     artists = Artist.objects.filter(name_first=letter)
 
-    return render_to_response('nonclassical/index.html', {
+    return render(request, 'nonclassical/index.html', {
         'letters': letters,
         'artists': artists,
     })
@@ -25,7 +25,7 @@ def index(request, letter='a'):
 def artist(request, slug):
     artist = get_object_or_404(Artist, slug=slug)
 
-    return render_to_response('nonclassical/artist.html', {
+    return render(request, 'nonclassical/artist.html', {
         'artist': artist,
     })
 
@@ -35,7 +35,7 @@ def album(request, artist_slug, slug):
     except Album.DoesNotExist:
         raise Http404
 
-    return render_to_response('nonclassical/album.html', {
+    return render(request, 'nonclassical/album.html', {
         'album': album,
     })
 
@@ -52,7 +52,7 @@ def play_album(request, album_id):
 def collage(request):
     albums = Album.objects.exclude(cover='')
 
-    return render_to_response('nonclassical/collage.html', {
+    return render(request, 'nonclassical/collage.html', {
         'albums': albums,
     })
 

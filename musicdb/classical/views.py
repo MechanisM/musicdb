@@ -2,55 +2,55 @@
 
 import time
 
-from django.shortcuts import render_to_response, get_object_or_404
 from django_fuse import DirectoryResponse, FileResponse
+from django.shortcuts import render, get_object_or_404
 
 from musicdb.utils.http import XSPFResponse
 from musicdb.classical.models import Artist, Work, Recording, Movement, \
     Ensemble, Category
 
 def index(request):
-    return render_to_response('classical/index.html')
+    return render(request, 'classical/index.html')
 
 def categories(request):
-    return render_to_response('classical/categories.html', {
+    return render(request, 'classical/categories.html', {
         'categories': Category.get_root_nodes(),
     })
 
 def category(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
 
-    return render_to_response('classical/category.html', {
+    return render(request, 'classical/category.html', {
         'category': category,
     })
 
 def composers(request):
-    return render_to_response('classical/composers.html', {
+    return render(request, 'classical/composers.html', {
         'composers': Artist.objects.composers(),
     })
 
 def ensembles(request):
-    return render_to_response('classical/ensembles.html', {
+    return render(request, 'classical/ensembles.html', {
         'ensembles': Ensemble.objects.all(),
     })
 
 def artists(request):
-    return render_to_response('classical/artists.html', {
+    return render(request, 'classical/artists.html', {
         'artists': Artist.objects.artists(),
     })
 
 def artist(request, slug):
-    return render_to_response('classical/artist.html', {
+    return render(request, 'classical/artist.html', {
         'artist': get_object_or_404(Artist, slug=slug),
     })
 
 def ensemble(request, slug):
-    return render_to_response('classical/ensemble.html', {
+    return render(request, 'classical/ensemble.html', {
         'ensemble': get_object_or_404(Ensemble, slug=slug),
     })
 
 def work(request, artist_slug, slug):
-    return render_to_response('classical/work.html', {
+    return render(request, 'classical/work.html', {
         'work': get_object_or_404(Work, slug=slug, composer__slug=artist_slug),
     })
 
@@ -93,7 +93,7 @@ def stats(request):
     artists_by_num_works = Artist.objects.by_num_works()[:10]
     works_by_num_recordings = Work.objects.by_num_recordings()[:10]
 
-    return render_to_response('classical/stats.html', {
+    return render(request, 'classical/stats.html', {
         'work_count': work_count,
         'composer_count': composer_count,
         'recording_count': recording_count,
@@ -107,23 +107,23 @@ def stats(request):
     })
 
 def timeline(request):
-    return render_to_response('classical/timeline.html')
+    return render(request, 'classical/timeline.html')
 
 def timeline_data(request):
     composers = Artist.objects.composers()
 
-    return render_to_response('classical/timeline_data.xml', {
+    return render(request, 'classical/timeline_data.xml', {
         'composers': composers.exclude(born=0, died=0),
     }, mimetype='application/xml')
 
 def artist_timeline(request, slug):
-    return render_to_response('classical/artist_timeline.html', {
+    return render(request, 'classical/artist_timeline.html', {
         'artist': get_object_or_404(Artist, slug=slug),
     })
 
 def artist_timeline_data(request, slug):
     artist = get_object_or_404(Artist, slug=slug)
 
-    return render_to_response('classical/artist_timeline_data.xml', {
+    return render(request, 'classical/artist_timeline_data.xml', {
         'works': artist.works.exclude(year=0),
     }, mimetype='application/xml')

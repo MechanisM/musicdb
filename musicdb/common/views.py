@@ -1,5 +1,5 @@
 from django.db.models import Sum
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render
 
 from musicdb.utils.http import XSPFResponse
 
@@ -10,7 +10,7 @@ def play_music_file(request, music_file_id):
     return XSPFResponse([music_file])
 
 def stats(request):
-    return render_to_response('common/stats.html', {
+    return render(request, 'common/stats.html', {
         'music_file_count': MusicFile.objects.count(),
         'total_duration': MusicFile.objects.aggregate(Sum('length'))['length__sum'] or 0,
     })
