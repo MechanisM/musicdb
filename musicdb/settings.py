@@ -36,6 +36,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'musicdb.urls'
@@ -49,6 +50,12 @@ TEMPLATE_DIRS = (
 
 FUSE_URLCONF = 'fuse_urls'
 
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'SHOW_TEMPLATE_CONTEXT': False,
+    'HIDE_DJANGO_SQL': True,
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,8 +63,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
 
-    'treebeard',
+    'debug_toolbar',
     'django_extensions',
+    'treebeard',
 
     'musicdb.common',
     'musicdb.classical',
@@ -67,18 +75,6 @@ INSTALLED_APPS = [
 try:
     import django_fuse
     INSTALLED_APPS.append('django_fuse')
-except ImportError:
-    pass
-
-try:
-    import debug_toolbar_
-    INSTALLED_APPS.append('debug_toolbar')
-    MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
-    DEBUG_TOOLBAR_CONFIG = {
-        'INTERCEPT_REDIRECTS': False,
-        'SHOW_TEMPLATE_CONTEXT': False,
-        'HIDE_DJANGO_SQL': True,
-    }
 except ImportError:
     pass
 
