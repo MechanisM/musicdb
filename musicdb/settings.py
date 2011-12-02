@@ -55,10 +55,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+
+    'treebeard',
+
     'musicdb.common',
     'musicdb.classical',
     'musicdb.nonclassical',
-    'treebeard',
 ]
 
 try:
