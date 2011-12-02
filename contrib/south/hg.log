@@ -1,0 +1,5255 @@
+changeset:   993:b3ed126b19a2
+tag:         tip
+user:        Mike Fogel <mike@fogel.ca>
+date:        Sat Nov 26 10:45:44 2011 -0800
+summary:     logger - avoid outputing unrequested DEBUG info
+
+changeset:   992:7d52925cae22
+user:        Mike Fogel <mike@fogel.ca>
+date:        Sat Nov 26 10:44:55 2011 -0800
+summary:     logging test - avoid unrequested DEBUG output
+
+changeset:   991:d310fe2fda97
+parent:      978:1924f66b398f
+parent:      990:577f264a0989
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Nov 25 12:45:47 2011 +0000
+summary:     Merged in beyondwords/south-mysql (pull request #21)
+
+changeset:   990:577f264a0989
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Thu Nov 24 23:29:16 2011 -0500
+summary:     Moved debug statement in generic to more useful place (remove dry run output)
+
+changeset:   989:712d1fc07c96
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Tue Nov 22 21:46:20 2011 -0500
+summary:     Wipe out the constraint cache for the entire database (since MySQL updates the whole cache at once)
+
+changeset:   988:4531d6086539
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Tue Nov 22 09:24:23 2011 -0500
+summary:     Could have sworn I ran the tests before submitting, apparently not. Stupid bug: forgot self. to refer to newly added SQL definition.
+
+changeset:   987:bc4d8ed6df6a
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Tue Nov 22 02:20:34 2011 -0500
+summary:     While testing rename of table with constraints, found that the new table (not yet being cached) passes tests in lookup_constraint. Must invalidate new table as well.
+
+changeset:   986:b972389ed68f
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Tue Nov 22 02:13:20 2011 -0500
+summary:     Clarifying remarks for decorators
+
+changeset:   985:dc3c16930380
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Mon Nov 21 01:34:08 2011 -0500
+summary:     Allow the columns referred to as part of a foreign key (ex. id field) to be renamed
+
+changeset:   984:e32fc7f80786
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Mon Nov 21 00:27:32 2011 -0500
+summary:     Implementing foreign key column rename
+
+changeset:   983:7bfc69a294f8
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Sun Nov 20 23:44:05 2011 -0500
+summary:     Refactored the delete_column for MySQL to use a decorator (and rely on parent delete)
+
+changeset:   982:8b78616b8313
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Sun Nov 20 22:39:34 2011 -0500
+summary:     Make unittests clean up after themselves
+
+changeset:   981:719781dfdd18
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Sun Nov 20 22:35:35 2011 -0500
+summary:     Fix stupid refactoring bug introduced
+
+changeset:   980:8121be542aeb
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Sun Nov 20 21:41:46 2011 -0500
+summary:     Add reverse lookup to detect inbound foreign references (foreign keys referring to given table.column)
+
+changeset:   979:3bbf98e4b5d8
+parent:      975:e8ff46478c6d
+user:        F. Gabriel Gosselin <gabriel@evidens.ca>
+date:        Sun Nov 20 16:36:06 2011 -0500
+summary:     Adding referenced table/column lookup for constraints (extension of existing lookup)
+
+changeset:   978:1924f66b398f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Nov 24 13:39:55 2011 +0000
+summary:     Fixed #961: Bad docs for storage_engine
+
+changeset:   977:546f9bbf06b6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 23 00:04:04 2011 +0000
+summary:     Oracle: Remove PURGE from "DROP TABLE"; it's not supported in Oracle 9i.
+
+changeset:   976:25727044e3e0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 23 00:02:30 2011 +0000
+summary:     Fix Python 2.4 incompatibilities
+
+changeset:   975:e8ff46478c6d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 16 13:14:38 2011 +0000
+summary:     Fixed #952: Do comparisons on columns case-insensitively.
+
+changeset:   974:dca268e628a4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Nov 13 18:16:42 2011 +0000
+summary:     Fixed #945: Oracle booleans default fix
+
+changeset:   973:80f47f7d56dc
+user:        David Gouldin <david@gould.in>
+date:        Thu Oct 27 09:31:10 2011 -0700
+summary:     Separating out migrations applied to the current app from all migrations
+
+changeset:   972:8fe6a198b471
+user:        David Gouldin <david@gould.in>
+date:        Thu Oct 27 09:29:21 2011 -0700
+summary:     Skipping apps in migrationcheck which are improperly configured (don't
+
+changeset:   971:31174fd8effe
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Oct 26 16:30:01 2011 +0100
+summary:     Change location of django-cms migrations image
+
+changeset:   970:2e7ec634aa38
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Oct 25 22:22:12 2011 +0100
+summary:     Fixed #937: Say when you're not printing stuff during dry run
+
+changeset:   969:a13ccb4e7a09
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Oct 25 22:13:55 2011 +0100
+summary:     Fixed #936: Double-dry runs under MySQL and --db-dry-run
+
+changeset:   968:da94d4e67c5a
+user:        Alexey Shamrin <shamrin@gmail.com>
+date:        Mon Oct 24 15:00:48 2011 +0300
+summary:     update STORAGE_ENGINE docs for Django>=1.2
+
+changeset:   967:22b6b08e5f6d
+user:        David Gouldin <david@gould.in>
+date:        Tue Oct 18 14:23:33 2011 -0700
+summary:     Preserving db._constraint_cache between dry run and real migration to avoid constraint cache mutation during dry runs.
+
+changeset:   966:68431585c6ef
+user:        David Gouldin <david@gould.in>
+date:        Tue Oct 18 11:44:44 2011 -0700
+summary:     Adding option to check migrations for an individual app only.
+
+changeset:   965:5ab9f18ae45c
+user:        David Gouldin <david@gould.in>
+date:        Tue Oct 18 09:38:18 2011 -0700
+summary:     Fixing mysql delete column for foreign keys.
+
+changeset:   964:6bd351eb0158
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Oct 14 12:27:34 2011 +0100
+summary:     Fix docs about --freeze
+
+changeset:   963:8e5a21d8dd6b
+user:        Zakhar Zibarov <zakhar.zibarov@gmail.com>
+date:        Thu Oct 13 18:10:07 2011 +0300
+summary:     fixed migration for custom fieldtypes with default values
+
+changeset:   962:ecaafda23e60
+parent:      959:5f982f452b36
+parent:      961:99ba041f8b58
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Oct 07 12:39:46 2011 +0100
+summary:     Merged in msabramo/south (pull request #13)
+
+changeset:   961:99ba041f8b58
+branch:      migrate_+_or_-
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Thu Oct 06 15:19:51 2011 -0700
+summary:     Add a "current+1" virtual migration name.
+
+changeset:   960:fd9a5bdf4b4c
+branch:      migrate_+_or_-
+parent:      951:7962081d0bd9
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Thu Oct 06 13:38:37 2011 -0700
+summary:     Add a "current-1" virtual migration name.
+
+changeset:   959:5f982f452b36
+parent:      957:7b461cea5835
+parent:      958:fba423187735
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Oct 07 12:39:08 2011 +0100
+summary:     Merged in msabramo/south (pull request #12)
+
+changeset:   958:fba423187735
+branch:      list_migrations_with_time_applied
+parent:      951:7962081d0bd9
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Thu Oct 06 12:47:55 2011 -0700
+summary:     For manage.py migrate --list <app_name> --verbosity=2, print the
+
+changeset:   957:7b461cea5835
+parent:      953:50c4b932c95b
+parent:      956:780045ce7bf5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Oct 05 00:47:09 2011 +0100
+summary:     Merged in msabramo/south (pull request #11)
+
+changeset:   956:780045ce7bf5
+branch:      output_failing_sql
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Tue Oct 04 15:40:28 2011 -0700
+summary:     Change to using the old exception-catching syntax.
+
+changeset:   955:0918d7a8e839
+branch:      output_failing_sql
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Tue Oct 04 14:29:35 2011 -0700
+summary:     Print the error message and exit instead of reraising exception
+
+changeset:   954:6e93c7677a63
+branch:      output_failing_sql
+parent:      951:7962081d0bd9
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Tue Oct 04 14:21:24 2011 -0700
+summary:     Display the SQL for a query that fails.
+
+changeset:   953:50c4b932c95b
+parent:      951:7962081d0bd9
+parent:      952:f2a261316ee3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 03 13:40:01 2011 +0100
+summary:     Merged in msabramo/south (pull request #10)
+
+changeset:   952:f2a261316ee3
+branch:      schemamigration_pep8_output
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Fri Sep 30 13:49:15 2011 -0700
+summary:     Make the output of `schemamigration` more readable and more
+
+changeset:   951:7962081d0bd9
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Wed Sep 28 09:15:27 2011 -0700
+summary:     Add double backquotes around ``./manage.py migrate``
+
+changeset:   950:8fa6183ee78e
+user:        Marc Abramowitz <marc@marc-abramowitz.com>
+date:        Tue Sep 27 23:00:36 2011 -0700
+summary:     Add "build" directory to .hgignore
+
+changeset:   949:93700612f504
+user:        Francis Devereux <francis@bright-interactive.com>
+date:        Tue Aug 30 15:38:43 2011 +0100
+summary:     Made encoding header generated Python files PEP 0263 compliant.
+
+changeset:   948:7bf54d91abf1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Aug 30 10:24:32 2011 +0100
+summary:     Fixed #868: Update fixtures docs
+
+changeset:   947:d36169a339d9
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Aug 09 14:25:08 2011 +0300
+summary:     Add tests for NullBoolean columns
+
+changeset:   946:03066931b0b9
+parent:      945:cc48b5cdf390
+parent:      944:70a0e7a4d626
+user:        Jeremy Dunck <jdunck@gmail.com>
+date:        Thu Jul 28 21:51:45 2011 -0500
+summary:     Merging upstream default to fuzz testing head.
+
+changeset:   945:cc48b5cdf390
+parent:      915:e488160ec35e
+user:        Jeremy Dunck <jdunck@gmail.com>
+date:        Wed Mar 23 16:14:55 2011 -0500
+summary:     Pass through verbosity, Issue a positive status if no failures.
+
+changeset:   944:70a0e7a4d626
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 06 20:30:03 2011 +0100
+summary:     Fixed #798: Check constraint subtly wrong
+
+changeset:   943:f7a974304021
+parent:      942:f1e34abc7007
+parent:      941:db135edb37d7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 03 19:41:18 2011 +0100
+summary:     Branch merge
+
+changeset:   942:f1e34abc7007
+parent:      933:2ffeac01c2b8
+user:        Sebastian Noack <sebastian.noack@gmail.com>
+date:        Sun Jul 03 19:35:19 2011 +0100
+summary:     Pass the current instead of the previous frozen ORM to
+
+changeset:   941:db135edb37d7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jun 25 11:17:37 2011 +0200
+summary:     Add support for geography option in geodjango
+
+changeset:   940:11af74289ce9
+user:        Sebastian Noack <sebastian.noack@gmail.com>
+date:        Sat Jun 25 10:44:54 2011 +0200
+summary:     Respect models and model objects passed to the field when
+
+changeset:   939:58ec61b849c3
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Jun 22 19:07:16 2011 +0300
+summary:     UNTESTED PG: Create check constraints when altering columns to PositiveInteger types
+
+changeset:   938:c0796ac12843
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Jun 22 19:05:19 2011 +0300
+summary:     Pull positive-field support functions up from MSSQL to generic backend
+
+changeset:   937:c486ae717764
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Jun 22 18:30:20 2011 +0300
+summary:     MSSQL: Create check constraints when altering columns to PositiveInteger types
+
+changeset:   936:1b996a52ddab
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Jun 22 16:31:47 2011 +0300
+summary:     MSSQL: Create UNIQUE constraint when necessary in alter_column
+
+changeset:   935:65c3a52bce27
+user:        Nikolay Zakharov <nikolay@desh.su>
+date:        Mon Jun 20 17:32:42 2011 +0400
+summary:     Oracle: replace 'print' to stderr by 'warnings.warn'
+
+changeset:   934:29c5aac88a2c
+user:        Nikolay Zakharov <nikolay@desh.su>
+date:        Mon Jun 20 17:03:47 2011 +0400
+summary:     Oracle: fix ImportError (get_sequence_name)
+
+changeset:   933:2ffeac01c2b8
+parent:      930:5be8050b0427
+parent:      932:8f2c38e8ea4e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 17 11:39:28 2011 +0100
+summary:     Merge in fix for #700
+
+changeset:   932:8f2c38e8ea4e
+branch:      bug-700
+user:        Álvaro Arranz García <aarranz@yaco.es>
+date:        Wed Jun 15 17:26:44 2011 +0200
+summary:     Preserve column default values in the sqlite3 _remake_table method
+
+changeset:   931:2ed3d95a2e4d
+branch:      bug-700
+parent:      929:8e3b9574d9d5
+user:        Álvaro Arranz García <aarranz@yaco.es>
+date:        Wed Jun 15 16:17:32 2011 +0200
+summary:     Add " NOT NULL" to column definition if null_ok == False
+
+changeset:   930:5be8050b0427
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 17 11:29:30 2011 +0100
+summary:     Don't require an exact model base class. Thanks to Sebastian Noack.
+
+changeset:   929:8e3b9574d9d5
+user:        Dan Fairs <dan@fezconsulting.com>
+date:        Mon Jun 13 17:04:33 2011 +0100
+summary:     Actually try to select from the table we just deleted.
+
+changeset:   928:3c3f8b95c635
+user:        Asheesh Laroia <asheesh@asheesh.org>
+date:        Wed Jun 08 14:34:23 2011 -0400
+summary:     Adjust the sqlite3 alter_column method to accept ignore_constraints
+
+changeset:   927:6edd38f2788f
+user:        Duncan Parkes <duncan.parkes@gmail.com>
+date:        Fri Jun 03 00:25:23 2011 +0100
+summary:     Load initial data and send signal when verbosity is False.
+
+changeset:   926:5f96edecdc73
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun May 22 15:28:18 2011 +0100
+summary:     Fix compatability with Django 1.2
+
+changeset:   925:adb5a9cb58cb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon May 09 10:13:40 2011 +0100
+summary:     Fixed #766 -- Wrong foreign key check on MySQL
+
+changeset:   924:698311fd2b91
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon May 09 09:45:12 2011 +0100
+summary:     Fix list comparison failing under new unittest
+
+changeset:   923:945b0988de71
+parent:      921:b8f61044aea9
+parent:      922:14347729c5e8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon May 09 09:40:44 2011 +0100
+summary:     Branch merge
+
+changeset:   922:14347729c5e8
+parent:      920:a186b20b638e
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Apr 27 16:28:10 2011 +0300
+summary:     Fix tests: failures were mistakenly blocked
+
+changeset:   921:b8f61044aea9
+user:        Nikolay Zakharov <nikolay@desh.su>
+date:        Mon May 02 18:36:21 2011 +0400
+summary:     Oracle: proper altering of columns with NULL/NOT NULL
+
+changeset:   920:a186b20b638e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Apr 19 20:56:30 2011 +0100
+summary:     Fix missing cursor. Thanks to Gregor Mullegger.
+
+changeset:   919:43a54dd171e7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Apr 08 11:46:11 2011 +0100
+summary:     Fixed #754: Improper handling of CREATE TABLE with integer fields and checks under Oracle
+
+changeset:   918:41f5015b0feb
+parent:      915:e488160ec35e
+parent:      917:9635942147c0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 23 20:15:12 2011 +0000
+summary:     Branch merge
+
+changeset:   917:9635942147c0
+parent:      916:5c70eace8750
+parent:      913:232e0b5f8efd
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Wed Mar 23 15:12:56 2011 +0100
+summary:     Merge commit
+
+changeset:   916:5c70eace8750
+parent:      911:c5ff4ec6fe0c
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Tue Mar 22 10:50:36 2011 +0100
+summary:     Oracle: properly delete CHECK constraints during alter column. Add testcase and comments to the generic backend.
+
+changeset:   915:e488160ec35e
+user:        Jeremy Dunck <jdunck@gmail.com>
+date:        Tue Mar 22 01:09:29 2011 -0500
+summary:     stderr, verbosity.
+
+changeset:   914:515423b1adf3
+parent:      911:c5ff4ec6fe0c
+user:        Jeremy Dunck <jdunck@gmail.com>
+date:        Tue Mar 22 00:50:22 2011 -0500
+summary:     migrationcheck command to clarify missing depends_on.
+
+changeset:   913:232e0b5f8efd
+parent:      912:ac2dfa32b0d0
+parent:      911:c5ff4ec6fe0c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 23 11:58:38 2011 +0000
+summary:     Merge commit
+
+changeset:   912:ac2dfa32b0d0
+parent:      906:48a3bcfc2226
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 23 11:52:29 2011 +0000
+summary:     Fix copy error
+
+changeset:   911:c5ff4ec6fe0c
+user:        Stephan Jaensch <jaensch@intosite.de>
+date:        Sat Mar 19 16:11:01 2011 +0100
+summary:     Add UNIQUE constraint creation/deletion to alter_column()
+
+changeset:   910:20e16402bf3e
+user:        Stephan Jaensch <jaensch@intosite.de>
+date:        Sat Mar 19 16:10:36 2011 +0100
+summary:     Add proper transaction handling to testcase (fixes one PostgreSQL failure)
+
+changeset:   909:8c048cebe9b0
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Fri Mar 18 14:42:40 2011 +0100
+summary:     Add testcase for altering unique constraints through alter_column().
+
+changeset:   908:2262cdf3a10f
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Fri Mar 18 14:42:01 2011 +0100
+summary:     Continue work on constraint cache, make sure the correct column names are used. Fix UNIQUE constraint creation/deletion on altering columns, fixes South issue #735.
+
+changeset:   907:2a6f7bc2b8b9
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Fri Mar 18 12:42:56 2011 +0100
+summary:     Fix constraint cache handling
+
+changeset:   906:48a3bcfc2226
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Thu Mar 17 15:32:39 2011 +0100
+summary:     Oracle: do not try to drop a sequence that does not exist, fixes test_add_columns
+
+changeset:   905:f21ddb2824a9
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Thu Mar 17 15:15:14 2011 +0100
+summary:     Change testcase: since Oracle treats empty strings as NULL, Django coerces fields to NULL=True if the field does allow empty strings on a database level. Because of this, the test test_alter_column_null always fails. Changing the tested field to a float (which does not allow empty values on a database level) makes the test pass on Oracle.
+
+changeset:   904:5f02953c4444
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Thu Mar 17 15:12:31 2011 +0100
+summary:     - Handle NOT NULL to NULL migrations correctly when altering columns
+
+changeset:   903:772c108a8f80
+user:        Stephan Jaensch <sj@sjaensch.org>
+date:        Thu Mar 17 13:51:16 2011 +0100
+summary:     Oracle backend:
+
+changeset:   902:0557f69aea9f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 16 12:08:49 2011 +0000
+summary:     Fixed #727: Defaults on geometry columns with MySQL.
+
+changeset:   901:147bb618ff77
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 16 12:05:20 2011 +0000
+summary:     Fixed #734: Oracle renaming. Thanks to Stephan Jaensch.
+
+changeset:   900:523ea336260c
+parent:      899:0c99c2a94675
+parent:      897:21a635231327
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 15 10:00:25 2011 -0400
+summary:     Branch merge.
+
+changeset:   899:0c99c2a94675
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 15 09:57:44 2011 -0400
+summary:     Fixed #733: Oracle constraint cache issues
+
+changeset:   898:726ed2977299
+parent:      895:5bc35f14338f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 15 09:41:26 2011 -0400
+summary:     Fixed #412: Oracle backend generating invalid SQL
+
+changeset:   897:21a635231327
+parent:      895:5bc35f14338f
+user:        John Paulett <john@paulett.org>
+date:        Mon Mar 14 16:43:15 2011 -0500
+summary:     Avoid flushing the database during create_test_db to preserve data migrations.
+
+changeset:   896:8651d1202de6
+branch:      rebase
+parent:      843:509b3b713bc8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 14 11:57:41 2011 -0400
+summary:     Rebase work I found.
+
+changeset:   895:5bc35f14338f
+parent:      894:78e8157f6e56
+parent:      893:8b998887e366
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 08 21:33:24 2011 +0000
+summary:     Merge
+
+changeset:   894:78e8157f6e56
+parent:      890:a7cc9cb17d59
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 08 21:33:02 2011 +0000
+summary:     Fixed #731: Bad SlugField freezing
+
+changeset:   893:8b998887e366
+user:        Lorenzo Gil Sánchez <lorenzo.gil.sanchez@gmail.com>
+date:        Mon Mar 07 12:59:32 2011 +0100
+summary:     But two lines between class definitions. See #667
+
+changeset:   892:9e3d826e39c8
+parent:      890:a7cc9cb17d59
+user:        Lorenzo Gil Sánchez <lorenzo.gil.sanchez@gmail.com>
+date:        Mon Mar 07 12:59:26 2011 +0100
+summary:     Only one empty line between methods is what pep8 recommends. See #667
+
+changeset:   891:35a2411f80e5
+branch:      autofakefirst
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 22 23:41:18 2011 +0000
+summary:     Initial patch import from ticket #430
+
+changeset:   890:a7cc9cb17d59
+parent:      889:5cc9f2326c99
+parent:      887:b241f6ab1aaf
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 22 23:40:36 2011 +0000
+summary:     Branch merge
+
+changeset:   889:5cc9f2326c99
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 22 23:37:05 2011 +0000
+summary:     Compatability fix for older Python versions.
+
+changeset:   888:2aa2394065ec
+parent:      879:45bbe95a37b6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 22 23:32:54 2011 +0000
+summary:     Fixed #523: Issues with constraint selection. Thanks dpmcgee.
+
+changeset:   887:b241f6ab1aaf
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Feb 22 16:42:11 2011 +0200
+summary:     Define a warning for dropped constraints, and issue if for SqlServer.
+
+changeset:   886:8139c07bb941
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Feb 22 15:48:54 2011 +0200
+summary:     Avoid restoring check constraints in alter column
+
+changeset:   885:82d97390ef47
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Feb 15 19:21:29 2011 +0200
+summary:     More fixes to SqlServer, make more migrations pass, pass all tests but one.
+
+changeset:   884:5f752b3989cf
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Feb 15 17:42:04 2011 +0200
+summary:     Make more tests SqlServer friendly.
+
+changeset:   883:8a4b79cfb54a
+parent:      882:a7c424c4e7dd
+parent:      879:45bbe95a37b6
+user:        Shai Berger <shai@platonix.com>
+date:        Tue Feb 15 16:00:31 2011 +0200
+summary:     Branch merge
+
+changeset:   882:a7c424c4e7dd
+user:        Shai Berger <shai@platonix.com>
+date:        Sun Feb 13 15:19:46 2011 +0200
+summary:     Make some test more Sql-Server friendly
+
+changeset:   881:e4000c49c87b
+user:        Shai Berger <shai@platonix.com>
+date:        Mon Jan 31 12:11:00 2011 +0200
+summary:     Include NullBooleanField in BooleanField fix
+
+changeset:   880:192376716325
+parent:      876:b076c351b0c7
+user:        Shai Berger <shai@platonix.com>
+date:        Sun Dec 12 14:26:16 2010 +0200
+summary:     Make more migrations pass without errors with mssql
+
+changeset:   879:45bbe95a37b6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 15 11:35:39 2011 +0000
+summary:     Proper fix for #721
+
+changeset:   878:186e001e3a22
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 14 10:25:57 2011 +0000
+summary:     Fixed #722: Detailed migration changes lister. Thanks to Dan Powell.
+
+changeset:   877:c3a9690a8a8a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 14 10:00:29 2011 +0000
+summary:     Fixed #721: Bad comparison of done migrations. Thanks to Dan Powell.
+
+changeset:   876:b076c351b0c7
+user:        pydolan
+date:        Wed Feb 09 13:43:10 2011 -0800
+summary:     fixed ticket #641 (fixture installing during "migrate" doesn't recognize "--database" option)
+
+changeset:   875:1a8b922bdeb1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 07 22:18:02 2011 +0000
+summary:     Fixed #720: Improve graphmigrations output. Thanks to dpmcgee.
+
+changeset:   874:944b8af91399
+parent:      873:3b73b3eb48da
+parent:      865:af3e2834936c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 21 15:46:37 2011 +0000
+summary:     Branch merge
+
+changeset:   873:3b73b3eb48da
+parent:      864:d88b24b83e7f
+parent:      872:7086f4af3ed5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 21 15:45:00 2011 +0000
+summary:     Merge in schema-caching branch.
+
+changeset:   872:7086f4af3ed5
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Wed Jan 05 20:19:51 2011 -0500
+summary:     add constraint caching to oracle backend
+
+changeset:   871:9f69770159e6
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Wed Jan 05 19:58:02 2011 -0500
+summary:     constraint cache invalidations for psycopyg2
+
+changeset:   870:94e83ed745ac
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Tue Jan 04 20:00:14 2011 -0500
+summary:     invalidate sqlite3 table constraints on table changes, just in case (are they ever queried?)
+
+changeset:   869:32210fb0efef
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Tue Jan 04 19:49:11 2011 -0500
+summary:     generic:_fill_constraint_cache() fixed
+
+changeset:   868:381e7434007c
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Thu Sep 16 18:04:56 2010 -0400
+summary:     fill_constraint_cache doesn't need to do the 2nd query if the first one returned no rows
+
+changeset:   867:f54e891bc914
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Wed Sep 15 17:50:18 2010 -0400
+summary:     cache all queries to the constraints table
+
+changeset:   866:53293f37195a
+parent:      831:b4854b03c826
+user:        Jack Diederich <jackdied@gmail.com>
+date:        Fri Sep 10 19:42:59 2010 -0400
+summary:     splitting the table_constraint queries in two to remove the JOINs
+
+changeset:   865:af3e2834936c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 13 13:18:33 2011 +0000
+summary:     Show the migration an error is in if it tracebacks.
+
+changeset:   864:d88b24b83e7f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 07 11:03:40 2011 +0000
+summary:     Fix settings doc formatting.
+
+changeset:   863:078e329afb31
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 07 10:54:53 2011 +0000
+summary:     Update settings
+
+changeset:   862:a0526109ef81
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 03 17:36:20 2011 +0000
+summary:     Fixed #698: Throw field description error properly.
+
+changeset:   861:abd220673d79
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 29 11:58:23 2010 +0000
+summary:     Fixed #693: django_audit_log introspection plugin
+
+changeset:   860:60c8f3a3d360
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Dec 21 23:07:59 2010 +0000
+summary:     Slight wording change
+
+changeset:   859:6a12691d9704
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Dec 20 22:56:21 2010 +0000
+summary:     Make introspection plugins better behaved. Thanks to traviscline.
+
+changeset:   858:0109f6203d45
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 01 20:48:52 2010 +0000
+summary:     Added tag 0.7.3 for changeset b35fdff583d1
+
+changeset:   857:b35fdff583d1
+tag:         0.7.3
+parent:      856:9b224b39cc02
+parent:      855:e6efbb7a51bb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 01 20:48:16 2010 +0000
+summary:     Branch merge.
+
+changeset:   856:9b224b39cc02
+parent:      854:6aa2a6e0626c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 01 20:48:06 2010 +0000
+summary:     Version bump
+
+changeset:   855:e6efbb7a51bb
+parent:      851:50eea2149c03
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Dec 01 16:00:26 2010 +0200
+summary:     Support MSSQL 2008
+
+changeset:   854:6aa2a6e0626c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 01 20:27:07 2010 +0000
+summary:     Fix #425: Prompt on unsafe field nullity changes.
+
+changeset:   853:805db5120932
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Dec 01 20:26:43 2010 +0000
+summary:     Clean up some imports.
+
+changeset:   852:28101776a4d7
+user:        valuerr
+date:        Thu Nov 18 09:58:46 2010 +0300
+summary:     fix for checking circular dependency
+
+changeset:   851:50eea2149c03
+user:        Shai Berger <shai@platonix.com>
+date:        Wed Dec 01 15:59:45 2010 +0200
+summary:     Changes to the generic backend for MSSQL support
+
+changeset:   850:f9e7f77909ed
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Nov 21 11:42:25 2010 +0000
+summary:     Fixed #676: timezones introspection plugin
+
+changeset:   849:0479ec31acbf
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Nov 12 16:19:38 2010 +0000
+summary:     Fix from ticket #672. Thanks to Charlie DeTar.
+
+changeset:   848:28ec3ce589aa
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Nov 12 16:15:56 2010 +0000
+summary:     Docs suggestion from #640
+
+changeset:   847:f7bf21002084
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 03 19:25:11 2010 +0000
+summary:     Fixed #668: South version incorrect in install docs.
+
+changeset:   846:a64558685b3a
+parent:      839:c92d62e5e5df
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Oct 30 10:37:21 2010 +0100
+summary:     Fixed #653: Dots in ManualChanges migrations. Thanks to Daniel Roseman.
+
+changeset:   845:ac5e8aa15052
+branch:      rebase
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Oct 27 10:16:22 2010 +0100
+summary:     Update docs to note issue from #604.
+
+changeset:   844:613bd8aa36d0
+branch:      rebase
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Oct 26 21:50:29 2010 +0100
+summary:     Slight wording tweak
+
+changeset:   843:509b3b713bc8
+branch:      rebase
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 16:30:46 2010 +0300
+summary:     Add --rebase option to schemamigration and make --list rebase-aware.
+
+changeset:   842:342bf4661c56
+branch:      rebase
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 16:30:29 2010 +0300
+summary:     Actually add test app
+
+changeset:   841:6b8d771c9370
+branch:      rebase
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 16:21:03 2010 +0300
+summary:     Working and passing test for rebase.
+
+changeset:   840:dbc3eb743371
+branch:      rebase
+parent:      837:a7ccfadca0ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 15:49:33 2010 +0300
+summary:     Start of rebase work.
+
+changeset:   839:c92d62e5e5df
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 21:34:06 2010 +0100
+summary:     Fixed #144: Unique_together support on SQLite.
+
+changeset:   838:9922086cf843
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 25 21:31:01 2010 +0100
+summary:     Fixed #603: Wasn't setting _initialised.
+
+changeset:   837:a7ccfadca0ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Oct 16 15:28:25 2010 +0100
+summary:     Fixed #603: FK checks on MySQL always run.
+
+changeset:   836:ef8e3fd3a82d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Oct 13 20:46:51 2010 +0100
+summary:     Fixed #597: Documentation improvements.
+
+changeset:   835:858e7baf6524
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Oct 05 14:10:36 2010 +0100
+summary:     Add note about module names to release notes.
+
+changeset:   834:853f767dbf55
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 23 22:31:27 2010 +0100
+summary:     Fix #587 (printing to sys.stderr to avoid wsgi issues)
+
+changeset:   833:037a0f4acebd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 15 21:17:59 2010 +0100
+summary:     Fix bug with field initialisation and SQLite add_column
+
+changeset:   832:42a14f1e1340
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 14 17:03:18 2010 +0100
+summary:     Make invalid introspection error better.
+
+changeset:   831:b4854b03c826
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 09 14:56:13 2010 -0700
+summary:     Fix #567.
+
+changeset:   830:e7599dd243bf
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 02 22:43:56 2010 +0100
+summary:     Patch from #572.
+
+changeset:   829:f751f83a573d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 02 21:52:44 2010 +0100
+summary:     Another typo
+
+changeset:   828:3712641d71ef
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 02 21:48:20 2010 +0100
+summary:     Spelling correction.
+
+changeset:   827:aa349634eb90
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 23 10:33:06 2010 +0100
+summary:     Docs fixes.
+
+changeset:   826:f1e11f8a85b3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Aug 21 21:58:41 2010 +0100
+summary:     Link image of django-cms migrations
+
+changeset:   825:5fe9e105acf3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 19 18:56:07 2010 +0100
+summary:     Fix for #512: Incorrect PK detection with long inheritance chains
+
+changeset:   824:634ac7f31723
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:29:39 2010 +0100
+summary:     Added tag stableish for changeset 7e4cbf82243f
+
+changeset:   823:7c64f1279d94
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:26:56 2010 +0100
+summary:     Added tag 0.7.2 for changeset 7e4cbf82243f
+
+changeset:   822:7e4cbf82243f
+tag:         stableish
+tag:         0.7.2
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:23:58 2010 +0100
+summary:     Version bump.
+
+changeset:   821:c9d6e2058ec6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:17:43 2010 +0100
+summary:     Fix #459: blank is not an important change.
+
+changeset:   820:e59d246af1e6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:07:00 2010 +0100
+summary:     Fix weird unused variables (#479)
+
+changeset:   819:ec28c7754e51
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 16:00:29 2010 +0100
+summary:     Fix #463: Text/Char fields with blank=True don't need a default to be given.
+
+changeset:   818:efa93ec82673
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 15:45:36 2010 +0100
+summary:     Fix #510: Allow South to work on other schemas.
+
+changeset:   817:99da2b5a0056
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 15:19:11 2010 +0100
+summary:     Ensure correct ordering of unique deletion w.r.t. table deletion
+
+changeset:   816:4bea62b330ae
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Aug 13 15:15:24 2010 +0100
+summary:     Fix #521: Create unique_togethers with new models (added for delete as well)
+
+changeset:   815:cf2413aa90cd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:38:42 2010 +0100
+summary:     Remember if a model is a proxy model or not.
+
+changeset:   814:d50cfe0fa366
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:38:29 2010 +0100
+summary:     Fix previous fix to not fail in Django 1.0.
+
+changeset:   813:6ce9576a7edd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:24:23 2010 +0100
+summary:     Fix #511: South doesn't import management modules during syncdb.
+
+changeset:   812:3038690b49d8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:20:38 2010 +0100
+summary:     Added tag stableish for changeset c1a9f39849fa
+
+changeset:   811:c1a9f39849fa
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:20:22 2010 +0100
+summary:     And make sure those options are actually picked up.
+
+changeset:   810:3803313cbfab
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:19:20 2010 +0100
+summary:     Fix #519: convert_to_south didn't take a few useful options.
+
+changeset:   809:4dde732ae780
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Aug 02 14:12:41 2010 +0100
+summary:     Add in correct default value of blank for BooleanFields.
+
+changeset:   808:9b82924cba72
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jul 20 20:35:21 2010 +0100
+summary:     phou -> baz (ticket #514)
+
+changeset:   807:4226f50257eb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jul 08 15:20:37 2010 +0100
+summary:     Remove some of the "useless keys", they're not so useless.
+
+changeset:   806:1eba1b31fde0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jul 01 10:56:29 2010 +0100
+summary:     Fix #464: Don't try and alter types of columns with no type.
+
+changeset:   805:11f303441fff
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jun 30 15:04:13 2010 +0100
+summary:     Fix #482: Docs on meta freezing
+
+changeset:   804:788ef3e9c20a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jun 30 15:00:25 2010 +0100
+summary:     Fix #481 (not freezing ordering)
+
+changeset:   803:04f935305ccc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 28 15:31:38 2010 +0100
+summary:     Spell "which" correctly.
+
+changeset:   802:489fdc0d71e6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 28 15:28:59 2010 +0100
+summary:     Update custom fields docs
+
+changeset:   801:e7eeef1fc3fc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 25 14:11:27 2010 +0100
+summary:     Add tagging autocomplete field
+
+changeset:   800:a5c175042592
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jun 22 17:38:36 2010 +0100
+summary:     Fix #483 (invalid freezing of safe_datetime)
+
+changeset:   799:b417a13aa245
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 21 20:16:56 2010 +0100
+summary:     Respect verbosity a little better.
+
+changeset:   798:f871b459df42
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 21 20:16:38 2010 +0100
+summary:     Make logging better by adding sql as an extra.
+
+changeset:   797:491513cb1b32
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jun 20 16:34:47 2010 +0100
+summary:     Remove the auth contenttypes thing for now, needs improvement
+
+changeset:   796:960aa64b3f9b
+user:        Lakin Wecker <lakin.wecker@gmail.com>
+date:        Mon Jun 14 11:32:56 2010 -0600
+summary:     Added a 3rd option for removing fields with south migrations - that is to not allow backwards changes.
+
+changeset:   795:245c11e5a4ec
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jun 08 09:47:54 2010 +0100
+summary:     Add defaults if they're specified, even if column is nullable.
+
+changeset:   794:fa4ea4b552ed
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 07 20:39:45 2010 +0100
+summary:     Make alter_column dry_run safe
+
+changeset:   793:105490fb7708
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 04 21:19:43 2010 +0100
+summary:     Fix #474: Remove extraneous parser import
+
+changeset:   792:a36afae9f574
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jun 03 20:23:21 2010 +0100
+summary:     Fix #473: Implement SQLite PK support
+
+changeset:   791:6e78493c10dc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jun 03 11:49:45 2010 +0100
+summary:     Fix #472: Only load initial data when option is enabled. Thanks to smyrman.
+
+changeset:   790:1bbd3b274e6c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jun 02 21:45:07 2010 +0100
+summary:     Patch for #469 (database passed to initial_data loaddata). Thanks to zain.
+
+changeset:   789:37ee23a20820
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon May 31 11:24:29 2010 +0100
+summary:     Fix #468: Stronger _suppress_default
+
+changeset:   788:f1cbf7870636
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat May 22 13:20:13 2010 +0100
+summary:     Fix slightly wrong docs point
+
+changeset:   787:9c49776a86eb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 23:03:27 2010 +0100
+summary:     Added tag stableish for changeset f9e1f1c0d675
+
+changeset:   786:f9e1f1c0d675
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 21:41:42 2010 +0100
+summary:     I apparently fail at ReST
+
+changeset:   785:556fe28631e4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 21:40:15 2010 +0100
+summary:     Link to 0.7 release notes from 0.7.1.
+
+changeset:   784:91fd97af2198
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 21:35:28 2010 +0100
+summary:     Added tag 0.7.1 for changeset c395caf4b3b7
+
+changeset:   783:c395caf4b3b7
+tag:         0.7.1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 21:35:12 2010 +0100
+summary:     Version bump.
+
+changeset:   782:a90850e6094d
+parent:      779:9486a2ffb749
+parent:      781:a101b06ba664
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 21 21:15:02 2010 +0100
+summary:     Merging in permissions fixes
+
+changeset:   781:a101b06ba664
+parent:      777:cf2da5006eee
+parent:      780:20a19adbc1ba
+user:        Noah Kantrowitz <noah@coderanger.net>
+date:        Mon May 17 15:49:23 2010 -0700
+summary:     Automated merge with https://bitbucket.org/andrewgodwin/south
+
+changeset:   780:20a19adbc1ba
+parent:      776:16ad6c46e47d
+user:        Noah Kantrowitz <noah@coderanger.net>
+date:        Mon May 17 15:31:18 2010 -0700
+summary:     Add a compatibility hook to deal with creating django.contrib.auth permissions on migrated models.
+
+changeset:   779:9486a2ffb749
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue May 18 21:53:04 2010 +0100
+summary:     Clearer documentation on MIGRATION_MODULES
+
+changeset:   778:1373da61056c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue May 18 21:51:01 2010 +0100
+summary:     Actually use the app label for MIGRATION_MODULES
+
+changeset:   777:cf2da5006eee
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 14 15:55:34 2010 +0100
+summary:     Fix #462 (datamigration crashing on migration dir init)
+
+changeset:   776:16ad6c46e47d
+user:        Noah Kantrowitz <noah@coderanger.net>
+date:        Sun May 09 16:44:31 2010 -0700
+summary:     Typo in the fixtures doc.
+
+changeset:   775:4021c27b48c3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 07 18:35:46 2010 +0100
+summary:     Missing comma
+
+changeset:   774:04964ab1a3ff
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 07 18:32:46 2010 +0100
+summary:     Another small note
+
+changeset:   773:e9f852711b12
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 07 18:15:00 2010 +0100
+summary:     Fix #457
+
+changeset:   772:b5945de0af98
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 07 18:10:07 2010 +0100
+summary:     Fix from #456
+
+changeset:   771:031cfcda9b5c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri May 07 18:08:11 2010 +0100
+summary:     Documenting syncdb step
+
+changeset:   770:5c78cb38bb11
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Apr 29 17:02:27 2010 +0100
+summary:     OH NOES I LEFT A PRINT IN
+
+changeset:   769:763a49dc4aec
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Apr 29 17:01:58 2010 +0100
+summary:     Fix from #421, with test.
+
+changeset:   768:630dd2b42e48
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Apr 29 16:17:23 2010 +0100
+summary:     Fix #448 (incorrect contents of app template cache)
+
+changeset:   767:684edc7c93ef
+user:        Carl Meyer <carl@dirtcircle.com>
+date:        Thu Apr 29 01:02:25 2010 -0400
+summary:     set default value correctly for added columns in SQLite; fixes #447
+
+changeset:   766:898fefd63e0e
+user:        Carl Meyer <carl@dirtcircle.com>
+date:        Thu Apr 29 00:17:04 2010 -0400
+summary:     use correct column name when adding fkey in sqlite; fixes #415
+
+changeset:   765:e8c524dd6760
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Apr 28 15:19:38 2010 +0100
+summary:     Better missing-model error message
+
+changeset:   764:dbd03b08a56f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Apr 25 22:22:49 2010 +0100
+summary:     Exclude the implicit primary key test from everything bar SQLite.
+
+changeset:   763:2af9e6fb633f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Apr 25 22:18:40 2010 +0100
+summary:     Fix the dependency sorting problem lower down. Hopefully this one will be the same on 32-bit.
+
+changeset:   762:1684a22a523c
+parent:      759:aad952d6ce34
+parent:      761:fe7d4474ee23
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Apr 25 22:00:31 2010 +0100
+summary:     Merging in carljm's changes
+
+changeset:   761:fe7d4474ee23
+user:        Carl Meyer <carl@dirtcircle.com>
+date:        Sun Apr 25 00:37:22 2010 -0400
+summary:     accept and respect --noinput on migrate; fixes #440
+
+changeset:   760:5e86c1c0386a
+parent:      757:ab027396dc98
+user:        Carl Meyer <carl@dirtcircle.com>
+date:        Sun Apr 25 00:27:13 2010 -0400
+summary:     sort dependencies to avoid platform-dependent test failures
+
+changeset:   759:aad952d6ce34
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Apr 25 21:44:59 2010 +0100
+summary:     Add import of django-annoying patch
+
+changeset:   758:5e8178613396
+user:        Michael Huynh <mike@mikexstudios.com>
+date:        Sun Apr 25 16:24:55 2010 -0400
+summary:     Added introspection plugin file for django-annoying's AutoOneToOneField
+
+changeset:   757:ab027396dc98
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Apr 24 00:26:31 2010 +0100
+summary:     Fix #427: Load initial data whenever an app is migrated to most recent, even if it's a no-op.
+
+changeset:   756:0505afae2906
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Apr 24 00:11:47 2010 +0100
+summary:     Fix from #436 - correctly test for model bases with subclass, not instance.
+
+changeset:   755:e2316209e2cb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Apr 24 00:07:37 2010 +0100
+summary:     Fix #437 - migrate wasn't taking --merge option
+
+changeset:   754:3602a9810ff6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Apr 22 15:52:13 2010 +0100
+summary:     Fix syncdb-migrateyness
+
+changeset:   753:b6fa8b132761
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Apr 20 13:18:38 2010 +0100
+summary:     Patch from #433 for test code refactor
+
+changeset:   752:758283ed1e6e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Apr 11 12:16:00 2010 +0100
+summary:     Enable objectpermissions plugin
+
+changeset:   751:24f7d39b496c
+user:        manuel@komputadora.local
+date:        Thu Apr 01 15:08:21 2010 -0300
+summary:     introspection plugin for objectpermissions
+
+changeset:   750:965340231707
+user:        Andy McCurdy <sedrik@gmail.com>
+date:        Mon Apr 05 13:49:29 2010 -0700
+summary:     Added --ignore-ghost-migrations option to the migrate command.  This is a fix for #411.
+
+changeset:   749:a162189b514c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Apr 01 14:41:16 2010 +0100
+summary:     Fix from #404
+
+changeset:   748:74206968973f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 31 18:02:50 2010 +0100
+summary:     Fix tests from dependency change
+
+changeset:   747:8b6cbc2b2627
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 31 18:00:32 2010 +0100
+summary:     Only run calculate_dependencies once
+
+changeset:   746:61cf8cec5421
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 29 20:38:47 2010 +0100
+summary:     Fix file handles.
+
+changeset:   745:7d9ebddfc5ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 29 20:34:31 2010 +0100
+summary:     Fix #402: Primary key and sqlite problems
+
+changeset:   744:9f0aac73bdf9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 29 20:03:58 2010 +0100
+summary:     Fix #403: Trying to dry-run things in backwards()
+
+changeset:   743:ce39abd7316a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 29 19:58:59 2010 +0100
+summary:     Skip tests by default.
+
+changeset:   742:b2c9ec78609f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Mar 27 11:53:09 2010 +0000
+summary:     New fifth part of tutorial
+
+changeset:   741:ef236f097aed
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Mar 26 18:51:46 2010 +0000
+summary:     Fix #399: Preserve field ordering in migrations.
+
+changeset:   740:82a151f5c128
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 20:09:16 2010 +0000
+summary:     Missed one version bump.
+
+changeset:   739:79fba840d52a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 20:06:40 2010 +0000
+summary:     Added tag stableish, 0.7 for changeset 69b4986003d6
+
+changeset:   738:69b4986003d6
+tag:         0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 20:06:32 2010 +0000
+summary:     Version bump.
+
+changeset:   737:fe4fc2eb8b7d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 20:05:10 2010 +0000
+summary:     New and better docs on custom fields.
+
+changeset:   736:0d545f2921e0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 17:08:17 2010 +0000
+summary:     Don't freeze those dastardly dynamic defaults.
+
+changeset:   735:85b4a6ab12fd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 14:19:55 2010 +0000
+summary:     Fix command for dot
+
+changeset:   734:dd202dda7559
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 10:35:36 2010 +0000
+summary:     Fix #397 (don't try to remove an NTFS-locked file after test)
+
+changeset:   733:6240b497fc13
+parent:      732:0e3356468bb7
+parent:      729:dfa6fd1c8e50
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 10:25:17 2010 +0000
+summary:     Automated merge with ssh://hg@bitbucket.org/andrewgodwin/south/
+
+changeset:   732:0e3356468bb7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 25 10:24:48 2010 +0000
+summary:     Fix #398 (warning printed during test)
+
+changeset:   731:a0a316e544d4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 24 21:07:39 2010 +0000
+summary:     Fix ORMs on a failed forwards()' backwards()
+
+changeset:   730:a8d47e127aa8
+parent:      728:b8f2321e7b7f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 24 20:47:09 2010 +0000
+summary:     Add generics into the ignore code. Special cases are bad.
+
+changeset:   729:dfa6fd1c8e50
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 22 15:20:29 2010 +0000
+summary:     Add docs for syncdb
+
+changeset:   728:b8f2321e7b7f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Mar 21 22:54:21 2010 +0000
+summary:     Add "hg pull" to the update docs.
+
+changeset:   727:224ba202426d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Mar 21 17:15:30 2010 +0000
+summary:     Typo in docs.
+
+changeset:   726:da6dbebfebff
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Mar 21 14:06:39 2010 +0000
+summary:     Formatting fixes in customfields.
+
+changeset:   725:09743ee7b308
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Mar 21 13:53:11 2010 +0000
+summary:     Helpful hint, courtesy of ericholscher
+
+changeset:   724:6e06c29ae1f1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Mar 21 13:16:04 2010 +0000
+summary:     Data migration tutorial.
+
+changeset:   723:94c5a178ffc9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Mar 19 15:49:35 2010 +0000
+summary:     Fix #389: Spelling of deprecated.
+
+changeset:   722:3c255ec01c8c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Mar 19 12:57:55 2010 +0000
+summary:     Fix logging issues
+
+changeset:   721:3d71770f7da3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 22:35:05 2010 +0000
+summary:     New docs stubs
+
+changeset:   720:26f315a764ca
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:47:16 2010 +0000
+summary:     Index about page
+
+changeset:   719:d10d4a26f473
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:47:05 2010 +0000
+summary:     New about page
+
+changeset:   718:6f8a9c4504cd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:29:51 2010 +0000
+summary:     Added tag stableish for changeset 679d808d1208
+
+changeset:   717:679d808d1208
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:08:03 2010 +0000
+summary:     Added tag 0.7-rc1 for changeset 4cea19eb55d9
+
+changeset:   716:4cea19eb55d9
+tag:         0.7-rc1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:06:58 2010 +0000
+summary:     Clarifying versions.
+
+changeset:   715:c1da711e598c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:02:57 2010 +0000
+summary:     0.7 RC1 version change
+
+changeset:   714:287e2138f5c7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 21:02:36 2010 +0000
+summary:     0.7 RC1 release doc changes
+
+changeset:   713:3b3ddc424f9a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 20:19:10 2010 +0000
+summary:     Fix custom migrations modules
+
+changeset:   712:2d9586a718b2
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 20:04:22 2010 +0000
+summary:     Fix for #373 (bad model inheritance)
+
+changeset:   711:a72454a60f66
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 20:02:41 2010 +0000
+summary:     Fix for #384 (double-add of FK)
+
+changeset:   710:2835d255442d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 19:54:25 2010 +0000
+summary:     Fix #386 (too many file handlers)
+
+changeset:   709:5a708caca66f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 19:49:23 2010 +0000
+summary:     Fix logging tests on windows and from eggs
+
+changeset:   708:00df6d09c374
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 19:39:08 2010 +0000
+summary:     Fix tests.
+
+changeset:   707:4abf82de4043
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 15:17:47 2010 +0000
+summary:     Typo in that last commit. I shouldn't be so vain and think I can write docs without rendering them.
+
+changeset:   706:f4dd5ff3dda7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Mar 18 15:04:41 2010 +0000
+summary:     Add in docs on accessing the ORM
+
+changeset:   705:2df0a676a47d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 17 20:19:57 2010 +0000
+summary:     #380 (sqlite deletion not working)
+
+changeset:   704:be6c3a576c0b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 17 20:16:13 2010 +0000
+summary:     Fix multi-db recording of migrations
+
+changeset:   703:eb5a5f86d57a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 17 20:07:10 2010 +0000
+summary:     Fixing #383 and #377 (sqlite regen errors)
+
+changeset:   702:be0c2958f2c2
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 17 19:51:37 2010 +0000
+summary:     Fix #376 (db_index changes)
+
+changeset:   701:fb7089894e4d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 17 16:38:34 2010 +0000
+summary:     SQLite quoting fix from #382.
+
+changeset:   700:64cf9ed7d23b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 10 23:21:08 2010 +0000
+summary:     Release notes are no longer pure evil.
+
+changeset:   699:b0352240611a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 10 21:44:09 2010 +0000
+summary:     Docs about alter_column fixes
+
+changeset:   698:0b4e521cf12b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 10 21:40:28 2010 +0000
+summary:     Improve --empty
+
+changeset:   697:4f86714a643e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 10 21:37:18 2010 +0000
+summary:     Fix #183 (Changing FKs doesn't take care of the constraints)
+
+changeset:   696:2273d7101099
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 10 20:18:31 2010 +0000
+summary:     Fix #371 (--database not actually taking)
+
+changeset:   695:8ee701cb2279
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 03 19:45:10 2010 +0000
+summary:     Fix #368: Use keep_default=False
+
+changeset:   694:0225ace1aead
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Mar 03 19:40:41 2010 +0000
+summary:     Fix #363 (non-brilliant detection of python migration files)
+
+changeset:   693:590080bdabc3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 02 14:09:53 2010 +0000
+summary:     Fix multiple many2many madness.
+
+changeset:   692:bcf1240fde16
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Mar 02 13:47:15 2010 +0000
+summary:     First part of test cleanup
+
+changeset:   691:a4e78540f46e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 01 16:59:25 2010 +0000
+summary:     Fix SQLite primary key bug.
+
+changeset:   690:f53012f74a04
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 01 16:40:53 2010 +0000
+summary:     Note about classpaths and upgrading.
+
+changeset:   689:bc928f83b753
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 01 14:56:34 2010 +0000
+summary:     Add documentation on graphmigrations.
+
+changeset:   688:73b97f5f78b2
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Mar 01 10:19:22 2010 +0000
+summary:     Fixing #364 - stdout name not being allowed as valid.
+
+changeset:   687:62819d3f4ddd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 28 23:48:46 2010 +0000
+summary:     Fleshing out the autodetector docs.
+
+changeset:   686:4a78852b3ea7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 28 23:32:13 2010 +0000
+summary:     Signal docs.
+
+changeset:   685:35ad8b73671d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 28 23:25:10 2010 +0000
+summary:     More docs! This is quickly becoming my largest work.
+
+changeset:   684:160f87e7be06
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 28 21:04:00 2010 +0000
+summary:     Follow through= in M2Ms for dependencies
+
+changeset:   683:af0270db506a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 27 20:19:46 2010 +0000
+summary:     Added tag stableish for changeset 6e99ee799d3f
+
+changeset:   682:6e99ee799d3f
+user:        Sverre Johansen <sverre.johansen@gmail.com>
+date:        Thu Feb 25 15:25:35 2010 +0100
+summary:     Fixing fixture loading for Django 1.2
+
+changeset:   681:2867a83f3ac7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 24 20:52:21 2010 +0000
+summary:     Fix #359.
+
+changeset:   680:1cb72d3b0921
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 24 15:19:25 2010 +0000
+summary:     Don't look at .pyo files.
+
+changeset:   679:6ce1af159f79
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 22:44:20 2010 +0000
+summary:     Adding in 0.7 release notes.
+
+changeset:   678:9ea27474108b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 22:03:58 2010 +0000
+summary:     Fix GenericRelations
+
+changeset:   677:beb6a1471652
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 21:10:45 2010 +0000
+summary:     Make sure to freeze m2m's db_table argument
+
+changeset:   676:ea55a4fa5573
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 20:55:00 2010 +0000
+summary:     Fix migration error checkers to work on a graph, not a linear history.
+
+changeset:   675:53aedfbc4f3f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 20:40:30 2010 +0000
+summary:     Error messages were right in the first place.
+
+changeset:   674:98f90aec7c60
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 20:25:51 2010 +0000
+summary:     Add new migration-graphing command.
+
+changeset:   673:361a11e80149
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 19:49:13 2010 +0000
+summary:     Hopefully fix dependency error messages
+
+changeset:   672:3b116d614563
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 23 19:36:55 2010 +0000
+summary:     Fix reverse dependencies.
+
+changeset:   671:bc57d15a334b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 22 22:58:31 2010 +0000
+summary:     Support the abomination that is order_with_respect_to
+
+changeset:   670:f9a6aa48461a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 22 22:24:20 2010 +0000
+summary:     Fix #275 (restrict migration names to only valid module names)
+
+changeset:   669:b6bcef4bad1f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 22 22:12:34 2010 +0000
+summary:     Fix #248 - 'run' deferred SQL during dry run too.
+
+changeset:   668:237ca3bb6d5d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 22 21:09:45 2010 +0000
+summary:     Fix #182: Impromper handling of multi-table inheritance bases.
+
+changeset:   667:a0f117855615
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 22 20:34:13 2010 +0000
+summary:     Fix detection of through= on M2Ms.
+
+changeset:   666:84e6a6f74fe8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 21 22:40:17 2010 +0000
+summary:     Fix M2Ms, and their uniques. #249
+
+changeset:   665:af38a099c8b6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 21 22:02:50 2010 +0000
+summary:     More tutorial
+
+changeset:   664:1d08283d666d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 21 00:57:12 2010 +0000
+summary:     I'm picky.
+
+changeset:   663:bb270748aeeb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 21 00:56:21 2010 +0000
+summary:     Start of the tutorial rewrite.
+
+changeset:   662:656aa1736724
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 17:37:37 2010 +0000
+summary:     New installation docs.
+
+changeset:   661:febf6ce1f01d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 17:13:34 2010 +0000
+summary:     Use setuptools for the setup.py if we can.
+
+changeset:   660:0fcda5d5eaa7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 15:35:18 2010 +0000
+summary:     Added tag stableish for changeset 63b8a8c528cd
+
+changeset:   659:63b8a8c528cd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 15:02:11 2010 +0000
+summary:     ...and also for the generic module.
+
+changeset:   658:07f7c5d3e17e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 15:01:55 2010 +0000
+summary:     Fix problems with alter_column and sqlite.
+
+changeset:   657:1190c1439413
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 14:32:57 2010 +0000
+summary:     Fix name creation and detection for migrations
+
+changeset:   656:bd42ba29aecb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 13:25:34 2010 +0000
+summary:     String formatting fix
+
+changeset:   655:0cf576f0effe
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 20 12:53:55 2010 +0000
+summary:     Fix convert_to_south (#354)
+
+changeset:   654:28d217e1f5c4
+parent:      653:c175406aaa83
+parent:      652:fce19051566e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 19 22:29:28 2010 +0000
+summary:     Branch merge
+
+changeset:   653:c175406aaa83
+parent:      647:fb299e1d21b3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 19 14:13:37 2010 +0000
+summary:     Add is_value introspector option and docs.
+
+changeset:   652:fce19051566e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 18 23:40:26 2010 +0000
+summary:     Fix for #353 - dry run exception not done right.
+
+changeset:   651:158740b37b73
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 18 18:13:51 2010 +0000
+summary:     Make manual options all work, add auto name stuff for --auto
+
+changeset:   650:0655e28de614
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 18 16:01:42 2010 +0000
+summary:     Fix to oracle backend
+
+changeset:   649:543a2092282f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 18 00:01:04 2010 +0000
+summary:     Tutorial part 2 ported.
+
+changeset:   648:b1e21407af4b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 17 23:07:40 2010 +0000
+summary:     Fix from mailing list for Django 1.0.
+
+changeset:   647:fb299e1d21b3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 17 08:52:53 2010 +0000
+summary:     Use the nature theme, I agree it's nicer.
+
+changeset:   646:d10dfba079d6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 23:56:26 2010 +0000
+summary:     Adding some empty files to make directories appear for sphinx
+
+changeset:   645:8a29d6ae56c9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 23:52:40 2010 +0000
+summary:     All docs apart from parts 2-4 of the tutorial now sphinx'd.
+
+changeset:   644:4a3aad741fab
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 23:16:35 2010 +0000
+summary:     Many more docs transferred over.
+
+changeset:   643:873a297e25c5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 23:10:36 2010 +0000
+summary:     Add --empty option to schemamigration.
+
+changeset:   642:c28e10a94931
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 21:41:33 2010 +0000
+summary:     Database API docs moved over.
+
+changeset:   641:5cb0b2cf3a68
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 19:48:25 2010 +0000
+summary:     Use more compatable exception syntax for oracle module.
+
+changeset:   640:57a45b71ef1c
+user:        simon@dhcp-10-121-74-219.int.gnl
+date:        Tue Feb 16 12:11:34 2010 +0000
+summary:     schemamigration command can now suggest names for common migrations
+
+changeset:   639:fe3586556cfe
+parent:      638:b836b0ff9c48
+parent:      636:7a34a4273ca5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 00:20:33 2010 +0000
+summary:     Automated merge with ssh://hg@bitbucket.org/andrewgodwin/south/
+
+changeset:   638:b836b0ff9c48
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 16 00:20:11 2010 +0000
+summary:     Slow start to a big docs push.
+
+changeset:   637:09e5d6269bc9
+parent:      635:eb57707fb001
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 15 23:40:57 2010 +0000
+summary:     Start of docs refactor into the repo
+
+changeset:   636:7a34a4273ca5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 15 12:19:10 2010 +0000
+summary:     Fix the hopefully last one of those 'str has no _meta' errors
+
+changeset:   635:eb57707fb001
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 11 23:46:08 2010 +0000
+summary:     Fixing #347: Freezing of decimal values
+
+changeset:   634:d138cb5f8930
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 11 16:28:40 2010 +0000
+summary:     Don't create indexes twice.
+
+changeset:   633:6b80917fd58a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Feb 11 10:26:34 2010 +0000
+summary:     Patch from #262
+
+changeset:   632:3885e6f4db33
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 21:10:19 2010 +0000
+summary:     Add in support for new-style geometry column index-adding (1.2's gis)
+
+changeset:   631:c1c287d3b4bc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 20:26:03 2010 +0000
+summary:     Make help for datamigration a bit clearer.
+
+changeset:   630:043f5cd210cc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 20:20:31 2010 +0000
+summary:     Fix #343: Allow nicer removing of bad migration histories from the database.
+
+changeset:   629:6e3c65be6f9e
+parent:      627:d2cb8cb7060a
+parent:      628:604482709995
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 17:32:05 2010 +0000
+summary:     Branch merge
+
+changeset:   628:604482709995
+parent:      623:fa30c5030b44
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 17:31:20 2010 +0000
+summary:     Don't do anything for proxy or abstract models.
+
+changeset:   627:d2cb8cb7060a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 13:42:05 2010 +0000
+summary:     Fix bug #340 (comma missing after a single model field in AddModel)
+
+changeset:   626:3c55f23ca089
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 11:15:53 2010 +0000
+summary:     Fix packages in setup.py
+
+changeset:   625:c2e2652c91cb
+parent:      623:fa30c5030b44
+parent:      624:91ce92cc108c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 11:07:40 2010 +0000
+summary:     Branch merge
+
+changeset:   624:91ce92cc108c
+parent:      619:dc6f42b68f4c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Feb 10 11:07:12 2010 +0000
+summary:     Remove unique_together on the model; the key length was too long on wide-character MySQL installs.
+
+changeset:   623:fa30c5030b44
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 23:25:37 2010 +0000
+summary:     Add in oracle stanzas and fix SQL server ones to db backend detector.
+
+changeset:   622:5f524ebfda2f
+parent:      619:dc6f42b68f4c
+parent:      621:bfbc4c55fa94
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 22:01:33 2010 +0000
+summary:     Branch merge
+
+changeset:   621:bfbc4c55fa94
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 21:41:57 2010 +0000
+summary:     Fix from #338.
+
+changeset:   620:f2e355da77ed
+parent:      617:b52d5e1e4b21
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 21:41:35 2010 +0000
+summary:     Start of new manual migration operation specifiers
+
+changeset:   619:dc6f42b68f4c
+parent:      618:8c5b52264e6f
+parent:      617:b52d5e1e4b21
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 17:51:56 2010 +0000
+summary:     Branch merge
+
+changeset:   618:8c5b52264e6f
+parent:      614:b3f5db7fdfda
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Feb 09 17:40:42 2010 +0000
+summary:     Fix the change field action
+
+changeset:   617:b52d5e1e4b21
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 08 20:33:31 2010 +0000
+summary:     Another python 2.4 fix. I try, and try, and except for some issues, it'll finally be fixed.
+
+changeset:   616:23c06aac5416
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 08 20:19:54 2010 +0000
+summary:     Python 2.4 fix
+
+changeset:   615:05ab712a0e70
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 08 20:15:09 2010 +0000
+summary:     Fix typo in --initial changes generator
+
+changeset:   614:b3f5db7fdfda
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 08 16:52:40 2010 +0000
+summary:     Nicer message at the end of a schemamigration call.
+
+changeset:   613:dce13225e81b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 07 23:49:05 2010 +0000
+summary:     Fix model validation errors on 1.2 after a full migrate
+
+changeset:   612:1332dc597a12
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 07 22:06:07 2010 +0000
+summary:     Make related_name filter through to model defns.
+
+changeset:   611:691cfc0536ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 07 20:58:01 2010 +0000
+summary:     Add ChangeField action, complete with proper handling of going to/from ForeignKeys.
+
+changeset:   610:367ab8e8e742
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 07 20:39:09 2010 +0000
+summary:     Fix --initial so it works with the new Actions.
+
+changeset:   609:3cac35d9a8ee
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Feb 07 19:31:39 2010 +0000
+summary:     Add ability to ignore fields, and use this for a django-taggit plugin
+
+changeset:   608:c3d5a951c3e9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 17:32:57 2010 +0000
+summary:     Much better M2M field support, including detecting when the through= field has been changed (#164)
+
+changeset:   607:2e55249be457
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 16:56:24 2010 +0000
+summary:     Initial Oracle support.
+
+changeset:   606:916dbc74b664
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 16:52:21 2010 +0000
+summary:     Better detection of individual field UNIQUEs.
+
+changeset:   605:a29e90b115df
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 15:34:01 2010 +0000
+summary:     Add --database option to migrate.
+
+changeset:   604:1d801ff38f8a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 14:25:46 2010 +0000
+summary:     Fix #180, #165: MySQL foreign keys in innodb no longer an issue when removing tables in wrong order.
+
+changeset:   603:ea1386006b0a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 14:24:40 2010 +0000
+summary:     Fixing the object_name freezig
+
+changeset:   602:c91e416ef714
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 13:42:48 2010 +0000
+summary:     Send post_migrate after any clean run, including empty ones.
+
+changeset:   601:f5fa9b4de730
+parent:      599:516b011fe68c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 13:33:47 2010 +0000
+summary:     Moving 0.7 to be the default branch.
+
+changeset:   600:6a48630b7bd1
+parent:      589:27347e319b13
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 13:30:38 2010 +0000
+summary:     Closing off default branch, since 0.7 branch will become the new default.
+
+changeset:   599:516b011fe68c
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 00:32:29 2010 +0000
+summary:     Don't add/remove models with managed=False (#312)
+
+changeset:   598:85d8f6354ee1
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Feb 06 00:11:11 2010 +0000
+summary:     Fix column naming issues for add/delete fields
+
+changeset:   597:510ae5794903
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:57:04 2010 +0000
+summary:     Fix foreign keys in xxxx_unique code creation.
+
+changeset:   596:9dc5791e2f88
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:44:36 2010 +0000
+summary:     SQLite module now has "standard" support, and passes all of the tests (bar unique and primary_key altering).
+
+changeset:   595:90985e06c122
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:18:05 2010 +0000
+summary:     Remove the "add_unique" alias, it never existed (I typo'd the AddUnique action's code, for obvious reasons)
+
+changeset:   594:c71cf650fe2e
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:17:15 2010 +0000
+summary:     Change the AddUnique action to actually use the create_unique function call.
+
+changeset:   593:304e6e41f4a9
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:15:58 2010 +0000
+summary:     Add the "add_unique" alias back in.
+
+changeset:   592:17a058b60bc5
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 23:14:48 2010 +0000
+summary:     SQLite column altering support. This one's a sick implementation.
+
+changeset:   591:8de2e9af5ca6
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 22:49:34 2010 +0000
+summary:     Fix #332: Invalid SQL for primary keys on postgres 8.1 or below.
+
+changeset:   590:9b93a01314a0
+branch:      0.7
+parent:      588:1f455faa795d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 22:40:15 2010 +0000
+summary:     Test speedups and cleanups
+
+changeset:   589:27347e319b13
+parent:      578:4e556eb30377
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Feb 05 22:26:31 2010 +0000
+summary:     Some cleanup of the drop-primary-key code, and some test cleanup
+
+changeset:   588:1f455faa795d
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 01 23:45:43 2010 +0000
+summary:     Fix #331.
+
+changeset:   587:cbad4425c5c4
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Feb 01 23:41:15 2010 +0000
+summary:     Fix #300 and make a massive warning appear for unintrospectable fields.
+
+changeset:   586:1e6d1da2d3cc
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 28 10:47:31 2010 +0000
+summary:     Revert this change; it caused bug #315. I suspect the original bug was a lower() somewhere else.
+
+changeset:   585:6213146f0f06
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 28 10:31:46 2010 +0000
+summary:     Fix #317 - Not escaping % in default values.
+
+changeset:   584:00b730d4d63b
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 16:30:22 2010 +0000
+summary:     Fix some unit tests for sqlite, and add in column deleting support.
+
+changeset:   583:fb2034509d55
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 16:30:01 2010 +0000
+summary:     Fix separate-migration-modules support so it doesn't break on --initial
+
+changeset:   582:41fc76e83a19
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 15:39:38 2010 +0000
+summary:     Allow customisable migration modules
+
+changeset:   581:2f8ceb791e70
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 15:39:21 2010 +0000
+summary:     Depreciate startmigration
+
+changeset:   580:0a805f8d20ad
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 15:36:11 2010 +0000
+summary:     Fix non-multidb SQlite module
+
+changeset:   579:8f3716dc6ec4
+branch:      0.7
+parent:      577:054255960b60
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jan 26 15:15:02 2010 +0000
+summary:     Be gone, modelsparser.
+
+changeset:   578:4e556eb30377
+parent:      576:28ca426eb343
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 25 09:35:10 2010 +0000
+summary:     Fix indentation error
+
+changeset:   577:054255960b60
+branch:      0.7
+parent:      575:94a9f98db5d7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 21 16:46:59 2010 +0000
+summary:     Fix from #320: return correct status code.
+
+changeset:   576:28ca426eb343
+parent:      572:1e0692031a98
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 21 10:22:30 2010 +0000
+summary:     Fix post_syncdb signal on 1.2 (0.6 branch)
+
+changeset:   575:94a9f98db5d7
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 21 10:17:01 2010 +0000
+summary:     Fix post_syncdb hook on django 1.2 and above
+
+changeset:   574:8935bf72926d
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 21 09:19:34 2010 +0000
+summary:     Fix bug #319 - no commas in model add defs.
+
+changeset:   573:305c6b7a90c3
+branch:      0.7
+parent:      567:efc1409cb92c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 18 19:51:36 2010 +0000
+summary:     Ignore Storages for file fields (0.7)
+
+changeset:   572:1e0692031a98
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 18 19:50:41 2010 +0000
+summary:     Ignore Storages on file fields.
+
+changeset:   571:4237a81366e7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 18 19:49:36 2010 +0000
+summary:     Add pyc clean script in.
+
+changeset:   570:4d43d22033b9
+parent:      566:50bce4defa0e
+parent:      569:e7ac0cdd770c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 18 19:38:18 2010 +0000
+summary:     Merging in MrOxiMoron's sqlite fixes
+
+changeset:   569:e7ac0cdd770c
+user:        hvdklauw@ubuntu.Belkin
+date:        Mon Jan 18 19:45:48 2010 +0100
+summary:     Added tag 0.6.2.1 for changeset 713b866672a1
+
+changeset:   568:713b866672a1
+tag:         0.6.2.1
+parent:      522:7dc7f1ee13e7
+user:        hvdklauw@ubuntu.Belkin
+date:        Mon Jan 18 19:45:26 2010 +0100
+summary:     Minor bugfix for sqlite3 for when adding and altering columns in the same migration #316
+
+changeset:   567:efc1409cb92c
+branch:      0.7
+parent:      565:bd5a0ce92707
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 15 15:28:48 2010 +0000
+summary:     Django 1.1 settings-getting, for 0.7 branch
+
+changeset:   566:50bce4defa0e
+parent:      562:6d3b4935cc7a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jan 15 11:39:48 2010 +0000
+summary:     Fix django 1.1 settings-getting
+
+changeset:   565:bd5a0ce92707
+branch:      0.7
+parent:      564:df83cb79bfa8
+parent:      563:5e42d9c4a079
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 11 13:26:35 2010 +0000
+summary:     Branch merge
+
+changeset:   564:df83cb79bfa8
+branch:      0.7
+parent:      560:999e51d763c9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jan 11 13:25:45 2010 +0000
+summary:     Fix for bug #314 (bad meta eval)
+
+changeset:   563:5e42d9c4a079
+branch:      0.7
+parent:      560:999e51d763c9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jan 10 11:15:20 2010 +0000
+summary:     Fix me breaking syncdb
+
+changeset:   562:6d3b4935cc7a
+user:        Francois Lebel <francoislebel@gmail.com>
+date:        Thu Jan 07 23:36:33 2010 -0500
+summary:     Fixed the management commands to follow Django's commands conventions in ./manage.py help command.
+
+changeset:   561:72eda4550db3
+parent:      556:01cf294a3f86
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 07 20:02:09 2010 +0000
+summary:     Fix conn->connection bug (thanks to aherok)
+
+changeset:   560:999e51d763c9
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 07 20:01:35 2010 +0000
+summary:     Fix conn->connection bug (thanks to aherok)
+
+changeset:   559:395dea2f868e
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jan 07 18:54:49 2010 +0000
+summary:     Fix 0.7 sqlite module and syncdb command
+
+changeset:   558:264760e2cd82
+branch:      0.7
+parent:      557:270f515549ea
+parent:      556:01cf294a3f86
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jan 06 22:04:36 2010 +0000
+summary:     Merging in multi-db changes
+
+changeset:   557:270f515549ea
+branch:      0.7
+parent:      555:9f15ce7f671f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jan 06 20:20:39 2010 +0000
+summary:     Migrate during tests by default
+
+changeset:   556:01cf294a3f86
+parent:      554:0db9db159605
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jan 06 20:06:27 2010 +0000
+summary:     Overhaul to support multi-db and thus 1.2's different DB settings/internals.
+
+changeset:   555:9f15ce7f671f
+branch:      0.7
+parent:      553:81d3c4ab77d4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Dec 24 14:45:34 2009 +0000
+summary:     syncdb fix and start of sqlite3 rewrite
+
+changeset:   554:0db9db159605
+parent:      527:554530fba02a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Dec 22 14:24:12 2009 +0000
+summary:     Fix for _meta/string bug
+
+changeset:   553:81d3c4ab77d4
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Dec 22 14:23:37 2009 +0000
+summary:     Cleaning script for moving between major releases
+
+changeset:   552:fc3cc4e76ed1
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Dec 22 14:23:17 2009 +0000
+summary:     Prompt for defaults
+
+changeset:   551:c93a14792f86
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Dec 22 14:23:06 2009 +0000
+summary:     Fix for string/_meta bug #2
+
+changeset:   550:60a54f6a790b
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 16:24:39 2009 +0000
+summary:     Fix Meta issues in AddModel
+
+changeset:   549:e0fb36e2a613
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 16:21:24 2009 +0000
+summary:     Console reporting, and a few other bits
+
+changeset:   548:486840db6350
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 16:01:26 2009 +0000
+summary:     M2M support for --initial, and unique_together support for --auto
+
+changeset:   547:009c6765d744
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 15:22:02 2009 +0000
+summary:     Fix migration placement/paths
+
+changeset:   546:68b28db2457f
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 14:54:43 2009 +0000
+summary:     All tests pass again
+
+changeset:   545:387742c90ab7
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 14:48:42 2009 +0000
+summary:     Fix the installed_apps hackery to use less hacks and work better
+
+changeset:   544:825ad00bd7af
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 14:32:11 2009 +0000
+summary:     Schema migration mostly working for --initial and --auto (missing M2Ms), new datamigration command.
+
+changeset:   543:557325889f1a
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 13:40:22 2009 +0000
+summary:     Changing initial so it works with the new actions. Almost there.
+
+changeset:   542:4215f1e0f555
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 12:55:27 2009 +0000
+summary:     Add/delete field actions
+
+changeset:   541:691349c840ce
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 12:42:49 2009 +0000
+summary:     Autodetection now creating events (apart for Meta)
+
+changeset:   540:961560463fb6
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 12:16:41 2009 +0000
+summary:     Start of autodetection support again
+
+changeset:   539:99140fefeab2
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 12:02:17 2009 +0000
+summary:     More error reporting, and adding freezing back in
+
+changeset:   538:f49bd19222af
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 11:37:25 2009 +0000
+summary:     Make complete_apps work again
+
+changeset:   537:8931fef4de36
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Nov 25 11:32:05 2009 +0000
+summary:     The big startmigration refactor... continues
+
+changeset:   536:cf51511da6f8
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 17:34:46 2009 +0000
+summary:     Start of startmigration rewrite
+
+changeset:   535:c2b4c6469670
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 12:01:48 2009 +0000
+summary:     Stub creator module
+
+changeset:   534:88096a0c28c6
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 11:59:28 2009 +0000
+summary:     Fix module-migrations and .pyc interaction
+
+changeset:   533:9ec1d44509c6
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 11:48:27 2009 +0000
+summary:     Add back in SOUTH_USE_PYC
+
+changeset:   532:e5bb72a40056
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 11:31:25 2009 +0000
+summary:     Fix create signals
+
+changeset:   531:8969081bbbab
+branch:      0.7
+parent:      530:8090e3592c53
+parent:      527:554530fba02a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 11:25:12 2009 +0000
+summary:     Merging in development up to 0.6.2
+
+changeset:   530:8090e3592c53
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 11:10:44 2009 +0000
+summary:     Fix fake migrating
+
+changeset:   529:fa6e084aa97b
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Nov 24 10:56:31 2009 +0000
+summary:     Correctly do the singleton-per-app thing for Migrations
+
+changeset:   528:95077d05843b
+branch:      0.7
+parent:      475:90f5b2c92ad9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Nov 23 17:49:03 2009 +0000
+summary:     A bit of refactoring around the Migrations stuff. I'm determined to have a single class, without a memoizing function.
+
+changeset:   527:554530fba02a
+parent:      524:69fbde7ac138
+parent:      526:2304d2b02789
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Nov 20 22:25:40 2009 +0000
+summary:     Merging in justinlilly's migrations-as-dirs
+
+changeset:   526:2304d2b02789
+user:        Justin Lilly <justin@justinlilly.com>
+date:        Fri Nov 20 16:43:21 2009 -0500
+summary:     Ensuring the module is actually a directory before adding to migrations.
+
+changeset:   525:dbae51a3501a
+parent:      522:7dc7f1ee13e7
+user:        Justin Lilly <justin@justinlilly.com>
+date:        Fri Nov 20 16:25:45 2009 -0500
+summary:     Adding support for migrations to be modules, not just files.
+
+changeset:   524:69fbde7ac138
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Nov 07 16:42:34 2009 +0000
+summary:     Remove depreciated code.
+
+changeset:   523:5baa8e838517
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 26 22:22:45 2009 +0000
+summary:     Added tag stableish, 0.6.2 for changeset 7dc7f1ee13e7
+
+changeset:   522:7dc7f1ee13e7
+tag:         0.6.2
+parent:      521:34c8cf5a8475
+parent:      518:6a7a84cb3f8c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 26 22:22:41 2009 +0000
+summary:     Branch merge
+
+changeset:   521:34c8cf5a8475
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 26 22:21:54 2009 +0000
+summary:     Added tag stableish, 0.6.2 for changeset 95eb414d5561
+
+changeset:   520:95eb414d5561
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 26 22:07:28 2009 +0000
+summary:     --add-index option to startmigration
+
+changeset:   519:dcb430919f10
+parent:      517:f5ffe4cd374c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 26 21:49:08 2009 +0000
+summary:     Removing a few unused variables.
+
+changeset:   518:6a7a84cb3f8c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Oct 21 14:14:26 2009 +0100
+summary:     Don't let spurious IndentationErrors bring down the introspector.
+
+changeset:   517:f5ffe4cd374c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Oct 15 20:32:24 2009 +0100
+summary:     Patch from #264
+
+changeset:   516:8f37b45fdee7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Oct 15 19:59:22 2009 +0100
+summary:     Fix #261 properly
+
+changeset:   515:4471a6c7611e
+parent:      514:a4b2ea966ff9
+parent:      513:711e30ade24e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Oct 15 19:49:52 2009 +0100
+summary:     Branch merge
+
+changeset:   514:a4b2ea966ff9
+parent:      512:dc41fe9d5ccd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Oct 15 19:49:20 2009 +0100
+summary:     Add unit test for problem fixed in other branch.
+
+changeset:   513:711e30ade24e
+parent:      511:155cf016715f
+user:        stefanfoulis <stefan.foulis@gmail.com>
+date:        Thu Oct 08 13:08:31 2009 +0200
+summary:     Fix #261: need sanity check for default creation on mysql text fields (needs more testing)
+
+changeset:   512:dc41fe9d5ccd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Oct 12 21:59:52 2009 +0100
+summary:     Fix #265 - Wrong introspection rule for GeoDjango 1.0
+
+changeset:   511:155cf016715f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Oct 03 22:14:39 2009 +0100
+summary:     Fix #259: Cannot properly inspect egg files
+
+changeset:   510:04b2c36304b7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Oct 03 20:59:42 2009 +0100
+summary:     Fix #260 - jython support
+
+changeset:   509:771ee59d58fd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Sep 28 21:11:09 2009 +0100
+summary:     Code cleanup
+
+changeset:   508:48c6cdf72387
+parent:      507:a5d05ae21987
+parent:      506:b2bc7d83b231
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Sep 26 10:43:53 2009 +0100
+summary:     Branch merge
+
+changeset:   507:a5d05ae21987
+parent:      505:ae7db65f1d28
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Sep 26 10:42:57 2009 +0100
+summary:     Fix #253: Freeze proxy models' parents.
+
+changeset:   506:b2bc7d83b231
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 24 11:32:39 2009 +0100
+summary:     Fix for #254 (forgot to unquote datetime).
+
+changeset:   505:ae7db65f1d28
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 23 15:38:14 2009 +0100
+summary:     Hideous special-case patch for FKs and sqlite's alter_column
+
+changeset:   504:a6218e55e742
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 23 10:39:58 2009 +0100
+summary:     Don't freeze proxy models at all.
+
+changeset:   503:06124b89deee
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 22 18:19:08 2009 +0100
+summary:     Fixing default behaviour on columns with null=False
+
+changeset:   502:f79398a4cef1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 22 17:58:42 2009 +0100
+summary:     Another missing constraint quote
+
+changeset:   501:4c06786f7b78
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 22 17:56:07 2009 +0100
+summary:     Fix #252: Problems with capitalised constraints in alter_column
+
+changeset:   500:f5fde6d6e9fe
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 22 16:49:56 2009 +0100
+summary:     Added tag stableish for changeset 751ee7d091f9
+
+changeset:   499:751ee7d091f9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 22 15:11:31 2009 +0100
+summary:     Fix error in [ecea3034d1b6].
+
+changeset:   498:ecea3034d1b6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Sep 21 11:48:33 2009 +0100
+summary:     Give unique constraints different names to indexes.
+
+changeset:   497:a49eb4713bd0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 18 23:50:23 2009 +0100
+summary:     Make default not trigger field changes
+
+changeset:   496:a8754e3dbd8e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 18 08:47:05 2009 +0100
+summary:     Added tag stableish for changeset 133d8db25a1a
+
+changeset:   495:133d8db25a1a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 22:11:16 2009 +0100
+summary:     Version bump in preparation.
+
+changeset:   494:152feb479ce6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 22:08:39 2009 +0100
+summary:     MUCH MUCH simpler detection of GeoDjango. Thanks Alex.
+
+changeset:   493:d0e77242575b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 21:55:17 2009 +0100
+summary:     Fix geodhjjango detection
+
+changeset:   492:714bc3b60713
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 21:49:16 2009 +0100
+summary:     Basic tests for the modelsinspector
+
+changeset:   491:1e01b85f4e29
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 21:20:51 2009 +0100
+summary:     Fix freezing of models, again. This time, instances work right.
+
+changeset:   490:bbfad467625f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 21:13:15 2009 +0100
+summary:     Move callables and model pickling around.
+
+changeset:   489:5ce33d51fb91
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 16 20:45:40 2009 +0100
+summary:     Special-case utcnow as well, while we're at it.
+
+changeset:   488:609e43513f28
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 18:28:22 2009 -0700
+summary:     Fix #244 - Make really long table names not ruin constraint names.
+
+changeset:   487:f3f8ac600d54
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 18:04:37 2009 -0700
+summary:     Warn people if they're creating stupidly long table names.
+
+changeset:   486:2068e2298244
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 16:59:04 2009 -0700
+summary:     Fix the tests a little and the new SQLite code a little
+
+changeset:   485:5cd96e1a292b
+parent:      484:16c125fc3c8e
+parent:      483:e070704ad5ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 16:52:47 2009 -0700
+summary:     Branch merge
+
+changeset:   484:16c125fc3c8e
+parent:      396:0e1f67ca4ace
+user:        apatt@matrix.2manydogs.local
+date:        Fri Sep 11 19:30:26 2009 -0400
+summary:     Make sqlite do alter_column, delete_column, rename_column by rebuilding the table and copying over all of the data
+
+changeset:   483:e070704ad5ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 16:42:48 2009 -0700
+summary:     Loggingcode changes.
+
+changeset:   482:0375240f56b9
+parent:      481:b6b1aa5ebfbb
+parent:      477:44ed48f7ee0a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 16:21:34 2009 -0700
+summary:     Branch merge
+
+changeset:   481:b6b1aa5ebfbb
+user:        Brian Gershon <briang@webcollective.coop>
+date:        Fri Sep 11 16:18:59 2009 -0700
+summary:     Added a default NullHandler. Tests now delete 'test.log' that was created during the test
+
+changeset:   480:e02feedb4cbd
+user:        Brian Gershon <briang@webcollective.coop>
+date:        Fri Sep 11 15:58:35 2009 -0700
+summary:     Wrapped logger in getLogger(), which setups up both a StreamHandler and FileHandler which logs when SOUTH_DEBUG_ON is True. SOUTH_LOGGING_FILE also needs to be set.
+
+changeset:   479:fd8ec9cdaafe
+user:        Brian Gershon <briang@webcollective.coop>
+date:        Fri Sep 11 14:49:09 2009 -0700
+summary:     Refactored to use new custom logging module
+
+changeset:   478:a99b5d55cd8b
+parent:      396:0e1f67ca4ace
+user:        Brian Gershon <briang@webcollective.coop>
+date:        Fri Sep 11 14:30:44 2009 -0700
+summary:     Added inline logging and some basic tests for logging in execute()
+
+changeset:   477:44ed48f7ee0a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 14:53:49 2009 -0700
+summary:     Fix bug #225: Bad quoting of datetime.time
+
+changeset:   476:6a5ce6a665a8
+parent:      474:c25e83a8b22e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 14:39:41 2009 -0700
+summary:     Fix for bug #161: Rename fields' columns when they change.
+
+changeset:   475:90f5b2c92ad9
+branch:      0.7
+parent:      473:2d053731761e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 14:10:30 2009 -0700
+summary:     Added tag stableish for changeset 2d053731761e
+
+changeset:   474:c25e83a8b22e
+parent:      396:0e1f67ca4ace
+user:        mattb <mattbarto@gmail.com>
+date:        Fri Sep 11 14:00:23 2009 -0700
+summary:     Patch for ticket #168.  When adding a CharField column and only using blank=True, we will add a default value of "" ourselves.
+
+changeset:   473:2d053731761e
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 13:57:38 2009 -0700
+summary:     Fixing a few things from the refactor merge
+
+changeset:   472:e2d272ad4816
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 12:03:48 2009 -0700
+summary:     Added tag migration-refactor for changeset 35f3f8efa718
+
+changeset:   471:ec5ae4893256
+branch:      0.7
+parent:      470:35f3f8efa718
+parent:      396:0e1f67ca4ace
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 11 11:54:50 2009 -0700
+summary:     Merging in the migration engine refactor.
+
+changeset:   470:35f3f8efa718
+tag:         migration-refactor
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 12 15:53:02 2009 -0400
+summary:     More robust MigrationHistory test for test_alter_column_null
+
+changeset:   469:aca4c9984456
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 10:43:16 2009 -0400
+summary:     Uncomment test_forwards_plan().  Whoops!
+
+changeset:   468:86a56b824440
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 01:46:45 2009 -0400
+summary:     Remove fst() and snd()
+
+changeset:   467:c065667c9ed4
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 01:46:30 2009 -0400
+summary:     Clean up imports
+
+changeset:   466:9be0fe6d9baa
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 01:37:52 2009 -0400
+summary:     forwards_problems() and backwards_problems() are faster and more lenient.
+
+changeset:   465:0706ed57a394
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 01:22:59 2009 -0400
+summary:     SortedSet() now looks more like a set
+
+changeset:   464:3428bb55d866
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 00:19:07 2009 -0400
+summary:     Remove find_ghost_migrations() and currently_applied()
+
+changeset:   463:2d1d62d74d5c
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 11 00:04:09 2009 -0400
+summary:     Cleanups to get_migrator()
+
+changeset:   462:f698ca95bc54
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 10 23:55:51 2009 -0400
+summary:     Make cycle detection part of dependency computation.
+
+changeset:   461:11db72feebe0
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 10 22:55:09 2009 -0400
+summary:     Remove Migration._forwards_plan()
+
+changeset:   460:bfcf82ea8dc2
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 09 01:35:13 2009 -0400
+summary:     Use generators instead of recursion for toplogical sort of dependencies.
+
+changeset:   459:3633831504a4
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sat Aug 08 12:53:00 2009 -0400
+summary:     Minor cleanups
+
+changeset:   458:30b5b2f09383
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 19:36:18 2009 -0400
+summary:     Make forwards_plan() and backwards_plan() use SortedDict to remove duplicates
+
+changeset:   457:7a04063a61af
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 02:11:14 2009 -0400
+summary:     Change return values for get_dependencies()
+
+changeset:   456:f4033a71e25d
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 02:06:28 2009 -0400
+summary:     Remove extranenous code from migrate_app()
+
+changeset:   455:3ae596e37257
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 01:56:38 2009 -0400
+summary:     Simplify migrate_app()'s parameters
+
+changeset:   454:02030e0dc2dc
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 01:41:45 2009 -0400
+summary:     Vastly simplify get_migrator()
+
+changeset:   453:6d48cfcef885
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Fri Aug 07 00:18:22 2009 -0400
+summary:     Split out get_migrator() and LoadInitialDataMigrator from migrate_app()
+
+changeset:   452:29754075da93
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 23:15:17 2009 -0400
+summary:     Push more logic into Migrations.guess_migration
+
+changeset:   451:60733374abb1
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 22:57:28 2009 -0400
+summary:     Create a GhostMigrations exception
+
+changeset:   450:67c74105b5e1
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 18:46:26 2009 -0400
+summary:     Figure out what to apply or unapply earlier
+
+changeset:   449:c17bf79ea020
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 18:14:44 2009 -0400
+summary:     Fix up some silly error handling
+
+changeset:   448:92b9ba6599c9
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 18:09:11 2009 -0400
+summary:     Remove useless FakeMigrator.__init__
+
+changeset:   447:db4e90c9c4e8
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 03:23:35 2009 -0400
+summary:     Split Migrator classes into a different file.
+
+changeset:   446:ffbb85eeeef3
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 03:10:49 2009 -0400
+summary:     Split out DryRunMigrator and FakeMigrator from the base Migrator class
+
+changeset:   445:467e9b842331
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 01:51:38 2009 -0400
+summary:     Guess migration names after sanity checking.
+
+changeset:   444:7769eaf51bce
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 01:50:14 2009 -0400
+summary:     Split up Migrator.migrate() completely.
+
+changeset:   443:3759b0f37c42
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Thu Aug 06 00:16:32 2009 -0400
+summary:     Break apart Migrator.migrate()
+
+changeset:   442:c87c93a6db7e
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 22:38:46 2009 -0400
+summary:     Move all ORM creation to the Migration class
+
+changeset:   441:28a08f2e252e
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 22:38:13 2009 -0400
+summary:     Extract print_status() out of Migrator.migrate()
+
+changeset:   440:d23efcda59dc
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 22:28:43 2009 -0400
+summary:     New Migrator() class to replace run_migration()
+
+changeset:   439:378e2c00812d
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 05:04:48 2009 -0400
+summary:     Actually load initial_data
+
+changeset:   438:d7358ce1aed0
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 04:57:13 2009 -0400
+summary:     MigrationHistory.applied should be NOT NULL
+
+changeset:   437:abafe9354ae7
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 04:56:06 2009 -0400
+summary:     app_name and migration are a unique key for MigrationHistory
+
+changeset:   436:885022c8e944
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 04:51:45 2009 -0400
+summary:     Reduce the hits to MigrationHistory
+
+changeset:   435:e534eba01b86
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 04:14:31 2009 -0400
+summary:     Move Migration and Migrations classes to base.py
+
+changeset:   434:037fb617b688
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 03:52:33 2009 -0400
+summary:     Simplify Migrations constructor and lookup syntax.
+
+changeset:   433:6f64f3f81947
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 03:14:05 2009 -0400
+summary:     Memoize Migration.previous() and Migration.next()
+
+changeset:   432:c7b64a9fcf28
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:49:20 2009 -0400
+summary:     Fix broken BrokenMigration
+
+changeset:   431:93da7760274c
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:35:27 2009 -0400
+summary:     Clean up check_dependencies() and add test for circular dependencies
+
+changeset:   430:d33dd87afaed
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:31:48 2009 -0400
+summary:     Add emptyapp
+
+changeset:   429:02d8b54648f1
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:14:05 2009 -0400
+summary:     Remove get_migration() and get_migration_names()
+
+changeset:   428:7ef4e8759310
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:10:40 2009 -0400
+summary:     Remove dependency_tree() completely
+
+changeset:   427:531f1a15cb8c
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:09:12 2009 -0400
+summary:     Remove useless loop in run_migration()
+
+changeset:   426:fdefa4fbacbd
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Aug 05 00:08:42 2009 -0400
+summary:     Removed needed_before_backwards() and needed_before_forwards().
+
+changeset:   425:0e389f7100a4
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 23:59:19 2009 -0400
+summary:     Convert run_migration() to use Migration objects
+
+changeset:   424:7b0009a4767a
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 23:11:19 2009 -0400
+summary:     Unit tests for Migrations.guess_migration()
+
+changeset:   423:4209dbf2b7a0
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:52:56 2009 -0400
+summary:     Move empty migration warning up front
+
+changeset:   422:a4e22c698dc9
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:52:37 2009 -0400
+summary:     Remove extraneous uses of dependency_tree()
+
+changeset:   421:351e7e8995cc
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:40:11 2009 -0400
+summary:     Move target_name guessing into Migrations
+
+changeset:   420:da508493e2a5
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:25:17 2009 -0400
+summary:     DRY filename handling
+
+changeset:   419:85c5bcac1c84
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:17:00 2009 -0400
+summary:     Move miscellaneous logic into Migrations objects
+
+changeset:   418:22e17eea7be5
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 22:10:33 2009 -0400
+summary:     Move dependency generation into Migration objects
+
+changeset:   417:3ac9ae4b5ba0
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 21:48:51 2009 -0400
+summary:     Fix previous commit
+
+changeset:   416:d982a4228feb
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 21:47:30 2009 -0400
+summary:     Ensure that MigrationHistory is written
+
+changeset:   415:47adc6286bf2
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 21:45:40 2009 -0400
+summary:     More robust migration tests
+
+changeset:   414:6ea9b8266bd5
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 21:17:26 2009 -0400
+summary:     Migration objects now know about backwards migrations
+
+changeset:   413:62e2c6876180
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Aug 04 20:07:18 2009 -0400
+summary:     Rename Migration.depends_on() to dependencies()
+
+changeset:   412:a36baaa0731c
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 23:55:20 2009 -0400
+summary:     depends_on() returns a list and we have more test apps
+
+changeset:   411:eb0a4dd504b1
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 22:38:23 2009 -0400
+summary:     Refactor Migration.depends_on()
+
+changeset:   410:0b287572d907
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 22:21:46 2009 -0400
+summary:     Clear MigrationHistory before tests
+
+changeset:   409:2f75cf05dc98
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 10:01:32 2009 -0400
+summary:     Whoops, add missing files.
+
+changeset:   408:1aa194f7b224
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 09:51:08 2009 -0400
+summary:     Move exceptions into south.exceptions
+
+changeset:   407:418239061811
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Mon Aug 03 09:48:21 2009 -0400
+summary:     Move error checking into exceptions.
+
+changeset:   406:b4e024dfd0a9
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 22:40:08 2009 -0400
+summary:     More unit testing
+
+changeset:   405:8a2bf0e3169e
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 22:30:58 2009 -0400
+summary:     Moved more dependency checking into Migration
+
+changeset:   404:78234d0dede8
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 20:51:34 2009 -0400
+summary:     Turn Migrations class into a list
+
+changeset:   403:d1482cc58c90
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 20:25:29 2009 -0400
+summary:     Dependency check inside Migrations
+
+changeset:   402:f630c3ddda63
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 12:34:59 2009 -0400
+summary:     Lazily initialize Migration objects
+
+changeset:   401:08d1b4f4268d
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sun Aug 02 12:21:13 2009 -0400
+summary:     Cache Migration objects
+
+changeset:   400:b62e9f21f6da
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Sat Aug 01 16:12:17 2009 -0400
+summary:     First pass at moving some logic into a Migration class
+
+changeset:   399:13fc07b3e5d3
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Jul 29 04:10:02 2009 -0400
+summary:     Forgot to checkin migration.utils
+
+changeset:   398:0a9aa13fc8b3
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Wed Jul 29 03:54:44 2009 -0400
+summary:     Moving around code to wrap up trivial migrations code into objects
+
+changeset:   397:2cb595b16fe1
+parent:      349:46e95399bdca
+user:        Simon Law <sfllaw@sfllaw.ca>
+date:        Tue Jul 28 23:57:22 2009 -0400
+summary:     Move migration.py into its own module
+
+changeset:   396:0e1f67ca4ace
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Sep 10 14:13:12 2009 -0700
+summary:     Add introspection_plugins package to setup.py
+
+changeset:   395:57c6ff6d77cb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 09 15:30:40 2009 -0700
+summary:     Catch more errors for the GeoDjango import test
+
+changeset:   394:b05110c69f6e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 09 15:22:07 2009 -0700
+summary:     Fix the GeoDjango introspection module
+
+changeset:   393:9d4762653d3c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Sep 09 11:24:30 2009 -0700
+summary:     Added tag stableish for changeset 0ea73a5bb1f6
+
+changeset:   392:0ea73a5bb1f6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 08 17:05:14 2009 -0700
+summary:     Add a django-tagging introspector plugin
+
+changeset:   391:c2060eef4b99
+parent:      389:fc64eabf4e16
+parent:      390:726bb100d934
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 08 14:43:25 2009 -0700
+summary:     Actually, I want this in 0.6.2.
+
+changeset:   390:726bb100d934
+branch:      0.7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 08 14:41:50 2009 -0700
+summary:     Add ability to have additional introsepction rules, and move geodjango into one.
+
+changeset:   389:fc64eabf4e16
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 08 11:50:42 2009 -0700
+summary:     Fix #240: introspection failing on Django 1.0
+
+changeset:   388:bd8ef1957cc7
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Sep 05 15:14:02 2009 +0100
+summary:     Added tag 0.6.1, stableish for changeset 68d43989205b
+
+changeset:   387:68d43989205b
+tag:         0.6.1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Sep 05 14:49:06 2009 +0100
+summary:     Only enable GIS if there's a supported backend.
+
+changeset:   386:b7716bf56c4b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Sep 05 14:39:14 2009 +0100
+summary:     Add introspection support for GeoDjango fields
+
+changeset:   385:869589eb1ffb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Sep 04 10:50:09 2009 +0100
+summary:     Fix all those "not available in this migration" errors.
+
+changeset:   384:bf37ca008ffb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Sep 01 20:55:34 2009 +0100
+summary:     Fix from #237
+
+changeset:   383:df9aacf677e6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 21:42:41 2009 +0100
+summary:     Make the other two backends set their name
+
+changeset:   382:f44c3e3cc52c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 21:41:21 2009 +0100
+summary:     Fix #226 - app names with underscores
+
+changeset:   381:c151165b393f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 21:18:43 2009 +0100
+summary:     Print db-dry-run SQL
+
+changeset:   380:86220233644d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 21:09:25 2009 +0100
+summary:     Be more explicit about SQLite failures
+
+changeset:   379:79bcc2128e3b
+parent:      378:1ad15ec58637
+parent:      377:1356c98b3c35
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 20:58:24 2009 +0100
+summary:     Branch merge
+
+changeset:   378:1ad15ec58637
+parent:      375:7eb71f6a8a78
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 27 20:58:00 2009 +0100
+summary:     Fix abstract model introspection
+
+changeset:   377:1356c98b3c35
+parent:      376:db58ac1ee930
+parent:      375:7eb71f6a8a78
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 20 16:09:11 2009 +0100
+summary:     Branch merge
+
+changeset:   376:db58ac1ee930
+parent:      356:8e3ad05f8009
+user:        refack
+date:        Tue Aug 18 16:18:51 2009 +0300
+summary:     Fix for multiple alters in a single migration
+
+changeset:   375:7eb71f6a8a78
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 19 22:44:52 2009 +0100
+summary:     Better .hgignore.
+
+changeset:   374:9088b958ff68
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 19 22:43:44 2009 +0100
+summary:     Version bump.
+
+changeset:   373:0bda3dab8ce8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Aug 16 20:56:06 2009 +0100
+summary:     Added tag stableish for changeset 2e88bc1e247d
+
+changeset:   372:2e88bc1e247d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 13 21:48:18 2009 +0100
+summary:     Fix bug with adding too many dependencies for backwards().
+
+changeset:   371:097941318ea6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Aug 11 21:02:24 2009 +0100
+summary:     Added tag 0.6, stableish for changeset 8e48729e0eef
+
+changeset:   370:8e48729e0eef
+tag:         0.6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Aug 11 21:02:15 2009 +0100
+summary:     Version bump to 0.6.
+
+changeset:   369:2ecc7d1e916d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Aug 11 21:00:46 2009 +0100
+summary:     Support unmanaged models
+
+changeset:   368:3a3140b338a4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 23:46:55 2009 +0100
+summary:     Added tag stableish, 0.6-rc1 for changeset 033395189201
+
+changeset:   367:033395189201
+tag:         0.6-rc1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 23:46:48 2009 +0100
+summary:     Version bump.
+
+changeset:   366:e2f166f0292d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 23:40:19 2009 +0100
+summary:     Added tag 0.6-rc1 for changeset 48f193b5cfcc
+
+changeset:   365:ac854009ad71
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 23:39:24 2009 +0100
+summary:     Added tag stableish for changeset 48f193b5cfcc
+
+changeset:   364:48f193b5cfcc
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 23:38:15 2009 +0100
+summary:     Fix #160: Weird validation errors with convert_to_south.
+
+changeset:   363:9b198cd9ec9b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 22:44:12 2009 +0100
+summary:     Remove the ran_migration signal, it'll change soon.
+
+changeset:   362:f7a99186f275
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 22:22:46 2009 +0100
+summary:     Add --all option to syncdb so you can syncdb migrated apps if you suddenly fall mentally ill :) (#170)
+
+changeset:   361:b881df2d7e4e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 21:57:13 2009 +0100
+summary:     Fix #155: Proxy model support
+
+changeset:   360:f7a5b6b2b068
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 21:26:00 2009 +0100
+summary:     Fix #127 - Wrong order of create/delete_uniques
+
+changeset:   359:8a7e0cd56089
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 20:54:33 2009 +0100
+summary:     Fix #188: Allow people to use .pyc files for migrations
+
+changeset:   358:458650769318
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Aug 06 20:21:37 2009 +0100
+summary:     Fix unit tests from bfirsh's changes
+
+changeset:   357:8ed178a39dc7
+user:        ben@vm
+date:        Thu Aug 06 16:34:26 2009 +0100
+summary:     Building the dependency tree for every app takes a while for large numbers of apps and dependencies
+
+changeset:   356:8e3ad05f8009
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 20:56:17 2009 +0100
+summary:     Fix for SQLite name quoting (#219)
+
+changeset:   355:9e2c3820a116
+parent:      353:ed977131a3fa
+parent:      354:8e81255ed1ff
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 20:52:40 2009 +0100
+summary:     Branch merge
+
+changeset:   354:8e81255ed1ff
+parent:      351:647fd3a264d3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 20:50:39 2009 +0100
+summary:     Fix #221: Fail with booleans and numeric defaults.
+
+changeset:   353:ed977131a3fa
+parent:      351:647fd3a264d3
+parent:      352:b367652a64fd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 11:16:03 2009 +0100
+summary:     Automated merge with ssh://hg@bitbucket.org/andrewgodwin/south/
+
+changeset:   352:b367652a64fd
+parent:      349:46e95399bdca
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 11:15:58 2009 +0100
+summary:     Ignore a few more parsing errors
+
+changeset:   351:647fd3a264d3
+parent:      350:148ad6c7f1b5
+parent:      349:46e95399bdca
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Aug 05 08:40:36 2009 +0100
+summary:     Branch merge
+
+changeset:   350:148ad6c7f1b5
+parent:      347:0220a56f2464
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Aug 04 22:48:49 2009 +0100
+summary:     Fix for #223
+
+changeset:   349:46e95399bdca
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 27 14:38:47 2009 +0100
+summary:     Added tag stableish for changeset dbbb515d88cb
+
+changeset:   348:dbbb515d88cb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 27 14:38:41 2009 +0100
+summary:     Fix deleting single uniques
+
+changeset:   347:0220a56f2464
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 25 11:07:45 2009 +0100
+summary:     Added tag stableish for changeset 92e1d7754d19
+
+changeset:   346:92e1d7754d19
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 25 11:06:06 2009 +0100
+summary:     Detect unique=True changes on fields.
+
+changeset:   345:0db034c2925d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 25 10:43:19 2009 +0100
+summary:     Bugfree backwards-compat comparison, with the aid of unit tests.
+
+changeset:   344:a48162bf2f4b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 25 10:00:00 2009 +0100
+summary:     Dry-run transaction rollback patch
+
+changeset:   343:1473cbf3a872
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 21:26:22 2009 +0100
+summary:     Fix tests after verbosity patch
+
+changeset:   342:a329b29ebedd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 21:21:01 2009 +0100
+summary:     Added tag stableish for changeset bb2fb9c5991c
+
+changeset:   341:bb2fb9c5991c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 21:20:55 2009 +0100
+summary:     Lazily construct the FakeORMs.
+
+changeset:   340:a629e34421ba
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 21:04:55 2009 +0100
+summary:     Added tag stableish for changeset 11e74884e6c3
+
+changeset:   339:11e74884e6c3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 21:04:44 2009 +0100
+summary:     Memoise the FakeORM construction (#213).
+
+changeset:   338:255218e6fa44
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 20:49:17 2009 +0100
+summary:     Remove that db_dry_run change, it's actually pointless.
+
+changeset:   337:c6c31ef2a3e2
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 20:48:25 2009 +0100
+summary:     Verbosity option properly implemented, from #216
+
+changeset:   336:b11ede5ffc4f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 24 19:28:05 2009 +0100
+summary:     Batch post-syncdb (#214)
+
+changeset:   335:64cde35ab459
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jul 21 21:56:49 2009 +0100
+summary:     Make import errors for the SouthFieldClass stuff fail more drastically.
+
+changeset:   334:ebe91ac20c6a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jul 21 12:10:25 2009 +0100
+summary:     Fix circular/reverse dependency issues with primary_key relation fields
+
+changeset:   333:df8a90b7286d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 20 19:21:27 2009 +0100
+summary:     Remove DepreciationWarning
+
+changeset:   332:884858480710
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 19 14:59:47 2009 +0100
+summary:     Added tag stableish for changeset 791ae6ca917f
+
+changeset:   331:791ae6ca917f
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 19 11:32:24 2009 +0100
+summary:     Stop crashes with unfound fields
+
+changeset:   330:a22b4754cabe
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 19 11:15:23 2009 +0100
+summary:     Also report the 'symmetrical' property on M2Ms.
+
+changeset:   329:49baf6d81352
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 15 21:47:01 2009 +0100
+summary:     Attempted fix for #206
+
+changeset:   328:ebd4d554c012
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 15 21:42:28 2009 +0100
+summary:     Don't let the fix for defaults and TEXT columns clobber null.
+
+changeset:   327:3fc7d2c08e9a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jul 14 19:42:37 2009 +0100
+summary:     Fix defaults and datetime.
+
+changeset:   326:d024885f0ddf
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 13 23:34:43 2009 +0100
+summary:     Make modelsparser silently absorb errors now.
+
+changeset:   325:950b2eade088
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 13 21:17:20 2009 +0100
+summary:     Better PyODBC support.
+
+changeset:   324:bd6d7e7ffc8e
+parent:      313:bb529915d955
+parent:      323:038f2ad59123
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 13 21:05:25 2009 +0100
+summary:     Branch merge with SQLite branch
+
+changeset:   323:038f2ad59123
+parent:      322:37722fbd4840
+parent:      311:4eede55e50eb
+user:        refack@gmail.com
+date:        Mon Jul 13 17:16:37 2009 +0300
+summary:     merge with 320
+
+changeset:   322:37722fbd4840
+parent:      321:2c1421cbf902
+parent:      292:e5fbcb6b58a4
+user:        refack@gmail.com
+date:        Sat Jul 04 19:24:36 2009 +0300
+summary:     merging with 300
+
+changeset:   321:2c1421cbf902
+user:        refack@gmail.com
+date:        Wed Jul 01 23:36:54 2009 +0300
+summary:     Some small oppsies
+
+changeset:   320:0b79133f1979
+user:        refack@gmail.com
+date:        Tue Jun 30 18:52:45 2009 +0300
+summary:     Implemented Rename (+fixed a small oopsi)
+
+changeset:   319:4a67b8d81b71
+user:        refack@gmail.com
+date:        Tue Jun 30 16:33:58 2009 +0300
+summary:     Even simpler
+
+changeset:   318:ddadb8e8cd1f
+user:        refack@gmail.com
+date:        Tue Jun 30 16:30:32 2009 +0300
+summary:     Much simpler orm passing
+
+changeset:   317:3e863b6c9432
+parent:      316:c45eb135de69
+parent:      259:02ea2df6883e
+user:        refack@gmail.com
+date:        Mon Jun 29 22:30:12 2009 +0300
+summary:     merge - with new branch
+
+changeset:   316:c45eb135de69
+user:        refack@gmail.com
+date:        Mon Jun 29 22:26:27 2009 +0300
+summary:     Used inspection trick instead of passing "orm"
+
+changeset:   315:a2201fbe50d3
+user:        refack@gmail.com
+date:        Mon Jun 29 15:17:53 2009 +0300
+summary:     Adding alter semantics for SQLite in south
+
+changeset:   314:6818ca640e9a
+parent:      257:59063be5362b
+user:        refack@gmail.com
+date:        Sun Jun 28 12:23:23 2009 +0300
+summary:     Adding .hgignore
+
+changeset:   313:bb529915d955
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 13 20:01:29 2009 +0100
+summary:     Keep fields in Django-sorted order
+
+changeset:   312:28a66ae5103a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 13 19:58:31 2009 +0100
+summary:     Fix recursion issue with connection_init
+
+changeset:   311:4eede55e50eb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 12 00:25:10 2009 +0100
+summary:     Fix for #206: Bad comparisons with things which have only 1 positional arg one of the times.
+
+changeset:   310:e65090fd6663
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 11 15:20:58 2009 +0100
+summary:     Also set MySQL storage engine before syncdb
+
+changeset:   309:2d31c663f647
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 10 12:43:17 2009 +0100
+summary:     Added tag stableish for changeset dd5b53a69684
+
+changeset:   308:dd5b53a69684
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 10 12:43:07 2009 +0100
+summary:     Fix for #196: renamin primary key fails.
+
+changeset:   307:b5357c6dcb17
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jul 09 14:57:40 2009 +0100
+summary:     Don't let that test print out debugging info.
+
+changeset:   306:da117a13a6cd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jul 09 14:55:59 2009 +0100
+summary:     Fix #205: add_column and unique FKs failing on SQLite
+
+changeset:   305:a12068f44f46
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 08 18:23:18 2009 +0100
+summary:     Fix SKIP_SOUTH_TESTS failing
+
+changeset:   304:f0a2181dd002
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 08 11:38:26 2009 +0100
+summary:     #202: Allow printing of migration code to stdout. Uses new --stdout option.
+
+changeset:   303:4ce9086155e8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 08 11:32:09 2009 +0100
+summary:     #203: Sort model output for better diffability
+
+changeset:   302:af75ba04ef74
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 08 08:53:00 2009 +0100
+summary:     Added tag stableish for changeset 54644bf72703
+
+changeset:   301:54644bf72703
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 08 08:52:53 2009 +0100
+summary:     Fix problem with removing usage_str
+
+changeset:   300:0f7c6cf3c7c4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue Jul 07 15:15:34 2009 +0100
+summary:     Thanks to peritus on IRC, a way to make mocks for apps which have since vanished.
+
+changeset:   299:e751568dded5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 06 12:00:39 2009 +0100
+summary:     Added tag stableish for changeset 246282228af4
+
+changeset:   298:246282228af4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 06 12:00:31 2009 +0100
+summary:     Fix previous fix for #194 for when fields have just been deleted.
+
+changeset:   297:945577be82d9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 06 11:58:12 2009 +0100
+summary:     Added tag stableish for changeset 8359559b3c6c
+
+changeset:   296:8359559b3c6c
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jul 06 11:57:59 2009 +0100
+summary:     Fix #194: Incorrect detection of _id for delete_unique
+
+changeset:   295:300d09fa3041
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 05 14:25:06 2009 +0100
+summary:     Fix for #198: non-absolute paths and ask_for_it_by_name
+
+changeset:   294:9d207c3272c1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 05 14:21:09 2009 +0100
+summary:     Added tag stableish for changeset b40737ec465d
+
+changeset:   293:b40737ec465d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jul 05 14:20:14 2009 +0100
+summary:     Another patch for #197.
+
+changeset:   292:e5fbcb6b58a4
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 04 14:22:11 2009 +0100
+summary:     Fix tags
+
+changeset:   291:db3eedede709
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 04 14:21:17 2009 +0100
+summary:     Added tag stablish for changeset 0aa5b5fb6e74
+
+changeset:   290:0aa5b5fb6e74
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat Jul 04 14:20:28 2009 +0100
+summary:     Properly fix recursion issue.
+
+changeset:   289:6a5497f25503
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 03 15:21:50 2009 +0100
+summary:     Introspection for GenericRelations
+
+changeset:   288:8235741cef05
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jul 03 14:14:58 2009 +0100
+summary:     Fix recursion issues.
+
+changeset:   287:edc9ee8e81f9
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jul 02 00:10:18 2009 +0100
+summary:     Fix for not detecting dependencies of GenericRelations.
+
+changeset:   286:597bd4ff9e06
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 23:21:45 2009 +0100
+summary:     Adding SVN release tags
+
+changeset:   285:0bfd489e946b
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 23:18:32 2009 +0100
+summary:     Tagging current 'stableish' release. Will use this on the site instead of SVN trunk.
+
+changeset:   284:4841b3f7e20d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 23:17:45 2009 +0100
+summary:     Added tag e82940a7c9f0 for changeset e82940a7c9f0
+
+changeset:   283:e82940a7c9f0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 22:28:15 2009 +0100
+summary:     Fix for #195 - south.hacks (and south.tests.otherfakeapp) not in setup.py.
+
+changeset:   282:73bcd76948bd
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 15:22:45 2009 +0100
+summary:     Fix some differences between the introspection and also fix bug of not detecting changes properly when doing backwards-compat compare.
+
+changeset:   281:63b2284d12c5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 11:32:38 2009 +0100
+summary:     Better fix for #184 based on the patch.
+
+changeset:   280:6178d86a92e0
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 11:26:28 2009 +0100
+summary:     Fix #184 - defaults hiding behind _
+
+changeset:   279:82d030c30f26
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 11:02:35 2009 +0100
+summary:     Fix for #193
+
+changeset:   278:b996f6de7a60
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Wed Jul 01 10:34:40 2009 +0100
+summary:     Much better AppCache and ORM handling, so M2Ms resolve backwards correctly (also moved AppCache fiddling into hacks)
+
+changeset:   277:75aa2632c6da
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 23:02:30 2009 +0100
+summary:     Tests for the dependency solver.
+
+changeset:   276:dd772447686e
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 22:44:37 2009 +0100
+summary:     Refactoring the hacky bits of code into a separate package.
+
+changeset:   275:0d9bbe24314d
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 21:41:00 2009 +0100
+summary:     Signals!
+
+changeset:   274:a42d12336d94
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 21:32:49 2009 +0100
+summary:     Import cleanup.
+
+changeset:   273:0bf135c7ffe6
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 21:21:41 2009 +0100
+summary:     Support introspection of localflavour. Needed: Checking if each of the fields there actually works.
+
+changeset:   272:469b752d84ee
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 15:01:02 2009 +0100
+summary:     More recursion issues
+
+changeset:   271:eb8a1f0f04b1
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 14:42:53 2009 +0100
+summary:     Fix recursion issue
+
+changeset:   270:b8dd81bdb7b3
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 14:35:23 2009 +0100
+summary:     Fix broken M2M freezing with inspection, and dodgy dependency checks.
+
+changeset:   269:7f46ccc1def8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 14:10:42 2009 +0100
+summary:     Fix a similar issue to before, but with Meta. Props to digi604 for finding these.
+
+changeset:   268:0358622a199a
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 14:02:30 2009 +0100
+summary:     Fix _Stub and field_by_name issue
+
+changeset:   267:df5451d44300
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 13:55:13 2009 +0100
+summary:     Fix for interation problem with hasty stub removal
+
+changeset:   266:d15a9aa04de5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 13:36:07 2009 +0100
+summary:     Fix for MySQL failing with DEFAULTS on TEXT columns
+
+changeset:   265:d5254069b5fb
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 12:59:33 2009 +0100
+summary:     Stop using stub models, they're just a pain. Use ful frozen ones every time instead.
+
+changeset:   264:8ef804080554
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 12:49:55 2009 +0100
+summary:     Fix the :fieldname syntax.
+
+changeset:   263:6186bf123446
+parent:      257:59063be5362b
+parent:      262:e1ac69aed526
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 01:12:25 2009 +0100
+summary:     Branch merge from noparsing.
+
+changeset:   262:e1ac69aed526
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 01:08:36 2009 +0100
+summary:     Fix bug with new ORMness and new long-style field references.
+
+changeset:   261:61cca0193535
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Mon Jun 29 01:08:21 2009 +0100
+summary:     Fix #187 - migrate command usgae str
+
+changeset:   260:1d2e4f4be95b
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jun 21 14:18:17 2009 +0100
+summary:     .hgignore faffing.
+
+changeset:   259:02ea2df6883e
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sun Jun 21 14:08:41 2009 +0100
+summary:     Introspection is now 'fully functional', in most senses. Deleted a part of modelsparser I don't need.
+
+changeset:   258:361c1847e63e
+branch:      noparsing
+parent:      256:ecc6fb6a38a8
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Thu Jun 18 16:23:07 2009 +0100
+summary:     Support for all the core fields I can find.
+
+changeset:   257:59063be5362b
+parent:      251:ad394df73d93
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Jun 16 22:01:44 2009 +0000
+summary:     Fix from #177 (probs with keep default and "")
+
+changeset:   256:ecc6fb6a38a8
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 12 22:09:24 2009 +0100
+summary:     Write some code so, theoretically, things work (i.e. migration runner now uses diff. ORM for backwards(), autodetector ignores short->long field class change)
+
+changeset:   255:8ddd4f7dbadf
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 12 21:52:52 2009 +0100
+summary:     Remove legacy upgrade code from South 0.2.
+
+changeset:   254:3e20ea5277b3
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 12 21:52:29 2009 +0100
+summary:     Switch to using introspection primarily.
+
+changeset:   253:472e8765d973
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 12 21:02:35 2009 +0100
+summary:     Version bump, up to the 0.6 branch.
+
+changeset:   252:a79bc8caf25b
+branch:      noparsing
+parent:      229:271d6a48e153
+parent:      251:ad394df73d93
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Fri Jun 12 20:59:39 2009 +0100
+summary:     Branch merge
+
+changeset:   251:ad394df73d93
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 30 18:47:41 2009 +0000
+summary:     Bump version number, to help people use trunk with more sanity.
+
+changeset:   250:1a57f6254fcd
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu May 28 18:38:48 2009 +0000
+summary:     Fix for #167 - don't fail when things not in appacache.
+
+changeset:   249:0c5c28dfda63
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 26 09:48:34 2009 +0000
+summary:     Fix a problem someone had on the mailing list with South picking up on generic relations as real fields.
+
+changeset:   248:9ee859e18cb9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 26 09:44:57 2009 +0000
+summary:     Fix #163: Allow database adapters for South that aren't under "south.db.dbname".
+
+changeset:   247:90aa4ebfd97c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu May 21 12:41:05 2009 +0000
+summary:     Fix problem with alias detection on uninstalled apps.
+
+changeset:   246:a5b086f47a71
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 20 16:52:24 2009 +0000
+summary:     Add testserver override
+
+changeset:   245:ddac0e34ebae
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 19 21:43:16 2009 +0000
+summary:     Fix the 'datetime doesn't have attribute now' errors people were getting, with a bit more parsing hackery. It hurts.
+
+changeset:   244:fe975f99730b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 19 20:23:52 2009 +0000
+summary:     Fix #157 - verbose_name picked up as a change - and remove missed print statement.
+
+changeset:   243:9def913c0f0f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 19 09:42:21 2009 +0000
+summary:     Fixing #154: Incorrectly lowercasing app names
+
+changeset:   242:7e05bb6af41b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon May 18 22:03:16 2009 +0000
+summary:     Fixing #153 with a backwards-compatable triple differer.
+
+changeset:   241:c306b77a2504
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon May 18 17:59:21 2009 +0000
+summary:     Fixing #152: Direct Model import fails.
+
+changeset:   240:d7306bcf01e0
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu May 14 16:31:29 2009 +0000
+summary:     Fix bug with M2M defs not using the orm.
+
+changeset:   239:f5dd3fc93985
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 13 16:50:10 2009 +0000
+summary:     Fix #143, by running poss_ormise on frozen values too. I'm beginning to suspect I should go back and continue on the noparsing branch.
+
+changeset:   238:ab8d6f541ea2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 13 14:50:07 2009 +0000
+summary:     Fix #145 - preserve field ordering.
+
+changeset:   237:769df61f3962
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 13 14:44:10 2009 +0000
+summary:     Downgrade those from errors to warnings.
+
+changeset:   236:eb00fbf737a7
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 13 14:43:08 2009 +0000
+summary:     Make errors from #144 more sane.
+
+changeset:   235:103e8852cd4c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed May 13 14:30:17 2009 +0000
+summary:     Fix #142: Testrunner and SOUTH_TESTS_MIGRATE broken on 1.1.
+
+changeset:   234:1aaf190533e9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 12 22:26:27 2009 +0000
+summary:     Alias-fixing code (#134). Needs a fix for cross-app importing after this, though.
+
+changeset:   233:b448b13e01e5
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Tue May 12 22:34:59 2009 +0100
+summary:     Fix test regression from fixing #132 and #135.
+
+changeset:   232:4dc425c47d32
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 12 20:39:32 2009 +0000
+summary:     Some nice cleanup changes.
+
+changeset:   231:8e9bff750dcf
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 09 20:27:59 2009 +0000
+summary:     Fixing #129: ManyToMany and inheritance FAIL.
+
+changeset:   230:11031c189ff4
+parent:      228:9b5017408e4a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 09 19:21:38 2009 +0000
+summary:     Undo changes that accidentally went onto trunk. Sorry people!
+
+changeset:   229:271d6a48e153
+branch:      noparsing
+user:        Andrew Godwin <andrew@aeracode.org>
+date:        Sat May 09 20:19:20 2009 +0100
+summary:     Adding modelsinspector itself.
+
+changeset:   228:9b5017408e4a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 09 19:15:09 2009 +0000
+summary:     Commit modelsinspector, so I can attempt to appear balanced in a blog post. If you're reading this, well found.
+
+changeset:   227:2aead3d8596c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 09 10:31:11 2009 +0000
+summary:     Stop evaluating defaults if they're callables. Fixes #132 and #135.
+
+changeset:   226:2b4af26a428f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 09 10:21:59 2009 +0000
+summary:     Add usage help for both main commands.
+
+changeset:   225:6e87a0382773
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri May 08 17:18:01 2009 +0000
+summary:     Fix for bug #135, and a test for the same.
+
+changeset:   224:de729a412021
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 05 07:47:56 2009 +0000
+summary:     New convert_to_south command
+
+changeset:   223:36430ef4fbab
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue May 05 06:24:45 2009 +0000
+summary:     Fix #130: upload_to should just be excluded
+
+changeset:   222:e2f59b204875
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon May 04 11:41:40 2009 +0000
+summary:     Fix for wrong ordering of frozen usage
+
+changeset:   221:f6c936b644a2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat May 02 00:20:22 2009 +0000
+summary:     Fix #128 with a clever fix suggested by flosch - freeze the default/upload_to values at... freeze time.
+
+changeset:   220:401d26c06d55
+tag:         0.5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 27 11:28:06 2009 +0000
+summary:     Fix #126: unique_together not working in dry run
+
+changeset:   219:5608187824d6
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 19:36:46 2009 +0000
+summary:     Test fix for [227]; also finally add strings so tests can easily do db-specific tests,
+
+changeset:   218:88eb58695c76
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 19:30:56 2009 +0000
+summary:     Fix from #125 for me breaking datetime with time zone.
+
+changeset:   217:3941d6c00f59
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 13:04:46 2009 +0000
+summary:     Add --skip back in.
+
+changeset:   216:dc732ebd13a1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 12:38:56 2009 +0000
+summary:     Fix #114: GenericRelations causing KeyErrors
+
+changeset:   215:4620c513aea5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 12:29:31 2009 +0000
+summary:     Fix and test for #83 - CHECK constraints not being dropped when needed. Also tidied up DatabaseOperations constants a bit.
+
+changeset:   214:a19323bc6aec
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 09:37:17 2009 +0000
+summary:     Fix #125; 1) fields need a column to set types sometimes 2) those types might have keywords after that need stripping.
+
+changeset:   213:2ea4a5a49554
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 24 00:07:08 2009 +0000
+summary:     Make a) stubs freeze with models they depend on for their PK and b) cross-app model references for those work - #121.
+
+changeset:   212:0cc9e39cd571
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 23 23:45:20 2009 +0000
+summary:     Detect changes to M2M fields correctly.
+
+changeset:   211:4d862c2e9e23
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 23 23:25:56 2009 +0000
+summary:     Fix the rest of #98, and detect changes to unique_together.
+
+changeset:   210:9ff6d25f479c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 23 22:39:03 2009 +0000
+summary:     Don't let people instantiate stub models.
+
+changeset:   209:d48871888d83
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 20 10:50:34 2009 +0000
+summary:     Fix for #123: AssertionErrors are another valid way for fields to fail.
+
+changeset:   208:ceaeb7301e2d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 20 10:47:14 2009 +0000
+summary:     Further fix for #122; don't double linebreaks.
+
+changeset:   207:4485a495362c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 17 21:43:11 2009 +0000
+summary:     Somewhat-fix for #79 - sqlite not liking NOT NULL and no DEFAULT at all.
+
+changeset:   206:1912c664a35d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 17 21:28:52 2009 +0000
+summary:     Fix failing test case by doing UNIQUE properly again.
+
+changeset:   205:664721d15ed2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 17 21:17:55 2009 +0000
+summary:     Remove useless --only option on ./manage.py migrate
+
+changeset:   204:0c85d337a079
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 17 21:09:49 2009 +0000
+summary:     Add --all and --no-initial-data options to ./manage.py migrate
+
+changeset:   203:2acc71a9005d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 16 10:27:25 2009 +0000
+summary:     More encoding fixes
+
+changeset:   202:a64a40cfd9ee
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 16 10:15:15 2009 +0000
+summary:     Fix encoding decl. in modelsparser test
+
+changeset:   201:daa3c7238810
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 16 09:43:23 2009 +0000
+summary:     Fix #122 - \r being bastards.
+
+changeset:   200:120f6932a92a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 16 09:39:24 2009 +0000
+summary:     Delete FK, from #119.
+
+changeset:   199:08b1800ed854
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 16 09:25:29 2009 +0000
+summary:     Fix #120: Don't create explicit through models for M2Ms.
+
+changeset:   198:b05f91945d6f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 13 22:47:40 2009 +0000
+summary:     Make SOUTH_AUTO_FREEZE_APP default to True.
+
+changeset:   197:280c8d942918
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 06 20:38:00 2009 +0000
+summary:     Make the unique_together detector do it Right for FKs
+
+changeset:   196:171f8ea8d884
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 06 20:32:15 2009 +0000
+summary:     Fix #116: No long names allowed on migrate command
+
+changeset:   195:b224a54c8a2d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 06 20:27:44 2009 +0000
+summary:     Fix #117: No FKs to self.
+
+changeset:   194:5ec26e818629
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Apr 06 20:16:55 2009 +0000
+summary:     Support for unique_together on plain adding of models.
+
+changeset:   193:17a2105b670f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 03 09:50:30 2009 +0000
+summary:     Version bump, again.
+
+changeset:   192:ed3553462112
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Apr 03 09:37:27 2009 +0000
+summary:     Add warning about [197].
+
+changeset:   191:d5f483a3111c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 21:22:07 2009 +0000
+summary:     Use predictable names, actually. Also, commit [200]!
+
+changeset:   190:4e7ddf86d0cb
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 21:05:19 2009 +0000
+summary:     Support for generic UNIQUE creation and deletion (#103).
+
+changeset:   189:d7dd1dec3965
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 19:41:10 2009 +0000
+summary:     Whitespace cleaning. I'm picky like that.
+
+changeset:   188:90be51cbf519
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 19:29:58 2009 +0000
+summary:     Reorganising south into a subdirectory, as per #88. Compatability module hack included.
+
+changeset:   187:131f9350b797
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 19:11:21 2009 +0000
+summary:     Version bump.
+
+changeset:   186:082f20d5a1b7
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 18:54:32 2009 +0000
+summary:     I think this has been around for long enough.
+
+changeset:   185:1579fc72970f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 18:48:10 2009 +0000
+summary:     Fix for #109: ORM not respecting --db-dry-run.
+
+changeset:   184:b88923e7c66c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 18:05:18 2009 +0000
+summary:     Fix #111: FAIL on modelsparser and mixins
+
+changeset:   183:ced8e96c5b4a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Apr 02 17:54:25 2009 +0000
+summary:     Fix #91: _ not working in migrations. (It's now the identity function).
+
+changeset:   182:48f3f4061ae4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 31 15:46:53 2009 +0000
+summary:     Stop unquoting stuff randomly.
+
+changeset:   181:14e441af6989
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 31 10:32:09 2009 +0000
+summary:     Upload_to shouldn't trigger changes
+
+changeset:   180:ecb2bdf7b104
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 30 23:12:29 2009 +0000
+summary:     Fix as much as possible of #105 - startmigration now ensures it gets rid of strings in FKs.
+
+changeset:   179:92cb6efd9204
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 30 22:14:22 2009 +0000
+summary:     Fix #106 - No --list command for migrations.
+
+changeset:   178:abf25a6be9f4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 30 21:55:53 2009 +0000
+summary:     Fix #108: Incorrect column names for auto-detection of changes
+
+changeset:   177:0530499a495b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 29 10:39:10 2009 +0000
+summary:     Fix #107 and stop migrating all apps if an error occurs in one.
+
+changeset:   176:3ea96163d51a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 26 20:15:36 2009 +0000
+summary:     Proper fox for [184].
+
+changeset:   175:41ec9b431ac4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 26 20:14:28 2009 +0000
+summary:     Check using the correct thing in frozen_models
+
+changeset:   174:e2e786872a8f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 24 20:08:48 2009 +0000
+summary:     Version string bump
+
+changeset:   173:d04e7f7db944
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 24 18:42:24 2009 +0000
+summary:     Fix for #102 (non-1.0 compat thing) and a test for it.
+
+changeset:   172:3ea152832e7a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 24 18:38:10 2009 +0000
+summary:     Fix #101: orm param not being passed to non-ddl recovery backwards()
+
+changeset:   171:d363628e077a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 22:23:02 2009 +0000
+summary:     More cruft cleaning continues my trend of one-line commits.
+
+changeset:   170:e19929599617
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 21:41:06 2009 +0000
+summary:     Remove cruft
+
+changeset:   169:ea2262943bbd
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 20:18:51 2009 +0000
+summary:     Fix delete_table for sqlite.
+
+changeset:   168:8f9349b9c564
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 20:15:26 2009 +0000
+summary:     #80: MySQL foreign keys and columns fix
+
+changeset:   167:1e0e9d84103d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 20:08:55 2009 +0000
+summary:     Fix #100: Importing Model into models.py breaks namespace cleaner.
+
+changeset:   166:a70fdf5e140e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 17:08:03 2009 +0000
+summary:     Python 2.4 compat fix
+
+changeset:   165:e160d8115dc6
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 23 14:05:59 2009 +0000
+summary:     Don't throw in inherited non-local M2Ms.
+
+changeset:   164:8b189d379bbb
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Mar 21 21:52:59 2009 +0000
+summary:     Fix models parser choking on files with no ending newline, --auto thinking related_name is a worthy change.
+
+changeset:   163:d45dbe5c2ed3
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Mar 21 13:56:09 2009 +0000
+summary:     Fix #97 and associated bugs, to do with the backwards dependencies not being around, and case-sensitivity of the eval_in_context stuff.
+
+changeset:   162:1a6e5a68a673
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 19 20:01:50 2009 +0000
+summary:     Don't let index names get too long
+
+changeset:   161:14fc61a075df
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 19 19:36:07 2009 +0000
+summary:     Support M2Ms in --auto/freezing
+
+changeset:   160:80c6785a4d83
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 19 11:41:16 2009 +0000
+summary:     Changed fields now also autodetected. Still need to detect things like unique= changing, and make that index deletion instead (or make the dbapi do it)
+
+changeset:   159:b5a9c3c13920
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 19 08:54:50 2009 +0000
+summary:     Warn people about untouched changed fields.
+
+changeset:   158:5ce385bde499
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 19 08:46:14 2009 +0000
+summary:     Make startmigration say what's its doing in the migration it's creating.
+
+changeset:   157:3e402916c161
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Mar 18 19:00:11 2009 +0000
+summary:     Fix #96: order_with_respect_to on stubs is broken.
+
+changeset:   156:232d1831c33a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Mar 18 11:59:58 2009 +0000
+summary:     Fix a problem with deleting models automatically
+
+changeset:   155:f99d6ebaf2e3
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 17 19:48:01 2009 +0000
+summary:     Fix error message
+
+changeset:   154:f6af5112a337
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 16 20:41:32 2009 +0000
+summary:     Fix abstract model inheritance
+
+changeset:   153:c7475a4abda4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 16 19:44:00 2009 +0000
+summary:     models = {} should still be auto-updateable from
+
+changeset:   152:8e81ce569d9d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 16 15:30:30 2009 +0000
+summary:     Don't detect adding/removing a Meta as a field change
+
+changeset:   151:8361ce54efac
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 16 13:06:10 2009 +0000
+summary:     Make model inheritance work. Properly.
+
+changeset:   150:b78562ec12e6
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 15 19:03:39 2009 +0000
+summary:     Oops. Remove things from the triple, not the def.
+
+changeset:   149:0cbf07e0851e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 15 19:02:05 2009 +0000
+summary:     Fix #92: Not removing choices= for --add-field.
+
+changeset:   148:fef6cf3fed8b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 15 12:33:17 2009 +0000
+summary:     Fix bad handling of ForeignKeys in --add-field
+
+changeset:   147:17d60249597d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 15 12:10:50 2009 +0000
+summary:     Fix M2M fields and adding models.
+
+changeset:   146:f279a803ad5a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Mar 14 23:29:28 2009 +0000
+summary:     Startmigration wasn't putting in db.send_create_signal.
+
+changeset:   145:b665d95ef5cf
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Mar 14 17:55:44 2009 +0000
+summary:     Fix #90: default=None results in "DEFAULT None", and also add delete_primary_key as an alias.
+
+changeset:   144:71760dddeb60
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 12 16:37:49 2009 +0000
+summary:     Fix for #89
+
+changeset:   143:00ffe2e825a9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 12 00:30:13 2009 +0000
+summary:     Some test cleanup, and a new feature in db.py; adding and removing primary keys.
+
+changeset:   142:8743f9b45692
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 10 16:01:44 2009 +0000
+summary:     Renaming startmigration2, step 2. I should fix SVN.
+
+changeset:   141:61843dbcbfe8
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 10 15:58:12 2009 +0000
+summary:     Renaming startmigration2, step 1
+
+changeset:   140:b85a996e3ce1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Mar 09 23:17:12 2009 +0000
+summary:     Add/remove fields and models now work for automaticness. Only lacking changing of fields.
+
+changeset:   139:97ad6119a5b1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 08 17:29:05 2009 +0000
+summary:     Last commit was missing a 'not'.
+
+changeset:   138:1c0050d61d2b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 08 17:27:43 2009 +0000
+summary:     Allow migrate-before-tests to be turned back on with the SOUTH_TESTS_MIGRATE setting.
+
+changeset:   137:fdf2e6cdaa7a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Mar 08 17:21:53 2009 +0000
+summary:     Start of automatic change detection code - currently does adding/removing of models.
+
+changeset:   136:c92c6f18fc0d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Mar 06 23:11:53 2009 +0000
+summary:     Models parser unit tests, and a bug that writing them caught.
+
+changeset:   135:563884cbfd19
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Mar 06 22:24:42 2009 +0000
+summary:     Test cleanup and rejiggling.
+
+changeset:   134:a9598533fc8b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 05 18:53:05 2009 +0000
+summary:     Final bit of polishing on new ORM freezer. Ready for initial testing.
+
+changeset:   133:9cdbb18b321d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Mar 05 18:52:42 2009 +0000
+summary:     Drop table now cascades by default, as this is usually the intended behaviour. You can pass cascade=False to stop this.
+
+changeset:   132:a71b51da5f50
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Mar 04 23:57:23 2009 +0000
+summary:     Updated ORM and ORM-ified migration command; it's nearly there.
+
+changeset:   131:0f1ce293139e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Mar 03 00:03:41 2009 +0000
+summary:     Upgrades to the models parser and fake ORM; both now seem to be working reasonably well. The new startmigration needs more work, however.
+
+changeset:   130:7692578fa415
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Feb 22 17:20:02 2009 +0000
+summary:     Fix for bug #84: Wrong signature for SQLite delete_column.
+
+changeset:   129:be2fc597a097
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Feb 21 19:42:45 2009 +0000
+summary:     Models.py parser is in a state of OMG-it-actually-works.
+
+changeset:   128:ef3207dc51be
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Feb 21 18:14:36 2009 +0000
+summary:     Initial attempt at a models.py parser, using the parser module. Committing this for posterity (and the css-selector-tree-searcher), since it might be easier to use something simpler.
+
+changeset:   127:fd52d305c874
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Feb 21 15:17:26 2009 +0000
+summary:     First part of ORM-in-migrations
+
+changeset:   126:12f63c1d3ae8
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Jan 15 00:38:01 2009 +0000
+summary:     Fix quoting of % in execute_many
+
+changeset:   125:3eb6511ef458
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jan 14 18:26:37 2009 +0000
+summary:     First go at a SQL-file splitter.
+
+changeset:   124:f17ee3a2287d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Jan 13 11:27:55 2009 +0000
+summary:     Update setup.py metadata
+
+changeset:   123:8a336f295b24
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Jan 13 11:12:27 2009 +0000
+summary:     Bump version in setup.py too
+
+changeset:   122:2d3621db9559
+tag:         0.4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Jan 12 22:12:55 2009 +0000
+summary:     Version bump, which sadly makes the revision not a power of two :(
+
+changeset:   121:1010aae215f9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Jan 12 22:04:38 2009 +0000
+summary:     #74: Rename primary key index with table
+
+changeset:   120:b1f94c042820
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Jan 12 22:02:14 2009 +0000
+summary:     Fire post_syncdb signals even if a later migration errored, and fix signature of sqlite alter_column.
+
+changeset:   119:32eaaad80c92
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Jan 12 21:29:05 2009 +0000
+summary:     #55: Delay post_syncdb signal. Possibly backwards-incompatable change.
+
+changeset:   118:25c586a13824
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Jan 12 21:18:00 2009 +0000
+summary:     Fix for #14: Default callables
+
+changeset:   117:4b4ef448bc2f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 15:16:45 2008 +0000
+summary:     Fix for #24: startmigration now respects PEP 0263.
+
+changeset:   116:ab2cd6c3eec6
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 15:02:25 2008 +0000
+summary:     Fix for #66: Incorrect delete_column with FKs and startmigration. Also added a DATABASE_STORAGE_ENGINE conf option in case you want to set it automatically.
+
+changeset:   115:da1d6a8d4486
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 14:35:31 2008 +0000
+summary:     Fix #67: --add-field doesn't work with ManyToMany.
+
+changeset:   114:d715b5ef2d55
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 14:26:40 2008 +0000
+summary:     Allow a single column name to be passed to delete_index without thinking it's the columns 'c','o','l','u','m','n' etc.
+
+changeset:   113:6cb177684c90
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 14:12:34 2008 +0000
+summary:     Fix for #69: Make keep_default work for ForeignKeys.
+
+changeset:   112:1d031a36423f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 31 13:58:22 2008 +0000
+summary:     Fix for #63: Use predictable names for UNIQUE indexes.
+
+changeset:   111:3f71fd258de3
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Dec 19 10:53:48 2008 +0000
+summary:     Refactor out delete column string
+
+changeset:   110:7291a54df1d6
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Dec 15 23:06:23 2008 +0000
+summary:     Fix from #61: uppercase column names for indexes. Added a few tests, and slightly tweaked the patch to work under MySQL.
+
+changeset:   109:1e1054e6cefd
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Dec 15 20:50:30 2008 +0000
+summary:     Fix and test for #65: --dry-run causes rename_column to fail
+
+changeset:   108:98818818c85b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Dec 15 20:44:27 2008 +0000
+summary:     Fix inconsistent whitespace
+
+changeset:   107:d7019036f0a1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Dec 12 14:15:34 2008 +0000
+summary:     Add support in startmigration for mockmodels which refer to models with a primary key field that needs arguments
+
+changeset:   106:28cfea728ad8
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Dec 12 14:14:48 2008 +0000
+summary:     Better SQL Server support.
+
+changeset:   105:080fced10213
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 10 17:03:13 2008 +0000
+summary:     Oops. Forgot self.
+
+changeset:   104:277d2cdc680b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 10 17:01:47 2008 +0000
+summary:     Add column support for sql server
+
+changeset:   103:eeb0d16eb5b9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Dec 08 13:24:01 2008 +0000
+summary:     Initial SQL Server support using pyodbc (#46)
+
+changeset:   102:22ac2e21ef3d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Dec 07 15:02:32 2008 +0000
+summary:     Fix for [108], where ForeignKeys weren't being --add-field'd correctly.
+
+changeset:   101:476f12a6181a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Dec 07 15:00:25 2008 +0000
+summary:     #59: --add-field option.
+
+changeset:   100:410be83e6aa2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Dec 06 21:12:25 2008 +0000
+summary:     #58: Be nicer to MySQL users by checking for AttributeErrors, and trying to help them if the migration causes EPIC FAIL.
+
+changeset:   99:449ae103bd42
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Dec 06 19:56:03 2008 +0000
+summary:     Add a drop_column alias, and make aliases not break if subclasses override the methods they point to.
+
+changeset:   98:b15eb4334532
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Dec 03 19:17:13 2008 +0000
+summary:     Fix for #56: No longer bork when an app has no migrations.
+
+changeset:   97:9e4324c8322e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Dec 02 00:02:43 2008 +0000
+summary:     Missed the new migration for #54, just like the diff. Oops.
+
+changeset:   96:6204b6c23f00
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Dec 02 00:01:45 2008 +0000
+summary:     Fix for #54: Actually make null/not null alters work right in MySQL.
+
+changeset:   95:0a88f9c3595a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Nov 30 22:00:25 2008 +0000
+summary:     Fix for #16, comment 7; should load fixtures from the app dir, not the migrations dir.
+
+changeset:   94:86f802164a22
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Nov 30 21:57:18 2008 +0000
+summary:     Proper support for #2, since OneToOne fields and mock models weren't playing nicely.
+
+changeset:   93:26d73250821f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Nov 28 22:15:33 2008 +0000
+summary:     Fix for #51: Should have nice error message when SQLiters try to drop columns.
+
+changeset:   92:435712ef6c68
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Nov 28 18:22:10 2008 +0000
+summary:     Fixes #2: Anything under django.db.models.fields is allowed now (i.e. OneToOneField).
+
+changeset:   91:07c5b79e4605
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Nov 28 17:56:58 2008 +0000
+summary:     Fix for #50: shortcut for adding NOT NULL columns with defaults.
+
+changeset:   90:431ce709606a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Nov 24 14:47:18 2008 +0000
+summary:     Fix #48 - OneToOneFields ending in _ptr were the issue.
+
+changeset:   89:e0bbdb54a056
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Nov 22 15:43:08 2008 +0000
+summary:     Make alter_column work properly on MySQL.
+
+changeset:   88:b37fac928c9e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Nov 22 15:31:39 2008 +0000
+summary:     Fix #31 - don't error if there's a migrations directory but no __init__.py
+
+changeset:   87:1dc3c1f8c8db
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Nov 22 00:06:40 2008 +0000
+summary:     Fix from #43 - quote default values for column renames.
+
+changeset:   86:fa84c7d7bd31
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Nov 20 22:44:44 2008 +0000
+summary:     SQLite3 support. Woot.
+
+changeset:   85:412d16581e9d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Nov 20 22:24:45 2008 +0000
+summary:     Fix MySQL index deletion (#40), and implement an index test. Also, stop SQLite claiming it doesn't work, when it does for some things.
+
+changeset:   84:0ca56fcb8be0
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Nov 20 21:49:08 2008 +0000
+summary:     Fix from #42 - fix --verbosity problem in migrate command.
+
+changeset:   83:294c8f86469d
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Nov 15 22:48:20 2008 +0000
+summary:     Fix for #38 - verbosity needs a default value, as there may not be one provided from a direct call.
+
+changeset:   82:238a0041f910
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Nov 14 10:34:12 2008 +0000
+summary:     Bugfix from #37
+
+changeset:   81:8e18f909c0e8
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Nov 06 13:03:07 2008 +0000
+summary:     Fix for #17
+
+changeset:   80:a6a19cd858c7
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Nov 06 12:58:19 2008 +0000
+summary:     Initial data loading, from #16
+
+changeset:   79:09091a474bef
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Oct 27 12:52:15 2008 +0000
+summary:     Moving setup.py to top-level directory thanks to tips in #25, and adding test app in thanks to #36.
+
+changeset:   78:ae8ad283a9e4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Oct 26 14:21:52 2008 +0000
+summary:     Ignore dotfiles in the migration folder.
+
+changeset:   77:8af69dca3ce5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Oct 22 09:26:34 2008 +0000
+summary:     Fix for #33
+
+changeset:   76:8a8276950d7b
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Oct 16 21:14:17 2008 +0000
+summary:     A 'test' command that enforces that the django.core 'syncdb' is called rather than south's modified syncdb.  This is useful for two reasons:
+
+changeset:   75:d68f1e781780
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Oct 15 21:28:17 2008 +0000
+summary:     Reverting [80]/[81] - Christian retracts his original patch, and I agree with the reasons.
+
+changeset:   74:32dcc8113edc
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Oct 14 22:51:58 2008 +0000
+summary:     Tab/space fix.
+
+changeset:   73:753533963b96
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Oct 14 22:50:13 2008 +0000
+summary:     Accept dicts as well as tuples for create_table calls.
+
+changeset:   72:e55c32a6a7a0
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Oct 14 19:43:30 2008 +0000
+summary:     Amended patch from #27.
+
+changeset:   71:4cff0c87e417
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Oct 14 19:32:51 2008 +0000
+summary:     Fix for #29.
+
+changeset:   70:d1719fbebf68
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Oct 06 21:48:17 2008 +0000
+summary:     fixed #26
+
+changeset:   69:2260cb95ead9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Oct 01 19:00:53 2008 +0000
+summary:     --db-dry-run, from #22
+
+changeset:   68:e0635b635d96
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Oct 01 18:39:34 2008 +0000
+summary:     Make datetime defaults work correctly.
+
+changeset:   67:036ceecdad30
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Sep 26 14:29:24 2008 +0000
+summary:     Tests now don't output anything.
+
+changeset:   66:de9a67b76cc4
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 22 19:31:36 2008 +0000
+summary:     Initial GeoDjango support; see ticket #20
+
+changeset:   65:99ed11168eaa
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 22 18:02:06 2008 +0000
+summary:     Fix from #19
+
+changeset:   64:cc812c872ff9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 22 18:01:12 2008 +0000
+summary:     Patch from #18.
+
+changeset:   63:7135a990dbba
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 16 15:17:10 2008 +0000
+summary:     Add a delete_index method, and make rename_table in postgres attempt to rename the ID sequences too (hackish, really)
+
+changeset:   62:82e6bfd08147
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 15 21:40:50 2008 +0000
+summary:     Better unit tests
+
+changeset:   61:a738f77f7147
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 15 20:43:40 2008 +0000
+summary:     Make merge work
+
+changeset:   60:93dca544ebf2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 15 12:59:15 2008 +0000
+summary:     Actually working setup.py file, and docs that reflect the new project state
+
+changeset:   59:2d1d53f41ea3
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 15 12:25:38 2008 +0000
+summary:     Setup.py
+
+changeset:   58:2eaa82575eb5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Sep 15 08:54:24 2008 +0000
+summary:     Patch from #13 for single field migrations (wasn't properly doing singleton tuples)
+
+changeset:   57:f75f6793b1e5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Sep 11 15:34:10 2008 +0000
+summary:     Possible MySQL support for alter_column
+
+changeset:   56:832452b8493f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Sep 11 14:31:25 2008 +0000
+summary:     Initial support for alter_column. Need to add support for MySQL and UNIQUE.
+
+changeset:   55:df62f3f62cfa
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Sep 11 10:13:26 2008 +0000
+summary:     Fixed another ordering issue for backwards where m2ms were dropped after their main tables.
+
+changeset:   54:0bc80574e04f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Sep 07 19:59:54 2008 +0000
+summary:     Fix initial migrations to delete tables in reverse order, and let migrate to zero work.
+
+changeset:   53:90612001d786
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Sep 07 05:58:12 2008 +0000
+summary:     Better error message when running south with an unsupported DB engine defined.
+
+changeset:   52:7dbc6d7ff74a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Sep 04 18:27:39 2008 +0000
+summary:     Remove failing mysql module
+
+changeset:   51:8b11b14c7779
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Sep 04 07:52:58 2008 +0000
+summary:     Changes to work with Django 1.0
+
+changeset:   50:7b837b0502aa
+tag:         0.3
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 22:55:22 2008 +0000
+summary:     Unit tests galore.
+
+changeset:   49:661c9f5c763a
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 21:21:32 2008 +0000
+summary:     Version bump in preparation for release. Also, a contender in "shortest commit ever".
+
+changeset:   48:47cf49890d7b
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 20:57:24 2008 +0000
+summary:     shameless author update
+
+changeset:   47:c39d0cfe4c12
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 20:51:57 2008 +0000
+summary:     don't create an index for any column that's also unique.  the create table statement should create a unique index by default for this column
+
+changeset:   46:e2b5bd00dcf4
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 20:24:29 2008 +0000
+summary:     updated syncdb to work with new migration module detection functions
+
+changeset:   45:992494470e17
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 20:13:33 2008 +0000
+summary:     Rewrite of migration to use the migrations package not the models module, better working out of which direction an app is going in, and a --merge
+
+changeset:   44:49b2bde912ce
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 20:07:16 2008 +0000
+summary:     specify unique as a kwarg in creating unique_together indexes.  reads easier
+
+changeset:   43:112508333bcb
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 19:20:45 2008 +0000
+summary:     Do imports correctly, so apps not on pythonpath directly work.
+
+changeset:   42:5a7046d569b3
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 18:15:36 2008 +0000
+summary:     cleaned up the comment stripping code.  should now work in all cases.
+
+changeset:   41:63d17ca08a15
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 16:52:04 2008 +0000
+summary:     added back all the stuff that r44 accidentily removed
+
+changeset:   40:311f09b0f1d9
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 15:49:05 2008 +0000
+summary:     Make column sql creator use quote name (postgres doesn't like my user column otherwise)
+
+changeset:   39:61a107f837af
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 08:59:02 2008 +0000
+summary:     added support for startmigration to generate correct field definitions for fields defined in a parent model (abstract or not)
+
+changeset:   38:430409b1218e
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 07:38:04 2008 +0000
+summary:     try to get rid of comments in field definitions.  still a possible case that will mess us up, tho
+
+changeset:   37:4353cc95e934
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 07:25:47 2008 +0000
+summary:     Slightly nicer error messages.
+
+changeset:   36:530713e9241b
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 07:19:21 2008 +0000
+summary:     A mostly-complete tree-dependency resolver. Still in need of some solid testing.
+
+changeset:   35:4740193a5131
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Sep 03 01:05:28 2008 +0000
+summary:     added functionality to support unique multi-column indexes.
+
+changeset:   34:d4042cd6d6a4
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 22:53:33 2008 +0000
+summary:     changed the variable name from field_names to column_names indicating that we want to actual DB column name, not the django field name
+
+changeset:   33:bba375aa0df1
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 22:48:58 2008 +0000
+summary:     added support for looking at the db_index property of a field and generating a CREATE INDEX statement automatically for it
+
+changeset:   32:e0d747c6c201
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 21:16:57 2008 +0000
+summary:     added a hook to allow a field to resolve any necessary dependencies before it's attributes are accessed during sql construction
+
+changeset:   31:4ee8287b2872
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 18:42:01 2008 +0000
+summary:     M2M fields are now supported by startmigration
+
+changeset:   30:98848ce0470e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 10:51:36 2008 +0000
+summary:     Fix the current very simple tests to work again.
+
+changeset:   29:4eba2b031452
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Sep 02 09:05:42 2008 +0000
+summary:     startmigration is almost working again
+
+changeset:   28:1b29ca7d8cc1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 30 21:46:46 2008 +0000
+summary:     Allow migrations with no models to work properly.
+
+changeset:   27:e8c81bb7e5e5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 30 21:14:46 2008 +0000
+summary:     Fix ./manage.py migrate so you can perform actions on single apps, not everything at once.
+
+changeset:   26:92dc2aad7443
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 30 18:42:46 2008 +0000
+summary:     Added another TODO note about generate_field_definition needing to support model inheritance
+
+changeset:   25:4fee7245c967
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 30 18:38:57 2008 +0000
+summary:     startmigration now outputs new Field based migration files.
+
+changeset:   24:c408d141e46c
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Aug 29 23:27:53 2008 +0000
+summary:     changed create_table and add_column to use a list of django.db.models.fields.Field classes to represent fields now.
+
+changeset:   23:96d5c8d907c2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Aug 27 21:24:07 2008 +0000
+summary:     Make delete_column actually work, and wrap all migrations in a transaction.
+
+changeset:   22:7ee03d41503a
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Aug 27 21:08:53 2008 +0000
+summary:     added support for emitting a post_syncdb signal.
+
+changeset:   21:9d96ab1f2e22
+user:        amccurdy@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Aug 27 19:16:39 2008 +0000
+summary:     typo in m2m generated create code that didn't include the ending ']' on the field list
+
+changeset:   20:4b5f6a5744d0
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Aug 18 06:57:23 2008 +0000
+summary:     Make NOT NULL actually work. Patch from Andy McCurdy.
+
+changeset:   19:81a256b96a41
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sun Aug 17 07:00:28 2008 +0000
+summary:     Andy's patch to stop postgres erroring on silly fetchalls.
+
+changeset:   18:972b9be22c05
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 16 06:56:06 2008 +0000
+summary:     Andy McCurdy's migrations import patch
+
+changeset:   17:1b7449c6d92c
+tag:         0.2
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 09 16:06:18 2008 +0000
+summary:     Readme tweaks.
+
+changeset:   16:4974d398e8d5
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Sat Aug 09 16:00:09 2008 +0000
+summary:     Various changes, which will form the 0.2 release.
+
+changeset:   15:313896d08a49
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Aug 08 21:04:27 2008 +0000
+summary:     Working MySQLness! And proper ./manage.py test integration
+
+changeset:   14:b801cb89b272
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Fri Aug 08 19:43:00 2008 +0000
+summary:     Bad delete_column
+
+changeset:   13:10ddc1ba0b24
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Aug 07 23:01:34 2008 +0000
+summary:     Well, all but rename column works, cause MySQL is annoying.
+
+changeset:   12:692869f7122c
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Aug 07 22:23:47 2008 +0000
+summary:     Fix to remove_column, and start of a MySQL one.
+
+changeset:   11:a3ae2d73614e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Aug 07 12:19:39 2008 +0000
+summary:     Some more docs, and extra command aliases
+
+changeset:   10:17a072108f9f
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Mon Aug 04 07:22:24 2008 +0000
+summary:     Migration prefix matching, and float support
+
+changeset:   9:eeab9faa4ee0
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Jul 31 12:19:27 2008 +0000
+summary:     Add --fake option for migrations, and give add_column more sensible param names
+
+changeset:   8:cb00e0aca33e
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Jul 31 12:12:54 2008 +0000
+summary:     Make syncdb actually work this time! I tested it and everything.
+
+changeset:   7:2fc72aa26a32
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Jul 31 09:47:42 2008 +0000
+summary:     Fix ordering on type/null
+
+changeset:   6:e1eec77021b1
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Thu Jul 31 09:39:29 2008 +0000
+summary:     Small doc change for the model autogen
+
+changeset:   5:11ac3eb0f076
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jul 30 15:59:36 2008 +0000
+summary:     Nicer output on createmigration
+
+changeset:   4:1b3e618c6230
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jul 30 15:57:18 2008 +0000
+summary:     Magical migration creation situations!
+
+changeset:   3:6878f9a8a294
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jul 30 15:12:40 2008 +0000
+summary:     Make serial work correctly with defaults, null, etc.
+
+changeset:   2:867f523dc4dd
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jul 30 14:22:34 2008 +0000
+summary:     Warning for ghost migrations
+
+changeset:   1:a5562a1c6a01
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Wed Jul 30 14:18:27 2008 +0000
+summary:     Properly stop syncdb doing its magic.
+
+changeset:   0:d1a2ce3372ce
+user:        andrew@69d324d9-c39d-4fdc-8679-7745eae9e2c8
+date:        Tue Jul 29 15:03:09 2008 +0000
+summary:     Initial South checkin
+
